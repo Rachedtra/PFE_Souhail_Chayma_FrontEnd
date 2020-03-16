@@ -1,0 +1,28 @@
+<table class="table" >
+  <tr>
+  <th>Id</th>
+  <th>Label</th>
+  <!-- <th>Microservices</th>
+  <th>Languages Versions</th> -->
+  </tr>
+  <tr *ngFor="let language of lang">
+      <td >{{language.idLanguage}}</td>
+      <td > {{language.label}}</td>
+      <td><button (click)="DeleteLang(language.idLanguage)">Delete</button></td>
+      <!-- <td> {{language.microServices}}</td>
+      <td> {{language.versionLanguages}}</td> -->
+  </tr>
+  </table>
+  <!-- <form   (submit)="onSubmit(form)"> 
+    <div>
+  
+    
+     <input type="text" name="idLanguage" [(ngModel)]="LanguageService.formData.idLanguage"> 
+  
+    </div>
+    
+          <button type="submit"> Submit</button>
+       
+    
+      
+  </form>  -->
