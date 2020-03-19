@@ -13,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { LanguagesComponent } from './MicroService1/Component/languages/languages.component';
 import { LanguagesService } from './MicroService1/Services/languages.service';
 import { FormsModule } from '@angular/forms';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +27,15 @@ import { FormsModule } from '@angular/forms';
     FooterLeftComponent,
     FooterRightComponent,
     LanguagesComponent
-    
-    
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [LanguagesService],
   bootstrap: [AppComponent]

@@ -1,5 +1,8 @@
+import { Languages } from './../../Models/Languages.models';
 import { Component, OnInit } from '@angular/core';
 import { LanguagesService } from '../../Services/languages.service';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,69 +11,103 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./languages.component.css']
 })
 export class LanguagesComponent implements OnInit {
-  lang : any  =[] ;
-  constructor(private langservice : LanguagesService) { }
+  //lang: any = [];
+  lang: Languages[] = new Array();
+
+  constructor(private formBuilder: FormBuilder, private langservice: LanguagesService) { }
+
+
 
   ngOnInit() {
-    this.GetLang () ; 
+
+    this.GetLang();
     this.resetForm();
   }
 
-  resetForm(form?: NgForm) {
-    if (form != null)
-     form.form.reset();
-   this.langservice.formData = {
-      idLanguage: '',
-     label: '',
-      microServices: '',
-     versionLanguages: '',  
-   }
-  
+  resetForm() {
+
+    this.langservice.form.setValue({
+      idLanguage: "00000000-0000-0000-0000-000000000000",
+      label: ""
+
+    });
+
   }
 
-  onSubmit(form: NgForm) {
-    if (this.langservice.formData.idLanguage == '')
-     this.insertRecord(form);
+  onSubmit() {
+
+    if (this.langservice.form.controls.idLanguage.value == "00000000-0000-0000-0000-000000000000")
+      this.insertRecord();
+    else
+      this.UpdateRecord();
+
   }
 
 
-  insertRecord(form: NgForm) {
+  insertRecord() {
     this.langservice.PostLang().subscribe(
-       res => {
-        this.resetForm(form);
-        window.location.reload() ; 
-    },
+      res => {
+        console.log(res);
+        this.GetLang();
+
+      },
       err => {
         console.log(err);
-       }
+      }
     )
-    }
+  }
 
 
-  GetLang(){
-    this.langservice.GetLang().subscribe(res=>{this.lang=res ; 
-  }) 
-}
+  UpdateRecord() {
+    this.langservice.PutLang().subscribe(
+      res => {
+        console.log(res);
+        this.GetLang();
+
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
 
 
+  GetLang() {
+    this.langservice.GetLang().subscribe(res => {
+      this.lang = res as Languages[];
+      console.log(this.lang);
 
-DeleteLang(idLanguage : string)
-{
-  this.langservice.DeleteLang(idLanguage).subscribe(res=>{this.lang=res;
-  })
-  window.location.reload() ; 
- 
-}
+    });
+  }
+
+  EditLang(language) {
+    this.langservice.form.setValue(language);
+    // this.langservice.DeleteLang(language.idLanguage).subscribe(res => {
+    //   console.log(res);
+    //   this.GetLang();
+    //})
+
+
+  }
+
+  DeleteLang(idLanguage: string) {
+    this.langservice.DeleteLang(idLanguage).subscribe(res => {
+      console.log(res);
+      this.GetLang();
+    })
+
+
+  }
 
 }
 
  // clickAdd() {
-   
+
   //   this.la = new Languages();
   // }
 
   // private save() {
-   
+
   //     this.service.PostLang(this.la).subscribe(data => {
   //       console.log(data);
   //          })

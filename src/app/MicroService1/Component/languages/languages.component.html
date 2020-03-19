@@ -1,28 +1,47 @@
-<table class="table" >
+<form [formGroup]="langservice.form" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <p>
+      <label for="idLanguage">idLanguage</label>
+      <input type="text" class="form-control" formControlName="idLanguage" name="idLanguage">
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+      <label for="label">label</label>
+      <input type="text" class="form-control" name="label" formControlName="label">
+    </p>
+  </div>
+
+  <!-- 
+    <p>
+      <label for="state">State</label>
+      <input type="text" class="form-control" name="state" formControlName="state">
+    </p> -->
+
+
+  <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+</form>
+
+
+
+
+
+
+
+<table class="table">
   <tr>
-  <th>Id</th>
-  <th>Label</th>
-  <!-- <th>Microservices</th>
+    <th>Id</th>
+    <th>Label</th>
+    <!-- <th>Microservices</th>
   <th>Languages Versions</th> -->
   </tr>
-  <tr *ngFor="let language of lang">
-      <td >{{language.idLanguage}}</td>
-      <td > {{language.label}}</td>
-      <td><button (click)="DeleteLang(language.idLanguage)">Delete</button></td>
-      <!-- <td> {{language.microServices}}</td>
-      <td> {{language.versionLanguages}}</td> -->
+  <tr *ngFor="let language of lang " style="background-color: white; color: black">
+    <td>{{language.idLanguage}}</td>
+    <td>{{language.label}}</td>
+    <td><button (click)="DeleteLang(language.idLanguage)">Delete</button></td>
+    <td><button (click)="EditLang(language)">Edit</button></td>
+
   </tr>
-  </table>
-  <!-- <form   (submit)="onSubmit(form)"> 
-    <div>
-  
-    
-     <input type="text" name="idLanguage" [(ngModel)]="LanguageService.formData.idLanguage"> 
-  
-    </div>
-    
-          <button type="submit"> Submit</button>
-       
-    
-      
-  </form>  -->
+</table>
