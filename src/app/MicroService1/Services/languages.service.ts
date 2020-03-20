@@ -19,7 +19,9 @@ export class LanguagesService {
     //   Validators.pattern(/^-?(0|[0-9]\d*)?$/)
     // ]),
 
-    label: new FormControl("")
+    label: new FormControl(""),
+     microServices : new FormControl(""), 
+     versionLanguages  : new FormControl(""), 
 
   });
   constructor(private _http: HttpClient) { }
@@ -36,8 +38,8 @@ export class LanguagesService {
     return this._http.post('http://localhost:54735/api/Languages', this.form.value,
       { responseType: "text" });
   }
-  PutLang() {
-    return this._http.put('http://localhost:54735/api/Languages', this.form.value,
+  PutLang(formData) {
+    return this._http.put('http://localhost:54735/api/Languages/'+formData.idLanguage, this.form.value,
       { responseType: "text" });
   }
 

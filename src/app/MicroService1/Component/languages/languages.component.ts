@@ -1,7 +1,7 @@
 import { Languages } from './../../Models/Languages.models';
 import { Component, OnInit } from '@angular/core';
 import { LanguagesService } from '../../Services/languages.service';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { NgForm } from '@angular/forms';
 export class LanguagesComponent implements OnInit {
   //lang: any = [];
   lang: Languages[] = new Array();
+
 
   constructor(private formBuilder: FormBuilder, private langservice: LanguagesService) { }
 
@@ -28,8 +29,9 @@ export class LanguagesComponent implements OnInit {
 
     this.langservice.form.setValue({
       idLanguage: "00000000-0000-0000-0000-000000000000",
-      label: ""
-
+      label: "",
+       microServices:"",
+       versionLanguages : ""
     });
 
   }
@@ -59,7 +61,7 @@ export class LanguagesComponent implements OnInit {
 
 
   UpdateRecord() {
-    this.langservice.PutLang().subscribe(
+    this.langservice.PutLang(this.langservice.form.value).subscribe(
       res => {
         console.log(res);
         this.GetLang();
@@ -80,8 +82,8 @@ export class LanguagesComponent implements OnInit {
     });
   }
 
-  EditLang(language) {
-    this.langservice.form.setValue(language);
+  EditLang(language , idLanguage) {
+    this.langservice.form.setValue(language , idLanguage);
     // this.langservice.DeleteLang(language.idLanguage).subscribe(res => {
     //   console.log(res);
     //   this.GetLang();
