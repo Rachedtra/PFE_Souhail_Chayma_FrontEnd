@@ -61,7 +61,7 @@ export class LanguagesComponent implements OnInit {
 
 
   UpdateRecord() {
-    this.langservice.PutLang(this.langservice.form.value).subscribe(
+    this.langservice.PutLang().subscribe(
       res => {
         console.log(res);
         this.GetLang();
@@ -82,8 +82,8 @@ export class LanguagesComponent implements OnInit {
     });
   }
 
-  EditLang(language , idLanguage) {
-    this.langservice.form.setValue(language , idLanguage);
+  EditLang(language) {
+    this.langservice.form.setValue(language);
     // this.langservice.DeleteLang(language.idLanguage).subscribe(res => {
     //   console.log(res);
     //   this.GetLang();
