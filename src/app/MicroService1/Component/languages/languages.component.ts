@@ -16,9 +16,6 @@ export class LanguagesComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private langservice: LanguagesService) { }
-
-
-
   ngOnInit() {
 
     this.GetLang();
@@ -36,6 +33,14 @@ export class LanguagesComponent implements OnInit {
 
   }
 
+  GetLang() {
+
+    this.langservice.GetLang().subscribe(res => {
+      this.lang = res as Languages[];
+      console.log(this.lang);
+
+    });
+  }
   onSubmit() {
 
     if (this.langservice.form.controls.idLanguage.value == "00000000-0000-0000-0000-000000000000")
@@ -48,10 +53,10 @@ export class LanguagesComponent implements OnInit {
 
   insertRecord() {
     this.langservice.PostLang().subscribe(
-      res => {
+      res => {      
         console.log(res);
-        this.GetLang();
-
+        this.GetLang();    
+       this.resetForm() ; 
       },
       err => {
         console.log(err);
@@ -63,55 +68,14 @@ export class LanguagesComponent implements OnInit {
   UpdateRecord() {
     this.langservice.PutLang().subscribe(
       res => {
-        console.log(res);
         this.GetLang();
-
+        console.log(res);
+        this.resetForm();
       },
       err => {
         console.log(err);
       }
     )
   }
-
-
-  GetLang() {
-    this.langservice.GetLang().subscribe(res => {
-      this.lang = res as Languages[];
-      console.log(this.lang);
-
-    });
-  }
-
-  EditLang(language) {
-    this.langservice.form.setValue(language);
-    // this.langservice.DeleteLang(language.idLanguage).subscribe(res => {
-    //   console.log(res);
-    //   this.GetLang();
-    //})
-
-
-  }
-
-  DeleteLang(idLanguage: string) {
-    this.langservice.DeleteLang(idLanguage).subscribe(res => {
-      console.log(res);
-      this.GetLang();
-    })
-
-
-  }
-
 }
 
- // clickAdd() {
-
-  //   this.la = new Languages();
-  // }
-
-  // private save() {
-
-  //     this.service.PostLang(this.la).subscribe(data => {
-  //       console.log(data);
-  //          })
-
-  //       }

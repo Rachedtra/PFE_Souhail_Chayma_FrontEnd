@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     GeneralLayoutComponent,
     FooterLeftComponent,
     FooterRightComponent,
-    LanguagesComponent
+    LanguagesComponent,
+    ListLanguageComponent
 
 
   ],
