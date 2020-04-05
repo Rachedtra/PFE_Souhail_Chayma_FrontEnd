@@ -5,7 +5,7 @@
     <!-- <th>Microservices</th>
   <th>Languages Versions</th> -->
   </tr>
-  <tr *ngFor="let language of lang " style="background-color: white; color: black">
+  <tr *ngFor="let language of langservice.lang " style="background-color: white; color: black">
     <td>{{language.idLanguage}}</td>
     <td>{{language.label}}</td>
     <td><button (click)="DeleteLang(language.idLanguage)">Delete</button></td>

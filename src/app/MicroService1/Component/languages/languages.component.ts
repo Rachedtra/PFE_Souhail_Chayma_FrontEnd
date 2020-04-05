@@ -18,7 +18,7 @@ export class LanguagesComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private langservice: LanguagesService) { }
   ngOnInit() {
 
-    this.GetLang();
+  
     this.resetForm();
   }
 
@@ -33,14 +33,7 @@ export class LanguagesComponent implements OnInit {
 
   }
 
-  GetLang() {
-
-    this.langservice.GetLang().subscribe(res => {
-      this.lang = res as Languages[];
-      console.log(this.lang);
-
-    });
-  }
+ 
   onSubmit() {
 
     if (this.langservice.form.controls.idLanguage.value == "00000000-0000-0000-0000-000000000000")
@@ -55,7 +48,7 @@ export class LanguagesComponent implements OnInit {
     this.langservice.PostLang().subscribe(
       res => {      
         console.log(res);
-        this.GetLang();    
+        this.langservice.refreshList(); 
        this.resetForm() ; 
       },
       err => {
@@ -68,8 +61,9 @@ export class LanguagesComponent implements OnInit {
   UpdateRecord() {
     this.langservice.PutLang().subscribe(
       res => {
-        this.GetLang();
+       
         console.log(res);
+        this.langservice.refreshList(); 
         this.resetForm();
       },
       err => {

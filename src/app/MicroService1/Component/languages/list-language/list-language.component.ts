@@ -13,7 +13,7 @@ export class ListLanguageComponent implements OnInit {
   constructor(private langservice: LanguagesService) { }
 
   ngOnInit() {
-    this.GetLang();
+    this.langservice.refreshList(); 
     this.resetForm();
   }
   resetForm() {
@@ -24,19 +24,12 @@ export class ListLanguageComponent implements OnInit {
        versionLanguages : ""
     });
   }
-  GetLang() {
 
-    this.langservice.GetLang().subscribe(res => {
-      this.lang = res as Languages[];
-      console.log(this.lang);
-
-    });
-  }
 
   DeleteLang(idLanguage: string) {
     this.langservice.DeleteLang(idLanguage).subscribe(res => {
       console.log(res);
-      this.GetLang();
+      this.langservice.refreshList(); 
     })
 
 
