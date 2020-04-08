@@ -9,6 +9,17 @@ import { GeneralLayoutComponent } from './general-layout/general-layout.componen
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { LanguagesComponent } from './MicroService1/Component/languages/languages.component';
+import { LanguagesService } from './MicroService1/Services/languages.service';
+import { FormsModule } from '@angular/forms';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +27,18 @@ import { FooterRightComponent } from './navbar/footer-right/footer-right.compone
     SidebarLeftComponent,
     GeneralLayoutComponent,
     FooterLeftComponent,
-    FooterRightComponent
+    FooterRightComponent,
+    LanguagesComponent,
+    ListLanguageComponent
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

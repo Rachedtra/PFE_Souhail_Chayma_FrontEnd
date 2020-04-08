@@ -9,9 +9,6 @@ export class GeneralLayoutComponent implements OnInit {
 
   constructor() { }
 
-
-
-  
   ngOnInit() {
   }
 
