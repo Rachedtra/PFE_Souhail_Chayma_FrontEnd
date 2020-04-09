@@ -18,7 +18,6 @@ export class LanguagesComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private langservice: LanguagesService) { }
   ngOnInit() {
 
-  
     this.resetForm();
   }
 

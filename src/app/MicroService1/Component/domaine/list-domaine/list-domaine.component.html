@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    
+  </tr>
+  <tr *ngFor="let Domaine of Domservice.Dom " style="background-color: white; color: black">
+    <td>{{Domaine.idDomaine}}</td>
+    <td>{{Domaine.nom}}</td>
+    <td><button (click)="DeleteDom(Domaine.idDomaine)">Delete</button></td>
+    <td><button (click)="EditDom(Domaine)">Edit</button></td>
+
+  </tr>
+  </table>

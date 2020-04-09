@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
+import { DomaineComponent } from './MicroService1/component/domaine/domaine.component';
+import { ListDomaineComponent } from './MicroService1/component/Domaine/list-domaine/list-domaine.component';
 
 
 
@@ -29,7 +31,9 @@ import { ListLanguageComponent } from './MicroService1/Component/languages/list-
     FooterLeftComponent,
     FooterRightComponent,
     LanguagesComponent,
-    ListLanguageComponent
+    ListLanguageComponent,
+    DomaineComponent,
+    ListDomaineComponent
 
 
   ],
