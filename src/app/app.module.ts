@@ -40,7 +40,7 @@ import { ListLanguageComponent } from './MicroService1/Component/languages/list-
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [LanguagesService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
