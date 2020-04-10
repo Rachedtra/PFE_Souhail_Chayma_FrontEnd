@@ -4,6 +4,8 @@ import { LanguagesService } from '../../Services/languages.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 
 @Component({
   selector: 'app-languages',
@@ -13,15 +15,18 @@ import { NgForm } from '@angular/forms';
 export class LanguagesComponent implements OnInit {
   //lang: any = [];
   lang: Languages[] = new Array();
+  modalRef: BsModalRef;
 
-
-  constructor(private formBuilder: FormBuilder, private langservice: LanguagesService) { }
+  constructor( private langservice: LanguagesService ,private modalService: BsModalService ) { }
   ngOnInit() {
 
   
     this.resetForm();
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
   resetForm() {
 
     this.langservice.form.setValue({
@@ -33,6 +38,9 @@ export class LanguagesComponent implements OnInit {
 
   }
 
+
+
+  
  
   onSubmit() {
 

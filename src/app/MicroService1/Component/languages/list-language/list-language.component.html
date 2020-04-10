@@ -1,3 +1,4 @@
+
 <table class="table">
   <tr>
     <th>Id</th>
@@ -8,8 +9,10 @@
   <tr *ngFor="let language of langservice.lang " style="background-color: white; color: black">
     <td>{{language.idLanguage}}</td>
     <td>{{language.label}}</td>
-    <td><button (click)="DeleteLang(language.idLanguage)">Delete</button></td>
-    <td><button (click)="EditLang(language)">Edit</button></td>
+     <td><button class="btn btn-danger" (click)="DeleteLang(language.idLanguage)"><i class="fas fa-trash-alt"></i>  Delete</button></td> 
+    <td><button class="btn btn-primary" (click)="EditLang(language)"><i class="fas fa-edit"></i>  Edit</button></td>
+ 
 
+    
   </tr>
   </table>
