@@ -1,24 +1,24 @@
 <div class="form-row">
   <div class="col-md-7">
-  <form [formGroup]="Domservice.form" (ngSubmit)="onSubmit()">
-  
-  
-    <div class="form-group">
-      <p>
-        <label for="idDomaine">idDomaine</label>
-        <input  type="text" class="form-control" formControlName="idDomaine" name="idDomaine">
-      </p>
-    </div>
-    <div class="form-group">
-      <p>
-        <label for="label">Nom</label>
-        <input type="text"  class="form-control" name="nom" formControlName="nom">
-      </p>
-    </div>
-    <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+    <form [formGroup]="Domservice.form" (ngSubmit)="onSubmit()">
+
+
+      <div class="form-group">
+        <p>
+          <label for="idDomaine">idDomaine</label>
+          <input type="text" class="form-control" formControlName="idDomain" name="idDomain">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="label">Nom</label>
+          <input type="text" class="form-control" name="nom" formControlName="nom">
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
     </form>
   </div>
-  <div  class="col-md-5">
+  <div class="col-md-5">
     <app-list-domaine></app-list-domaine>
   </div>
-  </div>
+</div>

@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { DomaineService } from '../../Services/domaine.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-domaine',
@@ -14,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class DomaineComponent implements OnInit {
   Dom: Domaine[] = new Array();
 
-  constructor( private Domservice: DomaineService) { }
+  constructor(private formBuilder: FormBuilder, private Domservice: DomaineService) { }
 
   ngOnInit() {
 
@@ -23,15 +22,15 @@ export class DomaineComponent implements OnInit {
   resetForm() {
 
     this.Domservice.form.setValue({
-      idDomaine: "00000000-0000-0000-0000-000000000000",
+      idDomain: "00000000-0000-0000-0000-000000000000",
       nom: "",
-      domainProjets:"",
-       
+      domainProjets: "",
+
     });
   }
   onSubmit() {
 
-    if (this.Domservice.form.controls.idDomaine.value == "00000000-0000-0000-0000-000000000000")
+    if (this.Domservice.form.controls.idDomain.value == "00000000-0000-0000-0000-000000000000")
       this.insertRecord();
     else
       this.UpdateRecord();
@@ -40,10 +39,10 @@ export class DomaineComponent implements OnInit {
 
   insertRecord() {
     this.Domservice.PostDom().subscribe(
-      res => {      
+      res => {
         console.log(res);
-        this.Domservice.refreshList(); 
-       this.resetForm() ; 
+        this.Domservice.refreshList();
+        this.resetForm();
       },
       err => {
         console.log(err);
@@ -54,9 +53,8 @@ export class DomaineComponent implements OnInit {
   UpdateRecord() {
     this.Domservice.PutDom().subscribe(
       res => {
-       
         console.log(res);
-        this.Domservice.refreshList(); 
+        this.Domservice.refreshList();
         this.resetForm();
       },
       err => {

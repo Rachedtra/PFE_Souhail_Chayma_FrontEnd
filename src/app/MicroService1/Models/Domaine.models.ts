@@ -1,6 +1,6 @@
 export class Domaine {
-    idDomaine: string;
+    idDomain: string;
     nom: string;
-    domainProjets : string;
-    
+    // domainProjets: string;
+
 }

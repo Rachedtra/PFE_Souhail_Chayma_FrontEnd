@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DomaineService } from 'src/app/MicroService1/Services/Domaine.service';
+import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
 import { Domaine } from 'src/app/MicroService1/Models/Domaine.models';
 
 @Component({
@@ -14,32 +14,33 @@ export class ListDomaineComponent implements OnInit {
 
   ngOnInit() {
 
-    this.Domservice.refreshList(); 
+    this.Domservice.refreshList();
     this.resetForm();
   }
 
   resetForm() {
     this.Domservice.form.setValue({
-      idDomaine: "00000000-0000-0000-0000-000000000000",
+      idDomain: "00000000-0000-0000-0000-000000000000",
       nom: "",
-      domainProjets:"",
-      
+      domainProjets: "",
+
     });
   }
 
 
-  
+
   DeleteDom(idDomaine: string) {
     this.Domservice.DeleteDom(idDomaine).subscribe(res => {
       console.log(res);
-      this.Domservice.refreshList(); 
+      this.Domservice.refreshList();
     })
 
   }
 
 
-  EditDom(Domaine) {
-    this.Domservice.form.setValue(Domaine);
+  EditDom(domaine) {
+    this.Domservice.form.setValue(domaine);
+
     // this.langservice.DeleteLang(language.idLanguage).subscribe(res => {
     //   console.log(res);
     //   this.GetLang();

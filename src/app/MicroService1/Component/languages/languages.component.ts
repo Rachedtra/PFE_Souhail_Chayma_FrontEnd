@@ -26,13 +26,13 @@ export class LanguagesComponent implements OnInit {
     this.langservice.form.setValue({
       idLanguage: "00000000-0000-0000-0000-000000000000",
       label: "",
-       microServices:"",
-       versionLanguages : ""
+      microServices: "",
+      versionLanguages: ""
     });
 
   }
 
- 
+
   onSubmit() {
 
     if (this.langservice.form.controls.idLanguage.value == "00000000-0000-0000-0000-000000000000")
@@ -45,10 +45,10 @@ export class LanguagesComponent implements OnInit {
 
   insertRecord() {
     this.langservice.PostLang().subscribe(
-      res => {      
+      res => {
         console.log(res);
-        this.langservice.refreshList(); 
-       this.resetForm() ; 
+        this.langservice.refreshList();
+        this.resetForm();
       },
       err => {
         console.log(err);
@@ -60,9 +60,9 @@ export class LanguagesComponent implements OnInit {
   UpdateRecord() {
     this.langservice.PutLang().subscribe(
       res => {
-       
+
         console.log(res);
-        this.langservice.refreshList(); 
+        this.langservice.refreshList();
         this.resetForm();
       },
       err => {
