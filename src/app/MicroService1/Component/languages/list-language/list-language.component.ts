@@ -3,6 +3,7 @@ import { LanguagesService } from 'src/app/MicroService1/Services/languages.servi
 import { Languages } from 'src/app/MicroService1/Models/Languages.models';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
+import { LanguagesComponent } from '../languages.component';
 
 
 @Component({
@@ -20,12 +21,6 @@ export class ListLanguageComponent implements OnInit {
     this.resetForm();
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
-
-
-  
 
   resetForm() {
     this.langservice.form.setValue({
@@ -48,16 +43,16 @@ export class ListLanguageComponent implements OnInit {
   }
   
 
-  EditLang(language,template: TemplateRef<any>) {
+  openModal(template: TemplateRef<LanguagesComponent>) {
+    this.modalRef = this.modalService.show(template);
+  
+  }
+  
+
+  EditLang(language : Languages , template: TemplateRef<LanguagesComponent>) {
     this.langservice.form.setValue(language);
     this.modalRef = this.modalService.show(template);
-    
-    // this.langservice.DeleteLang(language.idLanguage).subscribe(res => {
-    //   console.log(res);
-    //   this.GetLang();
-    //})
-
-
   }
+
 
 }

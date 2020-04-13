@@ -1,18 +1,36 @@
 
-<table class="table">
+  <button class="btn btn-outline-success" (click)="openModal(template)">
+    <i class="fa fa-plus"></i> Create Language
+  </button>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Language Detail</h4>
+ 
+  </div>
+  <div class="modal-body">
+   <app-languages></app-languages>
+   <button type="button" class="btn btn-danger" aria-label="Close" (click)="modalRef.hide()">Fermer</button>
+  </div>
+</ng-template>
+
+
+<table class="table table-striped">
+  <thead class="thead-light">
   <tr>
-    <th>Id</th>
+    <th>Id Language</th>
     <th>Label</th>
     <!-- <th>Microservices</th>
   <th>Languages Versions</th> -->
   </tr>
+  </thead>
+ 
+  <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
   <tr *ngFor="let language of langservice.lang " style="background-color: white; color: black">
     <td>{{language.idLanguage}}</td>
     <td>{{language.label}}</td>
      <td><button class="btn btn-danger" (click)="DeleteLang(language.idLanguage)"><i class="fas fa-trash-alt"></i>  Delete</button></td> 
-    <td><button class="btn btn-primary" (click)="EditLang(language)"><i class="fas fa-edit"></i>  Edit</button></td>
- 
-
-    
+    <td><button class="btn btn-primary" (click)="EditLang(language,template)"><i class="fas fa-edit"></i>  Edit</button></td>
   </tr>
   </table>
+ 

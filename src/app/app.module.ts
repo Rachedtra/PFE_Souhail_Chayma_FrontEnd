@@ -13,10 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { LanguagesComponent } from './MicroService1/Component/languages/languages.component';
 import { LanguagesService } from './MicroService1/Services/languages.service';
 import { FormsModule } from '@angular/forms';
+import { BsModalRef, ModalModule ,BsModalService  } from 'ngx-bootstrap/modal';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
+
 
 
 
@@ -29,7 +31,8 @@ import { ListLanguageComponent } from './MicroService1/Component/languages/list-
     FooterLeftComponent,
     FooterRightComponent,
     LanguagesComponent,
-    ListLanguageComponent
+    ListLanguageComponent,
+    
 
 
   ],
@@ -38,9 +41,11 @@ import { ListLanguageComponent } from './MicroService1/Component/languages/list-
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[LanguagesComponent]
 })
 export class AppModule { }

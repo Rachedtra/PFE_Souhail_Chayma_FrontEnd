@@ -1,24 +1,9 @@
-<div class="form-row">
-  <div class="col-md-7">
-    <button class="btn btn-outline-success" (click)="openModal(template)">
-      <i class="fa fa-plus"></i> Create Language
-    </button>
-    <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
-   
-    <ng-template #template>
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Language Detail</h4>
-        <!-- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-      </div>
-      <div class="modal-body">
+
         <form [formGroup]="langservice.form" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <p>
             <label for="idLanguage">idLanguage</label>
-            <input  type="text" class="form-control" formControlName="idLanguage" name="idLanguage">
-           
+            <input  type="text" class="form-control" formControlName="idLanguage" name="idLanguage">          
           </p>
         </div>
         <div class="form-group">
@@ -26,26 +11,10 @@
             <label for="label">label</label>
             <input type="text"  class="form-control" name="label" formControlName="label">
           </p>
-        </div>
-    
-        <button type="submit" class="btn btn-primary mr-1"> Submit</button>  &nbsp; &nbsp; &nbsp; 
-        <button type="button" class="btn btn-danger" aria-label="Close" (click)="modalRef.hide()">Fermer</button>
+        </div>  
+        <button type="submit" class="btn btn-primary mr-1"> Submit</button>   
     </form>
-      </div>
-    </ng-template>
-  </div>
-  <div  class="col-md-12">
-    <app-list-language></app-list-language>
-  </div>
-  </div>
-  
-  
-  
-  <!-- 
-      <p>
-        <label for="state">State</label>
-        <input type="text" class="form-control" name="state" formControlName="state">
-      </p> -->
+
   
   
   

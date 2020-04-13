@@ -24,9 +24,9 @@ export class LanguagesComponent implements OnInit {
     this.resetForm();
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
+  // openModal(template: TemplateRef<any>) {
+  //   this.modalRef = this.modalService.show(template);
+  // }
   resetForm() {
 
     this.langservice.form.setValue({
@@ -38,9 +38,6 @@ export class LanguagesComponent implements OnInit {
 
   }
 
-
-
-  
  
   onSubmit() {
 
