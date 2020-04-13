@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-languages',
   templateUrl: './languages.component.html',
@@ -17,7 +17,8 @@ export class LanguagesComponent implements OnInit {
   lang: Languages[] = new Array();
   modalRef: BsModalRef;
 
-  constructor( private langservice: LanguagesService ,private modalService: BsModalService ) { }
+  constructor( private langservice: LanguagesService ,private modalService: BsModalService,
+    private toastrService : ToastrService ) { }
   ngOnInit() {
 
   
@@ -54,10 +55,12 @@ export class LanguagesComponent implements OnInit {
       res => {      
         console.log(res);
         this.langservice.refreshList(); 
+        this.toastrService.success('Language Ajoutee Avec Succés','Order Submitted !') ;
        this.resetForm() ; 
       },
       err => {
         console.log(err);
+        this.toastrService.error('Language Non Ajoutee','Erreur') ;
       }
     )
   }
@@ -69,10 +72,12 @@ export class LanguagesComponent implements OnInit {
        
         console.log(res);
         this.langservice.refreshList(); 
+        this.toastrService.info('Language Modifiee Avec Succés','Order Submitted !') ;
         this.resetForm();
       },
       err => {
         console.log(err);
+        this.toastrService.error('Language Non Modifiee','Erreur') ;
       }
     )
   }

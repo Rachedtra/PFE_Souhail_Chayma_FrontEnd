@@ -4,6 +4,7 @@ import { Languages } from 'src/app/MicroService1/Models/Languages.models';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 import { LanguagesComponent } from '../languages.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -14,7 +15,9 @@ import { LanguagesComponent } from '../languages.component';
 export class ListLanguageComponent implements OnInit {
   lang: Languages[] = new Array();
   modalRef: BsModalRef;
-  constructor(private langservice: LanguagesService , private modalService: BsModalService) { }
+  message: string;
+  constructor(private langservice: LanguagesService , private modalService: BsModalService,
+    private toastrService : ToastrService) { }
 
   ngOnInit() {
     this.langservice.refreshList(); 
@@ -33,13 +36,17 @@ export class ListLanguageComponent implements OnInit {
 
 
 
-  DeleteLang(idLanguage: string) {
+  DeleteLang(idLanguage: string ) {
+   
+      
     this.langservice.DeleteLang(idLanguage).subscribe(res => {
       console.log(res);
       this.langservice.refreshList(); 
+     
+
     })
 
-
+  
   }
   
 
@@ -48,6 +55,22 @@ export class ListLanguageComponent implements OnInit {
   
   }
   
+
+   ConfirmModal(template: TemplateRef<any>) {
+     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+   }
+ 
+  confirm(): void {
+   
+    this.modalRef.hide();
+    this.toastrService.success('Language Supprimee Avec Succés','Order Submitted !') ;
+  }
+ 
+  decline(): void {
+  
+    this.modalRef.hide();
+    this.toastrService.error('Language Non Supprimee','Order Submitted !') ;
+  }
 
   EditLang(language : Languages , template: TemplateRef<LanguagesComponent>) {
     this.langservice.form.setValue(language);

@@ -20,16 +20,29 @@
   <tr>
     <th>Id Language</th>
     <th>Label</th>
+    <th>Supprimer</th>
+    <th>Modifier</th>
     <!-- <th>Microservices</th>
   <th>Languages Versions</th> -->
   </tr>
   </thead>
- 
+  <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
   <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
   <tr *ngFor="let language of langservice.lang " style="background-color: white; color: black">
     <td>{{language.idLanguage}}</td>
     <td>{{language.label}}</td>
-     <td><button class="btn btn-danger" (click)="DeleteLang(language.idLanguage)"><i class="fas fa-trash-alt"></i>  Delete</button></td> 
+     <td>
+      <button type="button" class="btn btn-danger" (click)=" ConfirmModal(template)"><i class="fas fa-trash-alt"></i>Delete</button>
+<br><br>
+<!-- <pre class="card card-block card-header">{{message}}</pre> -->
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Voulez vous Supprimer ?</p>
+    <button type="button" class="btn btn-default" (click)="confirm();DeleteLang(language.idLanguage);" >Oui</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Non</button>
+  </div>
+</ng-template>
+      </td> 
     <td><button class="btn btn-primary" (click)="EditLang(language,template)"><i class="fas fa-edit"></i>  Edit</button></td>
   </tr>
   </table>
