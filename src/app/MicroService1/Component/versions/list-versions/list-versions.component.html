@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Numero</th>
+
+  </tr>
+  <tr *ngFor="let Versions of Verservice.Ver " style="background-color: white; color: black">
+    <td>{{Versions.idVersion}}</td>
+    <td>{{Versions.numero}}</td>
+    <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td>
+    <td><button (click)="EditVer(Versions)">Edit</button></td>
+
+  </tr>
+</table>

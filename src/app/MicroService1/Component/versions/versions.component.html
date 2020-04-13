@@ -1,0 +1,24 @@
+<div class="form-row">
+  <div class="col-md-7">
+    <form [formGroup]="Verservice.form" (ngSubmit)="onSubmit()">
+
+
+      <div class="form-group">
+        <p>
+          <label for="idVersion">idVersion</label>
+          <input type="text" class="form-control" formControlName="idVersion" name="idVersion">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="label">Numero</label>
+          <input type="text" class="form-control" name="numero" formControlName="numero">
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+    </form>
+  </div>
+  <div class="col-md-5">
+    <app-list-versions></app-list-versions>
+  </div>
+</div>
