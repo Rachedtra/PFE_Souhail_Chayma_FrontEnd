@@ -15,7 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ListLanguageComponent implements OnInit {
   lang: Languages[] = new Array();
   modalRef: BsModalRef;
-  message: string;
+  modalRef1: BsModalRef;
+
   constructor(private langservice: LanguagesService , private modalService: BsModalService,
     private toastrService : ToastrService) { }
 
@@ -50,25 +51,25 @@ export class ListLanguageComponent implements OnInit {
   }
   
 
-  openModal(template: TemplateRef<LanguagesComponent>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(templatee: TemplateRef<LanguagesComponent>) {
+    this.modalRef = this.modalService.show(templatee);
   
   }
   
 
    ConfirmModal(template: TemplateRef<any>) {
-     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+     this.modalRef1 = this.modalService.show(template, {class: 'modal-sm'});
    }
  
   confirm(): void {
    
-    this.modalRef.hide();
+    this.modalRef1.hide();
     this.toastrService.success('Language Supprimee Avec Succés','Order Submitted !') ;
   }
  
   decline(): void {
   
-    this.modalRef.hide();
+    this.modalRef1.hide();
     this.toastrService.error('Language Non Supprimee','Order Submitted !') ;
   }
 
