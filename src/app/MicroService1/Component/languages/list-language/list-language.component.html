@@ -10,7 +10,7 @@
   </div>
   <div class="modal-body">
    <app-languages></app-languages>
-   <button type="button" class="btn btn-danger" aria-label="Close" (click)="modalRef.hide()">Fermer</button>
+    <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
   </div>
 </ng-template>
 
@@ -33,7 +33,7 @@
     <td>{{language.label}}</td>
      <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i class="fas fa-trash-alt"></i>Delete</button>
-<br><br>
+
 <!-- <pre class="card card-block card-header">{{message}}</pre> -->
 <ng-template #templateDelete>
   <div class="modal-body text-center">

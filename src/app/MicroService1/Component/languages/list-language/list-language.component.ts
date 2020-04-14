@@ -49,6 +49,7 @@ export class ListLanguageComponent implements OnInit {
 
   openModal(templatee: TemplateRef<LanguagesComponent>) {
     this.modalRef = this.modalService.show(templatee);
+    
   
   }
   
@@ -60,18 +61,19 @@ export class ListLanguageComponent implements OnInit {
   confirm(): void {
    
     this.modalRef.hide();
-    this.toastrService.success('Language Supprimee Avec Succés','Order Submitted !') ;
+    this.toastrService.success('','Language Supprimee Avec Succés') ;
   }
  
   decline(): void {
   
     this.modalRef.hide();
-    this.toastrService.error('Language Non Supprimee','Order Submitted !') ;
+    this.toastrService.warning('','Language Non Supprimee') ;
   }
 
   EditLang(language : Languages , templatee: TemplateRef<LanguagesComponent>) {
     this.langservice.form.setValue(language);
     this.modalRef = this.modalService.show(templatee);
+    
   }
 
 

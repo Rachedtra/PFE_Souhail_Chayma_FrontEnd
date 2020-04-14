@@ -17,8 +17,9 @@ export class LanguagesComponent implements OnInit {
   lang: Languages[] = new Array();
   modalRef: BsModalRef;
 
-  constructor( private langservice: LanguagesService ,private modalService: BsModalService,
-    private toastrService : ToastrService ) { }
+  constructor( private langservice: LanguagesService ,
+    private toastrService : ToastrService,
+    private modalService:BsModalService ) { }
   ngOnInit() {
 
   
@@ -39,7 +40,7 @@ export class LanguagesComponent implements OnInit {
 
   }
 
- 
+
   onSubmit() {
 
     if (this.langservice.form.controls.idLanguage.value == "00000000-0000-0000-0000-000000000000")
@@ -55,7 +56,7 @@ export class LanguagesComponent implements OnInit {
       res => {      
         console.log(res);
         this.langservice.refreshList(); 
-        this.toastrService.success('Language Ajoutee Avec Succés','Order Submitted !') ;
+        this.toastrService.success('','Language Ajoutee Avec Succés') ;
        this.resetForm() ; 
       },
       err => {
@@ -72,7 +73,7 @@ export class LanguagesComponent implements OnInit {
        
         console.log(res);
         this.langservice.refreshList(); 
-        this.toastrService.info('Language Modifiee Avec Succés','Order Submitted !') ;
+        this.toastrService.info('','Language Modifiee Avec Succés') ;
         this.resetForm();
       },
       err => {
@@ -81,5 +82,6 @@ export class LanguagesComponent implements OnInit {
       }
     )
   }
+
 }
 
