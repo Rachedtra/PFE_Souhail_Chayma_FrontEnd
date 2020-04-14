@@ -1,9 +1,9 @@
 
-  <button class="btn btn-outline-success" (click)="openModal(template)">
+  <button class="btn btn-outline-success" (click)="openModal(templateSubmit)">
     <i class="fa fa-plus"></i> Create Language
   </button>
  
-<ng-template #template>
+<ng-template #templateSubmit>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Language Detail</h4>
  
@@ -32,10 +32,10 @@
     <td>{{language.idLanguage}}</td>
     <td>{{language.label}}</td>
      <td>
-      <button type="button" class="btn btn-danger" (click)="ConfirmModal(template)"><i class="fas fa-trash-alt"></i>Delete</button>
+      <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i class="fas fa-trash-alt"></i>Delete</button>
 <br><br>
 <!-- <pre class="card card-block card-header">{{message}}</pre> -->
-<ng-template #template>
+<ng-template #templateDelete>
   <div class="modal-body text-center">
     <p>Voulez vous Supprimer ?</p>
     <button type="button" class="btn btn-default" (click)="confirm();DeleteLang(language.idLanguage);" >Yes</button>
@@ -43,7 +43,7 @@
   </div>
 </ng-template>
       </td> 
-    <td><button class="btn btn-primary" (click)="EditLang(language,templatee)"><i class="fas fa-edit"></i>  Edit</button></td>
+    <td><button class="btn btn-primary" (click)="EditLang(language,templateSubmit)"><i class="fas fa-edit"></i>  Edit</button></td>
   </tr>
   </table>
  

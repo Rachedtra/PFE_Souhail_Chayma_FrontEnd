@@ -18,7 +18,8 @@ export class ListLanguageComponent implements OnInit {
   modalRef1: BsModalRef;
 
   constructor(private langservice: LanguagesService , private modalService: BsModalService,
-    private toastrService : ToastrService) { }
+    private toastrService : ToastrService
+    ) { }
 
   ngOnInit() {
     this.langservice.refreshList(); 
@@ -39,15 +40,10 @@ export class ListLanguageComponent implements OnInit {
 
   DeleteLang(idLanguage: string ) {
    
-      
-    this.langservice.DeleteLang(idLanguage).subscribe(res => {
+   this.langservice.DeleteLang(idLanguage).subscribe(res => {
       console.log(res);
       this.langservice.refreshList(); 
-     
-
     })
-
-  
   }
   
 
@@ -57,25 +53,25 @@ export class ListLanguageComponent implements OnInit {
   }
   
 
-   ConfirmModal(template: TemplateRef<any>) {
-     this.modalRef1 = this.modalService.show(template, {class: 'modal-sm'});
+    ConfirmModal(template: TemplateRef<any>) {
+      this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
    }
  
   confirm(): void {
    
-    this.modalRef1.hide();
+    this.modalRef.hide();
     this.toastrService.success('Language Supprimee Avec Succés','Order Submitted !') ;
   }
  
   decline(): void {
   
-    this.modalRef1.hide();
+    this.modalRef.hide();
     this.toastrService.error('Language Non Supprimee','Order Submitted !') ;
   }
 
-  EditLang(language : Languages , template: TemplateRef<LanguagesComponent>) {
+  EditLang(language : Languages , templatee: TemplateRef<LanguagesComponent>) {
     this.langservice.form.setValue(language);
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(templatee);
   }
 
 
