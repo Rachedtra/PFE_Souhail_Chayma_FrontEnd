@@ -17,12 +17,12 @@ export class ListLanguageComponent implements OnInit {
   modalRef: BsModalRef;
   modalRef1: BsModalRef;
 
-  constructor(private langservice: LanguagesService , private modalService: BsModalService,
-    private toastrService : ToastrService
-    ) { }
+  constructor(private langservice: LanguagesService, private modalService: BsModalService,
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit() {
-    this.langservice.refreshList(); 
+    this.langservice.refreshList();
     this.resetForm();
   }
 
@@ -31,49 +31,55 @@ export class ListLanguageComponent implements OnInit {
     this.langservice.form.setValue({
       idLanguage: "00000000-0000-0000-0000-000000000000",
       label: "",
-       microServices:"",
-       versionLanguages : ""
+      microServices: "",
+      versionLanguages: ""
     });
   }
 
 
 
-  DeleteLang(idLanguage: string ) {
-   
-   this.langservice.DeleteLang(idLanguage).subscribe(res => {
+  DeleteLang(idLanguage: string) {
+
+    this.langservice.DeleteLang(idLanguage).subscribe(res => {
       console.log(res);
-      this.langservice.refreshList(); 
+      this.langservice.refreshList();
     })
   }
-  
+
 
   openModal(templatee: TemplateRef<LanguagesComponent>) {
     this.modalRef = this.modalService.show(templatee);
-    
-  
-  }
-  
 
-    ConfirmModal(template: TemplateRef<any>) {
-      this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
-   }
- 
+
+  }
+
+
+  ConfirmModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
   confirm(): void {
-   
+
     this.modalRef.hide();
-    this.toastrService.success('','Language Supprimee Avec Succés') ;
-  }
- 
-  decline(): void {
-  
-    this.modalRef.hide();
-    this.toastrService.warning('','Language Non Supprimee') ;
+    this.toastrService.success('', 'Language Supprimee Avec Succés');
   }
 
-  EditLang(language : Languages , templatee: TemplateRef<LanguagesComponent>) {
+  decline(): void {
+
+    this.modalRef.hide();
+    this.toastrService.warning('', 'Language Non Supprimee');
+  }
+
+  EditLang(language: Languages, templatee: TemplateRef<LanguagesComponent>) {
     this.langservice.form.setValue(language);
     this.modalRef = this.modalService.show(templatee);
-    
+
+  }
+
+  AddLang(templatee: TemplateRef<LanguagesComponent>) {
+    this.resetForm();
+    this.modalRef = this.modalService.show(templatee);
+
   }
 
 

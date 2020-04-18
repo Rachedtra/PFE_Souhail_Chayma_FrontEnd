@@ -17,13 +17,13 @@ export class LanguagesComponent implements OnInit {
   lang: Languages[] = new Array();
   modalRef: BsModalRef;
 
-  constructor( private langservice: LanguagesService ,
-    private toastrService : ToastrService,
-    private modalService:BsModalService ) { }
+  constructor(private langservice: LanguagesService,
+    private toastrService: ToastrService,
+    private modalService: BsModalService) { }
   ngOnInit() {
 
-  
-    this.resetForm();
+
+    // this.resetForm();
   }
 
   // openModal(template: TemplateRef<any>) {
@@ -34,8 +34,8 @@ export class LanguagesComponent implements OnInit {
     this.langservice.form.setValue({
       idLanguage: "00000000-0000-0000-0000-000000000000",
       label: "",
-       microServices:"",
-       versionLanguages : ""
+      microServices: "",
+      versionLanguages: ""
     });
 
   }
@@ -53,15 +53,15 @@ export class LanguagesComponent implements OnInit {
 
   insertRecord() {
     this.langservice.PostLang().subscribe(
-      res => {      
+      res => {
         console.log(res);
-        this.langservice.refreshList(); 
-        this.toastrService.success('','Language Ajoutee Avec Succés') ;
-       this.resetForm() ; 
+        this.langservice.refreshList();
+        this.toastrService.success('', 'Language Ajoutee Avec Succés');
+        this.resetForm();
       },
       err => {
         console.log(err);
-        this.toastrService.error('Language Non Ajoutee','Erreur') ;
+        this.toastrService.error('Language Non Ajoutee', 'Erreur');
       }
     )
   }
@@ -70,15 +70,15 @@ export class LanguagesComponent implements OnInit {
   UpdateRecord() {
     this.langservice.PutLang().subscribe(
       res => {
-       
+
         console.log(res);
-        this.langservice.refreshList(); 
-        this.toastrService.info('','Language Modifiee Avec Succés') ;
+        this.langservice.refreshList();
+        this.toastrService.info('', 'Language Modifiee Avec Succés');
         this.resetForm();
       },
       err => {
         console.log(err);
-        this.toastrService.error('Language Non Modifiee','Erreur') ;
+        this.toastrService.error('Language Non Modifiee', 'Erreur');
       }
     )
   }
