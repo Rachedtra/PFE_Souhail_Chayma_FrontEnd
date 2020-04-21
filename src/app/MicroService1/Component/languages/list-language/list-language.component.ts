@@ -16,7 +16,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ListLanguageComponent implements OnInit {
   lang: Languages[] = new Array();
   modalRef: BsModalRef;
-  modalRef1: BsModalRef;
+  
 
   constructor(private langservice: LanguagesService, private modalService: BsModalService,
     private toastrService: ToastrService,

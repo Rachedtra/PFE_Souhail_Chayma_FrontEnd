@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { MethodeService } from '../../Services/methode.service';
+import { MicroServiceService } from '../../Services/micro-service.service';
 
 @Component({
   selector: 'app-methode',
@@ -10,9 +11,11 @@ import { MethodeService } from '../../Services/methode.service';
 export class MethodeComponent implements OnInit {
 
   constructor( private mService: MethodeService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private msService: MicroServiceService) { }
 
   ngOnInit() {
+    this.msService.refreshList() ; 
   }
   resetForm() {
     this.mService.form.setValue({

@@ -2,8 +2,8 @@
         <form [formGroup]="langservice.form" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <p>
-            <label for="idLanguage">idLanguage</label>
-            <input  type="text" class="form-control" formControlName="idLanguage" name="idLanguage">          
+            
+            <input  type="hidden" class="form-control" formControlName="idLanguage" name="idLanguage">          
           </p>
         </div>
         <div class="form-group">
@@ -14,7 +14,7 @@
         </div> 
    
         <button type="submit" class="btn btn-primary mr-1"> Submit</button> 
-        <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
+        
 
       
     </form>

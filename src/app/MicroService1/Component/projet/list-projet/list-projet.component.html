@@ -1,15 +1,19 @@
+<div class="content-wrapper">
+
 <button class="btn btn-outline-success" (click)="AddProjet(templateAdd)">
   <i class="fa fa-plus"></i> Create Projet
 </button>
 
 <ng-template #templateAdd>
   <div class="modal-header">
+  
     <h4 class="modal-title pull-left">Projet Detail</h4>
-
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef1.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
    <app-projet></app-projet>
-    <button type="button" class="btn btn-danger" (click)="modalRef1.hide()">Fermer</button>
   </div>
 </ng-template>
 
@@ -17,7 +21,7 @@
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
-      <th>Id Projet</th>
+     
       <th>Nom</th>
       <th>Description</th>
  
@@ -28,7 +32,7 @@
     </tr>
   </thead>
   <tr *ngFor="let Projet of projetService.proj " style="background-color: white; color: black">
-    <td>{{Projet.idProjet}}</td>
+    
     <td>{{Projet.nom}}</td>
     <td>{{Projet.description}}</td>
    
@@ -53,3 +57,4 @@
       Edit</button></td>
   </tr>
 </table>
+</div>

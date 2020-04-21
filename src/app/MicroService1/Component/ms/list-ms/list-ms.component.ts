@@ -3,7 +3,7 @@ import { MicroServiceService } from 'src/app/MicroService1/Services/micro-servic
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { MsComponent } from '../ms.component';
-import { Languages } from 'src/app/MicroService1/Models/Languages.models';
+
 
 @Component({
   selector: 'app-list-ms',
@@ -12,11 +12,14 @@ import { Languages } from 'src/app/MicroService1/Models/Languages.models';
 })
 export class ListMsComponent implements OnInit {
   modalRef: BsModalRef;
-  lang: Languages;
+  
+
 
   constructor(private msService: MicroServiceService,
     private modalService: BsModalService,
-    private toastrService: ToastrService, ) { }
+    private toastrService: ToastrService,
+  
+    ) { }
 
   ngOnInit() {
     this.msService.refreshList();
@@ -82,8 +85,6 @@ export class ListMsComponent implements OnInit {
     this.modalRef = this.modalService.show(templatee);
 
   }
-
-
 
 
 

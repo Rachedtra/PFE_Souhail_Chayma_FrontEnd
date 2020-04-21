@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MicroServiceService } from '../../Services/micro-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { LanguagesService } from '../../Services/languages.service';
+import { Languages } from '../../Models/Languages.models';
+
+
+
 
 @Component({
   selector: 'app-ms',
@@ -8,11 +13,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./ms.component.css']
 })
 export class MsComponent implements OnInit {
+  lang: Languages[] = new Array();
+
 
   constructor( private msService: MicroServiceService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private langservice: LanguagesService,
+    ) { }
 
   ngOnInit() {
+    this.langservice.refreshList() ; 
 
   }
 
@@ -76,5 +86,6 @@ else
       }
     )
   }
+
 
 }

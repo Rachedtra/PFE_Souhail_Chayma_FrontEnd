@@ -3,8 +3,8 @@
 
       <div class="form-group">
         <p>
-          <label for="idVersion">Id Methode</label>
-          <input type="text" class="form-control" formControlName="idMethode" name="idMethode">
+          
+          <input type="hidden" class="form-control" formControlName="idMethode" name="idMethode">
         </p>
       </div>
       <div class="form-group">
@@ -35,12 +35,17 @@
         </p>
       </div>
        
-      <div class="form-group">
-        <p>
-          <label for="label">Id Micro Service</label>
-          <input type="text" class="form-control" name="msFk" formControlName="msFk">
-        </p>
+      <label>Micro Service </label>
+      <div>
+        <select class="form-control" formControlName="msFk" placeholder="msFk">
+         
+          <option value="0">-Select-</option>
+          <option *ngFor="let MicroService of msService.micro" [ngValue]="MicroService.idMs">
+            {{MicroService.label}}</option>
+        </select>
       </div>
+         
+       
 
       <button type="submit" class="btn btn-primary mr-1"> Submit</button>
     </form>

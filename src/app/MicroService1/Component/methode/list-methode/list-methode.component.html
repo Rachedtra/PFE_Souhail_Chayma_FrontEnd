@@ -1,15 +1,19 @@
+<div class="content-wrapper">
+
 <button class="btn btn-outline-success" (click)="AddMethode(templateSubmit)">
   <i class="fa fa-plus"></i> Create Methode
 </button>
 
 <ng-template #templateSubmit>
   <div class="modal-header">
+    
     <h4 class="modal-title pull-left">Methode Detail</h4>
-
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
    <app-methode></app-methode>
-    <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
   </div>
 </ng-template>
 
@@ -17,7 +21,7 @@
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
-      <th>Id Methode</th>
+      
       <th>Nom</th>
       <th>Description</th>
       <th>Input</th>
@@ -30,7 +34,7 @@
     </tr>
   </thead>
   <tr *ngFor="let Methode of mService.method " style="background-color: white; color: black">
-    <td>{{Methode.idMethode}}</td>
+    
     <td>{{Methode.nom}}</td>
     <td>{{Methode.description}}</td>
     <td>{{Methode.input}}</td>
@@ -57,3 +61,4 @@
       Edit</button></td>
   </tr>
 </table>
+</div>

@@ -1,3 +1,5 @@
+<div class="content-wrapper">
+
 <button class="btn btn-outline-success" (click)="AddMs(templateSubmit)">
   <i class="fa fa-plus"></i> Create MicroService
 </button>
@@ -5,11 +7,12 @@
 <ng-template #templateSubmit>
   <div class="modal-header">
     <h4 class="modal-title pull-left">MicroService Detail</h4>
-
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <app-ms></app-ms>
-    <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
   </div>
 </ng-template>
 
@@ -17,7 +20,7 @@
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
-      <th>Id Ms</th>
+     
       <th>Label</th>
       <th>Description</th>
       <th>Author</th>
@@ -30,13 +33,14 @@
     </tr>
   </thead>
   <tr *ngFor="let MicroService of msService.micro " style="background-color: white; color: black">
-    <td>{{MicroService.idMs}}</td>
+    
     <td>{{MicroService.label}}</td>
     <td>{{MicroService.description}}</td>
     <td>{{MicroService.author}}</td>
     <td>{{MicroService.lien}}</td>
     <td>{{MicroService.diagClass}}</td>
-    <td>{{MicroService.languagesFK}}</td>
+    <td> {{MicroService.languagesFK}} </td>
+ 
     <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
@@ -57,3 +61,4 @@
       Edit</button></td>
   </tr>
 </table>
+</div>

@@ -4,8 +4,8 @@
 
       <div class="form-group">
         <p>
-          <label for="idVersion">Id Micro Service</label>
-          <input type="text" class="form-control" formControlName="idMs" name="idMs">
+          
+          <input type="hidden" class="form-control" formControlName="idMs" name="idMs">
         </p>
       </div>
       <div class="form-group">
@@ -43,13 +43,16 @@
         </p>
       </div>
           
-      <div class="form-group">
-        <p>
-          <label for="label">Language Id</label>
-          <input type="text" class="form-control" name="languagesFK" formControlName="languagesFK">
-        </p>
-      </div>
-          
+      
+        <label>language </label>
+        <div>
+          <select class="form-control" formControlName="languagesFK" placeholder="languagesFK">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let language of langservice.lang" [ngValue]="language.idLanguage">
+              {{language.label}}</option>
+          </select>
+        </div>
 
       <button type="submit" class="btn btn-primary mr-1"> Submit</button>
     </form>

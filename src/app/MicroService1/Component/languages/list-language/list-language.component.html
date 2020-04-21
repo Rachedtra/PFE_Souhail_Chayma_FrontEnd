@@ -1,3 +1,4 @@
+<div class="content-wrapper">
 <button class="btn btn-outline-success" (click)="AddLang(templateSubmit)">
   <i class="fa fa-plus"></i> Create Language
 </button>
@@ -5,11 +6,13 @@
 <ng-template #templateSubmit>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Language Detail</h4>
-
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <app-languages></app-languages>
-    <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
+    
   </div>
 </ng-template>
 
@@ -17,7 +20,7 @@
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
-      <th>Id Language</th>
+      
       <th>Label</th>
       <th>Supprimer</th>
       <th>Modifier</th>
@@ -28,7 +31,7 @@
   <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
   <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
   <tr *ngFor="let language of langservice.lang " style="background-color: white; color: black">
-    <td>{{language.idLanguage}}</td>
+    
     <td>{{language.label}}</td>
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
@@ -48,3 +51,4 @@
         Edit</button></td>
   </tr>
 </table>
+</div>

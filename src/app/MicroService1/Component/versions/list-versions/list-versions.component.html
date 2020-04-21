@@ -1,15 +1,19 @@
+<div class="content-wrapper">
+
 <button class="btn btn-outline-success" (click)="AddVer(templateSubmit)">
   <i class="fa fa-plus"></i> Create Version
 </button>
 
 <ng-template #templateSubmit>
   <div class="modal-header">
+  
     <h4 class="modal-title pull-left">Version Detail</h4>
-
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <app-versions></app-versions>
-    <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
   </div>
 </ng-template>
 
@@ -17,14 +21,14 @@
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
-      <th>Id Version</th>
+     
       <th>numero</th>
       <th>Supprimer</th>
       <th>Modifier</th>
     </tr>
   </thead>
   <tr *ngFor="let Versions of Verservice.Ver " style="background-color: white; color: black">
-    <td>{{Versions.idVersion}}</td>
+    
     <td>{{Versions.numero}}</td>
     <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
     <td>
@@ -46,3 +50,4 @@
       Edit</button></td>
   </tr>
 </table>
+</div>
