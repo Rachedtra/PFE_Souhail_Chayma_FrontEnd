@@ -1,0 +1,55 @@
+<button class="btn btn-outline-success" (click)="AddProjet(templateAdd)">
+  <i class="fa fa-plus"></i> Create Projet
+</button>
+
+<ng-template #templateAdd>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Projet Detail</h4>
+
+  </div>
+  <div class="modal-body">
+   <app-projet></app-projet>
+    <button type="button" class="btn btn-danger" (click)="modalRef1.hide()">Fermer</button>
+  </div>
+</ng-template>
+
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>Id Projet</th>
+      <th>Nom</th>
+      <th>Description</th>
+ 
+      <th>Supprimer</th>
+      <th>Modifier </th>
+     
+      
+    </tr>
+  </thead>
+  <tr *ngFor="let Projet of projetService.proj " style="background-color: white; color: black">
+    <td>{{Projet.idProjet}}</td>
+    <td>{{Projet.nom}}</td>
+    <td>{{Projet.description}}</td>
+   
+    
+    <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
+    <td>
+      <button type="button" class="btn btn-danger" (click)="Confirmation(templateSupp)"><i
+          class="fas fa-trash-alt"></i>Delete</button>
+
+      <!-- <pre class="card card-block card-header">{{message}}</pre> -->
+      <ng-template #templateSupp>
+        <div class="modal-body text-center">
+          <p>Voulez vous Supprimer ?</p>
+          <button type="button" class="btn btn-default"
+            (click)="confirmProjet();DeleteProjet(Projet.idProjet);">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="declineProjet()">No</button>
+        </div>
+      </ng-template>
+    </td>
+    <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
+    <td><button class="btn btn-primary" (click)="EditProjet(Projet,templateAdd)"><i class="fas fa-edit"></i>
+      Edit</button></td>
+  </tr>
+</table>

@@ -1,0 +1,48 @@
+<button class="btn btn-outline-success" (click)="AddVer(templateSubmit)">
+  <i class="fa fa-plus"></i> Create Version
+</button>
+
+<ng-template #templateSubmit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Version Detail</h4>
+
+  </div>
+  <div class="modal-body">
+    <app-versions></app-versions>
+    <button type="button" class="btn btn-danger" (click)="modalRef.hide()">Fermer</button>
+  </div>
+</ng-template>
+
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>Id Version</th>
+      <th>numero</th>
+      <th>Supprimer</th>
+      <th>Modifier</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let Versions of Verservice.Ver " style="background-color: white; color: black">
+    <td>{{Versions.idVersion}}</td>
+    <td>{{Versions.numero}}</td>
+    <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
+    <td>
+      <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
+          class="fas fa-trash-alt"></i>Delete</button>
+
+      <!-- <pre class="card card-block card-header">{{message}}</pre> -->
+      <ng-template #templateDelete>
+        <div class="modal-body text-center">
+          <p>Voulez vous Supprimer ?</p>
+          <button type="button" class="btn btn-default"
+            (click)="confirm();DeleteVer(Versions.idVersion);">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+        </div>
+      </ng-template>
+    </td>
+    <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
+    <td><button class="btn btn-primary" (click)="EditVer(Versions,templateSubmit)"><i class="fas fa-edit"></i>
+      Edit</button></td>
+  </tr>
+</table>

@@ -5,6 +5,7 @@ import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 import { LanguagesComponent } from '../languages.component';
 import { ToastrService } from 'ngx-toastr';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ListLanguageComponent implements OnInit {
   modalRef1: BsModalRef;
 
   constructor(private langservice: LanguagesService, private modalService: BsModalService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+
   ) { }
 
   ngOnInit() {
