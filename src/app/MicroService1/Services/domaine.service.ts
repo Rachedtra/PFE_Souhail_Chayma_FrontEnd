@@ -30,10 +30,14 @@ export class DomaineService {
     return this._http.post('http://localhost:54735/api/Domaine', this.form.value,
       { responseType: "text" });
   }
+
+
   PutDom() {
     return this._http.put('http://localhost:54735/api/Domaine', this.form.value,
       { responseType: "text" });
   }
+
+  
   refreshList() {
 
     this._http.get('http://localhost:54735/api/Domaine').subscribe(res => {

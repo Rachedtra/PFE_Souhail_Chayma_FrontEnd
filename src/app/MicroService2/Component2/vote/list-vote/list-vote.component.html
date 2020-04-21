@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+
+  </tr>
+  <tr *ngFor="let Vote of Voservice.Vo" style="background-color: white; color: black">
+    <td>{{Vote.idVote}}</td>
+    <td>{{Vote.note}}</td>
+    <td><button (click)="DeleteVo(Vote.idVote)">Delete</button></td>
+    <td><button (click)="EditVo(Vote)">Edit</button></td>
+
+  </tr>
+</table>

@@ -21,6 +21,8 @@ import { DomaineComponent } from './MicroService1/component/domaine/domaine.comp
 import { ListDomaineComponent } from './MicroService1/component/Domaine/list-domaine/list-domaine.component';
 import {VersionsComponent} from './MicroService1/component/Versions/versions.component';
 import { ListVersionsComponent } from './MicroService1/component/Versions/list-versions/list-versions.component';
+import { VoteComponent } from './MicroService2/Component2/vote/vote.component';
+import { ListVoteComponent } from './MicroService2/Component2/Vote/list-vote/list-vote.component';
 
 
 
@@ -37,7 +39,9 @@ import { ListVersionsComponent } from './MicroService1/component/Versions/list-v
     DomaineComponent,
     ListDomaineComponent,
     VersionsComponent,
-    ListVersionsComponent
+    ListVersionsComponent,
+    VoteComponent,
+    ListVoteComponent
 
 
   ],
