@@ -1,0 +1,24 @@
+<div class="form-row">
+  <div class="col-md-7">
+    <form [formGroup]="Catservice.form" (ngSubmit)="onSubmit()">
+
+
+      <div class="form-group">
+        <p>
+          <label for="idCat">Categorie</label>
+          <input type="text" class="form-control" formControlName="idCat" name="idCat">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="label">label</label>
+          <input type="text" class="form-control" name="label" formControlName="label">
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+    </form>
+  </div>
+  <div class="col-md-5">
+    <app-list-categorie></app-list-categorie>
+  </div>
+</div>

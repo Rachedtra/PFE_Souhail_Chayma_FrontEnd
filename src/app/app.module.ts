@@ -25,6 +25,10 @@ import { VoteComponent } from './MicroService2/Component2/vote/vote.component';
 import { ListVoteComponent } from './MicroService2/Component2/Vote/list-vote/list-vote.component';
 
 
+import { from } from 'rxjs';
+import { CategorieComponent } from './MicroService2/Component2/categorie/categorie.component';
+import { ListCategorieComponent } from './MicroService2/Component2/list-categorie/list-categorie.component';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +45,10 @@ import { ListVoteComponent } from './MicroService2/Component2/Vote/list-vote/lis
     VersionsComponent,
     ListVersionsComponent,
     VoteComponent,
-    ListVoteComponent
-
+    ListVoteComponent,
+    CategorieComponent,
+    ListCategorieComponent,
+    
 
   ],
   imports: [

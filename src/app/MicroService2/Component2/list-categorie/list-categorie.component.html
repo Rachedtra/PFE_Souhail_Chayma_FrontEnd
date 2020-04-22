@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Categorie</th>
+    <th>Label</th>
+
+  </tr>
+  <tr *ngFor="let Categorie of Catservice.Cat" style="background-color: white; color: black">
+    <td>{{Categorie.idCat}}</td>
+    <td>{{Categorie.label}}</td>
+    <td><button (click)="DeleteCat(Categorie.idCat)">Delete</button></td>
+    <td><button (click)="EditCat(Categorie)">Edit</button></td>
+
+  </tr>
+</table>
