@@ -7,6 +7,11 @@ import { ListDomaineComponent } from './MicroService1/Component/domaine/list-dom
 import { ListMsComponent } from './MicroService1/Component/Ms/list-ms/list-ms.component';
 import { ListMethodeComponent } from './MicroService1/Component/Methode/list-methode/list-methode.component';
 import { ListProjetComponent } from './MicroService1/Component/Projet/list-projet/list-projet.component';
+import { ListCategorieComponent } from './MicroService2/ComponentMS2/categorie/list-categorie/list-categorie.component';
+import { ListVoteComponent } from './MicroService2/ComponentMS2/Vote/list-vote/list-vote.component';
+import { ListCommentaireComponent } from './MicroService2/ComponentMS2/Commentaire/list-commentaire/list-commentaire.component';
+import { ListDemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info/list-demande-info.component';
+import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie/list-sous-categorie.component';
 
 const routes: Routes = [
   {
@@ -37,7 +42,29 @@ const routes: Routes = [
     component : ListProjetComponent
   },
 
- 
+  {
+    path : 'list-Categorie',
+    component : ListCategorieComponent
+  },
+
+  {
+    path : 'list-vote',
+    component : ListVoteComponent
+  },
+
+  {
+    path : 'list-commentaire',
+    component : ListCommentaireComponent
+  },
+  {
+    path : 'list-demande-info',
+    component : ListDemandeInfoComponent
+  },
+  
+  {
+    path : 'list-sous-categorie',
+    component : ListSousCategorieComponent
+  },
 ];
 
 @NgModule({

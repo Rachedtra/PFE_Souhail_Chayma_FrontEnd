@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { LanguagesComponent } from './MicroService1/Component/languages/language
 import { LanguagesService } from './MicroService1/Services/languages.service';
 import { FormsModule } from '@angular/forms';
 import { BsModalRef, ModalModule ,BsModalService  } from 'ngx-bootstrap/modal';
-
+import {NgxPaginationModule} from 'ngx-pagination'  
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
@@ -30,6 +31,16 @@ import { MethodeComponent } from './MicroService1/Component/methode/methode.comp
 import { ListMethodeComponent } from './MicroService1/Component/Methode/list-methode/list-methode.component';
 import { ProjetComponent } from './MicroService1/Component/projet/projet.component';
 import { ListProjetComponent } from './MicroService1/Component/Projet/list-projet/list-projet.component';
+import { CategorieComponent } from './MicroService2/ComponentMS2/categorie/categorie.component';
+import { ListCategorieComponent } from './MicroService2/ComponentMS2/categorie/list-categorie/list-categorie.component';
+import { VoteComponent } from './MicroService2/ComponentMS2/vote/vote.component';
+import { ListVoteComponent } from './MicroService2/ComponentMS2/Vote/list-vote/list-vote.component';
+import { CommentaireComponent } from './MicroService2/ComponentMS2/commentaire/commentaire.component';
+import { ListCommentaireComponent } from './MicroService2/ComponentMS2/Commentaire/list-commentaire/list-commentaire.component';
+import { DemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/demande-info.component';
+import { ListDemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info/list-demande-info.component';
+import { SousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/sous-categorie.component';
+import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie/list-sous-categorie.component';
 
 
 
@@ -55,6 +66,16 @@ import { ListProjetComponent } from './MicroService1/Component/Projet/list-proje
     ListMethodeComponent,
     ProjetComponent,
     ListProjetComponent,
+    CategorieComponent,
+    ListCategorieComponent,
+    VoteComponent,
+    ListVoteComponent,
+    CommentaireComponent,
+    ListCommentaireComponent,
+    DemandeInfoComponent,
+    ListDemandeInfoComponent,
+    SousCategorieComponent,
+    ListSousCategorieComponent,
   
 
 
@@ -67,7 +88,11 @@ import { ListProjetComponent } from './MicroService1/Component/Projet/list-proje
     ReactiveFormsModule,
     ModalModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule ,
+    BsDatepickerModule.forRoot(),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent],

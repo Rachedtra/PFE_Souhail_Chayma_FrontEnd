@@ -28,9 +28,16 @@
   <th>Languages Versions</th> -->
     </tr>
   </thead>
+  <tbody>
   <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
   <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
-  <tr *ngFor="let language of langservice.lang " style="background-color: white; color: black">
+  <tr *ngFor="let language of langservice.lang  | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 1,
+      currentPage: p
+    }" class="sizeText" 
+    style="background-color: white; color: black">
     
     <td>{{language.label}}</td>
     <td>
@@ -50,5 +57,9 @@
     <td><button class="btn btn-primary" (click)="EditLang(language,templateSubmit)"><i class="fas fa-edit"></i>
         Edit</button></td>
   </tr>
+  </tbody>
 </table>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
 </div>

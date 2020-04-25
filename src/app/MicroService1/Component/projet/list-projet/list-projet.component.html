@@ -31,7 +31,14 @@
       
     </tr>
   </thead>
-  <tr *ngFor="let Projet of projetService.proj " style="background-color: white; color: black">
+  <tbody>
+  <tr *ngFor="let Projet of projetService.proj | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 1,
+      currentPage: p
+    }" class="sizeText" 
+   style="background-color: white; color: black">
     
     <td>{{Projet.nom}}</td>
     <td>{{Projet.description}}</td>
@@ -56,5 +63,9 @@
     <td><button class="btn btn-primary" (click)="EditProjet(Projet,templateAdd)"><i class="fas fa-edit"></i>
       Edit</button></td>
   </tr>
+</tbody>
 </table>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
 </div>

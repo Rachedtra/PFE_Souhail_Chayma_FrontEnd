@@ -32,7 +32,15 @@
       
     </tr>
   </thead>
-  <tr *ngFor="let MicroService of msService.micro " style="background-color: white; color: black">
+  <tbody>
+     
+  <tr *ngFor="let MicroService of msService.micro | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 1,
+      currentPage: p
+    } " class="sizeText" 
+  style="background-color: white; color: black">
     
     <td>{{MicroService.label}}</td>
     <td>{{MicroService.description}}</td>
@@ -42,7 +50,7 @@
     <td> {{MicroService.languagesFK}} </td>
  
     <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
-    <td>
+    <td  *ngIf="!isDisable">
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
           class="fas fa-trash-alt"></i>Delete</button>
 
@@ -51,14 +59,20 @@
         <div class="modal-body text-center">
           <p>Voulez vous Supprimer ?</p>
           <button type="button" class="btn btn-default"
-            (click)="confirm();DeleteMs(MicroService.idMs);">Yes</button>
+            (click)="confirm();DeleteMs(MicroService.idMs)">Yes</button>
           <button type="button" class="btn btn-primary" (click)="decline()">No</button>
         </div>
       </ng-template>
     </td>
     <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
     <td><button class="btn btn-primary" (click)="EditMs(MicroService,templateSubmit)"><i class="fas fa-edit"></i>
-      Edit</button></td>
+      Edit</button>
+    </td>
   </tr>
+ 
+</tbody>
 </table>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
 </div>

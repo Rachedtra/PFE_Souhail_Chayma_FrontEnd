@@ -12,7 +12,8 @@ import { MsComponent } from '../ms.component';
 })
 export class ListMsComponent implements OnInit {
   modalRef: BsModalRef;
-  
+  modalData: any;
+
 
 
   constructor(private msService: MicroServiceService,
@@ -42,7 +43,7 @@ export class ListMsComponent implements OnInit {
   }
 
 
-
+ 
 
   DeleteMs(idMs: string) {
     this.msService.DeleteMs(idMs).subscribe(res => {

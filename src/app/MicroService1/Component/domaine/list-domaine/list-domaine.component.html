@@ -25,7 +25,13 @@
       <th>Modifier</th>
     </tr>
   </thead>
-  <tr *ngFor="let Domaine of Domservice.Dom " style="background-color: white; color: black">
+  <tbody>
+  <tr *ngFor="let Domaine of Domservice.Dom | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 1,
+      currentPage: p
+    }" class="sizeText" style="background-color: white; color: black">
     
     <td>{{Domaine.nom}}</td>
     <!-- <td><button (click)="DeleteDom(Domaine.idDomain)">Delete</button></td> -->
@@ -47,5 +53,9 @@
     <td><button class="btn btn-primary" (click)="EditDom(Domaine,templateS)"><i class="fas fa-edit"></i>
       Edit</button></td>
   </tr>
+  </tbody>
 </table>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
 </div>

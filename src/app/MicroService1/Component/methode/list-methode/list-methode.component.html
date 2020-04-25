@@ -33,7 +33,14 @@
       
     </tr>
   </thead>
-  <tr *ngFor="let Methode of mService.method " style="background-color: white; color: black">
+  <tbody>
+  <tr *ngFor="let Methode of mService.method | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 1,
+      currentPage: p
+    }" class="sizeText" 
+   style="background-color: white; color: black">
     
     <td>{{Methode.nom}}</td>
     <td>{{Methode.description}}</td>
@@ -60,5 +67,9 @@
     <td><button class="btn btn-primary" (click)="EditMethode(Methode,templateSubmit)"><i class="fas fa-edit"></i>
       Edit</button></td>
   </tr>
+  </tbody>
 </table>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
 </div>

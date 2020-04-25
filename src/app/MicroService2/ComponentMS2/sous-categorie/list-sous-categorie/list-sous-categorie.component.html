@@ -1,0 +1,71 @@
+<div class="content-wrapper">
+
+  <button class="btn btn-outline-success" (click)="AddSousCat(templateSubmit)">
+    <i class="fa fa-plus"></i> Create Sous categorie
+  </button>
+  
+  <ng-template #templateSubmit>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Sous categorie Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalSousCatRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-sous-categorie></app-sous-categorie>
+    </div>
+  </ng-template>
+  
+  
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+       
+        
+        <th>Label</th>
+        <th>Categorie</th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+       
+    <tr *ngFor="let sous of SousCatoService.sousCat | paginate
+    : {
+        id: 'MicroservicePagination',
+        itemsPerPage: 1,
+        currentPage: p
+      } " class="sizeText" 
+    style="background-color: white; color: black">
+      
+      <td>{{sous.label}}</td>
+      <td>{{sous.catFK}}</td>
+   
+      <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
+     <td>
+        <button type="button" class="btn btn-danger" (click)="ConfirmSousCatModal(templateDelete)"><i
+            class="fas fa-trash-alt"></i>Delete</button>
+  
+        <!-- <pre class="card card-block card-header">{{message}}</pre> -->
+        <ng-template #templateDelete>
+          <div class="modal-body text-center">
+            <p>Voulez vous Supprimer ?</p>
+            <button type="button" class="btn btn-default"
+              (click)="confirmSousCat();DeleteSousCat(sous.idSousCate)">Yes</button>
+            <button type="button" class="btn btn-primary" (click)="declineSousCat()">No</button>
+          </div>
+        </ng-template>
+      </td>
+      <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
+      <td><button class="btn btn-primary" (click)="EditSousCat(sous,templateSubmit)"><i class="fas fa-edit"></i>
+        Edit</button>
+      </td>
+    </tr>
+   
+  </tbody>
+  </table>
+  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+  previousLabel="Prec " nextLabel="Suiv ">
+  </pagination-controls>
+  </div>
