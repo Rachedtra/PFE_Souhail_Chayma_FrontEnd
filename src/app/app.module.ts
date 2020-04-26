@@ -88,7 +88,8 @@ import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-ca
     ReactiveFormsModule,
     ModalModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(
+  ),
     NgxPaginationModule ,
     BsDatepickerModule.forRoot(),
 

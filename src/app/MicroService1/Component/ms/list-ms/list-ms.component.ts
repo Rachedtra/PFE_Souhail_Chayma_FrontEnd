@@ -3,6 +3,7 @@ import { MicroServiceService } from 'src/app/MicroService1/Services/micro-servic
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { MsComponent } from '../ms.component';
+import { LanguagesService } from 'src/app/MicroService1/Services/languages.service';
 
 
 @Component({
@@ -19,11 +20,13 @@ export class ListMsComponent implements OnInit {
   constructor(private msService: MicroServiceService,
     private modalService: BsModalService,
     private toastrService: ToastrService,
+    private langService:LanguagesService
   
     ) { }
 
   ngOnInit() {
     this.msService.refreshList();
+    this.langService.refreshList() ; 
     this.resetForm();
   }
   resetForm() {

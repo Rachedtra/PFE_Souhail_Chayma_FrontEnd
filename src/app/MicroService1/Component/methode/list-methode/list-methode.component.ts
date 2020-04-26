@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MethodeService } from 'src/app/MicroService1/Services/methode.service';
 import { ToastrService } from 'ngx-toastr';
 import { MethodeComponent } from '../methode.component';
+import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 
 @Component({
   selector: 'app-list-methode',
@@ -16,10 +17,12 @@ export class ListMethodeComponent implements OnInit {
 
   constructor(private mService: MethodeService,
     private modalService: BsModalService,
-    private toastrService: ToastrService, ) { }
+    private toastrService: ToastrService, 
+    private MsService : MicroServiceService) { }
 
   ngOnInit() {
     this.mService.refreshList();
+    this.MsService.refreshList() ; 
     this.resetForm();
   }
   resetForm() {
