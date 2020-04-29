@@ -22,6 +22,7 @@ lang: Languages[] = new Array();
     label: new FormControl(""),
      microServices : new FormControl(""), 
      versionLanguages  : new FormControl(""), 
+     isActiveLang : new FormControl(""), 
 
   });
   constructor(private _http: HttpClient) { }

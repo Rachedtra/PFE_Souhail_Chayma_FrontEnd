@@ -29,6 +29,7 @@ export class DomaineComponent implements OnInit {
       idDomain: "00000000-0000-0000-0000-000000000000",
       nom: "",
       domainProjets: "",
+      isActiveDomaine : true ,
 
     });
   }
@@ -52,7 +53,7 @@ export class DomaineComponent implements OnInit {
       },
       err => {
         console.log(err);
-        this.toastrService.success('', 'Domaine Ajoutee Avec Succés');
+        this.toastrService.success('', 'Domaine Non Ajoutee');
 
       }
     )

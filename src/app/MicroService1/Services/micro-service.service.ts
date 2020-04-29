@@ -17,9 +17,11 @@ export class MicroServiceService {
     lien: new FormControl(""),
     diagClass: new FormControl(""),
     languagesFK: new FormControl(""),
-    msprojet: new FormControl(""),
-    methodes: new FormControl(""),
-    languages: new FormControl("")
+    // msprojet: new FormControl(""),
+    // methodes: new FormControl(""),
+    // languages: new FormControl(""),
+    isActiveMs :new FormControl(""),
+    languageLabel : new FormControl(""),
   });
 
 

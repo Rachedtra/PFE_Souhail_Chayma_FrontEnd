@@ -6,5 +6,6 @@ export class Methode {
     output : string ; 
     // microService : string ; 
     msFk : string ; 
+    isActiveMethode : boolean ; 
 
 }

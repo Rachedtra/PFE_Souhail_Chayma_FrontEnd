@@ -38,9 +38,11 @@ export class ListMsComponent implements OnInit {
         lien: "",
         diagClass: "",
         languagesFK: "00000000-0000-0000-0000-000000000000",
-        msprojet: "",
-        methodes: "",
-        languages :"",
+       // msprojet: "",
+        // methodes: "",
+        // languages :"",
+        isActiveMs : true ,
+        languageLabel : ""
 
     });
   }

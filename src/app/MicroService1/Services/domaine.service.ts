@@ -15,6 +15,7 @@ export class DomaineService {
     idDomain: new FormControl(""),
     nom: new FormControl(""),
     domainProjets: new FormControl(""),
+    isActiveDomaine : new FormControl(""),
   });
 
   constructor(private _http: HttpClient) { }

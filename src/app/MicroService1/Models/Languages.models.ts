@@ -3,4 +3,5 @@ export class Languages {
     label: string;
     // microServices : string ; 
    //  versionLanguages: string ; 
+   isActiveLang : boolean ; 
 }

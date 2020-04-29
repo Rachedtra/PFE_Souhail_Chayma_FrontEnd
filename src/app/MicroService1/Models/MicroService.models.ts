@@ -6,4 +6,6 @@ export class MS{
     lien : string ; 
     diagClass : string ; 
     languagesFK : string ; 
+    isActiveMs : boolean ; 
+    languageLabel : string ; 
 }

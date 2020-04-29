@@ -34,7 +34,8 @@ export class ListLanguageComponent implements OnInit {
       idLanguage: "00000000-0000-0000-0000-000000000000",
       label: "",
       microServices: "",
-      versionLanguages: ""
+      versionLanguages: "",
+      isActiveLang : true ,
     });
   }
 
