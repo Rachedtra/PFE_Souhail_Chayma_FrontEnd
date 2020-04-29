@@ -27,7 +27,8 @@ export class VersionsComponent implements OnInit {
     this.Verservice.form.setValue({
       idVersion: "00000000-0000-0000-0000-000000000000",
       numero: "",
-      versionLanguages: ""
+      versionLanguages: ""  , 
+      isActiveVersion : true , 
 
     });
   }

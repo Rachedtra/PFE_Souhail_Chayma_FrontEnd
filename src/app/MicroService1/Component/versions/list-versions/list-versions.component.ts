@@ -29,6 +29,7 @@ export class ListVersionsComponent implements OnInit {
       idVersion: "00000000-0000-0000-0000-000000000000",
       numero: "",
       versionLanguages: "",
+      isActiveVersion : true , 
 
     });
   }

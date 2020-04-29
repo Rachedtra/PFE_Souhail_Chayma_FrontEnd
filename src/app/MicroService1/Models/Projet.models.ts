@@ -5,4 +5,5 @@ export class Projet {
     description : string ; 
     // DomainProjets
     //  msprojet
+    isActiveProjet : boolean ; 
 }

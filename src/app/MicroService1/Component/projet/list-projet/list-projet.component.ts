@@ -30,6 +30,7 @@ export class ListProjetComponent implements OnInit {
       description: "",
       domainProjets: "",
       msprojet: "",
+      isActiveProjet : true ,
   });
   }
 

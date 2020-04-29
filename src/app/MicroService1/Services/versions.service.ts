@@ -13,6 +13,7 @@ export class VersionsService {
     idVersion: new FormControl(""),
     numero: new FormControl(""),
      versionLanguages: new FormControl(""),
+     isActiveVersion :  new FormControl(""),
   });
 
 

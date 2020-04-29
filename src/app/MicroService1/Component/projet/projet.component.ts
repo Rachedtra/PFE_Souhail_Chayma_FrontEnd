@@ -23,6 +23,8 @@ export class ProjetComponent implements OnInit {
       description: "",
       domainProjets: "",
       msprojet: "",
+      isActiveProjet : true ,
+
   });
   }
 

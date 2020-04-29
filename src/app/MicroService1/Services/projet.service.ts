@@ -16,6 +16,7 @@ export class ProjetService {
     description: new FormControl(""), 
     domainProjets: new FormControl(""),
     msprojet: new FormControl(""),
+    isActiveProjet : new FormControl(""),
   });
 
   constructor(private _http: HttpClient) { }
