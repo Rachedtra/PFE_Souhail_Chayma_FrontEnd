@@ -1,7 +1,10 @@
-<div class="content-wrapper">
+<div class="content-wrapper"> 
 <button class="btn btn-outline-success" (click)="AddDom(templateS)">
   <i class="fa fa-plus"></i> Create Domaine
 </button>
+<input  type="text" [(ngModel)]="DomaaineFilter.nom" placeholder="Search By Name">
+
+
 
 <ng-template #templateS>
   <div class="modal-header">
@@ -26,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let Domaine of Domservice.Dom | paginate
+  <tr *ngFor="let Domaine of Domservice.Dom | filterBy: DomaaineFilter | paginate
   : {
       id: 'MicroservicePagination',
       itemsPerPage: 1,

@@ -7,5 +7,6 @@ export class Methode {
     // microService : string ; 
     msFk : string ; 
     isActiveMethode : boolean ; 
+    msLabel : string ; 
 
 }

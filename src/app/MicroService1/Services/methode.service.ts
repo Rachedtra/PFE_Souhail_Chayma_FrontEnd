@@ -16,9 +16,10 @@ export class MethodeService {
     description: new FormControl(""),
     input: new FormControl(""),
     output: new FormControl(""),
-    microService: new FormControl(""),
+    // microService: new FormControl(""),
     msFk: new FormControl(""),
     isActiveMethode : new FormControl(""),
+    msLabel :new FormControl (""),
   });
 
   constructor(private _http: HttpClient) { }

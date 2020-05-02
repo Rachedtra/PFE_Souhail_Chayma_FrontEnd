@@ -32,9 +32,10 @@ export class ListMethodeComponent implements OnInit {
       description: "",
       input: "",
       output: "",
-      microService: "",
+   
       msFk: "00000000-0000-0000-0000-000000000000",
       isActiveMethode : true ,
+    msLabel : "" ,
 
   });
   }

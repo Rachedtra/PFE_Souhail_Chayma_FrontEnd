@@ -10,7 +10,8 @@ import { GeneralLayoutComponent } from './general-layout/general-layout.componen
 import { FooterLeftComponent } from './navbar/footer-left/footer-left.component';
 import { FooterRightComponent } from './navbar/footer-right/footer-right.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+import { FilterPipeModule } from 'ngx-filter-pipe';
+
 import { ToastrModule } from 'ngx-toastr'
 import { HttpClientModule } from '@angular/common/http';
 import { LanguagesComponent } from './MicroService1/Component/languages/languages.component';
@@ -88,10 +89,11 @@ import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-ca
     ReactiveFormsModule,
     ModalModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(
-  ),
+    ToastrModule.forRoot(),
     NgxPaginationModule ,
     BsDatepickerModule.forRoot(),
+    FilterPipeModule
+
 
 
   ],

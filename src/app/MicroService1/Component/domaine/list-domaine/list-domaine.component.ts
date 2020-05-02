@@ -13,6 +13,8 @@ import { DomaineComponent } from '../domaine.component';
 export class ListDomaineComponent implements OnInit {
   Dom: Domaine[] = new Array();
  Ref: BsModalRef;
+ DomaaineFilter: any = { nom: '' };
+
   constructor(private Domservice: DomaineService,
     private BsmodalService: BsModalService,
     private t: ToastrService, ) { }
