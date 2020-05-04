@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MS } from '../Models/MicroService.models';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class MicroServiceService {
 
   form: FormGroup = new FormGroup({
     idMs: new FormControl(""),
-    label: new FormControl(""),
+    label: new FormControl("",[Validators.required]),
     description: new FormControl(""),
     author: new FormControl(""),
     lien: new FormControl(""),
