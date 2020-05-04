@@ -14,6 +14,7 @@ import { LanguagesService } from 'src/app/MicroService1/Services/languages.servi
 export class ListMsComponent implements OnInit {
   modalRef: BsModalRef;
   modalData: any;
+  MsFilter: any = { label: '' };
 
 
 

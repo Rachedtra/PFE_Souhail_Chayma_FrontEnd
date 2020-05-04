@@ -12,6 +12,7 @@ import { MsComponent } from '../ms.component';
 })
 export class ListMsActiveComponent implements OnInit {
   modalRefActive: BsModalRef;
+  MsFilterActive: any = { label: '' };
 
 
   constructor(private msService: MicroServiceService,

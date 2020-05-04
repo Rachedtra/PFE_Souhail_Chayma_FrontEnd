@@ -3,6 +3,8 @@
 <button class="btn btn-outline-success" (click)="AddMs(templateSubmit)">
   <i class="fa fa-plus"></i> Create MicroService
 </button>
+<input  type="text" [(ngModel)]="MsFilter.label" placeholder="Search By Label">
+
 
 <ng-template #templateSubmit>
   <div class="modal-header">
@@ -35,7 +37,7 @@
   </thead>
   <tbody>
      
-  <tr *ngFor="let MicroService of msService.micro | paginate
+  <tr *ngFor="let MicroService of msService.micro | filterBy: MsFilter| paginate
   : {
       id: 'MicroservicePagination',
       itemsPerPage: 3,
