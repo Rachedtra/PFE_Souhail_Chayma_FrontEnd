@@ -1,10 +1,24 @@
 <div class="content-wrapper"> 
-<button class="btn btn-outline-success" (click)="AddDom(templateS)">
+<!-- <button class="btn btn-outline-success" (click)="AddDom(templateS)">
   <i class="fa fa-plus"></i> Create Domaine
 </button>
-<input  type="text" [(ngModel)]="DomaaineFilter.nom" placeholder="Search By Name">
+<input  type="text" [(ngModel)]="DomaaineFilter.nom" placeholder="Search By Name"> -->
+
+<div class="form-group row">
+  <div class="col-md-5">
+      <button type="button" class="btn btn-outline-success" (click)="AddDom(templateS)">
+        <i class="fa fa-plus"></i> Add Domaine
+</button>
+  </div>
+  <div class="col-md-5">
+  </div>
+     <div class="col-md-2">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomaaineFilter.nom" >
 
 
+     </div>
+    
+</div>
 
 <ng-template #templateS>
   <div class="modal-header">
@@ -32,7 +46,7 @@
   <tr *ngFor="let Domaine of Domservice.Dom | filterBy: DomaaineFilter | paginate
   : {
       id: 'MicroservicePagination',
-      itemsPerPage: 1,
+      itemsPerPage: 3,
       currentPage: p
     }" class="sizeText" style="background-color: white; color: black">
     
