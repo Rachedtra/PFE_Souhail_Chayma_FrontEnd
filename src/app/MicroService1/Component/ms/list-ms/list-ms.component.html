@@ -27,6 +27,7 @@
       <th>Lien</th>
       <th>Diagrame Classe</th>
       <th>Language </th>
+      <th>Statu</th>
       <th>Supprimer</th>
       <th>Modifier</th>
       
@@ -48,7 +49,7 @@
     <td>{{MicroService.lien}}</td>
     <td>{{MicroService.diagClass}}</td>
     <td> {{MicroService.languageLabel}} </td>
- 
+    <td> {{ MicroService.isActiveMs ? 'Active' : 'Inactive'}}</td>
     <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
@@ -75,4 +76,8 @@
 <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
 previousLabel="Prec " nextLabel="Suiv ">
 </pagination-controls>
+<button class="btn btn-outline-info" routerLink="list-ms-active" routerLinkActive="active">
+  <!-- <a routerLink="list-ms-active" routerLinkActive="active" > -->
+ Active List
+</button>
 </div>

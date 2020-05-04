@@ -12,6 +12,7 @@ import { ListVoteComponent } from './MicroService2/ComponentMS2/Vote/list-vote/l
 import { ListCommentaireComponent } from './MicroService2/ComponentMS2/Commentaire/list-commentaire/list-commentaire.component';
 import { ListDemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info/list-demande-info.component';
 import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie/list-sous-categorie.component';
+import { ListMsActiveComponent } from './MicroService1/Component/ms/list-ms-active/list-ms-active.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,12 @@ const routes: Routes = [
     path : 'list-sous-categorie',
     component : ListSousCategorieComponent
   },
+
+  {
+    path : 'list-ms/list-ms-active',
+    component : ListMsActiveComponent
+  },
+
 ];
 
 @NgModule({

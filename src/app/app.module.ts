@@ -42,6 +42,8 @@ import { DemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/
 import { ListDemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info/list-demande-info.component';
 import { SousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/sous-categorie.component';
 import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie/list-sous-categorie.component';
+import { ListMsActiveComponent } from './MicroService1/Component/ms/list-ms-active/list-ms-active.component';
+import { MsActiveComponent } from './MicroService1/Component/ms/ms-active/ms-active.component';
 
 
 
@@ -77,6 +79,8 @@ import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-ca
     ListDemandeInfoComponent,
     SousCategorieComponent,
     ListSousCategorieComponent,
+    ListMsActiveComponent,
+    MsActiveComponent,
   
 
 

@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MicroServiceService {
   micro: MS[] = new Array();
+  microActive: MS[] = new Array();
 
   form: FormGroup = new FormGroup({
     idMs: new FormControl(""),
@@ -57,6 +58,14 @@ export class MicroServiceService {
     });
 
 
+  }
+
+  ListActive(){
+    this._http.get('http://localhost:54735/api/MS/GetActiveList').subscribe(res => {
+      this.microActive =res as MS[];
+      console.log(this.microActive) ; 
+
+    }) ; 
   }
 
 }

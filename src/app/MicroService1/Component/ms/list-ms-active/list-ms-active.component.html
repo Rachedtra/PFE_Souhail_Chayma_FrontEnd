@@ -1,0 +1,79 @@
+<div class="content-wrapper">
+
+  <button class="btn btn-outline-success" (click)="AddMs(templateSubmit)">
+    <i class="fa fa-plus"></i> Create MicroService
+  </button>
+  
+  <ng-template #templateSubmit>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">MicroService Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefActive.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-ms-active></app-ms-active>
+    </div>
+  </ng-template>
+  
+  
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+       
+        <th>Label</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Lien</th>
+        <th>Diagrame Classe</th>
+        <th>Language </th>
+        <th>Statu</th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+       
+    <tr *ngFor="let MicroService of msService.microActive | paginate
+    : {
+        id: 'MicroservicePagination',
+        itemsPerPage: 3,
+        currentPage: p
+      } " class="sizeText" 
+    style="background-color: white; color: black">
+      
+      <td>{{MicroService.label}}</td>
+      <td>{{MicroService.description}}</td>
+      <td>{{MicroService.author}}</td>
+      <td>{{MicroService.lien}}</td>
+      <td>{{MicroService.diagClass}}</td>
+      <td> {{MicroService.languageLabel}} </td>
+      <td> {{ MicroService.isActiveMs ? 'Active' : 'Inactive'}}</td>
+      <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
+      <td>
+        <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
+            class="fas fa-trash-alt"></i>Delete</button>
+  
+        <!-- <pre class="card card-block card-header">{{message}}</pre> -->
+        <ng-template #templateDelete>
+          <div class="modal-body text-center">
+            <p>Voulez vous Supprimer ?</p>
+            <button type="button" class="btn btn-default"
+              (click)="confirm();DeleteMs(MicroService.idMs)">Yes</button>
+            <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+          </div>
+        </ng-template>
+      </td>
+      <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
+      <td><button class="btn btn-primary" (click)="EditMs(MicroService,templateSubmit)"><i class="fas fa-edit"></i>
+        Edit</button>
+      </td>
+    </tr>
+   
+  </tbody>
+  </table>
+  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+  previousLabel="Prec " nextLabel="Suiv ">
+  </pagination-controls>
+  </div>
