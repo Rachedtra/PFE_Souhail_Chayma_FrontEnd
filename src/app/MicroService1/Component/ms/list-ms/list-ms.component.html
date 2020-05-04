@@ -3,8 +3,10 @@
 <button class="btn btn-outline-success" (click)="AddMs(templateSubmit)">
   <i class="fa fa-plus"></i> Create MicroService
 </button>
-<input  type="text" [(ngModel)]="MsFilter.label" placeholder="Search By Label">
 
+<div class="form-group has-search">
+  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="MsFilter.label" >
+</div>
 
 <ng-template #templateSubmit>
   <div class="modal-header">
