@@ -44,6 +44,12 @@ import { SousCategorieComponent } from './MicroService2/ComponentMS2/sous-catego
 import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie/list-sous-categorie.component';
 import { ListMsActiveComponent } from './MicroService1/Component/ms/list-ms-active/list-ms-active.component';
 import { MsActiveComponent } from './MicroService1/Component/ms/ms-active/ms-active.component';
+import { VersionLanguageComponent } from './MicroService1/Component/version-language/version-language.component';
+import { ListVerLangComponent } from './MicroService1/Component/version-language/list-ver-lang/list-ver-lang.component';
+import { DomaineProjetComponent } from './MicroService1/Component/domaine-projet/domaine-projet.component';
+import { ListDomaineProjetComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet/list-domaine-projet.component';
+import { MsProjetComponent } from './MicroService1/Component/ms-projet/ms-projet.component';
+import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-ms-projet/list-ms-projet.component';
 
 
 
@@ -81,6 +87,12 @@ import { MsActiveComponent } from './MicroService1/Component/ms/ms-active/ms-act
     ListSousCategorieComponent,
     ListMsActiveComponent,
     MsActiveComponent,
+    VersionLanguageComponent,
+    ListVerLangComponent,
+    DomaineProjetComponent,
+    ListDomaineProjetComponent,
+    MsProjetComponent,
+    ListMsProjetComponent
   
 
 

@@ -13,6 +13,9 @@ import { ListCommentaireComponent } from './MicroService2/ComponentMS2/Commentai
 import { ListDemandeInfoComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info/list-demande-info.component';
 import { ListSousCategorieComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie/list-sous-categorie.component';
 import { ListMsActiveComponent } from './MicroService1/Component/ms/list-ms-active/list-ms-active.component';
+import { ListVerLangComponent } from './MicroService1/Component/version-language/list-ver-lang/list-ver-lang.component';
+import { ListDomaineProjetComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet/list-domaine-projet.component';
+import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-ms-projet/list-ms-projet.component';
 
 const routes: Routes = [
   {
@@ -70,6 +73,20 @@ const routes: Routes = [
   {
     path : 'list-ms/list-ms-active',
     component : ListMsActiveComponent
+  },
+
+  {
+    path : 'list-ver-lang',
+    component : ListVerLangComponent
+  },
+
+  {
+    path : 'list-domaine-projet',
+    component : ListDomaineProjetComponent
+  },
+  {
+    path : 'list-ms-projet',
+    component : ListMsProjetComponent
   },
 
 ];
