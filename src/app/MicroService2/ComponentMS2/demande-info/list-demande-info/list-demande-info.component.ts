@@ -31,6 +31,7 @@ export class ListDemandeInfoComponent implements OnInit {
         date: "",
         commDemandeInfos: "",
         catDemandeInfos: "",
+        isActiveInfo : true 
     });
   }
 

@@ -28,6 +28,7 @@ export class ListCategorieComponent implements OnInit {
       label: "",
       catDemandeInfos: "",
       sousCategories :"",
+      isActiveCat : true ,
 
   });
 }

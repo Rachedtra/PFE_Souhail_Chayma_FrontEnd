@@ -16,6 +16,7 @@ export class CommentaireService {
     date: new FormControl(""),
     commDemandeInfos : new FormControl(""),
     commVotes: new FormControl(""),
+    isActiveComm : new FormControl(""),
     
   });
   constructor(private _http :HttpClient) { }

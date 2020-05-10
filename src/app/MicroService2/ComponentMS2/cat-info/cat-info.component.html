@@ -1,0 +1,38 @@
+<form [formGroup]="CatInfoService.form" (ngSubmit)="onSubmitCi()">
+  <div class="form-group">
+        <label>Categorie </label>
+        <div>
+          <select class="form-control" formControlName="idCat" placeholder="idCat">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let cat of CatService.cat" [ngValue]="cat.idCat">
+              {{cat.label}}</option>
+          </select>
+        </div>
+        <label>Demande Information </label>
+        <div>
+          <select class="form-control" formControlName="idDemandeInfo" placeholder="idDemandeInfo">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let info of InfoetServie.info" [ngValue]="info.idDemandeInfo">
+              {{info.description}}</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-5"></div>          
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="switch1"  
+              name="isActiveCatInfo"  value="True"  formControlName="isActiveCatInfo">
+              <label class="custom-control-label" for="switch1">Statut</label>
+            </div> 
+          </div>
+        </div>
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+  </div>
+</form>
+
+ 
+
+

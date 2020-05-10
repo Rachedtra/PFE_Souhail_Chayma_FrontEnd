@@ -14,6 +14,7 @@ export class VoteService {
     idVote: new FormControl(""),
     note: new FormControl(""),
     commVotes: new FormControl(""),
+    isActiveVote: new FormControl(""),
     
   });
 

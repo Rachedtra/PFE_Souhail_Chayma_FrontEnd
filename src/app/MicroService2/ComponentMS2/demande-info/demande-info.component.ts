@@ -25,6 +25,8 @@ export class DemandeInfoComponent implements OnInit {
         date: "",
         commDemandeInfos: "",
         catDemandeInfos: "",
+        isActiveInfo : true 
+ 
     });
   }
 

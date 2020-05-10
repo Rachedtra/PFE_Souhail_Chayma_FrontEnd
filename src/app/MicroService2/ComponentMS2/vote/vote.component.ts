@@ -20,6 +20,8 @@ export class VoteComponent implements OnInit {
       idVote: "00000000-0000-0000-0000-000000000000",
       note: "",
       commVotes: "",
+      isActiveVote : true 
+
   });
 }
 

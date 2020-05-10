@@ -16,6 +16,7 @@ export class DemandeInfoService {
     date: new FormControl(""),
     commDemandeInfos : new FormControl(""),
     catDemandeInfos: new FormControl(""),
+    isActiveInfo: new FormControl(""),
     
   });
   constructor(private _http:HttpClient) { }

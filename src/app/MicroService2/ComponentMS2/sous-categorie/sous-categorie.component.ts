@@ -27,7 +27,10 @@ export class SousCategorieComponent implements OnInit {
         idSousCate: "00000000-0000-0000-0000-000000000000",
         label: "",
         catFK: "",
-        categories: "",
+        isActiveSousCat : true,
+        catLabel : ""
+
+
         
     });
   }

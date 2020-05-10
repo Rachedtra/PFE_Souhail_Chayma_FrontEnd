@@ -24,6 +24,8 @@ export class CommentaireComponent implements OnInit {
         date: "",
         commDemandeInfos: "",
         commVotes: "",
+        isActiveComm : true
+
     });
   }
 

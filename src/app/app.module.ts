@@ -50,6 +50,8 @@ import { DomaineProjetComponent } from './MicroService1/Component/domaine-projet
 import { ListDomaineProjetComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet/list-domaine-projet.component';
 import { MsProjetComponent } from './MicroService1/Component/ms-projet/ms-projet.component';
 import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-ms-projet/list-ms-projet.component';
+import { CatInfoComponent } from './MicroService2/ComponentMS2/cat-info/cat-info.component';
+import { ListCatInfoComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info/list-cat-info.component';
 
 
 
@@ -92,7 +94,9 @@ import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-
     DomaineProjetComponent,
     ListDomaineProjetComponent,
     MsProjetComponent,
-    ListMsProjetComponent
+    ListMsProjetComponent,
+    CatInfoComponent,
+    ListCatInfoComponent
   
 
 

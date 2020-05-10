@@ -31,6 +31,7 @@ export class ListCommentaireComponent implements OnInit {
         date: "",
         commDemandeInfos: "",
         commVotes: "",
+        isActiveComm : true
     });
   }
 

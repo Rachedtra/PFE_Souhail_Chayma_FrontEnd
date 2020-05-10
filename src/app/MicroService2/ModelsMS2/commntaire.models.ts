@@ -4,4 +4,5 @@ export class Commentaires{
     date : string ; 
     commDemandeInfos : string ; 
     commVotes : string ;
+    isActiveComm : boolean ; 
 }

@@ -16,6 +16,7 @@ import { ListMsActiveComponent } from './MicroService1/Component/ms/list-ms-acti
 import { ListVerLangComponent } from './MicroService1/Component/version-language/list-ver-lang/list-ver-lang.component';
 import { ListDomaineProjetComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet/list-domaine-projet.component';
 import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-ms-projet/list-ms-projet.component';
+import { ListCatInfoComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info/list-cat-info.component';
 
 const routes: Routes = [
   {
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path : 'list-ms-projet',
     component : ListMsProjetComponent
+  },
+  {
+    path : 'list-cat-info',
+    component : ListCatInfoComponent
   },
 
 ];

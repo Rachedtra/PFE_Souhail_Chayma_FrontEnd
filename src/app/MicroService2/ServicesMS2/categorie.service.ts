@@ -15,6 +15,7 @@ export class CategorieService {
     label: new FormControl(""),
     catDemandeInfos: new FormControl(""),
     sousCategories: new FormControl(""),
+    isActiveCat : new FormControl(""),
   });
 
   constructor(private _http: HttpClient) { }
