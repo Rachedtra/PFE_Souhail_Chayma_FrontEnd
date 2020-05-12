@@ -17,6 +17,8 @@ import { ListVerLangComponent } from './MicroService1/Component/version-language
 import { ListDomaineProjetComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet/list-domaine-projet.component';
 import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-ms-projet/list-ms-projet.component';
 import { ListCatInfoComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info/list-cat-info.component';
+import { ListCommDemandeInfoComponent } from './MicroService2/ComponentMS2/comm-demande-info/list-comm-demande-info/list-comm-demande-info.component';
+import { ListCommVoteComponent } from './MicroService2/ComponentMS2/comm-vote/list-comm-vote/list-comm-vote.component';
 
 const routes: Routes = [
   {
@@ -93,7 +95,14 @@ const routes: Routes = [
     path : 'list-cat-info',
     component : ListCatInfoComponent
   },
-
+  {
+    path : 'list-comm-demande-info',
+    component : ListCommDemandeInfoComponent
+  },
+{
+  path : 'list-comm-vote',
+  component : ListCommVoteComponent
+},
 ];
 
 @NgModule({

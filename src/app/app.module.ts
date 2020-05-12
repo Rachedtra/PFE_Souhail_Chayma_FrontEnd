@@ -52,6 +52,10 @@ import { MsProjetComponent } from './MicroService1/Component/ms-projet/ms-projet
 import { ListMsProjetComponent } from './MicroService1/Component/ms-projet/list-ms-projet/list-ms-projet.component';
 import { CatInfoComponent } from './MicroService2/ComponentMS2/cat-info/cat-info.component';
 import { ListCatInfoComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info/list-cat-info.component';
+import { CommDemandeInfoComponent } from './MicroService2/ComponentMS2/comm-demande-info/comm-demande-info.component';
+import { ListCommDemandeInfoComponent } from './MicroService2/ComponentMS2/comm-demande-info/list-comm-demande-info/list-comm-demande-info.component';
+import { CommVoteComponent } from './MicroService2/ComponentMS2/comm-vote/comm-vote.component';
+import { ListCommVoteComponent } from './MicroService2/ComponentMS2/comm-vote/list-comm-vote/list-comm-vote.component';
 
 
 
@@ -96,7 +100,11 @@ import { ListCatInfoComponent } from './MicroService2/ComponentMS2/cat-info/list
     MsProjetComponent,
     ListMsProjetComponent,
     CatInfoComponent,
-    ListCatInfoComponent
+    ListCatInfoComponent,
+    CommDemandeInfoComponent,
+    ListCommDemandeInfoComponent,
+    CommVoteComponent,
+    ListCommVoteComponent
   
 
 

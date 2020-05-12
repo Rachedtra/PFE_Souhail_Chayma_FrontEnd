@@ -2,13 +2,13 @@
   <div class="form-group row">
     <div class="col-md-5">
         <button type="button" class="btn btn-outline-success" (click)="AddCi(templateSubmit)">
-          <i class="fa fa-plus"></i> Add Categorie Demande Information
+          <i class="fa fa-plus"></i> Add Commentaire Demande Information
   </button>
     </div>
     <div class="col-md-5">
     </div>
        <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CatInfoFilter.labelCat" >
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommInfoFilter.descriptionInfo" >
   
   
        </div>
@@ -16,13 +16,13 @@
   
   <ng-template #templateSubmit>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Categorie Info Detail</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCatInfo.hide()">
+      <h4 class="modal-title pull-left">Commentaire Info Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCommInfo.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <app-cat-info></app-cat-info>
+      <app-comm-demande-info></app-comm-demande-info>
       
     </div>
   </ng-template>
@@ -32,7 +32,7 @@
     <thead class="thead-light">
       <tr>
         
-        <th>Categorie</th>
+        <th>Commenatires</th>
         <th>Demande Information  </th>
         <th>Statut</th>
         <th>Supprimer</th>
@@ -44,7 +44,7 @@
     <tbody>
     <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
     <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
-    <tr *ngFor="let ci of CatInfoService.CatInfo | filterBy: CatInfoFilter | paginate
+    <tr *ngFor="let ci of CommInfoService.CommInfo | filterBy: CommInfoFilter | paginate
     : {
         id: 'MicroservicePagination',
         itemsPerPage: 3,
@@ -52,9 +52,9 @@
       }" class="sizeText" 
       style="background-color: white; color: black">
       
-      <td>{{ci.labelCat}}</td>
+      <td>{{ci.descriptionComm}}</td>
       <td>{{ci.descriptionInfo}}</td>
-      <td> {{ ci.isActiveCatInfo ? 'Active' : 'Inactive'}}</td>
+      <td> {{ ci.isActiveCommInfo ? 'Active' : 'Inactive'}}</td>
       <td>
         <button type="button" class="btn btn-danger" (click)="ConfirmModalCi(templateDelete)"><i
             class="fas fa-trash-alt"></i>Delete</button>
@@ -64,7 +64,7 @@
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmCi();DeleteCi(ci.idCatDemande);">Yes</button>
+              (click)="confirmCi();DeleteCi(ci.idCommInfo);">Yes</button>
             <button type="button" class="btn btn-primary" (click)="declineCi()">No</button>
           </div>
         </ng-template>
@@ -79,3 +79,4 @@
   previousLabel="Prec " nextLabel="Suiv ">
   </pagination-controls>
   </div>
+
