@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VersionLanguageService {
   verlang: VersionLanguage[] = new Array();
+  verlangActive: VersionLanguage[] = new Array();
 
   form: FormGroup = new FormGroup({
     idVl: new FormControl(""),
@@ -41,6 +42,18 @@ export class VersionLanguageService {
     this._http.get('http://localhost:54735/api/VersionLanguage').subscribe(res => {
       this.verlang = res as VersionLanguage[];
       console.log(this.verlang);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+  VersionLanguageActive() {
+
+    this._http.get('http://localhost:54735/api/VersionLanguage/GetActiveListVersionLanguages').subscribe(res => {
+      this.verlangActive = res as VersionLanguage[];
+      console.log(this.verlangActive);
       console.log("rachedtest" + res);
 
 

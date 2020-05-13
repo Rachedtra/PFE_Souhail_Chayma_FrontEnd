@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class SousCategorieService {
 
   sousCat: SousCategorie[] = new Array();
+  sousCatActive: SousCategorie[] = new Array();
 
   form: FormGroup = new FormGroup({
     idSousCate: new FormControl(""),
@@ -43,6 +44,18 @@ export class SousCategorieService {
     this._http.get('http://localhost:58540/api/SousCategories').subscribe(res => {
       this.sousCat = res as SousCategorie[];
       console.log(this.sousCat);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+  SousCategorieActive() {
+
+    this._http.get('http://localhost:58540/api/SousCategories/GetActiveListSousCategories').subscribe(res => {
+      this.sousCatActive = res as SousCategorie[];
+      console.log(this.sousCatActive);
       console.log("rachedtest" + res);
 
 

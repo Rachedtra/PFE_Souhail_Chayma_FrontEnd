@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CategorieService {
 
   cat: Categorie[] = new Array();
+  catActive: Categorie[] = new Array();
 
   form: FormGroup = new FormGroup({
     idCat: new FormControl(""),
@@ -48,5 +49,15 @@ export class CategorieService {
 
 
     });
+}
+CategorieActive() {
+
+  this._http.get('http://localhost:58540/api/Categorie/GetActiveListCategorie').subscribe(res => {
+    this.catActive = res as Categorie[];
+    console.log(this.catActive);
+    console.log("rachedtest" + res);
+
+
+  });
 }
 }

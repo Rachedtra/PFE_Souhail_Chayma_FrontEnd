@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CommVoteService {
 
   CommVote: CommVote[] = new Array();
-
+  CommVoteActive: CommVote[] = new Array();
   form: FormGroup = new FormGroup({
     idCommVote: new FormControl(""),
     idComm: new FormControl(""),
@@ -48,4 +48,18 @@ export class CommVoteService {
     });
 
 
-  }}
+  }
+
+  CommentaireVoteActive() {
+
+    this._http.get('http://localhost:58540/api/CommVote/GetActiveListCommVote').subscribe(res => {
+      this.CommVoteActive = res as CommVote[];
+      console.log(this.CommVoteActive);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+}

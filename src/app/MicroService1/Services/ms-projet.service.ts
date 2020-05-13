@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class MsProjetService {
 
   MsProj: MsProjet[] = new Array();
+  MsProjActive: MsProjet[] = new Array();
 
   form: FormGroup = new FormGroup({
     idMsProjet: new FormControl(""),
@@ -42,6 +43,18 @@ export class MsProjetService {
     this._http.get('http://localhost:54735/api/MsProjet').subscribe(res => {
       this.MsProj = res as MsProjet[];
       console.log(this.MsProj);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+  MsProjetActive() {
+
+    this._http.get('http://localhost:54735/api/MsProjet/GetActiveListMsProjet').subscribe(res => {
+      this.MsProjActive = res as MsProjet[];
+      console.log(this.MsProjActive);
       console.log("rachedtest" + res);
 
 

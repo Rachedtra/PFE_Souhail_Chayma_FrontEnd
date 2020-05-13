@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class MethodeService {
 
   method: Methode[] = new Array();
+  methodActive: Methode[] = new Array();
 
   form: FormGroup = new FormGroup({
     idMethode: new FormControl(""),
@@ -57,5 +58,16 @@ export class MethodeService {
 
   }
 
+  MethodeActive() {
 
+    this._http.get('http://localhost:54735/api/Methode/GetActiveListLanguages').subscribe(res => {
+      this.methodActive = res as Methode[];
+      console.log(this.methodActive);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
 }

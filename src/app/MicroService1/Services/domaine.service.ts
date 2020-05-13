@@ -10,7 +10,7 @@ export class DomaineService {
 
 
   Dom: Domaine[] = new Array();
-
+  DomActive : Domaine[] = new Array();
   form: FormGroup = new FormGroup({
     idDomain: new FormControl(""),
     nom: new FormControl(""),
@@ -50,5 +50,15 @@ export class DomaineService {
   }
 
 
+  DomaineActive() {
 
+    this._http.get('http://localhost:54735/api/Domaine/GetActiveListDomaine').subscribe(res => {
+      this.DomActive = res as Domaine[];
+      console.log(this.DomActive);
+      console.log("rachedtest" + res);
+
+
+    });
+
+  }
 }

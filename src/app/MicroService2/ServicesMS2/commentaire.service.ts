@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CommentaireService {
 
   comm: Commentaires[] = new Array();
+  commActive: Commentaires[] = new Array();
 
   form: FormGroup = new FormGroup({
     idComm: new FormControl(""),
@@ -47,5 +48,15 @@ export class CommentaireService {
 
 
     });
+}
+CommentairesAcrive() {
+
+  this._http.get('http://localhost:58540/api/Commentaires/GetActiveListComm').subscribe(res => {
+    this.commActive = res as Commentaires[];
+    console.log(this.commActive);
+    console.log("rachedtest" + res);
+
+
+  });
 }
 }

@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class VersionsService {
   Ver: Versionss[] = new Array();
+  VersionsActive: Versionss[] = new Array();
 
   form: FormGroup = new FormGroup({
     idVersion: new FormControl(""),
@@ -49,7 +50,17 @@ export class VersionsService {
   }
 
 
+  VerActive() {
 
+    this._http.get('http://localhost:54735/api/Versionss/GetActiveListVersion').subscribe(res => {
+      this.VersionsActive = res as Versionss[];
+      console.log(this.VersionsActive);
+      console.log("rachedtest" + res);
+
+
+    });
+
+  }
 
 
    }

@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class DemandeInfoService {
 
   info: DemandeInformation[] = new Array();
+  infoActive: DemandeInformation[] = new Array();
 
   form: FormGroup = new FormGroup({
     idDemandeInfo: new FormControl(""),
@@ -46,5 +47,14 @@ export class DemandeInfoService {
 
     });
 }
+DemandeInfoActive() {
 
+  this._http.get('http://localhost:58540/api/DemandeInformation/GetActiveListDemandeInfo').subscribe(res => {
+    this.infoActive = res as DemandeInformation[];
+    console.log(this.infoActive);
+    console.log("rachedtest" + res);
+
+
+  });
+}
 }

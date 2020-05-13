@@ -10,6 +10,7 @@ export class LanguagesService {
   //formData: Languages;
   // formData: FormData = new FormData();
 lang: Languages[] = new Array();
+langActive: Languages[] = new Array();
   form: FormGroup = new FormGroup({
     idLanguage: new FormControl(""),
     //idLanguage: new FormControl("", Validators.required),
@@ -52,5 +53,13 @@ lang: Languages[] = new Array();
     });
 
   }
+  LanguagesActive(){
 
+    this._http.get('http://localhost:54735/api/Languages/GetActiveListLanguages').subscribe(res => {
+      this.langActive = res as Languages[];
+      console.log(this.langActive);
+
+    });
+
+  }
 }

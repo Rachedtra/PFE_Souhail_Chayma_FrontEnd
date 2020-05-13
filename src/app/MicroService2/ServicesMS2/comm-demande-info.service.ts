@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CommDemandeInfoService {
 
   CommInfo: CommDemandeInfo[] = new Array();
+  CommInfoActive: CommDemandeInfo[] = new Array();
 
   form: FormGroup = new FormGroup({
     idCommInfo: new FormControl(""),
@@ -42,6 +43,18 @@ export class CommDemandeInfoService {
     this._http.get('http://localhost:58540/api/CommDemandeInfo').subscribe(res => {
       this.CommInfo = res as CommDemandeInfo[];
       console.log(this.CommInfo);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+  CommentairesInfoActive() {
+
+    this._http.get('http://localhost:58540/api/CommDemandeInfo/GetActiveListCommInfo').subscribe(res => {
+      this.CommInfoActive = res as CommDemandeInfo[];
+      console.log(this.CommInfoActive);
       console.log("rachedtest" + res);
 
 

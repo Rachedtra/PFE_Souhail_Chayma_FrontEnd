@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProjetService {
   
   proj: Projet[] = new Array();
+  projActive: Projet[] = new Array();
 
   pj: FormGroup = new FormGroup({
     idProjet: new FormControl(""),
@@ -46,6 +47,19 @@ export class ProjetService {
     this._http.get('http://localhost:54735/api/Projet').subscribe(res => {
       this.proj = res as Projet[];
       console.log(this.proj);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+
+  ProjetActive() {
+
+    this._http.get('http://localhost:54735/api/Projet/GetActiveListProjet').subscribe(res => {
+      this.projActive = res as Projet[];
+      console.log(this.projActive);
       console.log("rachedtest" + res);
 
 

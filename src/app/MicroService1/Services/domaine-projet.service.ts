@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class DomaineProjetService {
 
   domProjet: DomaineProjet[] = new Array();
+  DomProjetActive : DomaineProjet[] = new Array();
 
   form: FormGroup = new FormGroup({
     idDomainProjet: new FormControl(""),
@@ -42,6 +43,19 @@ export class DomaineProjetService {
     this._http.get('http://localhost:54735/api/DomaineProjet').subscribe(res => {
       this.domProjet = res as DomaineProjet[];
       console.log(this.domProjet);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+
+  ListActiveDomProjet() {
+
+    this._http.get('http://localhost:54735/api/DomaineProjet/GetActiveListDomaineProjet').subscribe(res => {
+      this.DomProjetActive = res as DomaineProjet[];
+      console.log(this.DomProjetActive);
       console.log("rachedtest" + res);
 
 

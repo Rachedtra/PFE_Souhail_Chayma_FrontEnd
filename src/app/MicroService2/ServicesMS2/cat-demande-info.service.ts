@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CatDemandeInfoService {
 
   CatInfo: CatDemandeInfo[] = new Array();
-
+  CatInfoActive: CatDemandeInfo[] = new Array();
   form: FormGroup = new FormGroup({
     idCatDemande: new FormControl(""),
     idCat: new FormControl(""),
@@ -42,6 +42,18 @@ export class CatDemandeInfoService {
     this._http.get('http://localhost:58540/api/CatDemandeInfo').subscribe(res => {
       this.CatInfo = res as CatDemandeInfo[];
       console.log(this.CatInfo);
+      console.log("rachedtest" + res);
+
+
+    });
+
+
+  }
+  CategorieInfoActive() {
+
+    this._http.get('http://localhost:58540/api/CatDemandeInfo/GetActiveListCatInfo').subscribe(res => {
+      this.CatInfoActive = res as CatDemandeInfo[];
+      console.log(this.CatInfoActive);
       console.log("rachedtest" + res);
 
 

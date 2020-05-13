@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class VoteService {
 
   vot: Vote[] = new Array();
+  votActive: Vote[] = new Array();
 
   form: FormGroup = new FormGroup({
     idVote: new FormControl(""),
@@ -47,5 +48,16 @@ export class VoteService {
 
 
     });
+}
+
+VoteActive() {
+
+  this._http.get('http://localhost:58540/api/Vote/GetActiveListVote').subscribe(res => {
+    this.votActive = res as Vote[];
+    console.log(this.votActive);
+    console.log("rachedtest" + res);
+
+
+  });
 }
 }
