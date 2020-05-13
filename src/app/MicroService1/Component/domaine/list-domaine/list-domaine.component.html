@@ -11,6 +11,10 @@
 </button>
   </div>
   <div class="col-md-5">
+    <button class="btn btn-outline-info" routerLink="list-domaine-active" routerLinkActive="active">
+      <i class="fa fa-reply"></i>
+      Active List
+     </button>  
   </div>
      <div class="col-md-2">
       <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomaaineFilter.nom" >
@@ -38,6 +42,7 @@
     <tr>
      
       <th>Nom</th>
+      <th>Statut</th>
       <th>Supprimer</th>
       <th>Modifier</th>
     </tr>
@@ -51,6 +56,8 @@
     }" class="sizeText" style="background-color: white; color: black">
     
     <td>{{Domaine.nom}}</td>
+    <td>{{Domaine.isActiveDomaine}}</td>
+
     <!-- <td><button (click)="DeleteDom(Domaine.idDomain)">Delete</button></td> -->
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModalDomaine(templateD)"><i

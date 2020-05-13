@@ -56,6 +56,10 @@ import { CommDemandeInfoComponent } from './MicroService2/ComponentMS2/comm-dema
 import { ListCommDemandeInfoComponent } from './MicroService2/ComponentMS2/comm-demande-info/list-comm-demande-info/list-comm-demande-info.component';
 import { CommVoteComponent } from './MicroService2/ComponentMS2/comm-vote/comm-vote.component';
 import { ListCommVoteComponent } from './MicroService2/ComponentMS2/comm-vote/list-comm-vote/list-comm-vote.component';
+import { ListDomaineActiveComponent } from './MicroService1/Component/domaine/list-domaine-active/list-domaine-active.component';
+import { ListDomaineProjetActiveComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet-active/list-domaine-projet-active.component';
+import { ListVerLangActiveComponent } from './MicroService1/Component/version-language/list-ver-lang-active/list-ver-lang-active.component';
+import { ListMsProjetActiveComponent } from './MicroService1/Component/ms-projet/list-ms-projet-active/list-ms-projet-active.component';
 
 
 
@@ -104,7 +108,11 @@ import { ListCommVoteComponent } from './MicroService2/ComponentMS2/comm-vote/li
     CommDemandeInfoComponent,
     ListCommDemandeInfoComponent,
     CommVoteComponent,
-    ListCommVoteComponent
+    ListCommVoteComponent,
+    ListDomaineActiveComponent,
+    ListDomaineProjetActiveComponent,
+    ListVerLangActiveComponent,
+    ListMsProjetActiveComponent
   
 
 

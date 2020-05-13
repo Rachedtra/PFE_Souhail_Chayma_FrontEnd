@@ -6,10 +6,6 @@
   </button>
     </div>
     <div class="col-md-5">
-      <button class="btn btn-outline-info" routerLink="list-domaine-projet-active" routerLinkActive="active">
-        <i class="fa fa-reply"></i>
-        Active List
-       </button>  
     </div>
        <div class="col-md-2">
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomProjetFilter.nomDomaine" >
@@ -48,7 +44,7 @@
     <tbody>
     <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
     <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
-    <tr *ngFor="let dp of domprojetService.domProjet | filterBy: DomProjetFilter | paginate
+    <tr *ngFor="let dp of domprojetService.DomProjetActive | filterBy: DomProjetFilter | paginate
     : {
         id: 'MicroservicePagination',
         itemsPerPage: 3,
