@@ -11,7 +11,7 @@ import { MicroServiceService } from 'src/app/MicroService1/Services/micro-servic
   styleUrls: ['./list-methode.component.css']
 })
 export class ListMethodeComponent implements OnInit {
-
+  methodeFilter: any = { nom: '' };
   modalRef: BsModalRef;
   
 

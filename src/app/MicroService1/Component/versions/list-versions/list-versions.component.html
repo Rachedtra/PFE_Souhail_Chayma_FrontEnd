@@ -1,8 +1,18 @@
 <div class="content-wrapper">
+  <div class="form-group row">
+    <div class="col-md-5">
+      <button class="btn btn-outline-success" (click)="AddVer(templateSubmit)">
+        <i class="fa fa-plus"></i> Create Version
+      </button>
+    </div>
+    <div class="col-md-5">
+    </div>
+       <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="versionFilter.numero" >
+  
+  
+       </div>
 
-<button class="btn btn-outline-success" (click)="AddVer(templateSubmit)">
-  <i class="fa fa-plus"></i> Create Version
-</button>
 
 <ng-template #templateSubmit>
   <div class="modal-header">
@@ -23,20 +33,22 @@
     <tr>
      
       <th>numero</th>
+      <th>statut</th>
       <th>Supprimer</th>
       <th>Modifier</th>
     </tr>
   </thead>
   <tbody>
   <tr *ngFor="let Versions of Verservice.Ver 
-  | paginate
+  | filterBy: versionFilter| paginate
   : {
       id: 'MicroservicePagination',
-      itemsPerPage: 1,
+      itemsPerPage: 3,
       currentPage: p
     }" class="sizeText"  style="background-color: white; color: black">
     
     <td>{{Versions.numero}}</td>
+    <td>{{Versions.isActiveVersion}}</td>
     <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
@@ -58,6 +70,7 @@
   </tr>
 </tbody>
 </table>
+</div>
 <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
 previousLabel="Prec " nextLabel="Suiv ">
 </pagination-controls>

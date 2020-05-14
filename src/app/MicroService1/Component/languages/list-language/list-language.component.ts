@@ -15,6 +15,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListLanguageComponent implements OnInit {
   lang: Languages[] = new Array();
+  languageFilter: any = { label: '' };
+
   modalRef: BsModalRef;
   
 

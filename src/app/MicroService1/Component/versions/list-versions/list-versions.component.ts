@@ -13,6 +13,8 @@ import { VersionsComponent } from '../versions.component';
 })
 export class ListVersionsComponent implements OnInit {
   Ver: Versionss[] = new Array();
+  versionFilter: any = { numero: null };
+
   modalRef: BsModalRef;
   constructor(private Verservice: VersionsService,
     private modalService: BsModalService,

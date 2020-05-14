@@ -10,6 +10,7 @@ import { ProjetComponent } from '../projet.component';
   styleUrls: ['./list-projet.component.css']
 })
 export class ListProjetComponent implements OnInit {
+  projetFilter: any = { nom: '' };
 
   modalRef1: BsModalRef;
   

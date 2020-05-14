@@ -1,8 +1,18 @@
 <div class="content-wrapper">
+  <div class="form-group row">
+    <div class="col-md-5">
+      <button class="btn btn-outline-success" (click)="AddMethode(templateSubmit)">
+        <i class="fa fa-plus"></i> Create Methode
+      </button>
+    </div>
+    <div class="col-md-5">
+    </div>
+       <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="methodeFilter.nom" >
+  
+  
+       </div>
 
-<button class="btn btn-outline-success" (click)="AddMethode(templateSubmit)">
-  <i class="fa fa-plus"></i> Create Methode
-</button>
 
 <ng-template #templateSubmit>
   <div class="modal-header">
@@ -27,6 +37,7 @@
       <th>Input</th>
       <th>Output</th>
       <th>Microservice</th>
+      <th>Statut</th>
       <th>Supprimer</th>
       <th>Modifier </th>
      
@@ -34,10 +45,10 @@
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let Methode of mService.method | paginate
+  <tr *ngFor="let Methode of mService.method | filterBy: methodeFilter| paginate
   : {
       id: 'MicroservicePagination',
-      itemsPerPage: 1,
+      itemsPerPage: 3,
       currentPage: p
     }" class="sizeText" 
    style="background-color: white; color: black">
@@ -47,7 +58,7 @@
     <td>{{Methode.input}}</td>
     <td>{{Methode.output}}</td>
     <td>{{Methode.msLabel}}</td>
-    
+    <td>{{Methode.isActiveMethode}}</td>
     <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModal(templateDelete)"><i
@@ -69,6 +80,7 @@
   </tr>
   </tbody>
 </table>
+</div>
 <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
 previousLabel="Prec " nextLabel="Suiv ">
 </pagination-controls>
