@@ -41,6 +41,7 @@ export class ListCatInfoComponent implements OnInit {
       isActiveCatInfo: true,
       labelCat: "",
       descriptionInfo: "",
+     titreInfo : "",
   }); 
 }
 

@@ -14,8 +14,8 @@
           <select class="form-control" formControlName="idDemandeInfo" placeholder="idDemandeInfo">
            
             <option value="0">-Select-</option>
-            <option *ngFor="let info of InfoetServie.info" [ngValue]="info.idDemandeInfo">
-              {{info.description}}</option>
+            <option *ngFor="let demande of InfoetServie.info" [ngValue]="demande.idDemandeInfo">
+              {{demande.description}}</option>
           </select>
         </div>
         <div class="form-group row">

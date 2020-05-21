@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CatDemandeInfo } from '../ModelsMS2/CatDemandeInfo.models';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class CatDemandeInfoService {
     isActiveCatInfo: new FormControl(""),
     labelCat: new FormControl(""),
     descriptionInfo: new FormControl(""),
+    titreInfo: new FormControl(""),
   });
 
   constructor(private _http: HttpClient) { }
@@ -27,8 +29,7 @@ export class CatDemandeInfoService {
   }
 
   PostCatInfo() {
-    return this._http.post('http://localhost:58540/api/CatDemandeInfo', this.form.value,
-      { responseType: "text" });
+    return this._http.post('http://localhost:58540/api/CatDemandeInfo', this.form.value,{ responseType: "text" });
   }
 
 

@@ -3,6 +3,7 @@ import { CatDemandeInfoService } from '../../ServicesMS2/cat-demande-info.servic
 import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
 import { CategorieService } from '../../ServicesMS2/categorie.service';
 import { ToastrService } from 'ngx-toastr';
+import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
 
 @Component({
   selector: 'app-cat-info',
@@ -15,13 +16,15 @@ export class CatInfoComponent implements OnInit {
     private CatService:CategorieService,
     private InfoetServie : DemandeInfoService,
     private CatInfoInfo: ToastrService,
+    private domService : DomaineService
 
   
     ) { }
 
   ngOnInit() {
     this.CatService.GetCat() ; 
-     this.InfoetServie.GetInfo() ; 
+     this.InfoetServie.GetInfo() ;
+     this.domService.refreshList() ;
   }
 
   resetFormCatInfo() {
@@ -32,6 +35,8 @@ export class CatInfoComponent implements OnInit {
       isActiveCatInfo: true,
       labelCat: "",
       descriptionInfo: "",
+      titreInfo : "",
+
   }); 
 }
 onSubmitCi ()
@@ -68,6 +73,7 @@ UpdateCi() {
       },
       err => {
         console.log(err);
+        this.CatInfoService.getCatInfo();
         this.CatInfoInfo.error('Categorie Demande Information  Non Ajoute', 'Erreur');
 
       }

@@ -14,7 +14,7 @@ export class CommentaireService {
   form: FormGroup = new FormGroup({
     idComm: new FormControl(""),
     description: new FormControl(""),
-    date: new FormControl(""),
+    date: new FormControl(new Date()),
     commDemandeInfos : new FormControl(""),
     commVotes: new FormControl(""),
     isActiveComm : new FormControl(""),

@@ -25,6 +25,7 @@ export class MicroServiceService {
     languageLabel : new FormControl(""),
     
   });
+  MsFiltre: MS[];
 
 
   constructor(private _http: HttpClient) { }
@@ -68,4 +69,15 @@ export class MicroServiceService {
     }) ; 
   }
 
+
+  GetMsFiltrer(id)
+  {
+      this._http.get('http://localhost:54735/api/MS/GetActiveList').subscribe(res => {
+        this.microActive =res as MS[];
+        this.MsFiltre= this.microActive.filter(o=>o.idMs==id) ; 
+        console.log(this.microActive) ; 
+        console.log(this.MsFiltre) ; 
+  
+      }) ; 
+    }
 }

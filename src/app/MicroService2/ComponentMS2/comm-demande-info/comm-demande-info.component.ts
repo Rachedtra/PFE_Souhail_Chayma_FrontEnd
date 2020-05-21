@@ -31,6 +31,7 @@ export class CommDemandeInfoComponent implements OnInit {
       isActiveCommInfo: true,
       descriptionComm: "",
       descriptionInfo: "",
+      titreInfo : ""
   }); 
 }
 onSubmitCi ()

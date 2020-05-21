@@ -3,6 +3,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DemandeInfoService } from 'src/app/MicroService2/ServicesMS2/demande-info.service';
 import { ToastrService } from 'ngx-toastr';
 import { DemandeInfoComponent } from '../demande-info.component';
+import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
+import { CategorieService } from 'src/app/MicroService2/ServicesMS2/categorie.service';
 
 @Component({
   selector: 'app-list-demande-info',
@@ -16,22 +18,29 @@ export class ListDemandeInfoComponent implements OnInit {
   constructor( private InfoService: DemandeInfoService,
     private notifInfo: ToastrService,
     private modalInfo: BsModalService,
+    private CatService : CategorieService,
+    private domService : DomaineService ,
     
     ) { }
 
 
     ngOnInit() {
       this.InfoService.GetInfo();
+      this.CatService.GetCat() ; 
+      this.domService.refreshList() ;
       this.ResetInfo();
     }
     ResetInfo() {
       this.InfoService.form.setValue({
         idDemandeInfo: "00000000-0000-0000-0000-000000000000",
         description: "",
-        date: "",
+        date:new Date(),
         commDemandeInfos: "",
         catDemandeInfos: "",
-        isActiveInfo : true 
+        isActiveInfo : true,
+        domaineNom : "",
+        titre : "" ,
+     
     });
   }
 

@@ -5,4 +5,6 @@ export class CatDemandeInfo{
     isActiveCatInfo : Boolean ; 
     labelCat: string ;
     descriptionInfo: string ;
+    titreInfo: string ;
+  
 }

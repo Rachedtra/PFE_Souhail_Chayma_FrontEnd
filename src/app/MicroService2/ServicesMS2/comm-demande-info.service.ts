@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { CommDemandeInfo } from '../ModelsMS2/CommDemandeInfo.models';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Commentaires } from '../ModelsMS2/commntaire.models';
+import { DemandeInformation } from '../ModelsMS2/demandeInfo.models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,6 @@ export class CommDemandeInfoService {
 
   CommInfo: CommDemandeInfo[] = new Array();
   CommInfoActive: CommDemandeInfo[] = new Array();
-
   form: FormGroup = new FormGroup({
     idCommInfo: new FormControl(""),
     idComm: new FormControl(""),
@@ -18,8 +19,15 @@ export class CommDemandeInfoService {
     isActiveCommInfo: new FormControl(""),
     descriptionComm: new FormControl(""),
     descriptionInfo: new FormControl(""),
+    titreInfo :new FormControl(""),
   });
-
+  mygroup: FormGroup = new FormGroup({
+    idCommInfo: new FormControl(""),
+    idComm: new FormControl(""),
+    idDemandeInfo: new FormControl(""),
+    isActiveCommInfo: new FormControl(""),
+  });
+  CommInfoFiltre: CommDemandeInfo[];
   constructor(private _http: HttpClient) { }
 
   DeleteCommInfo(id) {
@@ -33,6 +41,7 @@ export class CommDemandeInfoService {
   }
 
 
+  
   PutCommInfo() {
     return this._http.put('http://localhost:58540/api/CommDemandeInfo', this.form.value,
       { responseType: "text" });
@@ -60,6 +69,6 @@ export class CommDemandeInfoService {
 
     });
 
-
   }
+
 }

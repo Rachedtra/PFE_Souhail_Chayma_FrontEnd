@@ -1,5 +1,5 @@
 
-    <form [formGroup]="InfoService.form" (ngSubmit)="onSubmitInfo()">
+    <form [formGroup]="InfoService.form"  (ngSubmit)="onSubmitInfo()">
 
 
       <div class="form-group">
@@ -7,6 +7,7 @@
           
           <input type="hidden" class="form-control" formControlName="idDemandeInfo" name="idDemandeInfo">
         </p>
+
         <div class="form-group">
           <p>
             <label for="label">Titre</label>
@@ -15,7 +16,27 @@
         </div>
 
       </div>
-      
+      <form [formGroup]="CatInfoService.form"  (ngSubmit)="onSubmitInfo()">
+        <div class="form-group">
+          <label>Info </label>
+          
+            <select class="form-control" formControlName="idDemandeInfo" placeholder="idDemandeInfo">
+             
+              <option value="0">-Select-</option>
+              <option *ngFor="let demande of InfoService.info" [ngValue]="demande.idDemandeInfo">
+                {{demande.description}}</option>
+            </select>
+          </div>
+
+      <label>Categorie </label>
+      <div>
+        <select class="form-control" formControlName="idCat" placeholder="idCat">
+          <option value="0">-Select-</option>
+          <option *ngFor="let cat of CatService.cat" [ngValue]="cat.idCat">
+            {{cat.label}}</option>
+        </select>
+      </div>
+      </form>
       <div class="form-group">
         <label>Domaine </label>
         
@@ -29,8 +50,9 @@
       <div class="form-group">
         <p>
           <label for="label">Description</label>
-          
-          <textarea class="form-control"  name="description" formControlName="description"  rows="3" cols="3" ></textarea>
+          <textarea class="form-control"  name="description" formControlName="description" rows="3" cols="3" >
+            <pre><code></code></pre>
+          </textarea>
         </p>
       </div>
 

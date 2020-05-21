@@ -5,4 +5,5 @@ export class CommDemandeInfo{
     isActiveCommInfo : Boolean ; 
     descriptionComm: string ; 
     descriptionInfo: string ; 
+    titreInfo : string ; 
 }

@@ -23,6 +23,9 @@ import { ListDomaineActiveComponent } from './MicroService1/Component/domaine/li
 import { ListDomaineProjetActiveComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet-active/list-domaine-projet-active.component';
 import { ListVerLangActiveComponent } from './MicroService1/Component/version-language/list-ver-lang-active/list-ver-lang-active.component';
 import { ListMsProjetActiveComponent } from './MicroService1/Component/ms-projet/list-ms-projet-active/list-ms-projet-active.component';
+import { InterfaceListComponent } from './Interface/interface-list/interface-list.component';
+import { GetIdInfoComponent } from './Interface/get-id-info/get-id-info.component';
+import { ListMsInteraceComponent } from './Interface/list-ms-interace/list-ms-interace.component';
 
 const routes: Routes = [
   {
@@ -122,6 +125,18 @@ const routes: Routes = [
 {
   path : 'list-comm-vote',
   component : ListCommVoteComponent
+},
+{
+  path : 'interface-list',
+  component : InterfaceListComponent
+},
+{
+  path : 'list-ms-interface',
+  component : ListMsInteraceComponent
+},
+{
+  path : 'interface-list/get-id-info',
+  component : GetIdInfoComponent
 },
 ];
 

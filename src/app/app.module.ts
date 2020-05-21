@@ -60,6 +60,13 @@ import { ListDomaineActiveComponent } from './MicroService1/Component/domaine/li
 import { ListDomaineProjetActiveComponent } from './MicroService1/Component/domaine-projet/list-domaine-projet-active/list-domaine-projet-active.component';
 import { ListVerLangActiveComponent } from './MicroService1/Component/version-language/list-ver-lang-active/list-ver-lang-active.component';
 import { ListMsProjetActiveComponent } from './MicroService1/Component/ms-projet/list-ms-projet-active/list-ms-projet-active.component';
+import { NavHeaderComponent } from './Interface/nav-header/nav-header.component';
+import { PopupComponent } from './Interface/popup/popup.component';
+import { InterfaceListComponent } from './Interface/interface-list/interface-list.component';
+import { CommComponent } from './Interface/comm/comm.component';
+import { GetIdInfoComponent } from './Interface/get-id-info/get-id-info.component';
+import { ListMsInteraceComponent } from './Interface/list-ms-interace/list-ms-interace.component';
+import { GetIdMsComponent } from './Interface/get-id-ms/get-id-ms.component';
 
 
 
@@ -112,7 +119,14 @@ import { ListMsProjetActiveComponent } from './MicroService1/Component/ms-projet
     ListDomaineActiveComponent,
     ListDomaineProjetActiveComponent,
     ListVerLangActiveComponent,
-    ListMsProjetActiveComponent
+    ListMsProjetActiveComponent,
+    NavHeaderComponent,
+    PopupComponent,
+    InterfaceListComponent,
+    CommComponent,
+    GetIdInfoComponent,
+    ListMsInteraceComponent,
+    GetIdMsComponent,
   
 
 

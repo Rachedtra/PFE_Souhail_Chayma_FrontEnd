@@ -1,0 +1,50 @@
+<div class="content-wrapper">
+  <app-nav-header></app-nav-header>
+<label>micro Service </label>
+<div>
+  <select class="form-control" (change)="MsService.GetMsFiltrer($event.target.value)">
+   
+    <option value="0">-Select-</option>
+    <option *ngFor="let MicroService of MsService.microActive"  value={{MicroService.idMs}}>
+      {{MicroService.label}}</option>
+  </select>
+</div>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+     
+      <th>Label</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th>Lien</th>
+      <th>Diagrame Classe</th>
+      <th>Language </th>
+    
+     
+    </tr>
+  </thead>
+  <tbody>
+     
+  <tr *ngFor="let MicroService of MsService.MsFiltre | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 3,
+      currentPage: p
+    } " class="sizeText" 
+  style="background-color: white; color: black">
+    
+    <td>{{MicroService.label}}</td>
+    <td>{{MicroService.description}}</td>
+    <td>{{MicroService.author}}</td>
+    <td>{{MicroService.lien}}</td>
+    <td>{{MicroService.diagClass}}</td>
+    <td> {{MicroService.languageLabel}} </td>
+   
+    </tr>
+    </tbody>
+    </table>
+    <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
+</div>
