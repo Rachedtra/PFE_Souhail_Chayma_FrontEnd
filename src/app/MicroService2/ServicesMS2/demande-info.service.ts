@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { switchMap } from 'rxjs/operators';
 import { observable, Observable } from 'rxjs';
 import { CatDemandeInfo } from '../ModelsMS2/CatDemandeInfo.models';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { CatDemandeInfoService } from './cat-demande-info.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,15 +30,40 @@ id : string ;
   });
   obj: DemandeInformation[];
   filtirng: DemandeInformation[];
-  constructor(private _http:HttpClient) { }
+ 
+
+
+  catego: any;
+  okay: string;
+  last: string;
+  constructor(private _http:HttpClient,private notifInfo :ToastrService,
+    private CatInfoService : CatDemandeInfoService
+    )
+   { }
+  ResetInfo() {
+    this.form.setValue({
+      idDemandeInfo: "00000000-0000-0000-0000-000000000000",
+      description: "",
+      date: new Date(),
+      commDemandeInfos: "",
+      catDemandeInfos: "",
+      isActiveInfo : true ,
+      domaineNom : "",
+      titre : "" ,
+      
+
+  });
+}
   DeleteInfo(id) {
     return this._http.delete('http://localhost:58540/api/DemandeInformation/' + id,
       { responseType: "text" });
   }
 
+
   PostInfo()  {
+   
     return this._http.post('http://localhost:58540/api/DemandeInformation', this.form.value,
-    { responseType: "text" } );
+    { responseType: "text" } )
   }
 
 
@@ -50,6 +77,8 @@ id : string ;
      this._http.get('http://localhost:58540/api/DemandeInformation').subscribe(res => {
       this.info = res as DemandeInformation[];
       console.log(this.info);
+      this.last=this.info[this.info.length - 1].idDemandeInfo ;
+      console.log(this.last) ;
       console.log("rachedtest" + res);
 
 
@@ -80,14 +109,22 @@ GetInfoFiltrer(id) {
 }
 
 
+insertInfo(){
+  this.PostInfo().subscribe(
+    res => { 
+      console.log(res);  
+      this.notifInfo.success('', 'Demande Info Ajoutee Avec Succés');
+      this.ResetInfo();     
+    },
 
-
-
+    err => {
+      console.log(err);
+      this.notifInfo.error('Demande Info Non Ajoute', 'Erreur');
+    }
+  ); 
 }
 
 
-
-
-
+}
 
 

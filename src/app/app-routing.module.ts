@@ -26,6 +26,8 @@ import { ListMsProjetActiveComponent } from './MicroService1/Component/ms-projet
 import { InterfaceListComponent } from './Interface/interface-list/interface-list.component';
 import { GetIdInfoComponent } from './Interface/get-id-info/get-id-info.component';
 import { ListMsInteraceComponent } from './Interface/list-ms-interace/list-ms-interace.component';
+import { GetIdMsComponent } from './Interface/get-id-ms/get-id-ms.component';
+import { ListCommMsComponent } from './MicroService1/Component/comm-ms/list-comm-ms/list-comm-ms.component';
 
 const routes: Routes = [
   {
@@ -127,12 +129,20 @@ const routes: Routes = [
   component : ListCommVoteComponent
 },
 {
+  path : 'list-comm-ms',
+  component : ListCommMsComponent
+},
+{
   path : 'interface-list',
   component : InterfaceListComponent
 },
 {
   path : 'list-ms-interface',
   component : ListMsInteraceComponent
+},
+{
+  path : 'list-ms-interface/list-ms-interface/get-id-ms',
+  component : GetIdMsComponent
 },
 {
   path : 'interface-list/get-id-info',

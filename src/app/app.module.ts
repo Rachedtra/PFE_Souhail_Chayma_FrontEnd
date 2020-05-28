@@ -67,6 +67,8 @@ import { CommComponent } from './Interface/comm/comm.component';
 import { GetIdInfoComponent } from './Interface/get-id-info/get-id-info.component';
 import { ListMsInteraceComponent } from './Interface/list-ms-interace/list-ms-interace.component';
 import { GetIdMsComponent } from './Interface/get-id-ms/get-id-ms.component';
+import { CommMsComponent } from './MicroService1/Component/comm-ms/comm-ms.component';
+import { ListCommMsComponent } from './MicroService1/Component/comm-ms/list-comm-ms/list-comm-ms.component';
 
 
 
@@ -127,6 +129,8 @@ import { GetIdMsComponent } from './Interface/get-id-ms/get-id-ms.component';
     GetIdInfoComponent,
     ListMsInteraceComponent,
     GetIdMsComponent,
+    CommMsComponent,
+    ListCommMsComponent,
   
 
 

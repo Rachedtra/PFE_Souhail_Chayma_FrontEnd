@@ -26,7 +26,7 @@ export class MicroServiceService {
     
   });
   MsFiltre: MS[];
-
+ms : MS ; 
 
   constructor(private _http: HttpClient) { }
 
@@ -77,7 +77,8 @@ export class MicroServiceService {
         this.MsFiltre= this.microActive.filter(o=>o.idMs==id) ; 
         console.log(this.microActive) ; 
         console.log(this.MsFiltre) ; 
-  
+        
       }) ; 
     }
+
 }
