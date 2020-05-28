@@ -1,0 +1,16 @@
+<div class="content-wrapper">
+<app-nav-header></app-nav-header>
+<div class="container">
+  <label>Choisir Domaine </label>
+        <div>
+          <select class="form-control" (change)="InfoService.GetInfoFiltrer($event.target.value)" >
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let dom of domService.Dom"  value={{dom.idDomain}}>
+              {{dom.nom}}</option>
+          </select>
+          <br>
+         <button routerLink="get-id-info" class="btn btn-outline-success"routerLinkActive="active" >Choisir</button>
+        </div>
+</div>
+</div>

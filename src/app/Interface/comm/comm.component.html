@@ -1,0 +1,10 @@
+<div class="container">
+  <form [formGroup]="CommService.form" (ngSubmit)="onSubmitComm()">
+  <h4>Votre Reponse </h4>
+            <textarea class="form-control"  formControlName="description" rows="3" cols="3" >
+          </textarea>
+      <button class="btn btn-info" >
+    Poster
+      </button>
+  </form>
+</div>

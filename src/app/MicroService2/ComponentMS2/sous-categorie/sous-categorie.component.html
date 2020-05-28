@@ -1,0 +1,32 @@
+
+    <form [formGroup]="SousCatoService.form" (ngSubmit)="onSubmitSousCat()">
+
+
+      <div class="form-group">
+        <p>
+          
+          <input type="hidden" class="form-control" formControlName="idSousCate" name="idSousCate">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="label">Label</label>
+          <input type="text" class="form-control" name="label" formControlName="label">
+        </p>
+      </div>
+
+     
+        <label>Categorie </label>
+        <div>
+          <select class="form-control" formControlName="catFK" placeholder="catFK">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let categorie of catService.cat" [ngValue]="categorie.idCat">
+              {{categorie.label}}</option>
+          </select>
+        </div>
+
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+    </form>
+
+
