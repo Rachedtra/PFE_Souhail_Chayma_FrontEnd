@@ -1,0 +1,54 @@
+
+    <form [formGroup]="InfoService.form"  (ngSubmit)="onSubmitInfo()"> 
+      <div class="form-group">
+        <p>
+          
+          <input type="hidden" class="form-control" formControlName="idDemandeInfo" name="idDemandeInfo">
+        </p>
+
+        <div class="form-group">
+          <p>
+            <label for="label">Titre</label>
+            <input type="text" class="form-control" name="titre" formControlName="titre">
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Domaine </label>
+          
+            <select class="form-control" formControlName="domaineNom" placeholder="domaineNom">
+             
+              <option value="0">-Select-</option>
+              <option *ngFor="let dom of domService.DomActive" [ngValue]="dom.idDomain">
+                {{dom.nom}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <p>
+              <label for="label">Description</label>
+              <textarea class="form-control"  name="description" formControlName="description" rows="3" cols="3" >
+                
+              </textarea>
+            </p>
+          </div>
+      </div>
+   
+     <fieldset [formGroup]="CatInfoService.form">
+        <label>Categorie </label>
+        <div>
+        <input type="hidden" class="form-control" formControlName="idCatDemande" name="idCatDemande">
+        
+        <select  class="form-control" formControlName="idCat" (change)="getcategoire($event.target.value)">
+          <option value="0">-Select-</option>
+          <option *ngFor="let categorie of CatService.cat" value={{categorie.idCat}}  >
+            {{categorie.label}}</option>
+        </select>
+       </div>
+        <button type="submit" class="btn btn-primary mr-1" > Submit</button>
+    </fieldset>
+  </form>
+
+
+
+
+

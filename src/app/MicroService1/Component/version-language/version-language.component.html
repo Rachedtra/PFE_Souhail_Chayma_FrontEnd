@@ -1,0 +1,36 @@
+<form [formGroup]="VerLangService.form" (ngSubmit)="onSubmitVl()">
+  <div class="form-group">
+        <label>language </label>
+        <div>
+          <select class="form-control" formControlName="idLanguage" placeholder="idLanguage">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let language of langservice.lang" [ngValue]="language.idLanguage">
+              {{language.label}}</option>
+          </select>
+        </div>
+        <label>Version </label>
+        <div>
+          <select class="form-control" formControlName="idVersion" placeholder="idVersion">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let version of verService.Ver" [ngValue]="version.idVersion">
+              {{version.numero}}</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-5"></div>          
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="switch1"  
+              name="isActiveVerLang"  value="True"  formControlName="isActiveVerLang">
+              <label class="custom-control-label" for="switch1">Statut</label>
+            </div> 
+          </div>
+        </div>
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+  </div>
+</form>
+
+ 

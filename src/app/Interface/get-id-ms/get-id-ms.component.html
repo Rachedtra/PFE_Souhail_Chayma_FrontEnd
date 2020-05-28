@@ -1,0 +1,74 @@
+<div class="content-wrapper">
+  <app-nav-header></app-nav-header>
+  <div class="row">
+    <div class="col-12 col-md-2">
+      <h2>Liste MS</h2>
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="MicroServiceFiltre.label" >
+     <br>
+    <div *ngFor="let MicroService of MsService.microActive |filterBy : MicroServiceFiltre " 
+    style="background-color: white; color: black">
+    <div class="row no-gutters">
+      <div class="col">
+    <button class="btn btn-outline-info col-12"routerLinkActive="active" 
+    (click)="MsService.GetMsFiltrer(MicroService.idMs);  getCommMsFiltre(MicroService.idMs)">{{MicroService.label}}</button><br>
+      <!-- <td>{{demande.domaineNom}}</td>
+        <td>{{demande.description}}</td>
+        <td>{{demande.date | date:'dd/MM/yyyy'}}</td> -->
+        <br>
+        
+  
+   </div>
+    </div>
+    </div>
+  
+   
+  </div>
+  <div class="col-6 col-md-10"> 
+    <ng-template #templateSubmit>
+      <div class="modal-header">
+      
+        <h4 class="modal-title pull-left"> Detail</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-popup></app-popup>
+      </div>
+    </ng-template>
+
+  
+    <div class="container">
+      <div *ngFor="let MicroService of MsService.MsFiltre ">
+      <h1>{{MicroService.Label}}</h1>
+      <hr/>
+      <div class="form-group">
+        <div class="form-group row">
+        <div class="col-md-3"><label> Author :{{MicroService.author}}</label></div>   
+          <div class="col-md-3"> <label> Language : {{MicroService.languageLabel}}</label>  </div>
+          <div class="col-md-3"> <label> Diagramme classe : {{MicroService.diagClass}}</label>  </div>
+          <div class="col-md-3"> <label> Lien : {{MicroService.lien}}</label>  </div>
+        </div>                                        
+        <textarea class="form-control"  rows="3" readonly>
+          {{MicroService.description}}
+        </textarea>
+      </div>
+ 
+      <hr/>
+      <h4>Commentaires </h4>
+      <hr/>
+      <div *ngFor="let comment of commMsFiltre">
+        <textarea class="form-control"rows="3" readonly>
+          {{comment.idComm}} 
+        </textarea>
+      
+      <hr/>
+      
+      </div>  
+  
+        <app-comm></app-comm>
+   
+    </div>
+  </div>
+  </div>
+  </div>

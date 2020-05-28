@@ -1,0 +1,86 @@
+<div class="content-wrapper"> 
+<!-- <button class="btn btn-outline-success" (click)="AddDom(templateS)">
+  <i class="fa fa-plus"></i> Create Domaine
+</button>
+<input  type="text" [(ngModel)]="DomaaineFilter.nom" placeholder="Search By Name"> -->
+
+<div class="form-group row">
+  <div class="col-md-5">
+      <button type="button" class="btn btn-outline-success" (click)="AddDom(templateS)">
+        <i class="fa fa-plus"></i> Add Domaine
+</button>
+  </div>
+  <div class="col-md-5">
+    <button class="btn btn-outline-info" routerLink="list-domaine-active" routerLinkActive="active">
+      <i class="fa fa-reply"></i>
+      Active List
+     </button>  
+  </div>
+     <div class="col-md-2">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomaaineFilter.nom" >
+
+
+     </div>
+    
+
+
+<ng-template #templateS>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Domaine Detail</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="Ref.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-domaine></app-domaine>
+    
+  </div>
+</ng-template>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+     
+      <th>Nom</th>
+      <th>Statut</th>
+      <th>Supprimer</th>
+      <th>Modifier</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let Domaine of Domservice.Dom | filterBy: DomaaineFilter | paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 3,
+      currentPage: p
+    }" class="sizeText" style="background-color: white; color: black">
+    
+    <td>{{Domaine.nom}}</td>
+    <td>{{Domaine.isActiveDomaine}}</td>
+
+    <!-- <td><button (click)="DeleteDom(Domaine.idDomain)">Delete</button></td> -->
+    <td>
+      <button type="button" class="btn btn-danger" (click)="ConfirmModalDomaine(templateD)"><i
+          class="fas fa-trash-alt"></i>Delete</button>
+
+   
+      <ng-template #templateD>
+        <div class="modal-body text-center">
+          <p>Voulez vous Supprimer ?</p>
+          <button type="button" class="btn btn-default"
+            (click)="confirmModal();DeleteDom(Domaine.idDomain);">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="declineModal()">No</button>
+        </div>
+      </ng-template>
+    </td>
+    <!-- <td><button (click)="EditDom(Domaine)">Edit</button></td> -->
+    <td><button class="btn btn-primary" (click)="EditDom(Domaine,templateS)"><i class="fas fa-edit"></i>
+      Edit</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
+</div>

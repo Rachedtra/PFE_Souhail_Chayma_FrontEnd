@@ -1,0 +1,38 @@
+<form [formGroup]="msprojetService.form" (ngSubmit)="onSubmitMp()">
+  <div class="form-group">
+        <label>micro Service </label>
+        <div>
+          <select class="form-control" formControlName="idMs" placeholder="idMs">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let MicroService of MsService.microActive" [ngValue]="MicroService.idMs">
+              {{MicroService.label}}</option>
+          </select>
+        </div>
+        <label>Projet </label>
+        <div>
+          <select class="form-control" formControlName="idProjet" placeholder="idProjet">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let projet of projetServie.proj" [ngValue]="projet.idProjet">
+              {{projet.nom}}</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-5"></div>          
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="switch1"  
+              name="isActiveMsVer"  value="True"  formControlName="isActiveMsVer">
+              <label class="custom-control-label" for="switch1">Statut</label>
+            </div> 
+          </div>
+        </div>
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+  </div>
+</form>
+
+ 
+
+

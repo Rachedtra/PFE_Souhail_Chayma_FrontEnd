@@ -1,0 +1,72 @@
+
+    <form [formGroup]="msService.form" (ngSubmit)="onSubmit()">
+
+
+      <div class="form-group">
+        <p>
+          
+          <input type="hidden" class="form-control" formControlName="idMs" name="idMs">
+        </p>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="label">Label</label>
+          <input type="text" class="form-control" name="label" formControlName="label">
+        </p>
+      </div>
+
+      <div class="form-group">
+        <p>
+          <label for="label">Description</label>
+          <input type="text" class="form-control" name="description" formControlName="description">
+        </p>
+      </div>
+       
+      <div class="form-group">
+        <p>
+          <label for="label">Author</label>
+          <input type="text" class="form-control" name="author" formControlName="author">
+        </p>
+      </div>
+       
+      <div class="form-group">
+        <p>
+          <label for="label">Lien</label>
+          <input type="text" class="form-control" name="lien" formControlName="lien">
+        </p>
+      </div>
+       
+      <div class="form-group">
+        <p>
+          <label for="label">Diagramme Classe</label>
+          <input type="text" class="form-control" name="diagClass" formControlName="diagClass">
+        </p>
+      </div>
+          
+      
+        <label>language </label>
+        <div>
+          <select class="form-control" formControlName="languagesFK" placeholder="languagesFK">
+           
+            <option value="0">-Select-</option>
+            <option *ngFor="let language of langservice.lang" [ngValue]="language.idLanguage">
+              {{language.label}}</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-5"></div>          
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="switch1"  
+              name="isActiveMs"  value="True"  formControlName="isActiveMs">
+              <label class="custom-control-label" for="switch1">Statut</label>
+            </div> 
+          </div>
+        </div>
+  
+      <button type="submit" class="btn btn-primary mr-1"> Submit</button>
+</form>
+
+ 
+

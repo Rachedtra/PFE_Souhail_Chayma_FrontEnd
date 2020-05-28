@@ -1,0 +1,35 @@
+
+        <form [formGroup]="langservice.form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <p>
+            
+            <input  type="hidden" class="form-control" formControlName="idLanguage" name="idLanguage">          
+          </p>
+        </div>
+        <div class="form-group">
+          <p>
+            <label for="label">label</label>
+            <input type="text"  class="form-control" name="label" formControlName="label">
+          </p>
+        </div> 
+        <div class="form-group row">
+          <div class="col-md-5"></div>          
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="switch1"  
+              name="isActiveLang"  value="True"  formControlName="isActiveLang">
+              <label class="custom-control-label" for="switch1">Statut</label>
+            </div> 
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mr-1"> Submit</button> 
+        
+
+      
+    </form>
+
+  
+  
+  
+  
