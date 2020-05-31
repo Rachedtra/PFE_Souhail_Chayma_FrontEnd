@@ -4,11 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { DemandeInfoService } from 'src/app/MicroService2/ServicesMS2/demande-info.service';
 import { CategorieService } from 'src/app/MicroService2/ServicesMS2/categorie.service';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
-import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
-import { CommDemandeInfoService } from 'src/app/MicroService2/ServicesMS2/comm-demande-info.service';
-import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.models';
-import { CommDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CommDemandeInfo.models';
-import { Commentaires } from 'src/app/MicroService2/ModelsMS2/commntaire.models';
+
 import { DemandeInformation } from 'src/app/MicroService2/ModelsMS2/demandeInfo.models';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';

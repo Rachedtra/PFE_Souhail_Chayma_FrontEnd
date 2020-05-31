@@ -10,7 +10,7 @@
   <div class="row no-gutters">
     <div class="col">
   <button class="btn btn-outline-info col-12"routerLinkActive="active" 
-  (click)="GetId(demande.idDemandeInfo);getCommInfoFiltrer(demande.idDemandeInfo);getCatInfoFiltrer(demande.idDemandeInfo)"
+  (click)="InfoService.GetId(demande.idDemandeInfo);comminfoService.getCommInfoFiltrer(demande.idDemandeInfo);getCatInfoFiltrer(demande.idDemandeInfo)"
   >{{demande.titre}}</button><br>
     <!-- <td>{{demande.domaineNom}}</td>
       <td>{{demande.description}}</td>
@@ -41,7 +41,7 @@
   <button type="button" class="btn btn-primary" (click)="openModal(templateSubmit)">Poser Question</button>
 
   <div class="container">
-    <div *ngFor="let demande of obj ">
+    <div *ngFor="let demande of InfoService.obj ">
     <h1>{{demande.titre}}</h1>
     <hr/>
     <div class="form-group">
@@ -57,7 +57,7 @@
     <hr/>
     <h4>Reponses </h4>
     <hr/>
-    <div *ngFor="let comment of CommInfoFiltre">
+    <div *ngFor="let comment of comminfoService.CommInfoFiltre">
       <textarea class="form-control"rows="3" readonly>
         {{comment.descriptionComm}} 
       </textarea>

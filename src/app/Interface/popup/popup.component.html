@@ -33,19 +33,19 @@
           </div>
       </div>
    
-     <fieldset [formGroup]="CatInfoService.form">
+    
         <label>Categorie </label>
         <div>
-        <input type="hidden" class="form-control" formControlName="idCatDemande" name="idCatDemande">
+        <input type="hidden" class="form-control" >
         
-        <select  class="form-control" formControlName="idCat" (change)="getcategoire($event.target.value)">
+        <select  class="form-control"  (change)="getcategoire($event.target.value)">
           <option value="0">-Select-</option>
           <option *ngFor="let categorie of CatService.cat" value={{categorie.idCat}}  >
             {{categorie.label}}</option>
         </select>
        </div>
         <button type="submit" class="btn btn-primary mr-1" > Submit</button>
-    </fieldset>
+    
   </form>
 
 

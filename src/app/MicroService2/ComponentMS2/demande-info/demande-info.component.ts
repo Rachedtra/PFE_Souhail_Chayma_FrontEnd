@@ -42,7 +42,7 @@ export class DemandeInfoComponent implements OnInit {
   onSubmitInfo ()
 {
   if (this.InfoService.form.controls.idDemandeInfo.value == "00000000-0000-0000-0000-000000000000")
-  this.InfoService.PostInfo();
+  this.insertInfo();
 else
   this.UpdateInfo();
 }
@@ -62,7 +62,21 @@ UpdateInfo() {
     )
   }
 
-
+  insertInfo(){
+    this.InfoService.PostInfo().subscribe(
+      res => { 
+        console.log(res);  
+        this.notifInfo.success('', 'Demande Info Ajoutee Avec Succés');
+        this.ResetInfo();     
+      },
+  
+      err => {
+        console.log(err);
+        this.notifInfo.error('Demande Info Non Ajoute', 'Erreur');
+      }
+    ); 
+  }
+  
   // insertInfo() {
   //   this.InfoService.PostInfo().subscribe(
   //     res => {

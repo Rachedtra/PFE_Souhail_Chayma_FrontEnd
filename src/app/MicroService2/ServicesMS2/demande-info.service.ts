@@ -30,12 +30,9 @@ id : string ;
   });
   obj: DemandeInformation[];
   filtirng: DemandeInformation[];
+  demande: string;
+  information: string;
  
-
-
-  catego: any;
-  okay: string;
-  last: string;
   constructor(private _http:HttpClient,private notifInfo :ToastrService,
     private CatInfoService : CatDemandeInfoService
     )
@@ -76,9 +73,7 @@ id : string ;
 
      this._http.get('http://localhost:58540/api/DemandeInformation').subscribe(res => {
       this.info = res as DemandeInformation[];
-      console.log(this.info);
-      this.last=this.info[this.info.length - 1].idDemandeInfo ;
-      console.log(this.last) ;
+      console.log(this.info); 
       console.log("rachedtest" + res);
 
 
@@ -102,6 +97,7 @@ GetInfoFiltrer(id) {
    this.info = res as DemandeInformation[];
   this.filtirng= this.info.filter(i=>i.domaineNom== id ) ; 
    console.log(this.info);
+   this.information=this.filtirng[0].domaineNom ;
    console.log(this.filtirng);
 
 
@@ -109,21 +105,41 @@ GetInfoFiltrer(id) {
 }
 
 
-insertInfo(){
-  this.PostInfo().subscribe(
-    res => { 
-      console.log(res);  
-      this.notifInfo.success('', 'Demande Info Ajoutee Avec Succés');
-      this.ResetInfo();     
+Posted(id)
+{
+  return this._http.post('http://localhost:58540/api/DemandeInformation/Posted?idCat='+id,this.form.value,
+   { responseType: "text" })
+  .subscribe(
+    res => {
+      console.log(res);
+      this.GetInfoFiltrer(this.information);
+      this.notifInfo.info('', 'Demande Info Ajoute Avec Succés');
+      this.ResetInfo();
     },
-
     err => {
       console.log(err);
       this.notifInfo.error('Demande Info Non Ajoute', 'Erreur');
-    }
-  ); 
-}
 
+    }
+  )
+}
+ GetId(id){
+
+   this._http.get('http://localhost:58540/api/DemandeInformation').subscribe(res => {
+     this.info = res as DemandeInformation[];
+     this.obj= this.info.filter(i=>i.idDemandeInfo==id ) ;
+    this.demande=this.obj[0].idDemandeInfo ;  
+     console.log(this.demande) ;
+   
+   });
+ }
+// getDemandeById(id){
+//   this._http.get('http://localhost:58540/api/DemandeInformation/'+id)
+//   .subscribe(res => {
+//     this.demande=res as DemandeInformation;
+//     console.log(this.demande) ; 
+//   }); 
+// }
 
 }
 

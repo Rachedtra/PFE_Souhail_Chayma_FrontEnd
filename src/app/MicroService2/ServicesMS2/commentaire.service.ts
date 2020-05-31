@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Commentaires } from '../ModelsMS2/commntaire.models';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { CommDemandeInfoService } from './comm-demande-info.service';
+import { DemandeInfoService } from './demande-info.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +23,22 @@ export class CommentaireService {
     isActiveComm : new FormControl(""),
     
   });
-  constructor(private _http :HttpClient) { }
+  constructor(private _http :HttpClient,
+    private notifComm :ToastrService,
+    private commInfoService : CommDemandeInfoService,
+    private infoservice : DemandeInfoService) { }
 
+    ResetComm() {
+      this.form.setValue({
+        idComm: "00000000-0000-0000-0000-000000000000",
+        description: "",
+        date:  new Date(),
+        commDemandeInfos: "",
+        commVotes: "",
+        isActiveComm : true
 
+    });
+  }
   DeleteCommentaires(id) {
     return this._http.delete('http://localhost:58540/api/Commentaires/' + id,
       { responseType: "text" });
@@ -58,5 +74,23 @@ CommentairesAcrive() {
 
 
   });
+}
+Posted(id)
+{
+  return this._http.post('http://localhost:58540/api/Commentaires/PostedComm?idDemande='+id,this.form.value,
+   { responseType: "text" })
+  .subscribe(
+    res => {
+      console.log(res);
+     this.commInfoService.getCommInfoFiltrer(this.infoservice.demande) ; 
+      this.notifComm.info('', ' Commentaires Ajoute Avec Succés');
+      this.ResetComm();
+    },
+    err => {
+      console.log(err);
+      this.notifComm.error(' Commentaires Non Ajoute', 'Erreur');
+
+    }
+  )
 }
 }

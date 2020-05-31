@@ -71,43 +71,14 @@ getcategoire(id)
 }
   onSubmitInfo ()
   {
-    if (this.InfoService.form.controls.idDemandeInfo.value == "00000000-0000-0000-0000-000000000000" &&
-    this.CatInfoService.form.controls.idCatDemande.value == "00000000-0000-0000-0000-000000000000")
-    {this.InfoService.insertInfo() ;
-      this.insertCat() ;
+    if (this.InfoService.form.controls.idDemandeInfo.value == "00000000-0000-0000-0000-000000000000" 
+  )
+    {this.InfoService.Posted(this.catego) ;
+   
      }
     
   }
  
-  insertCat(){   
-    this.CatInfoService.form.setValue({
-      idCatDemande: "00000000-0000-0000-0000-000000000000",
-       idCat: this.catego ,
-       idDemandeInfo:  this.InfoService.last ,
-       isActiveCatInfo: true,
-       labelCat: "",
-       descriptionInfo: "",
-       titreInfo : "",
-     });
-   this.CatInfoService.PostCatInfo().subscribe(
-    res => {
-      console.log(res);
-      this.CatInfoService.getCatInfo();
-      this.notifInfo.success('', 'Categorie Demande Information  Ajoutee Avec Succés');
-      
-    },
-  
-    err => {
-      console.log(err);
-      this.CatInfoService.getCatInfo();
-      this.notifInfo.error('Categorie Demande Information  Non Ajoute', 'Erreur');
-  
-    }
-  )
-  ;
-    }
-  
-
 
   }
   

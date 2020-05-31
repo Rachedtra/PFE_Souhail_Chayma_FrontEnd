@@ -45,13 +45,24 @@ const routes: Routes = [
     component : ListDomaineComponent
   },
   {
-    path : 'list-domaine/list-domaine-active',
+    path : 'list-domaine-active/list-domaine',
+    component : ListDomaineComponent
+  },
+  {
+    path : 'list-domaine-active',
     component : ListDomaineActiveComponent
   },
-
   {
     path : 'list-ms',
     component : ListMsComponent
+  },
+  {
+    path : 'list-ms-active/list-ms',
+    component : ListMsComponent
+  },
+  {
+    path : 'list-ms-active',
+    component : ListMsActiveComponent
   },
   {
     path : 'list-methode',
@@ -86,17 +97,17 @@ const routes: Routes = [
     component : ListSousCategorieComponent
   },
 
-  {
-    path : 'list-ms/list-ms-active',
-    component : ListMsActiveComponent
-  },
 
   {
     path : 'list-ver-lang',
     component : ListVerLangComponent
   },
   {
-    path : 'list-ver-lang/list-ver-lang-active',
+    path : 'list-ver-lang-active/list-ver-lang',
+    component : ListVerLangComponent
+  },
+  {
+    path : 'list-ver-lang-active',
     component : ListVerLangActiveComponent
   },
 
@@ -105,7 +116,11 @@ const routes: Routes = [
     component : ListDomaineProjetComponent
   },
   {
-    path : 'list-domaine-projet/list-domaine-projet-active',
+    path : 'list-domaine-projet-active/list-domaine-projet',
+    component : ListDomaineProjetComponent
+  },
+  {
+    path : 'list-domaine-projet-active',
     component : ListDomaineProjetActiveComponent
   },
   {
@@ -113,7 +128,11 @@ const routes: Routes = [
     component : ListMsProjetComponent
   },
   {
-    path : 'list-ms-projet/list-ms-projet-active',
+    path : 'list-ms-projet-active/list-ms-projet',
+    component : ListMsProjetComponent
+  },
+  {
+    path : 'list-ms-projet-active',
     component : ListMsProjetActiveComponent
   },
   {
