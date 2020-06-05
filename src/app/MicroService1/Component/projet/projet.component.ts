@@ -41,6 +41,8 @@ export class ProjetComponent implements OnInit {
       res => {
         console.log(res);
         this.projetService.refreshList();
+        this.projetService.ProjetActive() ; 
+
         this.toaster.success('', 'Projet Ajoutee Avec Succés');
         this.resetForme();
       },
@@ -56,6 +58,8 @@ export class ProjetComponent implements OnInit {
       res => {
         console.log(res);
         this.projetService.refreshList();
+        this.projetService.ProjetActive() ; 
+
         this.toaster.info('', 'Projet Modifiee Avec Succés');
         this.resetForme();
       },

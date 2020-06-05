@@ -1,0 +1,79 @@
+<div class="content-wrapper">
+  <div class="form-group row">
+    <div class="col-md-5">
+      <button class="btn btn-outline-success" (click)="AddLang(templateSubmit)">
+        <i class="fa fa-plus"></i> Create Language
+      </button>
+    </div>
+    <div class="col-md-5">
+      <button class="btn btn-outline-info" routerLink="list-language" routerLinkActive="active">
+        <i class="fa fa-reply"></i>
+        Toutes List
+        </button>
+    </div>
+       <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="languageActiveFilter.label" >
+       </div>
+       <ng-template #templateSubmit>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Language Detail</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-languages></app-languages>
+    
+  </div>
+</ng-template>
+
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      
+      <th>Label</th>
+      <th>Statut</th>
+      <th>Supprimer</th>
+      <th>Modifier</th>
+      <!-- <th>Microservices</th>
+  <th>Languages Versions</th> -->
+    </tr>
+  </thead>
+  <tbody>
+  <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
+  <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
+  <tr *ngFor="let language of langservice.langActive   | filterBy: languageActiveFilter| paginate
+  : {
+      id: 'MicroservicePagination',
+      itemsPerPage: 3,
+      currentPage: p
+    }" class="sizeText" 
+    style="background-color: white; color: black">
+    
+    <td>{{language.label}}</td>
+    <td>{{language.isActiveLang}}</td>
+    <td>
+      <button type="button" class="btn btn-danger" (click)="ConfirmModalLangActive(templateDelete)"><i
+          class="fas fa-trash-alt"></i>Delete</button>
+
+      <!-- <pre class="card card-block card-header">{{message}}</pre> -->
+      <ng-template #templateDelete>
+        <div class="modal-body text-center">
+          <p>Voulez vous Supprimer ?</p>
+          <button type="button" class="btn btn-default"
+            (click)="confirmLangActive();DeleteLang(language.idLanguage);">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="declineLangActive()">No</button>
+        </div>
+      </ng-template>
+    </td>
+    <td><button class="btn btn-primary" (click)="EditLang(language,templateSubmit)"><i class="fas fa-edit"></i>
+        Edit</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+previousLabel="Prec " nextLabel="Suiv ">
+</pagination-controls>
+</div>

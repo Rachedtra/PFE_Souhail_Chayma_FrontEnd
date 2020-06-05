@@ -47,6 +47,8 @@ insertRecord() {
     res => {
       console.log(res);
       this.mService.refreshList();
+      this.mService.MethodeActive() ; 
+
       this.toastrService.success('', 'Methode Ajoutee Avec Succés');
       this.resetForm();
     },
@@ -63,6 +65,8 @@ insertRecord() {
       res => {
         console.log(res);
         this.mService.refreshList();
+        this.mService.MethodeActive() ; 
+
         this.toastrService.info('', 'Methode Modifiee Avec Succés');
         this.resetForm();
       },

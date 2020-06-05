@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MsActiveComponent } from './ms-active.component';
+import { ListProjetActiveComponent } from './list-projet-active.component';
 
-describe('MsActiveComponent', () => {
-  let component: MsActiveComponent;
-  let fixture: ComponentFixture<MsActiveComponent>;
+describe('ListProjetActiveComponent', () => {
+  let component: ListProjetActiveComponent;
+  let fixture: ComponentFixture<ListProjetActiveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MsActiveComponent ]
+      declarations: [ ListProjetActiveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MsActiveComponent);
+    fixture = TestBed.createComponent(ListProjetActiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

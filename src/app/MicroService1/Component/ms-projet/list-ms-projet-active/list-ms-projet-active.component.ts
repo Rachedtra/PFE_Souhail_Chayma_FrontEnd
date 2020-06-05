@@ -48,6 +48,8 @@ DeleteMp(idMsProjet: string) {
   this.msprojetService.DeleteMsProjet(idMsProjet).subscribe(res => {
     console.log(res);
     this.msprojetService.getMsProjet();
+    this.msprojetService.MsProjetActive();
+
   })
 
 }

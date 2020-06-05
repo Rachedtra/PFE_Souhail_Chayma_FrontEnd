@@ -47,6 +47,8 @@ UpdateMp() {
       res => {
         console.log(res);
         this.msprojetService.getMsProjet();
+        this.msprojetService.MsProjetActive();
+
         this.MsProjetInfo.info('', 'MS Projet Modifiee Avec Succés');
         this.resetFormMsprojet();
       },
@@ -64,6 +66,8 @@ UpdateMp() {
       res => {
         console.log(res);
         this.msprojetService.getMsProjet();
+        this.msprojetService.MsProjetActive();
+
         this.MsProjetInfo.success('', 'MS Projet Ajoutee Avec Succés');
         this.resetFormMsprojet();
       },

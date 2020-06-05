@@ -42,7 +42,8 @@ export class ListDomaineActiveComponent implements OnInit {
      this.Domservice.DeleteDom(idDomaine).subscribe(res => {
        console.log(res);
        this.Domservice.refreshList();
-     })
+       this.Domservice.DomaineActive() ; 
+     }) ;
  
    }
  

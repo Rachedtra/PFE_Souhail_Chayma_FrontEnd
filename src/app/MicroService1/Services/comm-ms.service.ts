@@ -16,6 +16,7 @@ export class CommMsService {
     
   });
   commMs: CommMs[];
+  commMsaActive : CommMs[];
   constructor(private _http: HttpClient) { }
 
 
@@ -40,6 +41,14 @@ export class CommMsService {
     this._http.get('http://localhost:54735/api/CommMs').subscribe(res => {
       this.commMs = res as CommMs[];
       console.log(this.commMs);
+
+    });
+  }
+  getCommMsActive()
+  {
+    this._http.get('http://localhost:54735/api/CommMs/GetActiveListCommMs').subscribe(res => {
+      this.commMsaActive = res as CommMs[];
+      console.log(this.commMsaActive);
 
     });
   }

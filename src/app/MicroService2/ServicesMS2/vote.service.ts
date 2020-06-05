@@ -18,6 +18,9 @@ export class VoteService {
     isActiveVote: new FormControl(""),
     
   });
+  voteid: Vote[];
+  idV: string;
+  notte: number;
 
   constructor(private _http: HttpClient) { }
 
@@ -49,7 +52,15 @@ export class VoteService {
 
     });
 }
-
+getidvote(rating){
+  this._http.get('http://localhost:58540/api/Vote').subscribe(res => {
+    this.vot = res as Vote[];
+    this.voteid= this.vot.filter(i=>i.note==rating );
+    this.idV=this.voteid[0].idVote ; 
+    this.notte=this.voteid[0].note ;
+    console.log(this.idV)
+  });
+}
 VoteActive() {
 
   this._http.get('http://localhost:58540/api/Vote/GetActiveListVote').subscribe(res => {

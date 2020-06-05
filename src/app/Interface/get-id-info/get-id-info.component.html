@@ -57,14 +57,26 @@
     <hr/>
     <h4>Reponses </h4>
     <hr/>
+   
     <div *ngFor="let comment of comminfoService.CommInfoFiltre">
-      <textarea class="form-control"rows="3" readonly>
+      <textarea class="form-control"rows="3" readonly >
         {{comment.descriptionComm}} 
       </textarea>
-    
+      <rating [(ngModel)]="comment.note"
+      (click)="comminfoService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
+      
+      <button class="btn btn-info" (click)="Post(comment.idComm)">
+        Rate
+          </button>
+     <hr/>
+    </div> 
+    <div *ngFor="let v of CommVoteService.CommVoteFiltre">
+      {{v.note}} 
+      
     <hr/>
+  
+  </div>
     
-    </div>  
 
       <app-comm></app-comm>
  

@@ -47,6 +47,7 @@ UpdateDp() {
       res => {
         console.log(res);
         this.domprojetService.getDomProjet();
+        this.domprojetService.ListActiveDomProjet();
         this.DomProjetInfo.info('', 'Domaine Projet Modifiee Avec Succés');
         this.resetFormDomprojet();
       },
@@ -64,6 +65,8 @@ UpdateDp() {
       res => {
         console.log(res);
         this.domprojetService.getDomProjet();
+        this.domprojetService.ListActiveDomProjet();
+
         this.DomProjetInfo.success('', 'Domaine Projet Ajoutee Avec Succés');
         this.resetFormDomprojet();
       },

@@ -48,6 +48,7 @@ export class VersionsComponent implements OnInit {
       res => {
         console.log(res);
         this.Verservice.refreshList();
+        this.Verservice.VerActive();
         this.toastrService.success('', 'Version Ajoutee Avec Succés');
         this.resetForm();
       },
@@ -64,6 +65,8 @@ export class VersionsComponent implements OnInit {
       res => {
         console.log(res);
         this.Verservice.refreshList();
+        this.Verservice.VerActive();
+
         this.toastrService.info('', 'Version Modifiee Avec Succés');
         this.resetForm();
       },

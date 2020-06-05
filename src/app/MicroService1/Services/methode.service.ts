@@ -60,7 +60,7 @@ export class MethodeService {
 
   MethodeActive() {
 
-    this._http.get('http://localhost:54735/api/Methode/GetActiveListLanguages').subscribe(res => {
+    this._http.get('http://localhost:54735/api/Methode/GetActiveListMethode').subscribe(res => {
       this.methodActive = res as Methode[];
       console.log(this.methodActive);
       console.log("rachedtest" + res);

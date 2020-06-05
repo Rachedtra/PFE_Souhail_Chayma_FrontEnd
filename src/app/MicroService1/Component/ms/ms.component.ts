@@ -62,6 +62,8 @@ else
       res => {
         console.log(res);
         this.msService.refreshList();
+        this.msService.ListActive();
+
         this.toastrService.info('', 'Micro Service Modifiee Avec Succés');
         this.resetForm();
       },
@@ -79,6 +81,8 @@ else
       res => {
         console.log(res);
         this.msService.refreshList();
+        this.msService.ListActive();
+
         this.toastrService.success('', 'Micro Service Ajoutee Avec Succés');
         this.resetForm();
       },

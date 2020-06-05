@@ -1,10 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
 import { MsComponent } from '../ms.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
+import { ToastrService } from 'ngx-toastr';
 import { LanguagesService } from 'src/app/MicroService1/Services/languages.service';
-
 
 @Component({
   selector: 'app-list-ms',
@@ -12,87 +11,82 @@ import { LanguagesService } from 'src/app/MicroService1/Services/languages.servi
   styleUrls: ['./list-ms.component.css']
 })
 export class ListMsComponent implements OnInit {
+
   modalRef: BsModalRef;
-  modalData: any;
   MsFilter: any = { label: '' };
 
 
-
   constructor(private msService: MicroServiceService,
-    private modalService: BsModalService,
-    private toastrService: ToastrService,
+    private modalActive: BsModalService,
+    private toastActive: ToastrService,
     private langService:LanguagesService
   
     ) { }
 
   ngOnInit() {
-    this.msService.refreshList();
+    this.msService.ListActive();
     this.langService.refreshList() ; 
-    this.resetForm();
+    this.resetFormActive();
   }
-  resetForm() {
-      this.msService.form.setValue({
-        idMs: "00000000-0000-0000-0000-000000000000",
-        label: "",
-        description: "",
-        author: "",
-        lien: "",
-        diagClass: "",
-        languagesFK: "00000000-0000-0000-0000-000000000000",
-       // msprojet: "",
-        // methodes: "",
-        // languages :"",
-        isActiveMs : true ,
-        languageLabel : ""
+  resetFormActive() {
+    this.msService.form.setValue({
+      idMs: "00000000-0000-0000-0000-000000000000",
+      label: "",
+      description: "",
+      author: "",
+      lien: "",
+      diagClass: "",
+      languagesFK: "00000000-0000-0000-0000-000000000000",
+     // msprojet: "",
+      // methodes: "",
+      // languages :"",
+      isActiveMs : true ,
+      languageLabel : ""
 
-    });
-  }
+  });
+}
+DeleteMs(idMs: string) {
+  this.msService.DeleteMs(idMs).subscribe(res => {
+    console.log(res);
+    this.msService.ListActive();
 
+    this.msService.refreshList();
+  })
 
- 
+}
 
-  DeleteMs(idMs: string) {
-    this.msService.DeleteMs(idMs).subscribe(res => {
-      console.log(res);
-      this.msService.refreshList();
-    })
-
-  }
-
-  openModal(templatee: TemplateRef<MsComponent>) {
-    this.modalRef = this.modalService.show(templatee);
+openModal(templatee: TemplateRef<MsComponent>) {
+  this.modalRef = this.modalActive.show(templatee);
 
 
-  }
+}
 
-  ConfirmModal(template: TemplateRef<MsComponent>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
-  }
+ConfirmModal(template: TemplateRef<MsComponent>) {
+  this.modalRef = this.modalActive.show(template, { class: 'modal-sm' });
+}
 
-  confirm(): void {
+confirm(): void {
 
-    this.modalRef.hide();
-    this.toastrService.success('', 'Microservice Supprimee Avec Succés');
-  }
+  this.modalRef.hide();
+  this.toastActive.success('', 'Microservice Supprimee Avec Succés');
+}
 
-  decline(): void {
+decline(): void {
 
-    this.modalRef.hide();
-    this.toastrService.warning('', 'Microservice Non Supprimee');
-  }
+  this.modalRef.hide();
+  this.toastActive.warning('', 'Microservice Non Supprimee');
+}
 
-  EditMs(ms,  templatee: TemplateRef<MsComponent>) {
-    this.msService.form.setValue(ms);
-    this.modalRef = this.modalService.show(templatee);
-
-
-  }
-  AddMs(templatee: TemplateRef<MsComponent>) {
-    this.resetForm();
-    this.modalRef = this.modalService.show(templatee);
-
-  }
+EditMs(ms,  templatee: TemplateRef<MsComponent>) {
+  this.msService.form.setValue(ms);
+  this.modalRef = this.modalActive.show(templatee);
 
 
+}
+AddMs(templatee: TemplateRef<MsComponent>) {
+  this.resetFormActive();
+  this.modalRef = this.modalActive.show(templatee);
+
+}
 
 }

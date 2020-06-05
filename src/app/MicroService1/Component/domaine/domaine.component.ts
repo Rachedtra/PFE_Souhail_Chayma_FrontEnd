@@ -47,6 +47,7 @@ export class DomaineComponent implements OnInit {
       res => {
         console.log(res);
         this.Domservice.refreshList();
+        this.Domservice.DomaineActive() ; 
         this.toastrService.success('', 'Domaine Ajoutee Avec Succés');
 
         this.resetForm();
@@ -64,6 +65,7 @@ export class DomaineComponent implements OnInit {
       res => {
         console.log(res);
         this.Domservice.refreshList();
+        this.Domservice.DomaineActive() ; 
         this.toastrService.info('', 'Domaine Modifiee Avec Succés');
 
         this.resetForm();

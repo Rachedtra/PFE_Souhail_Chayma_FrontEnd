@@ -48,6 +48,7 @@ UpdateCommMs() {
         this.CommMsListe.modalRefCommMs.hide() ;
         console.log(res);
         this.CommMsService.getCommMs();
+        this.CommMsService.getCommMsActive();
         this.CommMstInfo.info('', 'Commentaires Ms Modifiee Avec Succés');
         this.resetFormCommMs();
         
@@ -67,6 +68,7 @@ UpdateCommMs() {
        
         console.log(res);
         this.CommMsService.getCommMs();
+        this.CommMsService.getCommMsActive();
         this.CommMstInfo.success('', 'Commentaires Ms Ajoutee Avec Succés');
         this.resetFormCommMs();
       },

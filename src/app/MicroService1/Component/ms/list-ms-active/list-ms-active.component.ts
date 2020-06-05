@@ -47,6 +47,7 @@ export class ListMsActiveComponent implements OnInit {
 DeleteMs(idMs: string) {
   this.msService.DeleteMs(idMs).subscribe(res => {
     console.log(res);
+    this.msService.ListActive();
     this.msService.refreshList();
   })
 

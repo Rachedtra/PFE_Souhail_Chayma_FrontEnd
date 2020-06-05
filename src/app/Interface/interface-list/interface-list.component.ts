@@ -16,14 +16,14 @@ import { Categorie } from 'src/app/MicroService2/ModelsMS2/categorie.models';
   styleUrls: ['./interface-list.component.css']
 })
 export class InterfaceListComponent implements OnInit {
-
+  modalRef:BsModalRef
 
   Info: DemandeInformation[] = new Array();
   filtirng: DemandeInformation[] = new Array();
   obj: Object;
   id : any
   constructor(private _http :HttpClient,
- 
+    private modalService: BsModalService,
     private InfoService :DemandeInfoService,
     private domService : DomaineService , 
 ) {}
@@ -32,4 +32,7 @@ export class InterfaceListComponent implements OnInit {
     this.domService.refreshList() ; 
    this.InfoService.GetInfoFiltrer ;
   }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+}
 }

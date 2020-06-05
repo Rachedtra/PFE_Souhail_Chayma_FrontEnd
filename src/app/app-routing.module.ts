@@ -4,7 +4,6 @@ import { ListLanguageComponent } from './MicroService1/Component/languages/list-
 import { SidebarLeftComponent } from './navbar/sidebar-left/sidebar-left.component';
 import { ListVersionsComponent } from './MicroService1/Component/versions/list-versions/list-versions.component';
 import { ListDomaineComponent } from './MicroService1/Component/domaine/list-domaine/list-domaine.component';
-import { ListMsComponent } from './MicroService1/Component/Ms/list-ms/list-ms.component';
 import { ListMethodeComponent } from './MicroService1/Component/Methode/list-methode/list-methode.component';
 import { ListProjetComponent } from './MicroService1/Component/Projet/list-projet/list-projet.component';
 import { ListCategorieComponent } from './MicroService2/ComponentMS2/categorie/list-categorie/list-categorie.component';
@@ -28,15 +27,37 @@ import { GetIdInfoComponent } from './Interface/get-id-info/get-id-info.componen
 import { ListMsInteraceComponent } from './Interface/list-ms-interace/list-ms-interace.component';
 import { GetIdMsComponent } from './Interface/get-id-ms/get-id-ms.component';
 import { ListCommMsComponent } from './MicroService1/Component/comm-ms/list-comm-ms/list-comm-ms.component';
+import { ListLanguageActiveComponent } from './MicroService1/Component/languages/list-language-active/list-language-active.component';
+import { ListActiveVersionComponent } from './MicroService1/Component/versions/list-active-version/list-active-version.component';
+import { ListMsComponent } from './MicroService1/Component/ms/list-ms/list-ms.component';
+import { LisMethodeActiveComponent } from './MicroService1/Component/methode/lis-methode-active/lis-methode-active.component';
+import { ListProjetActiveComponent } from './MicroService1/Component/projet/list-projet-active/list-projet-active.component';
+import { ListCommMsActiveComponent } from './MicroService1/Component/comm-ms/list-comm-ms-active/list-comm-ms-active.component';
 
 const routes: Routes = [
   {
     path : 'list-language',
     component : ListLanguageComponent
   },
+  {
+    path : 'list-language-active',
+    component : ListLanguageActiveComponent
+  },
+  {
+    path : 'list-language-active/list-language',
+    component : ListLanguageComponent
+  },
   
   {
     path : 'list-versions',
+    component : ListVersionsComponent
+  },
+  {
+    path : 'list-active-version',
+    component : ListActiveVersionComponent
+  },
+  {
+    path : 'list-active-version/list-versions',
     component : ListVersionsComponent
   },
  
@@ -69,7 +90,21 @@ const routes: Routes = [
     component : ListMethodeComponent
   },
   {
+    path : 'list-methode-active',
+    component : LisMethodeActiveComponent
+  },  {
+    path : 'list-methode-active/list-methode',
+    component : ListMethodeComponent
+  },
+  {
     path : 'list-projet',
+    component : ListProjetComponent
+  },
+  {
+    path : 'list-projet-active',
+    component : ListProjetActiveComponent
+  },  {
+    path : 'list-projet-active/list-projet',
     component : ListProjetComponent
   },
 
@@ -150,6 +185,13 @@ const routes: Routes = [
 {
   path : 'list-comm-ms',
   component : ListCommMsComponent
+},
+{
+  path : 'list-comm-ms-active/list-comm-ms',
+  component : ListCommMsComponent
+},{
+  path : 'list-comm-ms-active',
+  component : ListCommMsActiveComponent
 },
 {
   path : 'interface-list',

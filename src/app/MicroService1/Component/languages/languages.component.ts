@@ -57,6 +57,7 @@ export class LanguagesComponent implements OnInit {
       res => {
         console.log(res);
         this.langservice.refreshList();
+        this.langservice.LanguagesActive() ;
         this.toastrService.success('', 'Language Ajoutee Avec Succés');
         this.resetForm();
       },
@@ -74,6 +75,7 @@ export class LanguagesComponent implements OnInit {
 
         console.log(res);
         this.langservice.refreshList();
+        this.langservice.LanguagesActive() ;
         this.toastrService.info('', 'Language Modifiee Avec Succés');
         this.resetForm();
       },

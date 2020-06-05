@@ -25,6 +25,7 @@ export class CommDemandeInfoService {
   CommInfoFiltre: CommDemandeInfo[];
   comm: CommDemandeInfo[];
   id: string;
+  commfilter: CommDemandeInfo[];
   constructor(private _http: HttpClient) { }
 
   DeleteCommInfo(id) {
@@ -70,9 +71,17 @@ export class CommDemandeInfoService {
     this._http.get('http://localhost:58540/api/CommDemandeInfo').subscribe(res => {
       this.comm = res as CommDemandeInfo[];
       this.CommInfoFiltre= this.comm.filter(i=>i.idDemandeInfo==id ); 
-      this.id=this.CommInfoFiltre[0].idDemandeInfo ; 
+     
       console.log(this.CommInfoFiltre);
     });
   
+  }
+  GetCommId(id){
+    this._http.get('http://localhost:58540/api/CommDemandeInfo').subscribe(res => {
+      this.comm = res as CommDemandeInfo[];
+    this.commfilter= this.CommInfoFiltre.filter(i=>i.idComm==id ); 
+    this.id=this.CommInfoFiltre[0].idComm ; 
+    console.log(this.commfilter) ; 
+    });
   }
 }

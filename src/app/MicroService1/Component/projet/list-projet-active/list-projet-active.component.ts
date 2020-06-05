@@ -1,15 +1,16 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { ProjetComponent } from '../projet.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ProjetService } from 'src/app/MicroService1/Services/projet.service';
 import { ToastrService } from 'ngx-toastr';
-import { ProjetComponent } from '../projet.component';
 
 @Component({
-  selector: 'app-list-projet',
-  templateUrl: './list-projet.component.html',
-  styleUrls: ['./list-projet.component.css']
+  selector: 'app-list-projet-active',
+  templateUrl: './list-projet-active.component.html',
+  styleUrls: ['./list-projet-active.component.css']
 })
-export class ListProjetComponent implements OnInit {
+export class ListProjetActiveComponent implements OnInit {
+
   projetFilter: any = { nom: '' };
 
   modalRef1: BsModalRef;
@@ -21,6 +22,7 @@ export class ListProjetComponent implements OnInit {
 
   ngOnInit() {
     this.projetService.refreshList();
+    this.projetService.ProjetActive() ; 
     this.resetForme();
 
   }
@@ -39,6 +41,8 @@ export class ListProjetComponent implements OnInit {
   DeleteProjet(idProjet: string) {
     this.projetService.DeleteProjet(idProjet).subscribe(res => {
       console.log(res);
+      this.projetService.ProjetActive() ; 
+
       this.projetService.refreshList();
     })
 
@@ -65,6 +69,7 @@ export class ListProjetComponent implements OnInit {
   EditProjet(prjt,  templatee: TemplateRef<ProjetComponent>) {
     this.projetService.pj.setValue(prjt);
     this.modalRef1 = this.modal.show(templatee);
+
 
   }
   AddProjet(templatee: TemplateRef<ProjetComponent>) {

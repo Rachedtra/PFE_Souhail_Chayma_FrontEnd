@@ -48,6 +48,8 @@ UpdateVl() {
       res => {
         console.log(res);
         this.VerLangService.getVerLang();
+        this.VerLangService.VersionLanguageActive();
+
         this.verlangInfo.info('', 'Version Language Modifiee Avec Succés');
         this.resetFormVerLang();
       },
@@ -65,6 +67,8 @@ UpdateVl() {
       res => {
         console.log(res);
         this.VerLangService.getVerLang();
+        this.VerLangService.VersionLanguageActive();
+
         this.verlangInfo.success('', 'Version Language Ajoutee Avec Succés');
         this.resetFormVerLang();
       },

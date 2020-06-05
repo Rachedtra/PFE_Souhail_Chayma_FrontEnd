@@ -6,6 +6,8 @@ import { DemandeInformation } from 'src/app/MicroService2/ModelsMS2/demandeInfo.
 import { CommDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CommDemandeInfo.models';
 import { CommDemandeInfoService } from 'src/app/MicroService2/ServicesMS2/comm-demande-info.service';
 import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.models';
+import { CommVoteService } from 'src/app/MicroService2/ServicesMS2/comm-vote.service';
+import { VoteService } from 'src/app/MicroService2/ServicesMS2/vote.service';
 
 @Component({
   selector: 'app-get-id-info',
@@ -14,9 +16,10 @@ import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.m
 })
 export class GetIdInfoComponent implements OnInit {
   modalRef:BsModalRef
+ 
   obj:DemandeInformation[];
   Info: DemandeInformation[];
-  id : any ; 
+note : number ; 
   comm : CommDemandeInfo[] ; 
   CommInfoFiltre :  CommDemandeInfo[] ; 
   CatInfo: any[];
@@ -25,22 +28,33 @@ InformationFiltre: any = { titre: '' };
   constructor(private modalService: BsModalService,
     private InfoService: DemandeInfoService,
     private _http : HttpClient,
-
-    private comminfoService: CommDemandeInfoService
+    private CommVoteService : CommVoteService,
+    private comminfoService: CommDemandeInfoService,
+    private VoteService : VoteService
    
     ) { }
    
   ngOnInit() {
 this.InfoService.GetInfoFiltrer;
 this.InfoService.GetId ; 
+this.CommVoteService.getCommVoteFiltrer ; 
+this.resetFormCommVote();
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
 }
 
+resetFormCommVote() {
+  this.CommVoteService.form.setValue({
+    idCommVote: "00000000-0000-0000-0000-000000000000",
+    idComm: "",
+    idVote: "",
+    isActiveCommVote: true,
+    descriptionComm: "",
+    note: "",
+}); 
 
-
-
+}
 
 getCatInfoFiltrer(id) {
 
@@ -52,7 +66,36 @@ getCatInfoFiltrer(id) {
 
 
   });
-
-
 }
+rate(rating)
+{console.log(rating);
+  }
+ 
+Post(id){
+  this.CommVoteService.form.setValue({
+    idCommVote: "00000000-0000-0000-0000-000000000000",
+    idComm: id ,
+    idVote:this.VoteService.idV,
+    isActiveCommVote: true,
+    descriptionComm: "",
+    note:"" ,
+}); 
+this.CommVoteService.PostCommVote().subscribe(
+  res => {
+    console.log(res);
+    this.CommVoteService.getCommVoteFiltrer(id) ;
+    
+   ;
+    this.resetFormCommVote();
+  },
+  err => {
+    console.log(err);
+ 
+
+  }
+)
+}
+
+
+
 }
