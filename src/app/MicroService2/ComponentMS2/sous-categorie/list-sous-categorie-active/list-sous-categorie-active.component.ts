@@ -1,18 +1,18 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { SousCategorieComponent } from '../sous-categorie.component';
 import { SousCategorieService } from 'src/app/MicroService2/ServicesMS2/sous-categorie.service';
 import { ToastrService } from 'ngx-toastr';
-import { SousCategorieComponent } from '../sous-categorie.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'app-list-sous-categorie',
-  templateUrl: './list-sous-categorie.component.html',
-  styleUrls: ['./list-sous-categorie.component.css']
+  selector: 'app-list-sous-categorie-active',
+  templateUrl: './list-sous-categorie-active.component.html',
+  styleUrls: ['./list-sous-categorie-active.component.css']
 })
-export class ListSousCategorieComponent implements OnInit {
+export class ListSousCategorieActiveComponent implements OnInit {
 
   modalSousCatRef: BsModalRef;
-  SousCatFilter: any = { label: '' };
+  SousCatFilterActive: any = { label: '' };
   constructor( private SousCatoService: SousCategorieService,
     private notifSousCat: ToastrService,
     private modalSousCat: BsModalService,
@@ -21,6 +21,7 @@ export class ListSousCategorieComponent implements OnInit {
 
 
     ngOnInit() {
+      this.SousCatoService.SousCategorieActive();
       this.SousCatoService.GetSousCat();
       this.ResetSousCat();
     }
@@ -38,6 +39,7 @@ export class ListSousCategorieComponent implements OnInit {
   DeleteSousCat(id: string) {
     this.SousCatoService.DeleteSousCat(id).subscribe(res => {
       console.log(res);
+      this.SousCatoService.SousCategorieActive();
       this.SousCatoService.GetSousCat();
     })
   

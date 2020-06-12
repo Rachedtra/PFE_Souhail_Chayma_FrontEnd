@@ -44,6 +44,7 @@ UpdateCv() {
     this.CommVoteService.PutCommVote().subscribe(
       res => {
         console.log(res);
+        this.CommVoteService.CommentaireVoteActive();
         this.CommVoteService.getCommVote();
         this.CommVoteInfo.info('', 'Commentaire  Vote  Modifiee Avec Succés');
         this.resetFormCommVote();
@@ -61,6 +62,7 @@ UpdateCv() {
     this.CommVoteService.PostCommVote().subscribe(
       res => {
         console.log(res);
+        this.CommVoteService.CommentaireVoteActive();
         this.CommVoteService.getCommVote();
         this.CommVoteInfo.success('', 'Commenatire Demande Information  Ajoutee Avec Succés');
         this.resetFormCommVote();

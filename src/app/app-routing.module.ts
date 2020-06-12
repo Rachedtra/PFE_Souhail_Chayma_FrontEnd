@@ -33,6 +33,13 @@ import { ListMsComponent } from './MicroService1/Component/ms/list-ms/list-ms.co
 import { LisMethodeActiveComponent } from './MicroService1/Component/methode/lis-methode-active/lis-methode-active.component';
 import { ListProjetActiveComponent } from './MicroService1/Component/projet/list-projet-active/list-projet-active.component';
 import { ListCommMsActiveComponent } from './MicroService1/Component/comm-ms/list-comm-ms-active/list-comm-ms-active.component';
+import { ListCatInfoActiveComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info-active/list-cat-info-active.component';
+import { ListCategorieActiveComponent } from './MicroService2/ComponentMS2/categorie/list-categorie-active/list-categorie-active.component';
+import { ListCommDemandeInfoeActiveComponent } from './MicroService2/ComponentMS2/comm-demande-info/list-comm-demande-infoe-active/list-comm-demande-infoe-active.component';
+import { ListCommVoteActiveComponent } from './MicroService2/ComponentMS2/comm-vote/list-comm-vote-active/list-comm-vote-active.component';
+import { ListCommmentaireActiveComponent } from './MicroService2/ComponentMS2/commentaire/list-commmentaire-active/list-commmentaire-active.component';
+import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info-active/list-demande-info-active.component';
+import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
 
 const routes: Routes = [
   {
@@ -112,6 +119,14 @@ const routes: Routes = [
     path : 'list-Categorie',
     component : ListCategorieComponent
   },
+  {
+    path : 'list-categorie-active/list-Categorie',
+    component : ListCategorieComponent
+  },
+  {
+    path : 'list-categorie-active',
+    component : ListCategorieActiveComponent
+  },
 
   {
     path : 'list-vote',
@@ -123,14 +138,37 @@ const routes: Routes = [
     component : ListCommentaireComponent
   },
   {
+    path : 'list-commentaire-active/list-commentaire',
+    component : ListCommentaireComponent
+  },
+  {
+    path : 'list-commentaire-active',
+    component : ListCommmentaireActiveComponent
+  },
+  {
     path : 'list-demande-info',
     component : ListDemandeInfoComponent
+  },
+  {
+    path : 'list-demande-info-active/list-demande-info',
+    component : ListDemandeInfoComponent
+  },  {
+    path : 'list-demande-info-active',
+    component : ListDemandeInfoActiveComponent
   },
   
   {
     path : 'list-sous-categorie',
     component : ListSousCategorieComponent
+  },  {
+    path : 'list-sous-categorie-active/list-sous-categorie',
+    component : ListSousCategorieComponent
   },
+  {
+    path : 'list-sous-categorie-active',
+    component : ListSousCategorieActiveComponent
+  },
+
 
 
   {
@@ -175,12 +213,35 @@ const routes: Routes = [
     component : ListCatInfoComponent
   },
   {
+    path : 'list-cat-info-active/list-cat-info',
+    component : ListCatInfoComponent
+  },
+  {
+    path : 'list-cat-info-active',
+    component : ListCatInfoActiveComponent
+  },
+  {
     path : 'list-comm-demande-info',
     component : ListCommDemandeInfoComponent
+  },
+  {
+    path : 'list-comm-demande-info-active/list-comm-demande-info',
+    component : ListCommDemandeInfoComponent
+  },
+  {
+    path : 'list-comm-demande-info-active',
+    component : ListCommDemandeInfoeActiveComponent
   },
 {
   path : 'list-comm-vote',
   component : ListCommVoteComponent
+},
+{
+  path : 'list-comm-vote-active/list-comm-vote',
+  component : ListCommVoteComponent
+},{
+  path : 'list-comm-vote-active',
+  component : ListCommVoteActiveComponent
 },
 {
   path : 'list-comm-ms',

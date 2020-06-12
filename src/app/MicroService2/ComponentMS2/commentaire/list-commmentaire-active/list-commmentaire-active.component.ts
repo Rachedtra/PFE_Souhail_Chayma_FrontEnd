@@ -1,18 +1,18 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
-import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
 import { CommentaireComponent } from '../commentaire.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-list-commentaire',
-  templateUrl: './list-commentaire.component.html',
-  styleUrls: ['./list-commentaire.component.css']
+  selector: 'app-list-commmentaire-active',
+  templateUrl: './list-commmentaire-active.component.html',
+  styleUrls: ['./list-commmentaire-active.component.css']
 })
-export class ListCommentaireComponent implements OnInit {
+export class ListCommmentaireActiveComponent implements OnInit {
 
   modalCommRef: BsModalRef;
-  CommFilter: any = { description: '' };
+  CommFilterActive: any = { description: '' };
   constructor( private CommService: CommentaireService,
     private notifComm: ToastrService,
     private modalComm: BsModalService,
@@ -21,6 +21,8 @@ export class ListCommentaireComponent implements OnInit {
 
 
     ngOnInit() {
+      this.CommService.CommentairesAcrive();
+
       this.CommService.GetCommentaires();
       this.ResetComm();
     }
@@ -39,6 +41,7 @@ export class ListCommentaireComponent implements OnInit {
   DeleteComm(id: string) {
     this.CommService.DeleteCommentaires(id).subscribe(res => {
       console.log(res);
+      this.CommService.CommentairesAcrive();
       this.CommService.GetCommentaires();
     })
   
@@ -77,5 +80,4 @@ export class ListCommentaireComponent implements OnInit {
     this.modalCommRef = this.modalComm.show(templatee);
   
   }
-
 }

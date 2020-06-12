@@ -40,6 +40,8 @@ UpdateCategorie() {
     this.categorieService.PutCat().subscribe(
       res => {
         console.log(res);
+        this.categorieService.CategorieActive() ;
+
         this.categorieService.GetCat();
         this.notif.info('', 'Categorie Modifiee Avec Succés');
         this.ResetCat();
@@ -57,6 +59,8 @@ UpdateCategorie() {
     this.categorieService.PostCat().subscribe(
       res => {
         console.log(res);
+        this.categorieService.CategorieActive() ;
+
         this.categorieService.GetCat();
         this.notif.success('', 'Categorie Ajoutee Avec Succés');
         this.ResetCat();

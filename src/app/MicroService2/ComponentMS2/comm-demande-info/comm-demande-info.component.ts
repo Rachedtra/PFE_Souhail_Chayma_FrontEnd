@@ -45,6 +45,7 @@ UpdateCi() {
     this.CommInfoService.PutCommInfo().subscribe(
       res => {
         console.log(res);
+        this.CommInfoService.CommentairesInfoActive();
         this.CommInfoService.getCommInfo();
         this.CommInfoInfo.info('', 'Commentaire Demande Information  Modifiee Avec Succés');
         this.resetFormCommInfo();
@@ -62,6 +63,7 @@ UpdateCi() {
     this.CommInfoService.PostCommInfo().subscribe(
       res => {
         console.log(res);
+        this.CommInfoService.CommentairesInfoActive();
         this.CommInfoService.getCommInfo();
         this.CommInfoInfo.success('', 'Commenatire Demande Information  Ajoutee Avec Succés');
         this.resetFormCommInfo();

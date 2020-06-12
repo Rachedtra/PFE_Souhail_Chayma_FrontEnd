@@ -46,6 +46,7 @@ UpdateSousCat() {
     this.SousCatoService.PutSousCat().subscribe(
       res => {
         console.log(res);
+        this.SousCatoService.SousCategorieActive();
         this.SousCatoService.GetSousCat();
         this.notifSousCat.info('', 'Sous Categorie Modifiee Avec Succés');
         this.ResetSousCat();
@@ -63,6 +64,7 @@ UpdateSousCat() {
     this.SousCatoService.PostSousCat().subscribe(
       res => {
         console.log(res);
+        this.SousCatoService.SousCategorieActive();
         this.SousCatoService.GetSousCat();
         this.notifSousCat.success('', 'Sous Categorie Ajoutee Avec Succés');
         this.ResetSousCat();

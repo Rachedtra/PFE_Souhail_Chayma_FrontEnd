@@ -1,8 +1,20 @@
 <div class="content-wrapper">
-
+  <div class="form-group row">
+    <div class="col-md-5">
+      
   <button class="btn btn-outline-success" (click)="AddComm(templateSubmit)">
     <i class="fa fa-plus"></i> Create Commentaire
   </button>
+    </div>
+    <div class="col-md-5">
+    </div>
+       <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommFilter.description" >
+  
+  
+       </div>
+      
+  
   
   <ng-template #templateSubmit>
     <div class="modal-header">
@@ -31,10 +43,10 @@
     </thead>
     <tbody>
        
-    <tr *ngFor="let commentaire of CommService.comm | paginate
+    <tr *ngFor="let commentaire of CommService.comm | filterBy: CommFilter | paginate
     : {
         id: 'MicroservicePagination',
-        itemsPerPage: 1,
+        itemsPerPage: 3,
         currentPage: p
       } " class="sizeText" 
     style="background-color: white; color: black">

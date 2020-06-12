@@ -50,7 +50,8 @@ UpdateCi() {
     this.CatInfoService.PutCatInfo().subscribe(
       res => {
         console.log(res);
-        this.CatInfoService.getCatInfo();
+        this.CatInfoService.CategorieInfoActive() ;
+        this.CatInfoService.getCatInfo();     
         this.CatInfoInfo.info('', 'Categorie Demande Information  Modifiee Avec Succés');
         this.resetFormCatInfo();
       },
@@ -67,6 +68,7 @@ UpdateCi() {
     this.CatInfoService.PostCatInfo().subscribe(
       res => {
         console.log(res);
+        this.CatInfoService.CategorieInfoActive() ;
         this.CatInfoService.getCatInfo();
         this.CatInfoInfo.success('', 'Categorie Demande Information  Ajoutee Avec Succés');
         this.resetFormCatInfo();

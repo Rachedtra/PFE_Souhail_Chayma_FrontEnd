@@ -50,6 +50,8 @@ UpdateInfo() {
     this.InfoService.PutInfo().subscribe(
       res => {
         console.log(res);
+        this.InfoService.DemandeInfoActive() ;
+
         this.InfoService.GetInfo();
         this.notifInfo.info('', 'Demande Info Modifiee Avec Succés');
         this.ResetInfo();
@@ -65,6 +67,8 @@ UpdateInfo() {
   insertInfo(){
     this.InfoService.PostInfo().subscribe(
       res => { 
+        this.InfoService.DemandeInfoActive() ;
+        this.InfoService.GetInfo();
         console.log(res);  
         this.notifInfo.success('', 'Demande Info Ajoutee Avec Succés');
         this.ResetInfo();     

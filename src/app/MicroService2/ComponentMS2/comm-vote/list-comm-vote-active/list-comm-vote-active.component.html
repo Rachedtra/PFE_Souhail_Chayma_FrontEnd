@@ -6,9 +6,13 @@
   </button>
     </div>
     <div class="col-md-5">
+      <button class="btn btn-outline-info" routerLink="list-comm-vote" routerLinkActive="active">
+        <i class="fa fa-reply"></i>
+        Toutes List
+       </button> 
     </div>
        <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommVoteFilter.descriptionComm" >
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommVoteFilterActive.descriptionComm" >
   
   
        </div>
@@ -44,7 +48,7 @@
     <tbody>
     <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
     <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
-    <tr *ngFor="let cv of CommVoteService.CommVote | filterBy: CommVoteFilter | paginate
+    <tr *ngFor="let cv of CommVoteService.CommVoteActive | filterBy: CommVoteFilterActive | paginate
     : {
         id: 'MicroservicePagination',
         itemsPerPage: 3,

@@ -1,17 +1,17 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { CategorieComponent } from '../categorie.component';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CategorieService } from 'src/app/MicroService2/ServicesMS2/categorie.service';
 import { ToastrService } from 'ngx-toastr';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { CategorieComponent } from '../categorie.component';
 
 @Component({
-  selector: 'app-list-categorie',
-  templateUrl: './list-categorie.component.html',
-  styleUrls: ['./list-categorie.component.css']
+  selector: 'app-list-categorie-active',
+  templateUrl: './list-categorie-active.component.html',
+  styleUrls: ['./list-categorie-active.component.css']
 })
-export class ListCategorieComponent implements OnInit {
+export class ListCategorieActiveComponent implements OnInit {
+  CatFilterActive: any = { label: '' };
   modalCatRef: BsModalRef;
-  CatFilter: any = { label: '' };
 
   constructor( private categorieService: CategorieService,
     private notif: ToastrService,
@@ -21,6 +21,8 @@ export class ListCategorieComponent implements OnInit {
 
   ngOnInit() {
     this.categorieService.GetCat();
+    this.categorieService.CategorieActive() ;
+
     this.ResetCat();
   }
   ResetCat() {
@@ -37,7 +39,9 @@ export class ListCategorieComponent implements OnInit {
 DeleteCat(id: string) {
   this.categorieService.DeleteCat(id).subscribe(res => {
     console.log(res);
+    this.categorieService.CategorieActive() ;
     this.categorieService.GetCat();
+
   })
 
 }

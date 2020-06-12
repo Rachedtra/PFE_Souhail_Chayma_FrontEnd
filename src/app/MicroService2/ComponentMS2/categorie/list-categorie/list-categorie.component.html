@@ -1,8 +1,18 @@
 <div class="content-wrapper">
+  <div class="form-group row">
+    <div class="col-md-5">
+      <button class="btn btn-outline-success" (click)="AddCat(templateSubmit)">
+        <i class="fa fa-plus"></i> Create Categorie
+      </button>
+    </div>
+    <div class="col-md-5">
+    </div>
+       <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CatFilter.label" >
+  
+  
+       </div>
 
-  <button class="btn btn-outline-success" (click)="AddCat(templateSubmit)">
-    <i class="fa fa-plus"></i> Create Categorie
-  </button>
   
   <ng-template #templateSubmit>
     <div class="modal-header">
@@ -29,10 +39,10 @@
     </thead>
     <tbody>
        
-    <tr *ngFor="let Categorie of categorieService.cat | paginate
+    <tr *ngFor="let Categorie of categorieService.cat  | filterBy: CatFilter | paginate
     : {
         id: 'MicroservicePagination',
-        itemsPerPage: 1,
+        itemsPerPage: 3,
         currentPage: p
       } " class="sizeText" 
     style="background-color: white; color: black">

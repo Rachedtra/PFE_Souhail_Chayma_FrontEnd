@@ -1,14 +1,18 @@
 <div class="content-wrapper">
   <div class="form-group row">
     <div class="col-md-5">
-        <button type="button" class="btn btn-outline-success" (click)="AddCv(templateSubmit)">
-          <i class="fa fa-plus"></i> Add Commentaire Vote
+        <button type="button" class="btn btn-outline-success" (click)="AddCi(templateSubmit)">
+          <i class="fa fa-plus"></i> Add Commentaire Demande Information
   </button>
     </div>
     <div class="col-md-5">
+      <button class="btn btn-outline-info" routerLink="list-comm-demande-info" routerLinkActive="active">
+        <i class="fa fa-reply"></i>
+        Toutes List
+       </button>  
     </div>
        <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommVoteFilter.descriptionComm" >
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommInfoFilterActive.descriptionInfo" >
   
   
        </div>
@@ -16,13 +20,13 @@
   
   <ng-template #templateSubmit>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Commentaire Vote Detail</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCommVote.hide()">
+      <h4 class="modal-title pull-left">Commentaire Info Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCommInfo.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <app-comm-vote></app-comm-vote>
+      <app-comm-demande-info></app-comm-demande-info>
       
     </div>
   </ng-template>
@@ -33,7 +37,7 @@
       <tr>
         
         <th>Commenatires</th>
-        <th>Vote   </th>
+        <th>Demande Information  </th>
         <th>Statut</th>
         <th>Supprimer</th>
         <th>Modifier</th>
@@ -44,7 +48,7 @@
     <tbody>
     <!-- <button class="btn btn-danger" (click)="DeleteLang(language.idLanguage,template1)"><i class="fas fa-trash-alt"></i>  Delete</button> -->
     <!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create Language</button> -->
-    <tr *ngFor="let cv of CommVoteService.CommVote | filterBy: CommVoteFilter | paginate
+    <tr *ngFor="let ci of CommInfoService.CommInfoActive | filterBy: CommInfoFilterActive | paginate
     : {
         id: 'MicroservicePagination',
         itemsPerPage: 3,
@@ -52,11 +56,11 @@
       }" class="sizeText" 
       style="background-color: white; color: black">
       
-      <td>{{cv.descriptionComm}}</td>
-      <td>{{cv.note}}</td>
-      <td> {{ cv.isActiveCommVote ? 'Active' : 'Inactive'}}</td>
+      <td>{{ci.descriptionComm}}</td>
+      <td>{{ci.titreInfo}}</td>
+      <td> {{ ci.isActiveCommInfo ? 'Active' : 'Inactive'}}</td>
       <td>
-        <button type="button" class="btn btn-danger" (click)="ConfirmModalCv(templateDelete)"><i
+        <button type="button" class="btn btn-danger" (click)="ConfirmModalCi(templateDelete)"><i
             class="fas fa-trash-alt"></i>Delete</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
@@ -64,12 +68,12 @@
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmCv();DeleteCv(cv.idCommVote);">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineCv()">No</button>
+              (click)="confirmCi();DeleteCi(ci.idCommInfo);">Yes</button>
+            <button type="button" class="btn btn-primary" (click)="declineCi()">No</button>
           </div>
         </ng-template>
       </td>
-      <td><button class="btn btn-primary" (click)="EditCv(cv,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditCi(ci,templateSubmit)"><i class="fas fa-edit"></i>
           Edit</button></td>
     </tr>
     </tbody>

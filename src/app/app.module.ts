@@ -74,6 +74,13 @@ import { ListMsComponent } from './MicroService1/Component/ms/list-ms/list-ms.co
 import { LisMethodeActiveComponent } from './MicroService1/Component/methode/lis-methode-active/lis-methode-active.component';
 import { ListProjetActiveComponent } from './MicroService1/Component/projet/list-projet-active/list-projet-active.component';
 import { ListCommMsActiveComponent } from './MicroService1/Component/comm-ms/list-comm-ms-active/list-comm-ms-active.component';
+import { ListCatInfoActiveComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info-active/list-cat-info-active.component';
+import { ListCategorieActiveComponent } from './MicroService2/ComponentMS2/categorie/list-categorie-active/list-categorie-active.component';
+import { ListCommDemandeInfoeActiveComponent } from './MicroService2/ComponentMS2/comm-demande-info/list-comm-demande-infoe-active/list-comm-demande-infoe-active.component';
+import { ListCommVoteActiveComponent } from './MicroService2/ComponentMS2/comm-vote/list-comm-vote-active/list-comm-vote-active.component';
+import { ListCommmentaireActiveComponent } from './MicroService2/ComponentMS2/commentaire/list-commmentaire-active/list-commmentaire-active.component';
+import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info-active/list-demande-info-active.component';
+import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
 
 
 
@@ -140,6 +147,13 @@ import { ListCommMsActiveComponent } from './MicroService1/Component/comm-ms/lis
     LisMethodeActiveComponent,
     ListProjetActiveComponent,
     ListCommMsActiveComponent,
+    ListCatInfoActiveComponent,
+    ListCategorieActiveComponent,
+    ListCommDemandeInfoeActiveComponent,
+    ListCommVoteActiveComponent,
+    ListCommmentaireActiveComponent,
+    ListDemandeInfoActiveComponent,
+    ListSousCategorieActiveComponent,
 
   
 

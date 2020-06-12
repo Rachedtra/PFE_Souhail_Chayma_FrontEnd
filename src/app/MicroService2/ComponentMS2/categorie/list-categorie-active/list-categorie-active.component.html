@@ -1,16 +1,18 @@
 <div class="content-wrapper">
   <div class="form-group row">
     <div class="col-md-5">
-      
-      <button class="btn btn-outline-success" (click)="AddSousCat(templateSubmit)">
-        <i class="fa fa-plus"></i> Create Sous categorie
+      <button class="btn btn-outline-success" (click)="AddCat(templateSubmit)">
+        <i class="fa fa-plus"></i> Create Categorie
       </button>
-      
     </div>
     <div class="col-md-5">
+      <button class="btn btn-outline-info" routerLink="list-Categorie" routerLinkActive="active">
+        <i class="fa fa-reply"></i>
+        Toutes List
+       </button>  
     </div>
        <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="SousCatFilter.label" >
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CatFilterActive.label" >
   
   
        </div>
@@ -18,13 +20,13 @@
   
   <ng-template #templateSubmit>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Sous categorie Detail</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalSousCatRef.hide()">
+      <h4 class="modal-title pull-left">Categorie Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalCatRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <app-sous-categorie></app-sous-categorie>
+      <app-categorie></app-categorie>
     </div>
   </ng-template>
   
@@ -33,9 +35,7 @@
     <thead class="thead-light">
       <tr>
        
-        
         <th>Label</th>
-        <th>Categorie</th>
         <th>Supprimer</th>
         <th>Modifier</th>
         
@@ -43,7 +43,7 @@
     </thead>
     <tbody>
        
-    <tr *ngFor="let sous of SousCatoService.sousCat  | filterBy: SousCatFilter| paginate
+    <tr *ngFor="let Categorie of categorieService.catActive  | filterBy: CatFilterActive | paginate
     : {
         id: 'MicroservicePagination',
         itemsPerPage: 3,
@@ -51,12 +51,12 @@
       } " class="sizeText" 
     style="background-color: white; color: black">
       
-      <td>{{sous.label}}</td>
-      <td>{{sous.catLabel}}</td>
+      <td>{{Categorie.label}}</td>
+  
    
       <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
      <td>
-        <button type="button" class="btn btn-danger" (click)="ConfirmSousCatModal(templateDelete)"><i
+        <button type="button" class="btn btn-danger" (click)="ConfirmCategorieModal(templateDelete)"><i
             class="fas fa-trash-alt"></i>Delete</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
@@ -64,13 +64,13 @@
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmSousCat();DeleteSousCat(sous.idSousCate)">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineSousCat()">No</button>
+              (click)="confirmCategorie();DeleteCat(Categorie.idCat)">Yes</button>
+            <button type="button" class="btn btn-primary" (click)="declineCategorie()">No</button>
           </div>
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditSousCat(sous,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditCat(Categorie,templateSubmit)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

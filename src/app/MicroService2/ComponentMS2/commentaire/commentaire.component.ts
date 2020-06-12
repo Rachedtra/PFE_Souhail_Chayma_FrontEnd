@@ -40,7 +40,9 @@ UpdateComm() {
     this.CommService.PutCommentaires().subscribe(
       res => {
         console.log(res);
+        this.CommService.CommentairesAcrive();
         this.CommService.GetCommentaires();
+       
         this.notifComm.info('', 'Commentaires Modifiee Avec Succés');
         this.ResetComm();
       },
@@ -57,6 +59,7 @@ UpdateComm() {
     this.CommService.PostCommentaires().subscribe(
       res => {
         console.log(res);
+        this.CommService.CommentairesAcrive();
         this.CommService.GetCommentaires();
         this.notifComm.success('', 'Commentaires Ajoutee Avec Succés');
         this.ResetComm();
