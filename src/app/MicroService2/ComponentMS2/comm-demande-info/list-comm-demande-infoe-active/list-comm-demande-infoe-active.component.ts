@@ -43,6 +43,7 @@ export class ListCommDemandeInfoeActiveComponent implements OnInit {
       descriptionComm: "",
       descriptionInfo: "",
       titreInfo : "",
+      dateComm : ""
   }); 
 }
 

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+.ques-btn button{
+
+    box-shadow : 1px 1px 2px #fff,
+		-1px -1px 2px #888;
+
+    background-color:#17a2b8;
+    transition:.5s ease;
+}
+
+.ques-btn button:hover{
+
+    background-color:  deepskyblue!important;
+    color: white!important;   
+ 
+ }
+
+ .liste-question{
+    font-family: 'Noto Serif', serif;
+    font-size: 24px;
+    font-weight:bold;
+ }
+
+ .lt{
+     color : #17a2b8 ;
+ }
+ .titre{
+    font-family: 'Vollkorn', serif;
+    font-size: 26px;
+    color : #17a2b8
+ }
+
+ .liste-btn button{
+    
+    background-color: #87bdd8!important;
+    color: white!important;  
+    
+}
+.domcat{
+    font-family: 'Mukta', sans-serif;
+    font-size: 18px;
+    color : #333;
+    font-weight:bold;
+   
+}
+
+.val{
+
+    font-size: 16px;
+    
+}

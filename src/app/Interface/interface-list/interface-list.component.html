@@ -1,9 +1,4 @@
 <div class="content-wrapper">
-<app-nav-header></app-nav-header>
-<div class="container">
-  <div class="form-group row">
-    <div class="col-md-5"></div>          
-    <div class="col-md-5">
       <ng-template #templateSubmit>
         <div class="modal-header">
           <h4 class="modal-title pull-left"> Detail</h4>
@@ -15,23 +10,53 @@
           <app-popup></app-popup>
         </div>
       </ng-template>
-      <button type="button" class="btn btn-primary" (click)="openModal(templateSubmit)">Poser Question</button>
-    </div>
-    <div class="col-md-2"></div>
- 
-
- </div>
-  
-  <label>Choisir Domaine </label>
-        <div>
-          <select class="form-control" (change)="InfoService.GetInfoFiltrer($event.target.value)" >
+      <div class=" text-right  ques-btn ">
+        <button type="button" class="btn text-white mr-2 "(click)="openModal(templateSubmit)">Poser Question</button>
+      </div>
+  <h2 class="text-center liste-question"><span class="lt">C</span>hoisir <span class="lt">D</span>omaine </h2>
+        <div class="col-12 text-center ">
+          <select class="form-control w-50 my-2 " (change)="InfoService.GetInfoFiltrer($event.target.value)" >
            
             <option value="0">-Select-</option>
-            <option *ngFor="let dom of domService.Dom"  value={{dom.idDomain}}>
+            <option   *ngFor="let dom of domService.Dom"  value={{dom.idDomain}} >
               {{dom.nom}}</option>
           </select>
           <br>
-         <button routerLink="get-id-info" class="btn btn-outline-success"routerLinkActive="active" >Choisir</button>
+          <button class=" ques-btn " routerLink="get-id-info" routerLinkActive="active" >Choisir</button>  
         </div>
+        <div class="container-fluid">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Titre</th>
+           
+              <th>Domain</th>
+              <th>Description</th>
+              <th>Date</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+             
+          <tr *ngFor="let demande of InfoService.first | paginate
+          : {
+              id: 'MicroservicePagination',
+              itemsPerPage: 5,
+              currentPage: p
+            } " class="sizeText" 
+          style="background-color: white; color: black">
+          <td>{{demande.titre}}</td>
+      
+          <td>{{demande.domaineNom}}</td>
+            <td>{{demande.description}}</td>
+            <td>{{demande.date | date:'dd/MM/yyyy'}}</td>
+          </tr>
+         
+        </tbody>
+        </table>
+        <pagination-controls id="MicroservicePagination" class="my-pagination text-center" (pageChange)="p = $event"
+        previousLabel="Prec " nextLabel="Suiv ">
+        </pagination-controls>
+      </div>
 </div>
-</div>
+

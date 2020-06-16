@@ -20,12 +20,14 @@ export class CommDemandeInfoService {
     descriptionComm: new FormControl(""),
     descriptionInfo: new FormControl(""),
     titreInfo :new FormControl(""),
+    dateComm:new FormControl(""),
   });
  
   CommInfoFiltre: CommDemandeInfo[];
   comm: CommDemandeInfo[];
   id: string;
   commfilter: CommDemandeInfo[];
+  nombre: number;
   constructor(private _http: HttpClient) { }
 
   DeleteCommInfo(id) {
@@ -71,7 +73,8 @@ export class CommDemandeInfoService {
     this._http.get('http://localhost:58540/api/CommDemandeInfo').subscribe(res => {
       this.comm = res as CommDemandeInfo[];
       this.CommInfoFiltre= this.comm.filter(i=>i.idDemandeInfo==id ); 
-     
+     this.nombre= this.CommInfoFiltre.length ; 
+     console.log( this.nombre);
       console.log(this.CommInfoFiltre);
     });
   

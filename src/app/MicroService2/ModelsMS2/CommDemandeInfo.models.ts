@@ -6,4 +6,5 @@ export class CommDemandeInfo{
     descriptionComm: string ; 
     descriptionInfo: string ; 
     titreInfo : string ; 
+    dateComm : string ; 
 }

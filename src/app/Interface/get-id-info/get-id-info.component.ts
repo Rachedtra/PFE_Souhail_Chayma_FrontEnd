@@ -54,6 +54,7 @@ resetFormCommVote() {
     note: "",
 }); 
 
+
 }
 
 getCatInfoFiltrer(id) {

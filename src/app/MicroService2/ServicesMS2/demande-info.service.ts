@@ -32,6 +32,7 @@ id : string ;
   filtirng: DemandeInformation[];
   demande: string;
   information: string;
+  first: DemandeInformation[];
  
   constructor(private _http:HttpClient,private notifInfo :ToastrService,
     private CatInfoService : CatDemandeInfoService
@@ -74,6 +75,9 @@ id : string ;
      this._http.get('http://localhost:58540/api/DemandeInformation').subscribe(res => {
       this.info = res as DemandeInformation[];
       console.log(this.info); 
+      this.first=this.info.slice(0,10) ; 
+      console.log(this.first) ; 
+      console.log(this.first) ; 
       console.log("rachedtest" + res);
 
 

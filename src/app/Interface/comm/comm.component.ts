@@ -44,7 +44,8 @@ resetFormCommInfo() {
     isActiveCommInfo: true,
     descriptionComm: "",
     descriptionInfo: "",
-    titreInfo : ""
+    titreInfo : "",
+    dateComm : ""
 }); 
 }
 onSubmitComm ()
