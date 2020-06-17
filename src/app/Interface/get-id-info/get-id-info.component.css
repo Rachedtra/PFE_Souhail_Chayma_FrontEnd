@@ -8,7 +8,10 @@
     background-color:#17a2b8;
     transition:.5s ease;
 }
-
+.comm{
+    font-family: 'Noto Serif', serif;
+    font-weight:bold;
+  }
 .ques-btn button:hover{
 
     background-color:  deepskyblue!important;
@@ -48,10 +51,10 @@
     font-size: 16px;
     
 }
-.image{
+/* .image{
     background-image:url('src/assets/Image/back.jpg');
-    /* background-position: left; */
-    background-repeat: no-repeat; /* Do not repeat the image */
+   
+    background-repeat: no-repeat; 
     background-size: cover; 
    
-  }
+  } */

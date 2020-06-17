@@ -102,7 +102,7 @@
 
           <div class="card collapsed-card">
             <div class="card-header">
-              <h3 class="card-title">Domaine</h3>
+              <h3 class="card-title comm">Domaine</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
@@ -125,7 +125,7 @@
           <!-- /.card -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">First 10 Question</h3>
+              <h3 class="card-title comm">First 10 Question</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -151,7 +151,7 @@
       <div class="col-md-9">
         <div class="container">
           <!-- Box Comment -->
-          <div class="card card-widget" >
+          <div class="card card-widget">
             <div class="card-header">
               <div class="user-block"  *ngFor="let demande of InfoService.obj">
                 <img class="img-circle" src="/assets/Image/Sans-titre-3.png" alt="User Image">
@@ -180,9 +180,13 @@
               <div *ngFor="let cat of CatInfoFiltrer " class="val"> <span class="domcat">Categorie :</span>{{cat.labelCat}}  
               </div>
               <hr/>
-              <textarea class="form-control"rows="3" readonly >
+             <div class="direct-chat-msg left">
+                <div class="direct-chat-text clearfix">
                 {{demande.description}} 
-              </textarea>
+              </div>
+              </div>
+              
+              
               <div *ngFor="let v of CommVoteService.CommVoteFiltre">
                 {{v.note}} 
                 
@@ -193,7 +197,7 @@
               <!-- Social sharing buttons -->
               <!-- <span class="float-right text-muted"> {{comminfoService.nombre }}comments</span> -->
         
-              <div class="col-md-3 mt-2 col-sm-8 col-12">
+              <!-- <div class="col-md-3 mt-2 col-sm-8 col-12">
                 <div class="info-box bg-info">
                   <span class="info-box-icon"><i class="fas fa-comments"></i></span>
         
@@ -203,16 +207,62 @@
         
                    
                   </div>
-                  <!-- /.info-box-content -->
+                
                 </div>
-                <!-- /.info-box -->
-              </div>
+             
+              </div> -->
            
             </div>
             <!-- /.card-body -->
-            <div class="card-footer card-comments">
+            <!------------------------------------------------------------------------------------------------------->
+            <div class="card card-prirary cardutline direct-chat direct-chat-primary">
+              <div class="card-header">
+                <h3 class="card-title comm">Commentaires</h3>
+        
+                <div class="card-tools">
+                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">{{comminfoService.nombre }}</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Defaulat to the left -->
+        
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right"  *ngFor="let comment of comminfoService.CommInfoFiltre">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">Nom D'utilisateur</span>
+                      <span class="direct-chat-timestamp float-left">{{comment.dateComm}}</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img"  src="/assets/Image/user.png" >
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      {{comment.descriptionComm}} 
+                     
+                    </div>
+                    <rating [(ngModel)]="comment.note"
+                    (click)="comminfoService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
+                    <hr/>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+        
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              
+              <!-- /.card-footer-->
+            </div>
+            <!------------------------------------------------------------------------------------------------------->
+            <!-- <div class="card-footer card-comments">
               <div class="card-comment" *ngFor="let comment of comminfoService.CommInfoFiltre">
-                <!-- User image -->
+               
                 <img class="img-circle img-sm" src="/assets/Image/Sans-titre-3.png" alt="User Image">
         
                 <div class="comment-text" >
@@ -227,17 +277,18 @@
                 </div>
                 <rating [(ngModel)]="comment.note"
                 (click)="comminfoService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
-                <!-- /.comment-text -->
+               
               </div>
-              <!-- /.card-comment -->
-        
-              <hr/>
-            <div class="card-footer ">
-            <app-comm></app-comm>
-            </div>
-          </div>
+              
+              
+            
+            </div> -->
           <!-- /.card -->
-          </div>
+          <hr/>
+              <div class="card-footer ">
+                <app-comm></app-comm>
+                </div>
+           </div>
         </div>
        
       </div>
