@@ -9,6 +9,11 @@ import { DemandeInformation } from 'src/app/MicroService2/ModelsMS2/demandeInfo.
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Categorie } from 'src/app/MicroService2/ModelsMS2/categorie.models';
+import { CommDemandeInfoService } from 'src/app/MicroService2/ServicesMS2/comm-demande-info.service';
+import { CommDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CommDemandeInfo.models';
+import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.models';
+import { CommVoteService } from 'src/app/MicroService2/ServicesMS2/comm-vote.service';
+import { VoteService } from 'src/app/MicroService2/ServicesMS2/vote.service';
 
 @Component({
   selector: 'app-interface-list',
@@ -22,10 +27,15 @@ export class InterfaceListComponent implements OnInit {
   filtirng: DemandeInformation[] = new Array();
   obj: Object;
   id : any
+  CatInfo: CatDemandeInfo[];
+  CatInfoFiltrer: CatDemandeInfo[];
   constructor(private _http :HttpClient,
     private modalService: BsModalService,
     private InfoService :DemandeInfoService,
     private domService : DomaineService , 
+    private CommVoteService : CommVoteService,
+    private comminfoService: CommDemandeInfoService,
+    private VoteService : VoteService
 ) {}
   ngOnInit() {
     this.InfoService.GetInfo() ; 
@@ -34,5 +44,16 @@ export class InterfaceListComponent implements OnInit {
   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+}
+getCatInfoFiltrer(id) {
+
+  this._http.get('http://localhost:58540/api/CatDemandeInfo').subscribe(res => {
+    this.CatInfo = res as CatDemandeInfo[];
+    this.CatInfoFiltrer= this.CatInfo.filter(i=>i.idDemandeInfo==id ) ;
+    console.log(this.CatInfo);
+    console.log("rachedtest" + res);
+
+
+  });
 }
 }
