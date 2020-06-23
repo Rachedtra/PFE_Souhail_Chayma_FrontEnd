@@ -33,6 +33,7 @@ id : string ;
   demande: string;
   information: string;
   first: DemandeInformation[];
+  NbQuestion: number;
  
   constructor(private _http:HttpClient,private notifInfo :ToastrService,
     private CatInfoService : CatDemandeInfoService
@@ -100,6 +101,7 @@ GetInfoFiltrer(id) {
   this._http.get('http://localhost:58540/api/DemandeInformation').subscribe(res => {
    this.info = res as DemandeInformation[];
   this.filtirng= this.info.filter(i=>i.domaineNom== id ) ; 
+  this.NbQuestion=this.filtirng.length ;
    console.log(this.info);
    this.information=this.filtirng[0].domaineNom ;
    console.log(this.filtirng);

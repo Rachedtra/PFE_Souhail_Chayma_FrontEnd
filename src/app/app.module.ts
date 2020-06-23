@@ -81,6 +81,8 @@ import { ListCommVoteActiveComponent } from './MicroService2/ComponentMS2/comm-v
 import { ListCommmentaireActiveComponent } from './MicroService2/ComponentMS2/commentaire/list-commmentaire-active/list-commmentaire-active.component';
 import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info-active/list-demande-info-active.component';
 import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
+import { CommentairesMsComponent } from './Interface/commentaires-ms/commentaires-ms.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -154,7 +156,9 @@ import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/s
     ListCommmentaireActiveComponent,
     ListDemandeInfoActiveComponent,
     ListSousCategorieActiveComponent,
-
+    CommMsComponent,
+    CommentairesMsComponent,
+    HomeComponent
   
 
 

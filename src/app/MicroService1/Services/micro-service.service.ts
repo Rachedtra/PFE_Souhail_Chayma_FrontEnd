@@ -27,6 +27,8 @@ export class MicroServiceService {
   });
   MsFiltre: MS[];
 ms : MS ; 
+  idMicroService: string;
+  NbMs: number;
 
   constructor(private _http: HttpClient) { }
 
@@ -64,6 +66,7 @@ ms : MS ;
   ListActive(){
     this._http.get('http://localhost:54735/api/MS/GetActiveList').subscribe(res => {
       this.microActive =res as MS[];
+      this.NbMs=this.microActive.length ;
       console.log(this.microActive) ; 
 
     }) ; 
@@ -75,6 +78,8 @@ ms : MS ;
       this._http.get('http://localhost:54735/api/MS/GetActiveList').subscribe(res => {
         this.microActive =res as MS[];
         this.MsFiltre= this.microActive.filter(o=>o.idMs==id) ; 
+        this.idMicroService=this.MsFiltre[0].idMs ; 
+        console.log(this.idMicroService) ;
         console.log(this.microActive) ; 
         console.log(this.MsFiltre) ; 
         

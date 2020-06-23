@@ -22,7 +22,10 @@
     font-size: 24px;
     font-weight:bold;
  }
-
+ .comm{
+    font-family: 'Noto Serif', serif;
+    font-weight:bold;
+  }
  .lt{
      color : #17a2b8 ;
  }
@@ -39,15 +42,26 @@
     
 }
 .domcat{
-    font-family: 'Mukta', sans-serif;
+    font-family: 'Noto Serif', serif;
     font-size: 18px;
-    color : #333;
     font-weight:bold;
-   
 }
 
+.domcat1{
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+    font-weight:bold;
+}
 .val{
-
+    font-family: 'Vollkorn', serif;
     font-size: 16px;
     
 }
+.image{
+    background-image:url('src/assets/Image/5.jpg');
+   background-repeat: no-repeat; 
+  background-size: cover; 
+  background-attachment: fixed;
+  min-height: 600px;
+
+  } 

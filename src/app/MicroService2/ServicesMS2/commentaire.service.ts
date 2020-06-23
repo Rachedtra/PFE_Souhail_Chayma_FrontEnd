@@ -93,4 +93,11 @@ Posted(id)
     }
   )
 }
+
+
+PostCommentairesMs() {
+  return this._http.post('http://localhost:58540/api/Commentaires/PostedCommMs', this.form.value,
+   );
+}
+
 }

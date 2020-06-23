@@ -40,6 +40,7 @@ import { ListCommVoteActiveComponent } from './MicroService2/ComponentMS2/comm-v
 import { ListCommmentaireActiveComponent } from './MicroService2/ComponentMS2/commentaire/list-commmentaire-active/list-commmentaire-active.component';
 import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info-active/list-demande-info-active.component';
 import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -263,13 +264,27 @@ const routes: Routes = [
   component : ListMsInteraceComponent
 },
 {
-  path : 'list-ms-interface/list-ms-interface/get-id-ms',
+  path : 'get-id-ms',
   component : GetIdMsComponent
 },
 {
   path : 'interface-list/get-id-info',
   component : GetIdInfoComponent
 },
+{
+  path : 'home',
+  component : HomeComponent
+},
+
+{
+  path : 'home/get-id-ms',
+  component : GetIdMsComponent
+},
+{
+  path : 'home/interface-list',
+  component : InterfaceListComponent
+},
+
 ];
 
 @NgModule({

@@ -1,32 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,500&display=swap');
-.ques-btn button{
 
-    /* box-shadow : 1px 1px 2px #fff,
-		-1px -1px 2px #888; */
-
-    background-color:#17a2b8;
-    transition:.5s ease;
-}
 .comm{
     font-family: 'Noto Serif', serif;
     font-weight:bold;
   }
+  .ques-btn button{
+    background-color:  #6db9b2;
+    color: white!important;  
+}
 .ques-btn button:hover{
 
-    background-color:  deepskyblue!important;
-    color: white!important;   
- 
- }
+  background-color:#6db3ac !important;
+  color: white!important;   
+
+}
 
  .liste-question{
     font-family: 'Noto Serif', serif;
     font-size: 24px;
     font-weight:bold;
+    color :white; 
  }
 
  .lt{
-     color : #17a2b8 ;
+     color :  deepskyblue ;
  }
  .titre{
     font-family: 'Vollkorn', serif;
@@ -46,15 +44,22 @@
     font-weight:bold;
 }
 
+.domcat1{
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+    font-weight:bold;
+}
 .val{
     font-family: 'Vollkorn', serif;
     font-size: 16px;
     
 }
-/* .image{
-    background-image:url('src/assets/Image/back.jpg');
-   
-    background-repeat: no-repeat; 
-    background-size: cover; 
-   
-  } */
+ .image{
+    background-image:url('src/assets/Image/5.jpg');
+   background-repeat: no-repeat; 
+  background-size: cover; 
+  background-attachment: fixed;
+  min-height: 600px;
+
+ 
+  } 

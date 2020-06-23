@@ -40,6 +40,7 @@ export class InterfaceListComponent implements OnInit {
   ngOnInit() {
     this.InfoService.GetInfo() ; 
     this.domService.refreshList() ; 
+    this.domService.DomaineActive() ;
    this.InfoService.GetInfoFiltrer ;
   }
   openModal(template: TemplateRef<any>) {

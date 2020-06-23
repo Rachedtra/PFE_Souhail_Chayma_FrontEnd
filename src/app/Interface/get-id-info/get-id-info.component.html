@@ -1,93 +1,14 @@
-<!-- <div class="content-wrapper">
-  <div class="row">
-  <div class="col-12 col-md-2">
-    <h2>Liste Question</h2>
-    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="InformationFiltre.titre" >
-   <br>
-  <div *ngFor="let demande of InfoService.filtirng  | filterBy: InformationFiltre" 
-  style="background-color: white; color: black">
-  <div class="row no-gutters">
-    <div class="col">
-  <button class="btn btn-outline-info col-12"routerLinkActive="active" 
-  (click)="InfoService.GetId(demande.idDemandeInfo);comminfoService.getCommInfoFiltrer(demande.idDemandeInfo);getCatInfoFiltrer(demande.idDemandeInfo)"
-  >{{demande.titre}}</button><br>
 
-      <br>
-      
-
- </div>
-         </div>
-      </div>
-
- 
-  </div>
-<div class="col-6 col-md-10"> 
-  <ng-template #templateSubmit>
-    <div class="modal-header">
-    
-      <h4 class="modal-title pull-left"> Detail</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <app-popup></app-popup>
-    </div>
-  </ng-template>
-
-  <button type="button" class="btn btn-primary" (click)="openModal(templateSubmit)">Poser Question</button>
-
-  <div class="container">
-    <div *ngFor="let demande of InfoService.obj ">
-    <h1>{{demande.titre}}</h1>
-    <hr/>
-    <div class="form-group">
-      <div class="form-group row">
-      <div *ngFor="let cat of CatInfoFiltrer "class="col-md-3"><label> Categorie :{{cat.labelCat}}</label></div>   
-        <div class="col-md-3"> <label> Domaine : {{demande.domaineNom}}</label>  </div>
-      </div>                                        
-      <textarea class="form-control"  rows="3" readonly>
-        {{demande.description}}
-      </textarea>
-    </div>
-    {{demande.date}}
-    <hr/>
-    <h4>Reponses </h4>
-    <hr/>
-   
-    <div *ngFor="let comment of comminfoService.CommInfoFiltre">
-      <textarea class="form-control"rows="3" readonly >
-        {{comment.descriptionComm}} 
-      </textarea>
-      <rating [(ngModel)]="comment.note"
-      (click)="comminfoService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
-      
-      <button class="btn btn-info" (click)="Post(comment.idComm)">
-        Rate
-          </button>
-     <hr/>
-    </div> 
-    <div *ngFor="let v of CommVoteService.CommVoteFiltre">
-      {{v.note}} 
-      
-    <hr/>
-  
-  </div>
-    
-
-      <app-comm></app-comm>
-     
-</div>
-</div>
-</div> -->
 <div class="content-wrapper image">
+  <div class="container ">
+
 <div class="row">
-  <div class="col-12 col-md-2">
+  <div class="col-12 col-md-4">
     <h1 class="mt-3 mb-3 ml-4 liste-question"><span class="lt">L</span>iste<span class="lt">Q</span>uestion</h1>
       
     <input type="text" class="form-control ml-2  " placeholder="Search" [(ngModel)]="InformationFiltre.titre" >
    <br>
-  <div *ngFor="let demande of InfoService.filtirng  | filterBy: InformationFiltre" 
+  <!-- <div *ngFor="let demande of InfoService.filtirng  | filterBy: InformationFiltre" 
   style=" color: black">
   <div class="row no-gutters">
     <div class="col">
@@ -98,15 +19,66 @@
   >{{demande.titre}}</button>
 </div>
 
-
  </div>
          </div>
-      </div>
+      </div> -->
 
- 
+ <!---------------------------------------------------------------------------->
+ <div class="card card-outline ml-3">
+  <div class="card-header">
+
+    <div class="card-tools">
+      <span data-toggle="tooltip" title="3 New Messages" class="badge bg-info">{{InfoService.NbQuestion}}</span>
+      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+      </button>
+    </div>
+    <!-- /.card-tools -->
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body p-0">
+
+    <div class="table-responsive mailbox-messages">
+      <table class="table table-hover table-striped">
+        <tbody>
+        <tr *ngFor="let demande of InfoService.filtirng  | filterBy: InformationFiltre
+        | paginate
+    : {
+        id: 'MicroservicePagination',
+        itemsPerPage: 10,
+        currentPage: p
+      } "  >
+          <td class="mailbox-name" routerLinkActive="active" 
+          (click)="InfoService.GetId(demande.idDemandeInfo);comminfoService.getCommInfoFiltrer(demande.idDemandeInfo);getCatInfoFiltrer(demande.idDemandeInfo)"
+          >{{demande.titre}}</td>  
+        </tr>
+        
+        </tbody>
+      </table>
+      <!-- /.table -->
+    </div>
+    <!-- /.mail-box-messages -->
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer p-0">
+    <div class="mailbox-controls">
+      <!-- Check all button -->
+      
+      <div class="float-left">
+        <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+        previousLabel="Prec " nextLabel="Suiv ">
+        </pagination-controls>
+       
+        <!-- /.btn-group -->
+      </div>
+      <!-- /.float-right -->
+    </div>
+  </div>
+</div>
+
+<!---------------------------------------------------------------------------->
   </div>
 
-  <div class="col-6 col-md-10"> 
+  <div class="col-6 col-md-8"> 
     <ng-template #templateSubmit>
       <div class="modal-header">
       
@@ -129,7 +101,7 @@
     </div>
     <div class="container">
   <!-- Box Comment -->
-  <div class="card card-widget">
+  <div class="card collapsed-card card-widget">
     <div class="card-header">
       <div class="user-block"  *ngFor="let demande of InfoService.obj">
         <img class="img-circle" src="/assets/Image/Sans-titre-3.png" alt="User Image">
@@ -140,7 +112,7 @@
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Mark as read">
           <i class="far fa-circle"></i></button>
-        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
         </button>
         <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
         </button>
@@ -154,9 +126,33 @@
       <p>{{demande.titre}}</p>
       </div>
       <hr/>
-      <p class="val"><span class="domcat">Domaine :</span>  {{demande.domaineNom}}</p>
-      <div *ngFor="let cat of CatInfoFiltrer " class="val"> <span class="domcat">Categorie :</span>{{cat.labelCat}}  
+      <!-------------------------------------------------------------->
+
+
+      <div class="card card-outline ">
+        <div class="card-header">
+          <h3 class="card-title comm">Detail Question</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body" style="display: block;">
+          <p class="val"><span class="domcat1">Domaine :</span>  {{demande.domaineNom}}</p>
+          <div *ngFor="let cat of CatInfoFiltrer " class="val"> <span class="domcat1">Categorie :</span>{{cat.labelCat}} 
+            </div>
+        </div>
+        <!-- /.card-body -->
       </div>
+
+      <!-- <p class="val"><span class="domcat">Domaine :</span>  {{demande.domaineNom}}</p>
+      <div *ngFor="let cat of CatInfoFiltrer " class="val"> <span class="domcat">Categorie :</span>{{cat.labelCat}}   -->
+      <!-- </div> -->
+       <!-------------------------------------------------------------->
+
       <hr/>
      <div class="direct-chat-msg left">
         <div class="direct-chat-text clearfix">
@@ -193,13 +189,13 @@
     </div>
     <!-- /.card-body -->
     <!------------------------------------------------------------------------------------------------------->
-    <div class="card card-prirary cardutline direct-chat direct-chat-primary">
+    <div class="card  collapsed-card card-prirary cardutline direct-chat direct-chat-info">
       <div class="card-header">
         <h3 class="card-title comm">Commentaires</h3>
 
         <div class="card-tools">
-          <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">{{comminfoService.nombre }}</span>
-          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+          <span data-toggle="tooltip" title="3 New Messages" class="badge bg-info">{{comminfoService.nombre }}</span>
+          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
           </button>
         </div>
       </div>
@@ -238,34 +234,12 @@
       <!-- /.card-footer-->
     </div>
     <!------------------------------------------------------------------------------------------------------->
-    <!-- <div class="card-footer card-comments">
-      <div class="card-comment" *ngFor="let comment of comminfoService.CommInfoFiltre">
-       
-        <img class="img-circle img-sm" src="/assets/Image/Sans-titre-3.png" alt="User Image">
 
-        <div class="comment-text" >
-          <span class="username">
-            Nom d'utilisateur
-            <span class="text-muted float-right">{{comment.dateComm}}</span>
-          </span>
-          <textarea class="form-control"rows="3" readonly >
-           
-          {{comment.descriptionComm}} 
-        </textarea>
-        </div>
-        <rating [(ngModel)]="comment.note"
-        (click)="comminfoService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
-       
-      </div>
-      
-      
-    
-    </div> -->
   <!-- /.card -->
   <hr/>
-      <div class="card-footer ">
+      
         <app-comm></app-comm>
-        </div>
+        
    </div>
 </div>
 
