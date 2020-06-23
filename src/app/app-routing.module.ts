@@ -284,6 +284,11 @@ const routes: Routes = [
   path : 'home/interface-list',
   component : InterfaceListComponent
 },
+{
+  path : 'home/interface-list/get-id-info',
+  component : GetIdInfoComponent
+},
+
 
 ];
 
