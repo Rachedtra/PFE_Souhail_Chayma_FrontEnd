@@ -6,6 +6,7 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalRef } from 'ngx-bootstrap/modal/public_api';
+import { ListDomaineComponent } from './list-domaine/list-domaine.component';
 
 @Component({
   selector: 'app-domaine',
@@ -17,7 +18,8 @@ export class DomaineComponent implements OnInit {
   Ref : BsModalRef ; 
 
   constructor(private formBuilder: FormBuilder, private Domservice: DomaineService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private domaineList:ListDomaineComponent) { }
 
   ngOnInit() {
 
@@ -45,6 +47,7 @@ export class DomaineComponent implements OnInit {
   insertRecord() {
     this.Domservice.PostDom().subscribe(
       res => {
+        this.domaineList.Ref.hide() ;
         console.log(res);
         this.Domservice.refreshList();
         this.Domservice.DomaineActive() ; 
@@ -63,6 +66,8 @@ export class DomaineComponent implements OnInit {
   UpdateRecord() {
     this.Domservice.PutDom().subscribe(
       res => {
+        this.domaineList.Ref.hide() ;
+
         console.log(res);
         this.Domservice.refreshList();
         this.Domservice.DomaineActive() ; 

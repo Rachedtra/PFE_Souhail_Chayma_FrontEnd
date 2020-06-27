@@ -65,7 +65,7 @@ UpdateCommMs() {
   insertCommMs() {
     this.CommMsService.PostCommMs().subscribe(
       res => {
-       
+        this.CommMsListe.modalRefCommMs.hide() ;
         console.log(res);
         this.CommMsService.getCommMs();
         this.CommMsService.getCommMsActive();

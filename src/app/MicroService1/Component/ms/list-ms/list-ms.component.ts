@@ -25,6 +25,7 @@ export class ListMsComponent implements OnInit {
 
   ngOnInit() {
     this.msService.ListActive();
+    this.msService.refreshList() ; 
     this.langService.refreshList() ; 
     this.resetFormActive();
   }
