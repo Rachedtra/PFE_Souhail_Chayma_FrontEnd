@@ -21,6 +21,7 @@
     font-family: 'Noto Serif', serif;
     font-size: 24px;
     font-weight:bold;
+    color:white ; 
  }
  .comm{
     font-family: 'Noto Serif', serif;
@@ -63,5 +64,6 @@
   background-size: cover; 
   background-attachment: fixed;
   min-height: 600px;
+
 
   } 

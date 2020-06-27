@@ -12,6 +12,7 @@ import { VoteComponent } from '../vote.component';
 export class ListVoteComponent implements OnInit {
 
   modalVoteRef: BsModalRef;
+  voteFilter: any = { note: null };
 
   constructor( private voteService: VoteService,
     private notifVote: ToastrService,

@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
   <div class="form-group row">
     <div class="col-md-5">
         <button type="button" class="btn btn-outline-success" (click)="AddCi(templateSubmit)">
@@ -11,9 +11,37 @@
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommInfoFilter.descriptionInfo" >
   
   
-       </div>
+       </div> -->
       
-  
+       <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1> Commentaire Demande Information</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <!-- <a href="#">Home</a></li> -->
+                  <li class="breadcrumb-item">
+                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommInfoFilter.descriptionComm" >
+                  </li>
+                  <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <button type="button" class="btn btn-outline-success" (click)="AddCi(templateSubmit)">
+                    <i class="fa fa-plus"></i> Add Commentaire Demande Information
+            </button>
+                </div>
   <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Commentaire Info Detail</h4>
@@ -27,9 +55,9 @@
     </div>
   </ng-template>
   
-  
-  <table class="table table-striped">
-    <thead class="thead-light">
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead class="thead-light">
       <tr>
         
         <th>Commenatires</th>
@@ -75,8 +103,15 @@
     </tbody>
   </table>
   </div>
-  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
-  previousLabel="Prec " nextLabel="Suiv ">
-  </pagination-controls>
+  <div class="card-footer clearfix">
+    <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+    </pagination-controls>
+  </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
   </div>
 

@@ -14,7 +14,7 @@ import { CommDemandeInfoComponent } from '../comm-demande-info.component';
 export class ListCommDemandeInfoComponent implements OnInit {
 
   modalRefCommInfo: BsModalRef;
-  CommInfoFilter: any = { descriptionInfo: '' };
+  CommInfoFilter: any = { descriptionComm: '' };
 
 
 
