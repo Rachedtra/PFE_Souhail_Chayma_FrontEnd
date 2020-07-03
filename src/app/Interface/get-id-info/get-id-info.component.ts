@@ -8,6 +8,7 @@ import { CommDemandeInfoService } from 'src/app/MicroService2/ServicesMS2/comm-d
 import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.models';
 import { CommVoteService } from 'src/app/MicroService2/ServicesMS2/comm-vote.service';
 import { VoteService } from 'src/app/MicroService2/ServicesMS2/vote.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-get-id-info',
@@ -30,7 +31,8 @@ InformationFiltre: any = { titre: '' };
     private _http : HttpClient,
     private CommVoteService : CommVoteService,
     private comminfoService: CommDemandeInfoService,
-    private VoteService : VoteService
+    private VoteService : VoteService,
+    private location: Location
    
     ) { }
    
@@ -97,6 +99,8 @@ this.CommVoteService.PostCommVote().subscribe(
 )
 }
 
-
+cancel() {
+  this.location.back(); // <-- go back to previous location on cancel
+}
 
 }
