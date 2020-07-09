@@ -9,6 +9,7 @@ import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.m
 import { CommVoteService } from 'src/app/MicroService2/ServicesMS2/comm-vote.service';
 import { VoteService } from 'src/app/MicroService2/ServicesMS2/vote.service';
 import { Location } from '@angular/common';
+import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
 
 @Component({
   selector: 'app-get-id-info',
@@ -29,6 +30,7 @@ InformationFiltre: any = { titre: '' };
   constructor(private modalService: BsModalService,
     private InfoService: DemandeInfoService,
     private _http : HttpClient,
+    private commService : CommentaireService,
     private CommVoteService : CommVoteService,
     private comminfoService: CommDemandeInfoService,
     private VoteService : VoteService,

@@ -21,8 +21,14 @@ export class CommentaireService {
     commDemandeInfos : new FormControl(""),
     commVotes: new FormControl(""),
     isActiveComm : new FormControl(""),
-    
+    fkInfo: new FormControl(""),
+    fkMs: new FormControl(""),
+    descriptionInfo  : new FormControl(""),
   });
+  CommInfoFiltre: Commentaires[];
+  nombre: number;
+  commfilter: Commentaires[];
+  id: string;
   constructor(private _http :HttpClient,
     private notifComm :ToastrService,
     private commInfoService : CommDemandeInfoService,
@@ -33,8 +39,11 @@ export class CommentaireService {
         idComm: "00000000-0000-0000-0000-000000000000",
         description: "",
         date:  new Date(),
-        commDemandeInfos: "",
-        commVotes: "",
+        fkInfo:"",
+        commVotes:"",
+        commDemandeInfos:"",
+        fkMs:"",
+        descriptionInfo : "",
         isActiveComm : true
 
     });
@@ -82,7 +91,7 @@ Posted(id)
   .subscribe(
     res => {
       console.log(res);
-     this.commInfoService.getCommInfoFiltrer(this.infoservice.demande) ; 
+     this.getCommInfoFiltrer(this.infoservice.demande) ; 
       this.notifComm.info('', ' Commentaires Ajoute Avec Succés');
       this.ResetComm();
     },
@@ -100,4 +109,24 @@ PostCommentairesMs() {
    );
 }
 
+
+getCommInfoFiltrer(id) {
+
+  this._http.get('http://localhost:58540/api/Commentaires').subscribe(res => {
+    this.comm = res as Commentaires[];
+    this.CommInfoFiltre= this.comm.filter(i=>i.fkInfo==id ); 
+   this.nombre= this.CommInfoFiltre.length ; 
+   console.log( this.nombre);
+    console.log(this.CommInfoFiltre);
+  });
+
+}
+GetCommId(id){
+  this._http.get('http://localhost:58540/api/Commentaires').subscribe(res => {
+    this.comm = res as Commentaires[];
+  this.commfilter= this.comm.filter(i=>i.idComm==id ); 
+  this.id=this.commfilter[0].idComm ; 
+  console.log(this.commfilter) ; 
+  });
+}
 }

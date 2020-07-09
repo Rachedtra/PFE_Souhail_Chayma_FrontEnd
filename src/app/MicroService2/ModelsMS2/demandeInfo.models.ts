@@ -5,5 +5,7 @@ export  class DemandeInformation {
     isActiveInfo : boolean ; 
     titre: string ;
     domaineNom: string ;
-   
-}
+    idDomain :string ; 
+  }
+        
+    

@@ -14,6 +14,7 @@ import { CommDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CommDemandeInfo
 import { CatDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CatDemandeInfo.models';
 import { CommVoteService } from 'src/app/MicroService2/ServicesMS2/comm-vote.service';
 import { VoteService } from 'src/app/MicroService2/ServicesMS2/vote.service';
+import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
 
 @Component({
   selector: 'app-interface-list',
@@ -33,6 +34,7 @@ export class InterfaceListComponent implements OnInit {
     private modalService: BsModalService,
     private InfoService :DemandeInfoService,
     private domService : DomaineService , 
+    private CommService : CommentaireService,
     private CommVoteService : CommVoteService,
     private comminfoService: CommDemandeInfoService,
     private VoteService : VoteService

@@ -40,7 +40,8 @@ export class ListDemandeInfoComponent implements OnInit {
         isActiveInfo : true,
         domaineNom : "",
         titre : "" ,
-     
+        idDomain:""
+
     });
   }
 

@@ -28,10 +28,14 @@ export class ListCommentaireComponent implements OnInit {
       this.CommService.form.setValue({
         idComm: "00000000-0000-0000-0000-000000000000",
         description: "",
-        date: "",
-        commDemandeInfos: "",
-        commVotes: "",
+        date:  new Date(),
+        fkInfo:"",
+        commVotes:"",
+        commDemandeInfos:"",
+        fkMs:"",
+        descriptionInfo : "",
         isActiveComm : true
+
     });
   }
 

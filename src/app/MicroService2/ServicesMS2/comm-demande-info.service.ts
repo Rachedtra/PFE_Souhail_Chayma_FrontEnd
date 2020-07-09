@@ -68,23 +68,5 @@ export class CommDemandeInfoService {
     });
 
   }
-  getCommInfoFiltrer(id) {
 
-    this._http.get('http://localhost:58540/api/CommDemandeInfo').subscribe(res => {
-      this.comm = res as CommDemandeInfo[];
-      this.CommInfoFiltre= this.comm.filter(i=>i.idDemandeInfo==id ); 
-     this.nombre= this.CommInfoFiltre.length ; 
-     console.log( this.nombre);
-      console.log(this.CommInfoFiltre);
-    });
-  
-  }
-  GetCommId(id){
-    this._http.get('http://localhost:58540/api/CommDemandeInfo').subscribe(res => {
-      this.comm = res as CommDemandeInfo[];
-    this.commfilter= this.CommInfoFiltre.filter(i=>i.idComm==id ); 
-    this.id=this.CommInfoFiltre[0].idComm ; 
-    console.log(this.commfilter) ; 
-    });
-  }
 }

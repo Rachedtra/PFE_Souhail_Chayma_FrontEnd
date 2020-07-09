@@ -34,7 +34,8 @@ export class DemandeInfoComponent implements OnInit {
         isActiveInfo : true ,
         domaineNom : "",
         titre : "" ,
-        
+        idDomain:""
+
  
     });
   }

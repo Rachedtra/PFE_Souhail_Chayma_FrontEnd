@@ -20,38 +20,27 @@ export class CommComponent implements OnInit {
     private infoService:DemandeInfoService) { }
  
   ngOnInit() {
-    this.CommInfoService.getCommInfoFiltrer ; 
+    this.CommService.getCommInfoFiltrer ; 
     this.ResetComm() ; 
 
-    this.resetFormCommInfo() ; 
   } 
   ResetComm() {
     this.CommService.form.setValue({
       idComm: "00000000-0000-0000-0000-000000000000",
       description: "",
       date: new Date(),
-      commDemandeInfos: "",
-      commVotes: "",
-      isActiveComm : true
-
+      isActiveComm : true,
+      fkInfo: "",
+      descriptionInfo : "",
+      fkMs: "",
+      commDemandeInfos:"",
+      commVotes:""
   });
 }
-resetFormCommInfo() {
-  this.CommInfoService.form.setValue({
-    idCommInfo: "00000000-0000-0000-0000-000000000000",
-    idComm: "",
-    idDemandeInfo: "",
-    isActiveCommInfo: true,
-    descriptionComm: "",
-    descriptionInfo: "",
-    titreInfo : "",
-    dateComm : ""
-}); 
-}
+
 onSubmitComm ()
 {
-  if (this.CommService.form.controls.idComm.value == "00000000-0000-0000-0000-000000000000"&&
-    this.CommInfoService.form.controls.idCommInfo.value== "00000000-0000-0000-0000-000000000000")
+  if (this.CommService.form.controls.idComm.value == "00000000-0000-0000-0000-000000000000")
   this.CommService.Posted(this.infoService.demande);
 }
 

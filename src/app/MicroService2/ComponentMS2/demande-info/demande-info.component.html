@@ -19,7 +19,7 @@
       <div class="form-group">
         <label>Domaine </label>
         
-          <select class="form-control" formControlName="domaineNom" placeholder="domaineNom">
+          <select class="form-control" formControlName= "idDomain" placeholder="idDomain">
            
             <option value="0">-Select-</option>
             <option *ngFor="let dom of domService.Dom" [ngValue]="dom.idDomain">

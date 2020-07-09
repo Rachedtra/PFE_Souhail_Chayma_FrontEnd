@@ -49,7 +49,7 @@ id : string ;
       isActiveInfo : true ,
       domaineNom : "",
       titre : "" ,
-      
+      idDomain:""
 
   });
 }
@@ -100,10 +100,10 @@ GetInfoFiltrer(id) {
 
   this._http.get('http://localhost:58540/api/DemandeInformation').subscribe(res => {
    this.info = res as DemandeInformation[];
-  this.filtirng= this.info.filter(i=>i.domaineNom== id ) ; 
+  this.filtirng= this.info.filter(i=>i.idDomain== id ) ; 
   this.NbQuestion=this.filtirng.length ;
    console.log(this.info);
-   this.information=this.filtirng[0].domaineNom ;
+   this.information=this.filtirng[0].idDomain ;
    console.log(this.filtirng);
 
 
