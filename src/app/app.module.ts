@@ -83,6 +83,7 @@ import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/dem
 import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
 import { CommentairesMsComponent } from './Interface/commentaires-ms/commentaires-ms.component';
 import { HomeComponent } from './home/home.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 
 
@@ -158,7 +159,8 @@ import { HomeComponent } from './home/home.component';
     ListSousCategorieActiveComponent,
     CommMsComponent,
     CommentairesMsComponent,
-    HomeComponent
+    HomeComponent,
+    AuthentificationComponent
   
 
 
