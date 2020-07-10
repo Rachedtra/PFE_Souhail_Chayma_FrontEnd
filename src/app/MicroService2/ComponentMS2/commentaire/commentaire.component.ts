@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentaireService } from '../../ServicesMS2/commentaire.service';
 import { ToastrService } from 'ngx-toastr';
+import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
 
 @Component({
   selector: 'app-commentaire',
@@ -11,11 +12,12 @@ export class CommentaireComponent implements OnInit {
 
   constructor( private CommService: CommentaireService,
     private notifComm: ToastrService,
+    private InfoetServie:DemandeInfoService
     ) { }
 
 
     ngOnInit() {
-   
+   this.InfoetServie.GetInfo() ; 
     }
     ResetComm() {
       this.CommService.form.setValue({
@@ -23,8 +25,8 @@ export class CommentaireComponent implements OnInit {
         description: "",
         date:  new Date(),
         fkInfo:"",
-        commVotes:"",
-        commDemandeInfos:"",
+        // commVotes:"",
+        // commDemandeInfos:"",
         fkMs:"",
         descriptionInfo : "",
         isActiveComm : true

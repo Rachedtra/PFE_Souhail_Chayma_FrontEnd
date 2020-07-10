@@ -18,11 +18,11 @@ export class CommentaireService {
     idComm: new FormControl(""),
     description: new FormControl(""),
     date: new FormControl(new Date()),
-    commDemandeInfos : new FormControl(""),
-    commVotes: new FormControl(""),
+    // commDemandeInfos : new FormControl(""),
+    // commVotes: new FormControl(""),
     isActiveComm : new FormControl(""),
-    fkInfo: new FormControl(""),
-    fkMs: new FormControl(""),
+    fkInfo: new FormControl(null),
+    fkMs: new FormControl(null),
     descriptionInfo  : new FormControl(""),
   });
   CommInfoFiltre: Commentaires[];
@@ -41,8 +41,8 @@ export class CommentaireService {
         date:  new Date(),
         fkInfo:"",
         commVotes:"",
-        commDemandeInfos:"",
-        fkMs:"",
+        // commDemandeInfos:"",
+         fkMs:"",
         descriptionInfo : "",
         isActiveComm : true
 
@@ -84,10 +84,11 @@ CommentairesAcrive() {
 
   });
 }
-Posted(id)
+Posted()
 {
-  return this._http.post('http://localhost:58540/api/Commentaires/PostedComm?idDemande='+id,this.form.value,
-   { responseType: "text" })
+  return this._http.post('http://localhost:58540/api/Commentaires/PostedComm?idDemande='+
+  this.infoservice.demande,this.form.value,
+  { responseType: "text" })
   .subscribe(
     res => {
       console.log(res);

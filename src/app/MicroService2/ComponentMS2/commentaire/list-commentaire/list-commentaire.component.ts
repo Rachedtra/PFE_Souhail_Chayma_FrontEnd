@@ -30,8 +30,8 @@ export class ListCommentaireComponent implements OnInit {
         description: "",
         date:  new Date(),
         fkInfo:"",
-        commVotes:"",
-        commDemandeInfos:"",
+        // commVotes:"",
+        // commDemandeInfos:"",
         fkMs:"",
         descriptionInfo : "",
         isActiveComm : true
