@@ -18,7 +18,6 @@ export class CommentairesMsComponent implements OnInit {
     private msService:MicroServiceService) { }
 
   ngOnInit() {
-    this.CommMsService.getCommMsFiltre ; 
     this.ResetComm() ; 
     this.resetFormCommMs() ;  
   }
@@ -26,10 +25,14 @@ export class CommentairesMsComponent implements OnInit {
     this.CommService.form.setValue({
       idComm: "00000000-0000-0000-0000-000000000000",
       description: "",
-      date: new Date(),
-      commDemandeInfos: "",
-      commVotes: "",
-      isActiveComm : true
+      date:  new Date(),
+      fkInfo:"",
+      // commVotes:"",
+      // commDemandeInfos:"",
+      fkMs:"",
+      descriptionInfo : "",
+      isActiveComm : true,
+      labelMs : ""
 
   });
 }
@@ -48,40 +51,41 @@ onSubmitComm ()
 {
   if (this.CommService.form.controls.idComm.value == "00000000-0000-0000-0000-000000000000"
    )
-  this.insertComm();
+  this.CommService.PostCommentairesMs();
+  this.ResetComm() ; 
 }
 
 
-insertComm() {
-  this.CommService.PostCommentairesMs().subscribe(
-    res => {
+// insertComm() {
+//   this.CommService.PostCommentairesMs().subscribe(
+//     res => {
       
-      console.log(res);
-       this.CommMsService.form.setValue({
-         idCommMs: "00000000-0000-0000-0000-000000000000",
-         idMs: this.msService.idMicroService,
-         idComm: res ,
-         isActiveCommMs: true,
-         labelMs: "",
-     }); 
-     this.CommMsService.PostCommMs().subscribe(
-      res1=>{
-     console.log(res1) ;
-     this.CommMsService.getCommMsFiltre(this.msService.idMicroService);
-      });
+//       console.log(res);
+//        this.CommMsService.form.setValue({
+//          idCommMs: "00000000-0000-0000-0000-000000000000",
+//          idMs: this.msService.idMicroService,
+//          idComm: res ,
+//          isActiveCommMs: true,
+//          labelMs: "",
+//      }); 
+//      this.CommMsService.PostCommMs().subscribe(
+//       res1=>{
+//      console.log(res1) ;
+//      this.CommMsService.getCommMsFiltre(this.msService.idMicroService);
+//       });
       
-      this.notifComm.success('', 'Commentaires Ajoutee Avec Succés');
-      this.ResetComm();
-    },
+//       this.notifComm.success('', 'Commentaires Ajoutee Avec Succés');
+//       this.ResetComm();
+//     },
    
-    err => {
-      console.log(err);
-      this.notifComm.error('Commentaires Non Ajoute', 'Erreur');
+//     err => {
+//       console.log(err);
+//       this.notifComm.error('Commentaires Non Ajoute', 'Erreur');
 
-    }
-  )
+//     }
+//   )
  
-}
+// }
 
 
 }

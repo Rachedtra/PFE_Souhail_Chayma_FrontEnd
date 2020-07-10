@@ -34,7 +34,8 @@ export class ListCommentaireComponent implements OnInit {
         // commDemandeInfos:"",
         fkMs:"",
         descriptionInfo : "",
-        isActiveComm : true
+        isActiveComm : true,
+        labelMs: ""
 
     });
   }

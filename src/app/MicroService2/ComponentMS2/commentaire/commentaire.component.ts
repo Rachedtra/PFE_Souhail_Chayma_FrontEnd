@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommentaireService } from '../../ServicesMS2/commentaire.service';
 import { ToastrService } from 'ngx-toastr';
 import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
+import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 
 @Component({
   selector: 'app-commentaire',
@@ -12,12 +13,14 @@ export class CommentaireComponent implements OnInit {
 
   constructor( private CommService: CommentaireService,
     private notifComm: ToastrService,
-    private InfoetServie:DemandeInfoService
+    private InfoetServie:DemandeInfoService,
+    private MsService : MicroServiceService
     ) { }
 
 
     ngOnInit() {
    this.InfoetServie.GetInfo() ; 
+   this.MsService.refreshList() ;
     }
     ResetComm() {
       this.CommService.form.setValue({
@@ -29,7 +32,8 @@ export class CommentaireComponent implements OnInit {
         // commDemandeInfos:"",
         fkMs:"",
         descriptionInfo : "",
-        isActiveComm : true
+        isActiveComm : true,
+        labelMs: ""
 
     });
   }

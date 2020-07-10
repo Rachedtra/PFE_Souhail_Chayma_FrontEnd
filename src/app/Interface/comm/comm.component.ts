@@ -33,6 +33,7 @@ export class CommComponent implements OnInit {
       fkInfo: "",
       descriptionInfo : "",
       fkMs: "",
+      labelMs: ""
       // commDemandeInfos:"",
       // commVotes:""
   });
@@ -42,6 +43,7 @@ onSubmitComm ()
 {
   if (this.CommService.form.controls.idComm.value == "00000000-0000-0000-0000-000000000000")
   this.CommService.Posted();
+  this.ResetComm(); 
 }
 
 }

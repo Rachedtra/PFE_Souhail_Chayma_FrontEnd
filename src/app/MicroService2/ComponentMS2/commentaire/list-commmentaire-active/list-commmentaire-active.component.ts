@@ -36,7 +36,8 @@ export class ListCommmentaireActiveComponent implements OnInit {
         // commDemandeInfos:"",
         fkMs:"",
         descriptionInfo : "",
-        isActiveComm : true
+        isActiveComm : true,
+        labelMs : ""
 
     });
   }

@@ -8,5 +8,6 @@ export class Commentaires{
      fkInfo : string ; 
      descriptionInfo : string ; 
      fkMs : string ; 
+     labelMs : string ; 
 
 }

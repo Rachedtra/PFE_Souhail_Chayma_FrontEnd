@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { CommDemandeInfoService } from './comm-demande-info.service';
 import { DemandeInfoService } from './demande-info.service';
+import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,16 +24,21 @@ export class CommentaireService {
     isActiveComm : new FormControl(""),
     fkInfo: new FormControl(null),
     fkMs: new FormControl(null),
+    labelMs  : new FormControl(""),
     descriptionInfo  : new FormControl(""),
   });
   CommInfoFiltre: Commentaires[];
   nombre: number;
   commfilter: Commentaires[];
   id: string;
+  commMs: any[];
+  nNbComm: number;
+  NbComm: number;
   constructor(private _http :HttpClient,
     private notifComm :ToastrService,
     private commInfoService : CommDemandeInfoService,
-    private infoservice : DemandeInfoService) { }
+    private infoservice : DemandeInfoService,
+    private MsService:MicroServiceService) { }
 
     ResetComm() {
       this.form.setValue({
@@ -40,11 +46,12 @@ export class CommentaireService {
         description: "",
         date:  new Date(),
         fkInfo:"",
-        commVotes:"",
+        // commVotes:"",
         // commDemandeInfos:"",
          fkMs:"",
         descriptionInfo : "",
-        isActiveComm : true
+        isActiveComm : true,
+        labelMs:""
 
     });
   }
@@ -104,10 +111,36 @@ Posted()
   )
 }
 
+getCommMsFiltre(id) {
 
+  this._http.get('http://localhost:58540/api/Commentaires').subscribe(res => {
+    this.commMs = res as Commentaires[];
+    this.commfilter= this.commMs.filter(i=>i.fkMs==id ) ; 
+    this.NbComm = this.commfilter.length ;
+
+    console.log(this.NbComm);
+    console.log(this.commfilter);
+
+  });
+}
+//idMicroService
 PostCommentairesMs() {
-  return this._http.post('http://localhost:58540/api/Commentaires/PostedCommMs', this.form.value,
-   );
+  return this._http.post('http://localhost:58540/api/Commentaires/PostedCommMs?idMs='+
+  this.MsService.idMicroService, this.form.value,
+  { responseType: "text" } )
+  .subscribe(
+    res => {
+      console.log(res);
+     this.getCommMsFiltre(this.MsService.idMicroService) ; 
+      this.notifComm.info('', ' Commentaires Ajoute Avec Succés');
+      this.ResetComm();
+    },
+    err => {
+      console.log(err);
+      this.notifComm.error(' Commentaires Non Ajoute', 'Erreur');
+
+    }
+  )
 }
 
 
