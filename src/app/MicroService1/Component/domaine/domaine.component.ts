@@ -1,17 +1,19 @@
 
 import { Domaine } from './../../Models/Domaine.models';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DomaineService } from '../../Services/domaine.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { BsModalRef } from 'ngx-bootstrap/modal/public_api';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ListDomaineComponent } from './list-domaine/list-domaine.component';
+import { ListDomaineActiveComponent } from './list-domaine-active/list-domaine-active.component';
 
 @Component({
   selector: 'app-domaine',
   templateUrl: './domaine.component.html',
-  styleUrls: ['./domaine.component.css']
+  styleUrls: ['./domaine.component.css'],
+   providers:[ListDomaineComponent]
 })
 export class DomaineComponent implements OnInit {
   Dom: Domaine[] = new Array();
@@ -19,7 +21,9 @@ export class DomaineComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private Domservice: DomaineService,
     private toastrService: ToastrService,
-    private domaineList:ListDomaineComponent) { }
+    private domaineList:ListDomaineComponent,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit() {
 
@@ -47,7 +51,6 @@ export class DomaineComponent implements OnInit {
   insertRecord() {
     this.Domservice.PostDom().subscribe(
       res => {
-        this.domaineList.Ref.hide() ;
         console.log(res);
         this.Domservice.refreshList();
         this.Domservice.DomaineActive() ; 
@@ -66,8 +69,6 @@ export class DomaineComponent implements OnInit {
   UpdateRecord() {
     this.Domservice.PutDom().subscribe(
       res => {
-        this.domaineList.Ref.hide() ;
-
         console.log(res);
         this.Domservice.refreshList();
         this.Domservice.DomaineActive() ; 
@@ -82,5 +83,6 @@ export class DomaineComponent implements OnInit {
       }
     )
   }
+
 
 }

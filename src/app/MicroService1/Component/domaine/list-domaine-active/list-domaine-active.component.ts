@@ -8,12 +8,12 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-list-domaine-active',
   templateUrl: './list-domaine-active.component.html',
-  styleUrls: ['./list-domaine-active.component.css']
+  styleUrls: ['./list-domaine-active.component.css'],
 })
 export class ListDomaineActiveComponent implements OnInit {
 
   Dom: Domaine[] = new Array();
-  Ref: BsModalRef;
+  public Ref: BsModalRef;
   DomaaineFilter: any = { nom: '' };
  
    constructor(private Domservice: DomaineService,

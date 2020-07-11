@@ -182,7 +182,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 
 
   ],
-  providers: [],
+  providers: [DomaineComponent,MsComponent],
   bootstrap: [AppComponent],
   entryComponents:[LanguagesComponent]
 })

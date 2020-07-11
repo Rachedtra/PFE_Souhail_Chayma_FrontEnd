@@ -19,7 +19,8 @@ export class LanguagesComponent implements OnInit {
 
   constructor(private langservice: LanguagesService,
     private toastrService: ToastrService,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+   ) { }
   ngOnInit() {
 
 
@@ -72,7 +73,6 @@ export class LanguagesComponent implements OnInit {
   UpdateRecord() {
     this.langservice.PutLang().subscribe(
       res => {
-
         console.log(res);
         this.langservice.refreshList();
         this.langservice.LanguagesActive() ;

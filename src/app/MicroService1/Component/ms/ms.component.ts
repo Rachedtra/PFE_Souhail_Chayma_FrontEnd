@@ -3,7 +3,6 @@ import { MicroServiceService } from '../../Services/micro-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { LanguagesService } from '../../Services/languages.service';
 import { Languages } from '../../Models/Languages.models';
-import { ListMsComponent } from './list-ms/list-ms.component';
 
 
 
@@ -20,7 +19,7 @@ export class MsComponent implements OnInit {
   constructor( private msService: MicroServiceService,
     private toastrService: ToastrService,
     private langservice: LanguagesService,
-    private msList:ListMsComponent
+    
     ) { }
 
   ngOnInit() {
@@ -62,7 +61,6 @@ else
   UpdateRecord() {
     this.msService.PutMs().subscribe(
       res => {
-        this.msList.modalRef.hide() ;
         console.log(res);
         this.msService.refreshList();
         this.msService.ListActive();
@@ -82,7 +80,6 @@ else
   insertRecord() {
     this.msService.PostMs().subscribe(
       res => {
-        this.msList.modalRef.hide() ;
 
         console.log(res);
         this.msService.refreshList();

@@ -3,7 +3,6 @@ import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
 import { Domaine } from 'src/app/MicroService1/Models/Domaine.models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
-import { DomaineComponent } from '../domaine.component';
 
 @Component({
   selector: 'app-list-domaine',
@@ -63,12 +62,12 @@ export class ListDomaineComponent implements OnInit {
   }
 
 
-  EditDom(domaine,templatee: TemplateRef<DomaineComponent>) {
+  EditDom(domaine,templatee: TemplateRef<any>) {
     this.Domservice.form.setValue(domaine);
     this.Ref = this.BsmodalService.show(templatee);
   }
 
-  AddDom(templatee: TemplateRef<DomaineComponent>) {
+  AddDom(templatee: TemplateRef<any>) {
     this.resetForm();
     this.Ref = this.BsmodalService.show(templatee);
 

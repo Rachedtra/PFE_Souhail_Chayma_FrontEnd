@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { MsComponent } from '../ms.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 import { ToastrService } from 'ngx-toastr';
@@ -56,13 +55,13 @@ DeleteMs(idMs: string) {
 
 }
 
-openModal(templatee: TemplateRef<MsComponent>) {
+openModal(templatee: TemplateRef<any>) {
   this.modalRef = this.modalActive.show(templatee);
 
 
 }
 
-ConfirmModal(template: TemplateRef<MsComponent>) {
+ConfirmModal(template: TemplateRef<any>) {
   this.modalRef = this.modalActive.show(template, { class: 'modal-sm' });
 }
 
@@ -78,13 +77,13 @@ decline(): void {
   this.toastActive.warning('', 'Microservice Non Supprimee');
 }
 
-EditMs(ms,  templatee: TemplateRef<MsComponent>) {
+EditMs(ms,  templatee: TemplateRef<any>) {
   this.msService.form.setValue(ms);
   this.modalRef = this.modalActive.show(templatee);
 
 
 }
-AddMs(templatee: TemplateRef<MsComponent>) {
+AddMs(templatee: TemplateRef<any>) {
   this.resetFormActive();
   this.modalRef = this.modalActive.show(templatee);
 
