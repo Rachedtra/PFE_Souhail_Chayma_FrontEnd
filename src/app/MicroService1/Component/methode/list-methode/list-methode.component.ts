@@ -4,6 +4,7 @@ import { MethodeService } from 'src/app/MicroService1/Services/methode.service';
 import { ToastrService } from 'ngx-toastr';
 import { MethodeComponent } from '../methode.component';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
+import { Methode } from 'src/app/MicroService1/Models/Methode.models';
 
 @Component({
   selector: 'app-list-methode',
@@ -12,17 +13,18 @@ import { MicroServiceService } from 'src/app/MicroService1/Services/micro-servic
 })
 export class ListMethodeComponent implements OnInit {
   methodeFilter: any = { nom: '' };
-  modalRef: BsModalRef;
   
 
   constructor(private mService: MethodeService,
     private modalService: BsModalService,
     private toastrService: ToastrService, 
-    private MsService : MicroServiceService) { }
+    private Micro : MicroServiceService) { }
+
+    bsModalRef: BsModalRef;
 
   ngOnInit() {
     this.mService.refreshList();
-    this.MsService.refreshList() ; 
+    this.Micro.refreshList() ; 
     this.resetForm();
   }
   resetForm() {
@@ -49,36 +51,40 @@ export class ListMethodeComponent implements OnInit {
   }
 
   openModal(templatee: TemplateRef<MethodeComponent>) {
-    this.modalRef = this.modalService.show(templatee);
+    this.bsModalRef = this.modalService.show(templatee);
 
 
   }
 
   ConfirmModal(template: TemplateRef<MethodeComponent>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+    this.bsModalRef = this.modalService.show(template, { class: 'modal-sm' });
   }
 
   confirm(): void {
 
-    this.modalRef.hide();
+    this.bsModalRef.hide();
     this.toastrService.success('', 'Methode Supprimee Avec Succés');
   }
 
   decline(): void {
 
-    this.modalRef.hide();
+    this.bsModalRef.hide();
     this.toastrService.warning('', 'Methode Non Supprimee');
   }
 
-  EditMethode(ms,  templatee: TemplateRef<MethodeComponent>) {
+  EditMethode(ms : Methode) {
     this.mService.form.setValue(ms);
-    this.modalRef = this.modalService.show(templatee);
+    this.bsModalRef = this.modalService.show(MethodeComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 
 
   }
-  AddMethode(templatee: TemplateRef<MethodeComponent>) {
+  AddMethode() {
     this.resetForm();
-    this.modalRef = this.modalService.show(templatee);
+    this.bsModalRef = this.modalService.show(MethodeComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });;
 
   }
 

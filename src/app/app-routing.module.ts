@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
 import { SidebarLeftComponent } from './navbar/sidebar-left/sidebar-left.component';
 import { ListVersionsComponent } from './MicroService1/Component/versions/list-versions/list-versions.component';
@@ -293,7 +293,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+  RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

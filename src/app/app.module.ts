@@ -84,6 +84,7 @@ import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/s
 import { CommentairesMsComponent } from './Interface/commentaires-ms/commentaires-ms.component';
 import { HomeComponent } from './home/home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -177,13 +178,14 @@ import { AuthentificationComponent } from './authentification/authentification.c
     NgxPaginationModule ,
     BsDatepickerModule.forRoot(),
     FilterPipeModule,
-    RatingModule
+    RatingModule,
+    CommonModule
 
 
 
   ],
-  providers: [DomaineComponent,MsComponent],
+  providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LanguagesComponent]
+  entryComponents:[LanguagesComponent,MethodeComponent]
 })
 export class AppModule { }

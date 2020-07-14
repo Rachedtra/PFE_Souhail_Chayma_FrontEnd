@@ -1,6 +1,22 @@
-  <form [formGroup]="mService.form" (ngSubmit)="onSubmit()">
+ 
+  <div class="modal-header">
+    
+    <h4 class="modal-title pull-left">Methode Detail</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
 
-
+<div clas="container">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <form [formGroup]="mService.form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <p>
           
@@ -60,5 +76,6 @@
       <button type="submit" class="btn btn-primary mr-1"> Submit</button>
     </form>
 
-
+</div>
+</div>
 
