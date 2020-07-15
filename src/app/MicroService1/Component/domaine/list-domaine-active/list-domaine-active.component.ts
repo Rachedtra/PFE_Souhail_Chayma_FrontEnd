@@ -38,13 +38,8 @@ export class ListDomaineActiveComponent implements OnInit {
  
  
  
-   DeleteDom(idDomaine: string) {
-     this.Domservice.DeleteDom(idDomaine).subscribe(res => {
-       console.log(res);
-       this.Domservice.refreshList();
-       this.Domservice.DomaineActive() ; 
-     }) ;
- 
+   DeleteDom(Domaine: Domaine) {
+  
    }
  
  
