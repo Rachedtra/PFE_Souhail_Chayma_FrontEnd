@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MethodeService } from 'src/app/MicroService1/Services/methode.service';
 import { ToastrService } from 'ngx-toastr';
-import { MethodeComponent } from '../methode.component';
+import { MethodeComponent } from 'src/app/MicroService1/Component/methode/methode.component';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 import { Methode } from 'src/app/MicroService1/Models/Methode.models';
 

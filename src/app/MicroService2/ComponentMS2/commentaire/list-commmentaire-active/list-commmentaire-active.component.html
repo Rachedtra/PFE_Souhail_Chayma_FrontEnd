@@ -2,7 +2,7 @@
   <div class="form-group row">
     <div class="col-md-5">
       
-  <button class="btn btn-outline-success" (click)="AddComm(templateSubmit)">
+  <button class="btn btn-outline-success" (click)="AddComm()">
     <i class="fa fa-plus"></i> Create Commentaire
   </button>
     </div>
@@ -20,7 +20,7 @@
       
   
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Commentaire Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalCommRef.hide()">
@@ -31,7 +31,7 @@
       <app-commentaire></app-commentaire>
     </div>
   </ng-template>
-  
+   -->
   
   <table class="table table-striped">
     <thead class="thead-light">
@@ -74,7 +74,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditComm(commentaire,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditComm(commentaire)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

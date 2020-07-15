@@ -4,7 +4,7 @@ import { Versionss } from 'src/app/MicroService1/Models/Versionss.models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { LanguagesComponent } from '../../languages/languages.component';
-import { VersionsComponent } from '../versions.component';
+import { VersionsComponent } from 'src/app/MicroService1/Component/versions/versions.component';
 
 @Component({
   selector: 'app-list-versions',
@@ -15,10 +15,10 @@ export class ListVersionsComponent implements OnInit {
   Ver: Versionss[] = new Array();
   versionFilter: any = { numero: null };
 
-  modalRef: BsModalRef;
   constructor(private Verservice: VersionsService,
     private modalService: BsModalService,
     private toastrService: ToastrService, ) { }
+    modalRef: BsModalRef;
 
   ngOnInit() {
 
@@ -66,15 +66,20 @@ export class ListVersionsComponent implements OnInit {
     this.toastrService.warning('', 'Version Non Supprimee');
   }
 
-  EditVer(versions,  templatee: TemplateRef<VersionsComponent>) {
+  EditVer(versions) {
     this.Verservice.form.setValue(versions);
-    this.modalRef = this.modalService.show(templatee);
+    this.modalRef = this.modalService.show(VersionsComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
+
 
 
   }
-  AddVer(templatee: TemplateRef<VersionsComponent>) {
+  AddVer() {
     this.resetForm();
-    this.modalRef = this.modalService.show(templatee);
+    this.modalRef = this.modalService.show(VersionsComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 
   }
 

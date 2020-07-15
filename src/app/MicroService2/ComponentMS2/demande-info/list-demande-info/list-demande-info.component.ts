@@ -34,13 +34,16 @@ export class ListDemandeInfoComponent implements OnInit {
       this.InfoService.form.setValue({
         idDemandeInfo: "00000000-0000-0000-0000-000000000000",
         description: "",
-        date:new Date(),
-        commDemandeInfos: "",
-        catDemandeInfos: "",
-        isActiveInfo : true,
+        date: new Date(),
+        // commDemandeInfos: "",
+        // catDemandeInfos: "",
+        isActiveInfo : true ,
         domaineNom : "",
         titre : "" ,
-        idDomain:""
+        idDomain:"",
+        fkUser:"",
+        firstName:"",
+        lastName:"",
 
     });
   }
@@ -75,15 +78,18 @@ export class ListDemandeInfoComponent implements OnInit {
     this.notifInfo.warning('', 'Demande Info  Non Supprimee');
   }
   
-  EditInfo(inf,  templatee: TemplateRef<DemandeInfoComponent>) {
+  EditInfo(inf) {
     this.InfoService.form.setValue(inf);
-    this.modalInfoRef = this.modalInfo.show(templatee);
-  
+    this.modalInfoRef = this.modalInfo.show(DemandeInfoComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   
   }
-  AddInfo(templatee: TemplateRef<DemandeInfoComponent>) {
+  AddInfo() {
     this.ResetInfo();
-    this.modalInfoRef = this.modalInfo.show(templatee);
+    this.modalInfoRef = this.modalInfo.show(DemandeInfoComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   
   }
 

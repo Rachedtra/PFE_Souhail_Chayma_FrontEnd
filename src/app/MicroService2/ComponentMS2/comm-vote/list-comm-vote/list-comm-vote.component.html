@@ -24,12 +24,12 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button type="button" class="btn btn-outline-success" (click)="AddCv(templateSubmit)">
+                  <button type="button" class="btn btn-outline-success" (click)="AddCv()">
                     <i class="fa fa-plus"></i> Add Commentaire Vote
             </button>
                 </div>
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Commentaire Vote Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCommVote.hide()">
@@ -40,7 +40,7 @@
       <app-comm-vote></app-comm-vote>
       
     </div>
-  </ng-template>
+  </ng-template> -->
   
   <div class="card-body">
     <table class="table table-bordered">
@@ -84,7 +84,7 @@
           </div>
         </ng-template>
       </td>
-      <td><button class="btn btn-primary" (click)="EditCv(cv,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditCv(cv)"><i class="fas fa-edit"></i>
           Edit</button></td>
     </tr>
     </tbody>

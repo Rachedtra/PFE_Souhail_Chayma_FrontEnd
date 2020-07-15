@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './authentification.models';
 import { FormGroup, FormControl } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { HomeComponent } from '../home/home.component';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from './auth-service.service';
 
@@ -13,21 +12,19 @@ import { AuthServiceService } from './auth-service.service';
   styleUrls: ['./authentification.component.css'], 
 })
 export class AuthentificationComponent implements OnInit {
-  id: string;
-  first: string;
-  last: String;
+  first: any;
+  last: any;
 
-  constructor(private _http : HttpClient,    private modalCommMs: BsModalService,
-    private home : HomeComponent,    private CommMstInfo: ToastrService,
-    private authservice : AuthServiceService
+  constructor(  
+
+    private authservice : AuthServiceService,
+    public bsModalRefAuth: BsModalRef ,
+    private _http : HttpClient,
+    private CommMstInfo : ToastrService
     ) { }
-  modalRefCommMs: BsModalRef;
   userFiltre: User[] = new Array();
-  person : string ; 
- 
-
   ngOnInit() {
-    this.resetFormUser() ; 
+     this.resetFormUser() ; 
     this.authservice.getUsers() ; 
   }
 
@@ -46,38 +43,30 @@ export class AuthentificationComponent implements OnInit {
 
 
 }
- 
-
-// PostUser() {
-
-//   this.authservice.post().subscribe( res => {
-//     if(res!="erreur")
-//     {
-     
-//       this.userFiltre= this.authservice.users.filter(i=>i.userID== res ) ; 
-//       console.log(this.authservice.users) ;
-//        this.first=this.userFiltre[0].firstName ;
-//        this.last=this.userFiltre[0].lastName ;
-//       console.log(this.userFiltre) ;
-//        console.log(this.first) ;
-//        console.log(this.last) ;
-//       this.CommMstInfo.success('', 'Bienvenue !');
-//        this.home.modalRefCommMs.hide() ;
-      
-//     }
-//     else
-//     {
-//       this.CommMstInfo.warning('', 'Verifier login ou mot de passe  !');
-
-//     }
-//     });
-// }
-
-submitUser()
+post()
 {
-  this.authservice.post() ;
-  if(this.authservice.id!=null)
-    this.home.modalRefCommMs.hide() ; 
+   this._http.post('http://localhost:50581/api/Users/Login', this.authservice.form.value).subscribe( res => {
+    if(res==null)
+    {
+      this.CommMstInfo.warning('', 'Verifier login ou mot de passe  !');
+    }
+    else
+    {
+      
+      localStorage.setItem('TokenPlatform',JSON.stringify(res)) ; 
+        this.authservice.first=JSON.parse(localStorage.getItem('TokenPlatform')).firstName ;
+       this.authservice.last=JSON.parse(localStorage.getItem('TokenPlatform')).lastName ;
+      this.CommMstInfo.success('', 'Bienvenue !');   
+      
+      this.bsModalRefAuth.hide() ;
+    }
+  }); 
 }
+//  submitUser()
+//  {
+// this.authservice.post() ;
+
+//    console.log( this.authservice.x)
+//  }
 
 }

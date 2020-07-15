@@ -1,4 +1,11 @@
-
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Commentaire Detail</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalCommRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+<div class="container">
     <form [formGroup]="CommService.form" (ngSubmit)="onSubmitComm()">
 
 
@@ -29,7 +36,7 @@
           <select class="form-control" formControlName="fkMs" placeholder="fkMs">
            
             <option value="0">-Select-</option>
-            <option *ngFor="let MicroService of MsService.microActive" [ngValue]="MicroService.idMs">
+            <option *ngFor="let MicroService of MsService.micro" [ngValue]="MicroService.idMs">
               {{MicroService.label}}</option>
           </select>
         </div>
@@ -65,7 +72,7 @@
       <button type="submit" class="btn btn-primary mr-1"> Submit</button>
     </form>
 
-
+  </div></div>
 
 
 

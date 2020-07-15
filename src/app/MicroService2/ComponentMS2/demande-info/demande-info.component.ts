@@ -3,6 +3,7 @@ import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategorieService } from '../../ServicesMS2/categorie.service';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-demande-info',
@@ -14,7 +15,7 @@ export class DemandeInfoComponent implements OnInit {
     private notifInfo: ToastrService,
     private CatService : CategorieService,
     private domService : DomaineService , 
-    
+    public modalInfoRef : BsModalRef
     
     ) { }
 
@@ -29,12 +30,15 @@ export class DemandeInfoComponent implements OnInit {
         idDemandeInfo: "00000000-0000-0000-0000-000000000000",
         description: "",
         date: new Date(),
-        commDemandeInfos: "",
-        catDemandeInfos: "",
+        // commDemandeInfos: "",
+        // catDemandeInfos: "",
         isActiveInfo : true ,
         domaineNom : "",
         titre : "" ,
-        idDomain:""
+        idDomain:"",
+        fkUser:"",
+        firstName:"",
+        lastName:"",
 
  
     });
@@ -54,6 +58,8 @@ UpdateInfo() {
         this.InfoService.DemandeInfoActive() ;
 
         this.InfoService.GetInfo();
+        this.modalInfoRef.hide() ;
+
         this.notifInfo.info('', 'Demande Info Modifiee Avec Succés');
         this.ResetInfo();
       },
@@ -71,6 +77,7 @@ UpdateInfo() {
         this.InfoService.DemandeInfoActive() ;
         this.InfoService.GetInfo();
         console.log(res);  
+        this.modalInfoRef.hide() ;
         this.notifInfo.success('', 'Demande Info Ajoutee Avec Succés');
         this.ResetInfo();     
       },

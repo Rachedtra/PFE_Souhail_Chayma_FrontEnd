@@ -5,6 +5,7 @@ import { VersionsService } from '../../Services/versions.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-versions',
@@ -16,7 +17,8 @@ export class VersionsComponent implements OnInit {
   Ver: Versionss[] = new Array();
 
   constructor( private Verservice: VersionsService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    public modalRef : BsModalRef,) { }
 
   ngOnInit() {
     // this.resetForm();
@@ -49,6 +51,7 @@ export class VersionsComponent implements OnInit {
         console.log(res);
         this.Verservice.refreshList();
         this.Verservice.VerActive();
+        this.modalRef.hide() ;
         this.toastrService.success('', 'Version Ajoutee Avec Succés');
         this.resetForm();
       },
@@ -66,7 +69,7 @@ export class VersionsComponent implements OnInit {
         console.log(res);
         this.Verservice.refreshList();
         this.Verservice.VerActive();
-
+        this.modalRef.hide () ; 
         this.toastrService.info('', 'Version Modifiee Avec Succés');
         this.resetForm();
       },

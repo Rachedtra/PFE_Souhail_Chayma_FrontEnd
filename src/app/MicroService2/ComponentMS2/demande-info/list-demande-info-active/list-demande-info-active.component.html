@@ -2,7 +2,7 @@
   <div class="form-group row">
     <div class="col-md-5">
       
-      <button class="btn btn-outline-success" (click)="AddInfo(templateSubmit)">
+      <button class="btn btn-outline-success" (click)="AddInfo()">
         <i class="fa fa-plus"></i> Create Demande Info
       </button>
       
@@ -19,7 +19,7 @@
   
        </div>
 
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Demande Info Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalInfoRef.hide()">
@@ -29,7 +29,7 @@
     <div class="modal-body">
       <app-demande-info></app-demande-info>
     </div>
-  </ng-template>
+  </ng-template> -->
   
   
   <table class="table table-striped">
@@ -77,7 +77,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditInfo(demande,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditInfo(demande)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

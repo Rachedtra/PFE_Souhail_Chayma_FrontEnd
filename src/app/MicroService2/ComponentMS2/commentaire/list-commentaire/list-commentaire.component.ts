@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
-import { CommentaireComponent } from '../commentaire.component';
+import { CommentaireComponent } from 'src/app/MicroService2/ComponentMS2/commentaire/commentaire.component';
 
 @Component({
   selector: 'app-list-commentaire',
@@ -32,10 +32,13 @@ export class ListCommentaireComponent implements OnInit {
         fkInfo:"",
         // commVotes:"",
         // commDemandeInfos:"",
-        fkMs:"",
+         fkMs:"",
         descriptionInfo : "",
         isActiveComm : true,
-        labelMs: ""
+        labelMs:"",
+        fkUser:"",
+        firstName:"",
+        lastName:"",
 
     });
   }
@@ -71,16 +74,18 @@ export class ListCommentaireComponent implements OnInit {
     this.notifComm.warning('', 'Commentaire Non Supprimee');
   }
   
-  EditComm(comm,  templatee: TemplateRef<CommentaireComponent>) {
+  EditComm(comm) {
     this.CommService.form.setValue(comm);
-    this.modalCommRef = this.modalComm.show(templatee);
-  
+    this.modalCommRef = this.modalComm.show(CommentaireComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   
   }
-  AddComm(templatee: TemplateRef<CommentaireComponent>) {
+  AddComm() {
     this.ResetComm();
-    this.modalCommRef = this.modalComm.show(templatee);
-  
+    this.modalCommRef = this.modalComm.show(CommentaireComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 }

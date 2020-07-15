@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { LanguagesService } from 'src/app/MicroService1/Services/languages.service';
+import { MsComponent } from '../ms.component';
 
 @Component({
   selector: 'app-list-ms',
@@ -11,7 +12,6 @@ import { LanguagesService } from 'src/app/MicroService1/Services/languages.servi
 })
 export class ListMsComponent implements OnInit {
 
-  modalRef: BsModalRef;
   MsFilter: any = { label: '' };
 
 
@@ -21,6 +21,7 @@ export class ListMsComponent implements OnInit {
     private langService:LanguagesService
   
     ) { }
+    modalRef: BsModalRef;
 
   ngOnInit() {
     this.msService.ListActive();
@@ -77,16 +78,18 @@ decline(): void {
   this.toastActive.warning('', 'Microservice Non Supprimee');
 }
 
-EditMs(ms,  templatee: TemplateRef<any>) {
+EditMs(ms) {
   this.msService.form.setValue(ms);
-  this.modalRef = this.modalActive.show(templatee);
-
+  this.modalRef = this.modalActive.show(MsComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-AddMs(templatee: TemplateRef<any>) {
+AddMs() {
   this.resetFormActive();
-  this.modalRef = this.modalActive.show(templatee);
-
+  this.modalRef = this.modalActive.show(MsComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
 
 }

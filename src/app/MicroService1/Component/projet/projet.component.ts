@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetService } from '../../Services/projet.service';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-projet',
@@ -10,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ProjetComponent implements OnInit {
 
   constructor( private projetService: ProjetService,
-    private toaster: ToastrService) { }
+    private toaster: ToastrService,
+    public modalRef1 : BsModalRef) { }
 
   ngOnInit() {
   }
@@ -42,7 +44,7 @@ export class ProjetComponent implements OnInit {
         console.log(res);
         this.projetService.refreshList();
         this.projetService.ProjetActive() ; 
-
+        this.modalRef1.hide() ;
         this.toaster.success('', 'Projet Ajoutee Avec Succés');
         this.resetForme();
       },
@@ -59,7 +61,7 @@ export class ProjetComponent implements OnInit {
         console.log(res);
         this.projetService.refreshList();
         this.projetService.ProjetActive() ; 
-
+        this.modalRef1.hide() ;
         this.toaster.info('', 'Projet Modifiee Avec Succés');
         this.resetForme();
       },

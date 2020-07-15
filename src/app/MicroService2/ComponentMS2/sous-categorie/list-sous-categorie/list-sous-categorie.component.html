@@ -24,13 +24,13 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button class="btn btn-outline-success" (click)="AddSousCat(templateSubmit)">
+                  <button class="btn btn-outline-success" (click)="AddSousCat()">
                     <i class="fa fa-plus"></i> Create Sous categorie
                   </button>
                 </div>
 
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Sous categorie Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalSousCatRef.hide()">
@@ -40,7 +40,7 @@
     <div class="modal-body">
       <app-sous-categorie></app-sous-categorie>
     </div>
-  </ng-template>
+  </ng-template> -->
   
   
   <div class="card-body">
@@ -85,7 +85,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditSousCat(sous,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditSousCat(sous)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

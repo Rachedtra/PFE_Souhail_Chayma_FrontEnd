@@ -3,6 +3,7 @@ import { DomaineProjetService } from '../../Services/domaine-projet.service';
 import { ToastrService } from 'ngx-toastr';
 import { DomaineService } from '../../Services/domaine.service';
 import { ProjetService } from '../../Services/projet.service';
+import {  BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-domaine-projet',
@@ -14,8 +15,8 @@ export class DomaineProjetComponent implements OnInit {
   constructor(private domprojetService: DomaineProjetService,
     private DomProjetInfo: ToastrService,
     private domService:DomaineService,
-    private projetServie : ProjetService
-  
+    private projetServie : ProjetService,
+    public modalRefDomProjet : BsModalRef
     ) { }
 
   ngOnInit() {
@@ -48,6 +49,7 @@ UpdateDp() {
         console.log(res);
         this.domprojetService.getDomProjet();
         this.domprojetService.ListActiveDomProjet();
+        this.modalRefDomProjet.hide() ;
         this.DomProjetInfo.info('', 'Domaine Projet Modifiee Avec Succés');
         this.resetFormDomprojet();
       },
@@ -66,7 +68,7 @@ UpdateDp() {
         console.log(res);
         this.domprojetService.getDomProjet();
         this.domprojetService.ListActiveDomProjet();
-
+        this.modalRefDomProjet.hide() ;
         this.DomProjetInfo.success('', 'Domaine Projet Ajoutee Avec Succés');
         this.resetFormDomprojet();
       },

@@ -6,6 +6,9 @@ export  class DemandeInformation {
     titre: string ;
     domaineNom: string ;
     idDomain :string ; 
+    fkUser :string ; 
+    firstName :string ; 
+     lastName :string ; 
   }
         
     

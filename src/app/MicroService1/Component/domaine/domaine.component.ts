@@ -6,24 +6,19 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ListDomaineComponent } from './list-domaine/list-domaine.component';
-import { ListDomaineActiveComponent } from './list-domaine-active/list-domaine-active.component';
 
 @Component({
   selector: 'app-domaine',
   templateUrl: './domaine.component.html',
   styleUrls: ['./domaine.component.css'],
-   providers:[ListDomaineComponent]
 })
 export class DomaineComponent implements OnInit {
   Dom: Domaine[] = new Array();
-  Ref : BsModalRef ; 
 
-  constructor(private formBuilder: FormBuilder, private Domservice: DomaineService,
+  constructor(private formBuilder: FormBuilder,
+     private Domservice: DomaineService,
     private toastrService: ToastrService,
-    private domaineList:ListDomaineComponent,
-    private modalService: BsModalService
-  ) { }
+    public RefDomaine: BsModalRef   ) { }
 
   ngOnInit() {
 
@@ -54,6 +49,7 @@ export class DomaineComponent implements OnInit {
         console.log(res);
         this.Domservice.refreshList();
         this.Domservice.DomaineActive() ; 
+        this.RefDomaine.hide() ;
         this.toastrService.success('', 'Domaine Ajoutee Avec Succés');
 
         this.resetForm();
@@ -72,6 +68,7 @@ export class DomaineComponent implements OnInit {
         console.log(res);
         this.Domservice.refreshList();
         this.Domservice.DomaineActive() ; 
+        this.RefDomaine.hide() ;
         this.toastrService.info('', 'Domaine Modifiee Avec Succés');
 
         this.resetForm();

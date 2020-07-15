@@ -20,11 +20,15 @@ id : string ;
     idDemandeInfo: new FormControl(""),
     description: new FormControl(""),
     date: new FormControl(new Date()),
-    commDemandeInfos : new FormControl(""),
-    catDemandeInfos: new FormControl(""),
+    // commDemandeInfos : new FormControl(""),
+    // catDemandeInfos: new FormControl(""),
     isActiveInfo: new FormControl(""),
     domaineNom :  new FormControl(""),
     titre : new FormControl(""),
+    idDomain : new FormControl(""),
+    fkUser: new FormControl(""),
+    firstName: new FormControl(""),
+    lastName: new FormControl(""),
 
     
   });
@@ -44,12 +48,15 @@ id : string ;
       idDemandeInfo: "00000000-0000-0000-0000-000000000000",
       description: "",
       date: new Date(),
-      commDemandeInfos: "",
-      catDemandeInfos: "",
+      // commDemandeInfos: "",
+      // catDemandeInfos: "",
       isActiveInfo : true ,
       domaineNom : "",
       titre : "" ,
-      idDomain:""
+      idDomain:"",
+      fkUser:"",
+      firstName:"",
+      lastName:"",
 
   });
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VoteService } from '../../ServicesMS2/vote.service';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-vote',
@@ -10,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class VoteComponent implements OnInit {
 
   constructor(private voteService: VoteService,
-    private notifVote: ToastrService,) { }
+    private notifVote: ToastrService,
+    public modalVoteRef : BsModalRef) { }
 
   ngOnInit() {
   }
@@ -38,6 +40,7 @@ UpdateVote() {
       res => {
         console.log(res);
         this.voteService.GetVote();
+        this.modalVoteRef.hide();
         this.notifVote.info('', 'Vote Modifiee Avec Succés');
         this.ResetVote();
       },
@@ -55,6 +58,7 @@ UpdateVote() {
       res => {
         console.log(res);
         this.voteService.GetVote();
+        this.modalVoteRef.hide();
         this.notifVote.success('', 'vote Ajoutee Avec Succés');
         this.ResetVote();
       },

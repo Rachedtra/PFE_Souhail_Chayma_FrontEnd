@@ -4,7 +4,7 @@
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
   
-        <form [formGroup]="authservice.form" (ngSubmit)="submitUser()">
+        <form [formGroup]="authservice.form" (ngSubmit)="post()">
           <div class="input-group mb-3">
             <input type="text" class="form-control" formControlName="login" placeholder="Login">
             <div class="input-group-append">
@@ -25,7 +25,7 @@
            
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              <button type="submit"  class="btn btn-primary btn-block">Sign In</button>
             </div>
             <!-- /.col -->
           </div>

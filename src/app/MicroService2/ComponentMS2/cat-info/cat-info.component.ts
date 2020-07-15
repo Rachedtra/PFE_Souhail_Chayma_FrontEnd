@@ -4,6 +4,7 @@ import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
 import { CategorieService } from '../../ServicesMS2/categorie.service';
 import { ToastrService } from 'ngx-toastr';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-cat-info',
@@ -16,7 +17,8 @@ export class CatInfoComponent implements OnInit {
     private CatService:CategorieService,
     private InfoetServie : DemandeInfoService,
     private CatInfoInfo: ToastrService,
-    private domService : DomaineService
+    private domService : DomaineService,
+    public modalRefCatInfo : BsModalRef
 
   
     ) { }
@@ -52,6 +54,7 @@ UpdateCi() {
         console.log(res);
         this.CatInfoService.CategorieInfoActive() ;
         this.CatInfoService.getCatInfo();     
+        this.modalRefCatInfo.hide();
         this.CatInfoInfo.info('', 'Categorie Demande Information  Modifiee Avec Succés');
         this.resetFormCatInfo();
       },
@@ -70,6 +73,7 @@ UpdateCi() {
         console.log(res);
         this.CatInfoService.CategorieInfoActive() ;
         this.CatInfoService.getCatInfo();
+        this.modalRefCatInfo.hide();
         this.CatInfoInfo.success('', 'Categorie Demande Information  Ajoutee Avec Succés');
         this.resetFormCatInfo();
       },

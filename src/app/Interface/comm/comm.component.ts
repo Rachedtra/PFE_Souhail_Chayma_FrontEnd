@@ -28,14 +28,17 @@ export class CommComponent implements OnInit {
     this.CommService.form.setValue({
       idComm: "00000000-0000-0000-0000-000000000000",
       description: "",
-      date: new Date(),
-      isActiveComm : true,
-      fkInfo: "",
-      descriptionInfo : "",
-      fkMs: "",
-      labelMs: ""
+      date:  new Date(),
+      fkInfo:"",
+      // commVotes:"",
       // commDemandeInfos:"",
-      // commVotes:""
+       fkMs:"",
+      descriptionInfo : "",
+      isActiveComm : true,
+      labelMs:"",
+      fkUser:"",
+      firstName:"",
+      lastName:"",
   });
 }
 

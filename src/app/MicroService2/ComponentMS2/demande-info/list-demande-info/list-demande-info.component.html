@@ -4,7 +4,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Commentaire </h1>
+                <h1>Demande Information </h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -24,12 +24,12 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button class="btn btn-outline-success" (click)="AddInfo(templateSubmit)">
+                  <button class="btn btn-outline-success" (click)="AddInfo()">
                     <i class="fa fa-plus"></i> Create Demande Info
                   </button>
                 </div>
 
-
+<!-- 
   <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Demande Info Detail</h4>
@@ -41,7 +41,7 @@
       <app-demande-info></app-demande-info>
     </div>
   </ng-template>
-  
+   -->
   
   <div class="card-body">
     <table class="table table-bordered">
@@ -89,7 +89,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditInfo(demande,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditInfo(demande)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

@@ -11,13 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListCategorieActiveComponent implements OnInit {
   CatFilterActive: any = { label: '' };
-  modalCatRef: BsModalRef;
 
   constructor( private categorieService: CategorieService,
     private notif: ToastrService,
     private modalCategorie: BsModalService,
     
     ) { }
+    modalCatRef: BsModalRef;
 
   ngOnInit() {
     this.categorieService.GetCat();
@@ -68,16 +68,17 @@ declineCategorie(): void {
   this.notif.warning('', 'Categorie Non Supprimee');
 }
 
-EditCat(cat,  templatee: TemplateRef<CategorieComponent>) {
+EditCat(cat) {
   this.categorieService.form.setValue(cat);
-  this.modalCatRef = this.modalCategorie.show(templatee);
-
-
+  this.modalCatRef = this.modalCategorie.show(CategorieComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
-AddCat(templatee: TemplateRef<CategorieComponent>) {
+AddCat() {
   this.ResetCat();
-  this.modalCatRef = this.modalCategorie.show(templatee);
+  this.modalCatRef = this.modalCategorie.show(CategorieComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-
 }

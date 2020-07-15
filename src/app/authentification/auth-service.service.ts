@@ -1,11 +1,10 @@
 import { Injectable, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './authentification.models';
-import { HomeComponent } from '../home/home.component';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AuthentificationComponent } from './authentification.component';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +15,11 @@ export class AuthServiceService {
   last: String;
   id: any=null;
   home: any;
-  modalRefCommMs: BsModalRef;
   e: Object;
-
+x:boolean ; 
   constructor(private _http : HttpClient,
       private CommMstInfo: ToastrService,
+      private router: Router
      ) { }
   users: User[] = new Array();
   form: FormGroup = new FormGroup({
@@ -49,29 +48,28 @@ export class AuthServiceService {
 
 post()
 {
-  return this._http.post('http://localhost:50581/api/Users/Login', this.form.value).subscribe( res => {
+   this._http.post('http://localhost:50581/api/Users/Login', this.form.value).subscribe( res => {
     if(res==null)
     {
-      this.id=res ;
       this.CommMstInfo.warning('', 'Verifier login ou mot de passe  !');
+       this.x=false  ; 
     }
     else
     {
-      this.id=res ; 
-      this.userFiltre= this.users.filter(i=>i.userID== res ) ; 
-      console.log(this.users) ;
-       this.first=this.userFiltre[0].firstName ;
-       this.last=this.userFiltre[0].lastName ;
-      console.log(this.userFiltre) ;
-       console.log(this.first) ;
-       console.log(this.last) ;
-      this.CommMstInfo.success('', 'Bienvenue !');
-     
-        // this.modalRefCommMs.hide() ;
-
+      localStorage.setItem('TokenPlatform',JSON.stringify(res)) ; 
+        this.first=JSON.parse(localStorage.getItem('TokenPlatform')).firstName ;
+       this.last=JSON.parse(localStorage.getItem('TokenPlatform')).lastName ;
+      this.CommMstInfo.success('', 'Bienvenue !');   
+      this.x= true ; 
+      this.router.navigate(["/home"])
     }
   }); 
 }
 
+logout()
+{
+  localStorage.removeItem('TokenPlatform') ; 
+  this.router.navigate(["/home"]) ;
+}
   
 }

@@ -67,16 +67,17 @@ export class ListSousCategorieComponent implements OnInit {
     this.notifSousCat.warning('', 'Sous Categorie Non Supprimee');
   }
   
-  EditSousCat(sc,  templatee: TemplateRef<SousCategorieComponent>) {
+  EditSousCat(sc) {
     this.SousCatoService.form.setValue(sc);
-    this.modalSousCatRef = this.modalSousCat.show(templatee);
-  
-  
+    this.modalSousCatRef = this.modalSousCat.show(SousCategorieComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
-  AddSousCat(templatee: TemplateRef<SousCategorieComponent>) {
+  AddSousCat() {
     this.ResetSousCat();
-    this.modalSousCatRef = this.modalSousCat.show(templatee);
-  
+    this.modalSousCatRef = this.modalSousCat.show(SousCategorieComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });  
   }
 
 }

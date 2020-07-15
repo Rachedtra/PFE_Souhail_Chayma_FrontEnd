@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { ProjetComponent } from '../projet.component';
+import { ProjetComponent } from 'src/app/MicroService1/Component/projet/projet.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ProjetService } from 'src/app/MicroService1/Services/projet.service';
 import { ToastrService } from 'ngx-toastr';
@@ -66,16 +66,19 @@ export class ListProjetActiveComponent implements OnInit {
     this.toastr.warning('', 'Projet Non Supprimee');
   }
 
-  EditProjet(prjt,  templatee: TemplateRef<ProjetComponent>) {
+  EditProjet(prjt) {
     this.projetService.pj.setValue(prjt);
-    this.modalRef1 = this.modal.show(templatee);
+    this.modalRef1 = this.modal.show(ProjetComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 
 
   }
   AddProjet(templatee: TemplateRef<ProjetComponent>) {
     this.resetForme();
-    this.modalRef1 = this.modal.show(templatee);
-
+    this.modalRef1 = this.modal.show(ProjetComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 

@@ -13,7 +13,6 @@ import { MsProjetComponent } from '../ms-projet.component';
 })
 export class ListMsProjetComponent implements OnInit {
 
-  modalRefMsProjet: BsModalRef;
   MsProjetFilter: any = { labelMS: '' };
 
 
@@ -25,6 +24,7 @@ export class ListMsProjetComponent implements OnInit {
     private projetServie : ProjetService
   
     ) { }
+    modalRefMsProjet: BsModalRef;
 
   ngOnInit() {
     this.msprojetService.getMsProjet();
@@ -74,16 +74,18 @@ declineMp(): void {
   this.MsProjetInfo.warning('', 'Micro Service Projet Non Supprimee');
 }
 
-EditMp(ms,  templatee: TemplateRef<MsProjetComponent>) {
+EditMp(ms) {
   this.msprojetService.form.setValue(ms);
-  this.modalRefMsProjet = this.modalMsprojet.show(templatee);
-
+  this.modalRefMsProjet = this.modalMsprojet.show(MsProjetComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-AddMp(templatee: TemplateRef<MsProjetComponent>) {
+AddMp() {
   this.resetFormMsprojet();
-  this.modalRefMsProjet = this.modalMsprojet.show(templatee);
-
+  this.modalRefMsProjet = this.modalMsprojet.show(MsProjetComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
 
 }

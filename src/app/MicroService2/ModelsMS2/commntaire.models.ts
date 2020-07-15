@@ -9,5 +9,7 @@ export class Commentaires{
      descriptionInfo : string ; 
      fkMs : string ; 
      labelMs : string ; 
-
+ fkUser : string ; 
+        firstName : string ; 
+         lastName  : string ; 
 }

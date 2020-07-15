@@ -15,13 +15,13 @@ export class ListLanguageActiveComponent implements OnInit {
   lang: Languages[] = new Array();
   languageActiveFilter: any = { label: '' };
 
-  modalRef: BsModalRef;
 
 
   constructor(private langservice: LanguagesService, private modalService: BsModalService,
     private toastrService: ToastrService,
 
   ) { }
+  modalRef: BsModalRef;
 
   ngOnInit() {
     this.langservice.langActive
@@ -75,16 +75,18 @@ export class ListLanguageActiveComponent implements OnInit {
     this.toastrService.warning('', 'Language Non Supprimee');
   }
 
-  EditLang(language: Languages, templatee: TemplateRef<LanguagesComponent>) {
+  EditLang(language: Languages) {
     this.langservice.form.setValue(language);
-    this.modalRef = this.modalService.show(templatee);
-
+    this.modalRef = this.modalService.show(LanguagesComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
-  AddLang(templatee: TemplateRef<LanguagesComponent>) {
+  AddLang() {
     this.resetFormLangActive();
-    this.modalRef = this.modalService.show(templatee);
-
+    this.modalRef = this.modalService.show(LanguagesComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 

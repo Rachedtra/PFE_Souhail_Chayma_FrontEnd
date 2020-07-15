@@ -24,12 +24,12 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button class="btn btn-outline-success" (click)="AddComm(templateSubmit)">
+                  <button class="btn btn-outline-success" (click)="AddComm()">
                     <i class="fa fa-plus"></i> Create Commentaire
                   </button>
                 </div>
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Commentaire Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalCommRef.hide()">
@@ -39,7 +39,7 @@
     <div class="modal-body">
       <app-commentaire></app-commentaire>
     </div>
-  </ng-template>
+  </ng-template> -->
   
   <div class="card-body">
     <table class="table table-bordered">
@@ -87,7 +87,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditComm(commentaire,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditComm(commentaire)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

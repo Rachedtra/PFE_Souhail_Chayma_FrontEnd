@@ -24,13 +24,13 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button type="button" class="btn btn-outline-success" (click)="AddDp(templateSubmit)">
+                  <button type="button" class="btn btn-outline-success" (click)="AddDp()">
                     <i class="fa fa-plus"></i> Add Domaine Projet
             </button>
                 </div>
               
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Domaine Projet Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefDomProjet.hide()">
@@ -41,7 +41,7 @@
       <app-domaine-projet></app-domaine-projet>
       
     </div>
-  </ng-template>
+  </ng-template> -->
   
   <div class="card-body">
     <table class="table table-bordered">
@@ -85,7 +85,7 @@
           </div>
         </ng-template>
       </td>
-      <td><button class="btn btn-primary" (click)="EditDp(dp,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditDp(dp)"><i class="fas fa-edit"></i>
           Edit</button></td>
     </tr>
     </tbody>

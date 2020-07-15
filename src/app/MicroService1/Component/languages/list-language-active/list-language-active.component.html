@@ -40,11 +40,11 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button class="btn btn-outline-success" (click)="AddLang(templateSubmit)">
+                  <button class="btn btn-outline-success" (click)="AddLang()">
                     <i class="fa fa-plus"></i> Create Language
                   </button>
                 </div>
-       <ng-template #templateSubmit>
+       <!-- <ng-template #templateSubmit>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Language Detail</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -55,7 +55,7 @@
     <app-languages></app-languages>
     
   </div>
-</ng-template>
+</ng-template> -->
 
 <div class="card-body">
   <table class="table table-bordered">
@@ -97,7 +97,7 @@
         </div>
       </ng-template>
     </td>
-    <td><button class="btn btn-primary" (click)="EditLang(language,templateSubmit)"><i class="fas fa-edit"></i>
+    <td><button class="btn btn-primary" (click)="EditLang(language)"><i class="fas fa-edit"></i>
         Edit</button></td>
   </tr>
   </tbody>

@@ -3,6 +3,7 @@ import { CommVoteService } from 'src/app/MicroService2/ServicesMS2/comm-vote.ser
 import { CommentaireService } from '../../ServicesMS2/commentaire.service';
 import { ToastrService } from 'ngx-toastr';
 import { VoteService } from '../../ServicesMS2/vote.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-comm-vote',
@@ -14,7 +15,8 @@ export class CommVoteComponent implements OnInit {
   constructor(private CommVoteService: CommVoteService,
     private CommVoteInfo: ToastrService,
     private CommService:CommentaireService,
-    private VoteServie : VoteService
+    private VoteServie : VoteService,
+    public modalRefCommVote:BsModalRef
   
     ) { }
 
@@ -46,6 +48,7 @@ UpdateCv() {
         console.log(res);
         this.CommVoteService.CommentaireVoteActive();
         this.CommVoteService.getCommVote();
+        this.modalRefCommVote.hide() ;
         this.CommVoteInfo.info('', 'Commentaire  Vote  Modifiee Avec Succés');
         this.resetFormCommVote();
       },
@@ -64,6 +67,8 @@ UpdateCv() {
         console.log(res);
         this.CommVoteService.CommentaireVoteActive();
         this.CommVoteService.getCommVote();
+        this.modalRefCommVote.hide() ;
+
         this.CommVoteInfo.success('', 'Commenatire Demande Information  Ajoutee Avec Succés');
         this.resetFormCommVote();
       },

@@ -26,6 +26,9 @@ export class CommentaireService {
     fkMs: new FormControl(null),
     labelMs  : new FormControl(""),
     descriptionInfo  : new FormControl(""),
+    fkUser : new FormControl(""),
+    firstName : new FormControl(""),
+    lastName : new FormControl(""),
   });
   CommInfoFiltre: Commentaires[];
   nombre: number;
@@ -51,7 +54,10 @@ export class CommentaireService {
          fkMs:"",
         descriptionInfo : "",
         isActiveComm : true,
-        labelMs:""
+        labelMs:"",
+        fkUser:"",
+        firstName:"",
+        lastName:"",
 
     });
   }

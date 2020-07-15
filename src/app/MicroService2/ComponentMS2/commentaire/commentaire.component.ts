@@ -3,6 +3,7 @@ import { CommentaireService } from '../../ServicesMS2/commentaire.service';
 import { ToastrService } from 'ngx-toastr';
 import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-commentaire',
@@ -14,7 +15,8 @@ export class CommentaireComponent implements OnInit {
   constructor( private CommService: CommentaireService,
     private notifComm: ToastrService,
     private InfoetServie:DemandeInfoService,
-    private MsService : MicroServiceService
+    private MsService : MicroServiceService,
+    public modalCommRef:BsModalRef
     ) { }
 
 
@@ -30,10 +32,14 @@ export class CommentaireComponent implements OnInit {
         fkInfo:"",
         // commVotes:"",
         // commDemandeInfos:"",
-        fkMs:"",
+         fkMs:"",
         descriptionInfo : "",
         isActiveComm : true,
-        labelMs: ""
+        labelMs:"",
+        fkUser:"",
+        firstName:"",
+        lastName:"",
+
 
     });
   }
@@ -50,7 +56,7 @@ UpdateComm() {
         console.log(res);
         this.CommService.CommentairesAcrive();
         this.CommService.GetCommentaires();
-       
+       this.modalCommRef.hide() ;
         this.notifComm.info('', 'Commentaires Modifiee Avec Succés');
         this.ResetComm();
       },
@@ -69,6 +75,8 @@ UpdateComm() {
         console.log(res);
         this.CommService.CommentairesAcrive();
         this.CommService.GetCommentaires();
+        this.modalCommRef.hide() ;
+
         this.notifComm.success('', 'Commentaires Ajoutee Avec Succés');
         this.ResetComm();
       },

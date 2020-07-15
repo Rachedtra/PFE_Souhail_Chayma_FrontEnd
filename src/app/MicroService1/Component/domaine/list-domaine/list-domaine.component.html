@@ -24,12 +24,12 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <button type="button" class="btn btn-outline-success" (click)="AddDom(templateS)">
+                <button type="button" class="btn btn-outline-success" (click)="AddDom()">
                   <i class="fa fa-plus"></i> Add Domaine
           </button>
               </div>
 
-<ng-template #templateS>
+<!-- <ng-template #templateS>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Domaine Detail</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="Ref.hide()">
@@ -40,7 +40,7 @@
     <app-domaine></app-domaine>
     
   </div>
-</ng-template>
+</ng-template> -->
 
   
 <div class="card-body">
@@ -81,7 +81,7 @@
       </ng-template>
     </td>
     <!-- <td><button (click)="EditDom(Domaine)">Edit</button></td> -->
-    <td><button class="btn btn-primary" (click)="EditDom(Domaine,templateS)"><i class="fas fa-edit"></i>
+    <td><button class="btn btn-primary" (click)="EditDom(Domaine)"><i class="fas fa-edit"></i>
       Edit</button></td>
   </tr>
   </tbody>

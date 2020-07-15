@@ -186,6 +186,11 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LanguagesComponent,MethodeComponent]
+  entryComponents:[LanguagesComponent,MethodeComponent,
+  VersionsComponent,DomaineComponent,MsComponent,MsProjetComponent,
+  ProjetComponent,VersionLanguageComponent,AuthentificationComponent,
+  HomeComponent,CatInfoComponent,CategorieComponent,CommDemandeInfoComponent,
+  CommVoteComponent,CommentaireComponent,DemandeInfoComponent,SousCategorieComponent,VoteComponent,
+DomaineProjetComponent]
 })
 export class AppModule { }

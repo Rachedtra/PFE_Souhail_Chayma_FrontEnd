@@ -54,11 +54,15 @@ export class PopupComponent implements OnInit {
       idDemandeInfo: "00000000-0000-0000-0000-000000000000",
       description: "",
       date: new Date(),
-      commDemandeInfos: "",
-      catDemandeInfos: "",
+      // commDemandeInfos: "",
+      // catDemandeInfos: "",
       isActiveInfo : true ,
       domaineNom : "",
       titre : "" ,
+      idDomain:"",
+      fkUser:"",
+      firstName:"",
+      lastName:"",
      
 
   });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SousCategorieService } from '../../ServicesMS2/sous-categorie.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategorieService } from '../../ServicesMS2/categorie.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-sous-categorie',
@@ -13,6 +14,7 @@ export class SousCategorieComponent implements OnInit {
   constructor( private SousCatoService: SousCategorieService,
     private notifSousCat: ToastrService,
     private catService : CategorieService,
+    public modalSousCatRef:BsModalRef
    
     
     ) { }
@@ -48,6 +50,7 @@ UpdateSousCat() {
         console.log(res);
         this.SousCatoService.SousCategorieActive();
         this.SousCatoService.GetSousCat();
+        this.modalSousCatRef.hide();
         this.notifSousCat.info('', 'Sous Categorie Modifiee Avec Succés');
         this.ResetSousCat();
       },
@@ -66,6 +69,7 @@ UpdateSousCat() {
         console.log(res);
         this.SousCatoService.SousCategorieActive();
         this.SousCatoService.GetSousCat();
+        this.modalSousCatRef.hide();
         this.notifSousCat.success('', 'Sous Categorie Ajoutee Avec Succés');
         this.ResetSousCat();
       },

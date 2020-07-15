@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategorieService } from '../../ServicesMS2/categorie.service';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-categorie',
@@ -11,7 +12,7 @@ export class CategorieComponent implements OnInit {
 
   constructor( private categorieService: CategorieService,
     private notif: ToastrService,
-    
+    public modalCatRef:BsModalRef
     ) { }
 
   ngOnInit() {
@@ -43,6 +44,8 @@ UpdateCategorie() {
         this.categorieService.CategorieActive() ;
 
         this.categorieService.GetCat();
+        this.modalCatRef.hide();
+
         this.notif.info('', 'Categorie Modifiee Avec Succés');
         this.ResetCat();
       },
@@ -60,8 +63,9 @@ UpdateCategorie() {
       res => {
         console.log(res);
         this.categorieService.CategorieActive() ;
-
         this.categorieService.GetCat();
+        this.modalCatRef.hide();
+
         this.notif.success('', 'Categorie Ajoutee Avec Succés');
         this.ResetCat();
       },

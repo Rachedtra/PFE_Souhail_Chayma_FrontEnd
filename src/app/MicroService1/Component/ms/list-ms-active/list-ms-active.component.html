@@ -1,23 +1,4 @@
-<!-- <div class="content-wrapper">
 
-
-<div class="form-group row">
-  <div class="col-md-5">
-      <button type="button" class="btn btn-outline-success" (click)="AddMs(templateSubmit)">
-        <i class="fa fa-plus"></i> Add MicroService
-</button>
-  </div>
-  <div class="col-md-5">
-    <button class="btn btn-outline-info" routerLink="list-ms" routerLinkActive="active">
-      <i class="fa fa-reply"></i>
-      Toutes List
-     </button>  
-  </div>
-     <div class="col-md-2">
-      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="MsFilterActive.label" >
-
-
-     </div> -->
     
      <div class="content-wrapper">
       <section class="content-header">
@@ -44,12 +25,12 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <button type="button" class="btn btn-outline-success" (click)="AddMs(templateSubmit)">
+                <button type="button" class="btn btn-outline-success" (click)="AddMs()">
                   <i class="fa fa-plus"></i> Add MicroService
           </button>
               </div>
 
-  
+<!--   
   <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">MicroService Detail</h4>
@@ -60,7 +41,7 @@
     <div class="modal-body">
       <app-ms></app-ms>
     </div>
-  </ng-template>
+  </ng-template> -->
   
   <div class="card-body">
     <table class="table table-bordered">
@@ -112,7 +93,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditMs(MicroService,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditMs(MicroService)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

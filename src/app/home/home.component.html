@@ -2,7 +2,7 @@
  background-repeat: no-repeat; 
   background-size: cover; 
   background-attachment: fixed;">
-  <button type="button" class="btn btn-outline-success" (click)="openModalAuth(templateSubmit)">
+  <button type="button" class="btn btn-outline-success" (click)="openModalAuth()">
     <i class="fa fa-plus"></i> Login
 </button>
   <div class="row">
@@ -23,11 +23,11 @@
   <!-- <button type="button" class="btn btn-outline-success" (click)="openModalCommMs(templateSubmit)">
     <i class="fa fa-plus"></i> Login
 </button> -->
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-body">
       <app-authentification></app-authentification>  
     </div>
-  </ng-template>
+  </ng-template> -->
     <div class="col-6 box2">
       <div class="content">
         <a routerLink="get-id-ms" routerLinkActive="active" class="nav-link " class="custom-btn mb-2">Micro Service</a>

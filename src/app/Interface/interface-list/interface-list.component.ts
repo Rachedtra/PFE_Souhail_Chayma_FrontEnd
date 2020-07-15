@@ -46,7 +46,9 @@ export class InterfaceListComponent implements OnInit {
    this.InfoService.GetInfoFiltrer ;
   }
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 }
 getCatInfoFiltrer(id) {
 

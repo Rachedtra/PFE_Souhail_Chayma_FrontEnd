@@ -1,5 +1,13 @@
+<div class="modal-header">
+  
+  <h4 class="modal-title pull-left">Projet Detail</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef1.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+<div class="container">
 <form [formGroup]="projetService.pj" (ngSubmit)="SubmitProjet()">
-
 
   <div class="form-group">
     <p>
@@ -34,7 +42,8 @@
 
   <button type="submit" class="btn btn-primary mr-1"> Submit</button>
 </form>
-
+</div>
+</div>
 
 
 

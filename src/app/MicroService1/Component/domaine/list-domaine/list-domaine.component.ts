@@ -3,6 +3,7 @@ import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
 import { Domaine } from 'src/app/MicroService1/Models/Domaine.models';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import { DomaineComponent } from 'src/app/MicroService1/Component/domaine/domaine.component';
 
 @Component({
   selector: 'app-list-domaine',
@@ -11,12 +12,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListDomaineComponent implements OnInit {
   Dom: Domaine[] = new Array();
- Ref: BsModalRef;
  DomaaineFilter: any = { nom: '' };
 
   constructor(private Domservice: DomaineService,
     private BsmodalService: BsModalService,
     private t: ToastrService, ) { }
+    RefDomaine: BsModalRef;
 
   ngOnInit() {
 
@@ -46,30 +47,36 @@ export class ListDomaineComponent implements OnInit {
 
 
   ConfirmModalDomaine(template: TemplateRef<any>) {
-    this.Ref = this.BsmodalService.show(template, { class: 'modal-sm' });
+    this.RefDomaine = this.BsmodalService.show(template, { class: 'modal-sm' });
   }
 
   confirmModal(): void {
 
-    this.Ref.hide();
+    this.RefDomaine.hide();
     this.t.success('', 'Domaine Supprimee Avec Succés');
   }
 
   declineModal(): void {
 
-    this.Ref.hide();
+    this.RefDomaine.hide();
     this.t.warning('', 'Domaine Non Supprimee');
   }
 
 
-  EditDom(domaine,templatee: TemplateRef<any>) {
+  EditDom(domaine) {
     this.Domservice.form.setValue(domaine);
-    this.Ref = this.BsmodalService.show(templatee);
+    this.RefDomaine = this.BsmodalService.show(DomaineComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
+
   }
 
-  AddDom(templatee: TemplateRef<any>) {
+
+  AddDom() {
     this.resetForm();
-    this.Ref = this.BsmodalService.show(templatee);
+    this.RefDomaine = this.BsmodalService.show(DomaineComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 
   }
 

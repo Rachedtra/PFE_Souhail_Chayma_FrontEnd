@@ -3,6 +3,7 @@ import { LanguagesService } from '../../Services/languages.service';
 import { ToastrService } from 'ngx-toastr';
 import { VersionLanguageService } from '../../Services/version-language.service';
 import { VersionsService } from '../../Services/versions.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-version-language',
@@ -14,8 +15,8 @@ export class VersionLanguageComponent implements OnInit {
   constructor( private VerLangService: VersionLanguageService,
     private verlangInfo: ToastrService,
     private langservice: LanguagesService,
-    private verService : VersionsService
-
+    private verService : VersionsService,
+    public modalRefVerLang:BsModalRef
     ) { }
 
 
@@ -49,7 +50,7 @@ UpdateVl() {
         console.log(res);
         this.VerLangService.getVerLang();
         this.VerLangService.VersionLanguageActive();
-
+        this.modalRefVerLang.hide() ;
         this.verlangInfo.info('', 'Version Language Modifiee Avec Succés');
         this.resetFormVerLang();
       },
@@ -68,7 +69,7 @@ UpdateVl() {
         console.log(res);
         this.VerLangService.getVerLang();
         this.VerLangService.VersionLanguageActive();
-
+        this.modalRefVerLang.hide() ;
         this.verlangInfo.success('', 'Version Language Ajoutee Avec Succés');
         this.resetFormVerLang();
       },

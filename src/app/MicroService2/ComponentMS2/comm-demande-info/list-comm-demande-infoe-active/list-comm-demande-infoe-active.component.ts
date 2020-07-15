@@ -13,7 +13,6 @@ import { DemandeInfoService } from 'src/app/MicroService2/ServicesMS2/demande-in
 })
 export class ListCommDemandeInfoeActiveComponent implements OnInit {
 
-  modalRefCommInfo: BsModalRef;
   CommInfoFilterActive: any = { descriptionInfo: '' };
 
 
@@ -25,6 +24,7 @@ export class ListCommDemandeInfoeActiveComponent implements OnInit {
     private InfoetServie : DemandeInfoService
   
     ) { }
+    modalRefCommInfo: BsModalRef;
 
   ngOnInit() {
     this.CommInfoService.getCommInfo();
@@ -78,15 +78,18 @@ declineCi(): void {
   this.CommInfoInfo.warning('', 'Commentaire Demande Information Non Supprimee');
 }
 
-EditCi(ci,  templatee: TemplateRef<CommDemandeInfoComponent>) {
+EditCi(ci) {
   this.CommInfoService.form.setValue(ci);
-  this.modalRefCommInfo = this.modalCommInfo.show(templatee);
-
+  this.modalRefCommInfo = this.modalCommInfo.show(CommDemandeInfoComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-AddCi(templatee: TemplateRef<CommDemandeInfoComponent>) {
+AddCi() {
   this.resetFormCommInfo();
-  this.modalRefCommInfo = this.modalCommInfo.show(templatee);
+  this.modalRefCommInfo = this.modalCommInfo.show(CommDemandeInfoComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
 

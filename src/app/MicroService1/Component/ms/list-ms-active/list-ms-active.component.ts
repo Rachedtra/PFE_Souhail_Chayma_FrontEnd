@@ -11,7 +11,6 @@ import { MsComponent } from '../ms.component';
   styleUrls: ['./list-ms-active.component.css']
 })
 export class ListMsActiveComponent implements OnInit {
-  modalRefActive: BsModalRef;
   MsFilterActive: any = { label: '' };
 
 
@@ -21,6 +20,7 @@ export class ListMsActiveComponent implements OnInit {
     private langService:LanguagesService
   
     ) { }
+    modalRefActive: BsModalRef;
 
   ngOnInit() {
     this.msService.ListActive();
@@ -75,16 +75,17 @@ decline(): void {
   this.toastActive.warning('', 'Microservice Non Supprimee');
 }
 
-EditMs(ms,  templatee: TemplateRef<MsComponent>) {
+EditMs(ms) {
   this.msService.form.setValue(ms);
-  this.modalRefActive = this.modalActive.show(templatee);
-
-
+  this.modalRefActive = this.modalActive.show(MsComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
-AddMs(templatee: TemplateRef<MsComponent>) {
+AddMs() {
   this.resetFormActive();
-  this.modalRefActive = this.modalActive.show(templatee);
-
+  this.modalRefActive = this.modalActive.show(MsComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
 
 }

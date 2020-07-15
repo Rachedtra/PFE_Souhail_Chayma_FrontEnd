@@ -29,10 +29,13 @@ export class CommentairesMsComponent implements OnInit {
       fkInfo:"",
       // commVotes:"",
       // commDemandeInfos:"",
-      fkMs:"",
+       fkMs:"",
       descriptionInfo : "",
       isActiveComm : true,
-      labelMs : ""
+      labelMs:"",
+      fkUser:"",
+      firstName:"",
+      lastName:"",
 
   });
 }

@@ -24,11 +24,11 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button class="btn btn-outline-success" (click)="AddProjet(templateAdd)">
+                  <button class="btn btn-outline-success" (click)="AddProjet()">
                     <i class="fa fa-plus"></i> Create Projet
                   </button>
                 </div>
-<ng-template #templateAdd>
+<!-- <ng-template #templateAdd>
   <div class="modal-header">
   
     <h4 class="modal-title pull-left">Projet Detail</h4>
@@ -39,7 +39,7 @@
   <div class="modal-body">
    <app-projet></app-projet>
   </div>
-</ng-template>
+</ng-template> -->
 
 <div class="card-body">
   <table class="table table-bordered">
@@ -84,7 +84,7 @@
       </ng-template>
     </td>
     <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-    <td><button class="btn btn-primary" (click)="EditProjet(Projet,templateAdd)"><i class="fas fa-edit"></i>
+    <td><button class="btn btn-primary" (click)="EditProjet(Projet)"><i class="fas fa-edit"></i>
       Edit</button></td>
   </tr>
 </tbody>

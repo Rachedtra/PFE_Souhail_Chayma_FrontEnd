@@ -25,11 +25,11 @@
           <div class="card">
             <div class="card-header">
              
-  <button class="btn btn-outline-success" (click)="AddVote(templateSubmit)">
+  <button class="btn btn-outline-success" (click)="AddVote()">
     <i class="fa fa-plus"></i> Create Vote
   </button>
             </div>
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Vote Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalVoteRef.hide()">
@@ -40,7 +40,7 @@
       <app-vote></app-vote>
     </div>
   </ng-template>
-  
+   -->
 
   <div class="card-body">
     <table class="table table-bordered">
@@ -82,7 +82,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditVote(Vote,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditVote(Vote)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>

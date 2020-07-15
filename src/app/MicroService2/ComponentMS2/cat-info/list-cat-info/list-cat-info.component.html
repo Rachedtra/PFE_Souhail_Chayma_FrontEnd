@@ -24,12 +24,12 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <button type="button" class="btn btn-outline-success" (click)="AddCi(templateSubmit)">
+                  <button type="button" class="btn btn-outline-success" (click)="AddCi()">
                     <i class="fa fa-plus"></i> Add Categorie Demande Information
             </button>
                 </div>
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Categorie Info Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCatInfo.hide()">
@@ -40,7 +40,7 @@
       <app-cat-info></app-cat-info>
       
     </div>
-  </ng-template>
+  </ng-template> -->
   
   <div class="card-body">
     <table class="table table-bordered">
@@ -86,7 +86,7 @@
           </div>
         </ng-template>
       </td>
-      <td><button class="btn btn-primary" (click)="EditCi(ci,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditCi(ci)"><i class="fas fa-edit"></i>
           Edit</button></td>
     </tr>
     </tbody>
