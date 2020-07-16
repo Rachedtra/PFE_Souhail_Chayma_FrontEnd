@@ -71,5 +71,7 @@ logout()
   localStorage.removeItem('TokenPlatform') ; 
   this.router.navigate(["/home"]) ;
 }
-  
+loggedIn() {
+  return !!localStorage.getItem('TokenPlatform')    
+}
 }

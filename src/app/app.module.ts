@@ -85,6 +85,7 @@ import { CommentairesMsComponent } from './Interface/commentaires-ms/commentaire
 import { HomeComponent } from './home/home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { CommonModule } from '@angular/common';
+import { AuthGuard } from './authentification/auth.guard';
 
 
 
@@ -184,7 +185,7 @@ import { CommonModule } from '@angular/common';
 
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
   entryComponents:[LanguagesComponent,MethodeComponent,
   VersionsComponent,DomaineComponent,MsComponent,MsProjetComponent,

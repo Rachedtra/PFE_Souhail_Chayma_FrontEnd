@@ -41,6 +41,7 @@ import { ListCommmentaireActiveComponent } from './MicroService2/ComponentMS2/co
 import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info-active/list-demande-info-active.component';
 import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './authentification/auth.guard';
 
 const routes: Routes = [
   {
@@ -278,14 +279,18 @@ const routes: Routes = [
 
 {
   path : 'home/get-id-ms',
+  canActivate: [AuthGuard],
   component : GetIdMsComponent
+
 },
 {
   path : 'home/interface-list',
+  canActivate: [AuthGuard],
   component : InterfaceListComponent
 },
 {
   path : 'home/interface-list/get-id-info',
+  canActivate: [AuthGuard],
   component : GetIdInfoComponent
 },
 
