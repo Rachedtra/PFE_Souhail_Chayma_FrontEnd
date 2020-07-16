@@ -68,8 +68,12 @@ post()
 
 logout()
 {
+
   localStorage.removeItem('TokenPlatform') ; 
+
   this.router.navigate(["/home"]) ;
+  location.reload();
+
 }
 loggedIn() {
   return !!localStorage.getItem('TokenPlatform')    
