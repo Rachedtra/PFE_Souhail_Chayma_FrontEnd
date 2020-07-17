@@ -1,7 +1,8 @@
-
-<app-header-navbar></app-header-navbar>
-<app-sidebar-left></app-sidebar-left>
-
+<div *ngIf="authservice.loggedIn()">
+<app-header-navbar></app-header-navbar></div>
+<div *ngIf="authservice.loggedIn() && testUser()" >
+    <app-sidebar-left></app-sidebar-left>
+</div>
 <!-- <app-general-layout></app-general-layout> -->
 
 <router-outlet></router-outlet>

@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthentificationComponent } from '../authentification/authentification.component';
+import { AuthServiceService } from '../authentification/auth-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { AuthentificationComponent } from '../authentification/authentification.
 })
 export class HomeComponent implements OnInit {
 
-  constructor(    private modalCommMs: BsModalService,
+  constructor(    private modalCommMs: BsModalService, private auth:AuthServiceService
     ) { }
   modalRefCommMs: BsModalRef;
 
@@ -21,6 +22,8 @@ export class HomeComponent implements OnInit {
     { 
       this.openModalAuth() ;
     }
+    
+    //console.log(this.auth.role) ; 
 
   }
   openModalAuth() {

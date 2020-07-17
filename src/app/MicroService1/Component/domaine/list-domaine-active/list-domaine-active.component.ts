@@ -39,8 +39,8 @@ export class ListDomaineActiveComponent implements OnInit {
  
  
    DeleteDom(Domaine: Domaine) {
-  
-   }
+
+  }
  
  
    ConfirmModalDomaine(template: TemplateRef<any>) {

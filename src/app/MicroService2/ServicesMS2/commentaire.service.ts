@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommDemandeInfoService } from './comm-demande-info.service';
 import { DemandeInfoService } from './demande-info.service';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,8 @@ export class CommentaireService {
     private notifComm :ToastrService,
     private commInfoService : CommDemandeInfoService,
     private infoservice : DemandeInfoService,
-    private MsService:MicroServiceService) { }
+    private MsService:MicroServiceService,
+    private auth : AuthServiceService) { }
 
     ResetComm() {
       this.form.setValue({
@@ -99,9 +101,11 @@ CommentairesAcrive() {
 }
 Posted()
 {
+  // http://localhost:58540/api/Commentaires/PostedComm?idDemande=68c77ca0-fab3-41cd-5584-08d803612820&idUser=f88c18a9-a700-4c05-30ea-78d80f2c5167
+
   return this._http.post('http://localhost:58540/api/Commentaires/PostedComm?idDemande='+
-  this.infoservice.demande,this.form.value,
-  { responseType: "text" })
+  this.infoservice.demande+'&idUser='+this.auth.iduser,this.form.value,
+ )
   .subscribe(
     res => {
       console.log(res);

@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from './auth-service.service';
+import { UseRole } from './userRole.models';
 
 @Component({
   selector: 'app-authentification',
@@ -14,6 +15,8 @@ import { AuthServiceService } from './auth-service.service';
 export class AuthentificationComponent implements OnInit {
   first: any;
   last: any;
+  usersRole: UseRole[];
+  userRoleFilter: UseRole[];
 
   constructor(  
 
@@ -30,7 +33,7 @@ export class AuthentificationComponent implements OnInit {
 
   resetFormUser() {
     this.authservice.form.setValue({
-      userId: "00000000-0000-0000-0000-000000000000",
+      userID: "00000000-0000-0000-0000-000000000000",
       firstName: "",
       LastName: "",
       login: "",
@@ -56,8 +59,22 @@ post()
       localStorage.setItem('TokenPlatform',JSON.stringify(res)) ; 
         this.authservice.first=JSON.parse(localStorage.getItem('TokenPlatform')).firstName ;
        this.authservice.last=JSON.parse(localStorage.getItem('TokenPlatform')).lastName ;
-      this.CommMstInfo.success('', 'Bienvenue !');   
-      
+       this.authservice.iduser=JSON.parse(localStorage.getItem('TokenPlatform')).userID ;
+       this.authservice.role=JSON.parse(localStorage.getItem('TokenPlatform')).role.roleLabel ;
+       
+      //  this._http.get('http://localhost:50581/api/Users/GetUsersRole').subscribe(res => {
+      //   this.usersRole = res as UseRole[];
+      //   this.userRoleFilter= this.usersRole.filter(i=>i.userID== this.authservice.iduser ) ; 
+      //    localStorage.setItem('RoleUser',JSON.stringify(this.userRoleFilter)) ;  
+      //   this.authservice.role=JSON.parse(localStorage.getItem('RoleUser')).roleLabel ;
+        
+        
+        // });
+
+
+
+
+      this.CommMstInfo.success('', 'Bienvenue !');         
       this.bsModalRefAuth.hide() ;
     }
   }); 

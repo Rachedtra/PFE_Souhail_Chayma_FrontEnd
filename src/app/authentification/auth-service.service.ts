@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
+import { UseRole } from './userRole.models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,17 @@ export class AuthServiceService {
   userFiltre: User[];
   first: string;
   last: String;
-  id: any=null;
-  home: any;
-  e: Object;
-x:boolean ; 
+  iduser: String;
+  role :String ; 
+  usersRole: UseRole[];
+  userRoleFilter: UseRole[];
   constructor(private _http : HttpClient,
       private CommMstInfo: ToastrService,
       private router: Router
      ) { }
   users: User[] = new Array();
   form: FormGroup = new FormGroup({
-    userId: new FormControl(""),
+    userID: new FormControl(""),
     firstName: new FormControl(""),
     LastName: new FormControl(""),
     login: new FormControl(""),
@@ -52,16 +53,14 @@ post()
     if(res==null)
     {
       this.CommMstInfo.warning('', 'Verifier login ou mot de passe  !');
-       this.x=false  ; 
     }
     else
     {
       localStorage.setItem('TokenPlatform',JSON.stringify(res)) ; 
-        this.first=JSON.parse(localStorage.getItem('TokenPlatform')).firstName ;
-       this.last=JSON.parse(localStorage.getItem('TokenPlatform')).lastName ;
+      this.first=JSON.parse(localStorage.getItem('TokenPlatform')).firstName ;
+      this.last=JSON.parse(localStorage.getItem('TokenPlatform')).lastName ;
+      this.iduser=JSON.parse(localStorage.getItem('TokenPlatform')).userID ;
       this.CommMstInfo.success('', 'Bienvenue !');   
-      this.x= true ; 
-      this.router.navigate(["/home"])
     }
   }); 
 }
@@ -70,12 +69,37 @@ logout()
 {
 
   localStorage.removeItem('TokenPlatform') ; 
+ // localStorage.removeItem('RoleUser') ; 
 
   this.router.navigate(["/home"]) ;
-  location.reload();
 
 }
 loggedIn() {
   return !!localStorage.getItem('TokenPlatform')    
 }
+
+
+
+
+
+// getUsersRole(id) {
+
+//   this._http.get('http://localhost:50581/api/Users/GetUsersRole').subscribe(res => {
+//     this.usersRole = res as UseRole[];
+//     this.userRoleFilter= this.usersRole.filter(i=>i.userID==id ) ; 
+//      localStorage.setItem('RoleUser',JSON.stringify(this.userRoleFilter)) ; 
+//      console.log(this.userRoleFilter);
+
+//     console.log(this.usersRole);
+//     console.log("rachedtest" + res);
+
+//   });
+
+
+// }
+
+
+
+
+
 }
