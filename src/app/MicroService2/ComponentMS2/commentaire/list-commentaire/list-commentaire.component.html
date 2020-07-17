@@ -1,10 +1,35 @@
-<div class="content-wrapper">
 
-  <button class="btn btn-outline-success" (click)="AddComm(templateSubmit)">
-    <i class="fa fa-plus"></i> Create Commentaire
-  </button>
+       <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Commentaire </h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <!-- <a href="#">Home</a></li> -->
+                  <li class="breadcrumb-item">
+                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommFilter.description" >
+                  </li>
+                  <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <button class="btn btn-outline-success" (click)="AddComm()">
+                    <i class="fa fa-plus"></i> Create Commentaire
+                  </button>
+                </div>
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Commentaire Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalCommRef.hide()">
@@ -14,15 +39,17 @@
     <div class="modal-body">
       <app-commentaire></app-commentaire>
     </div>
-  </ng-template>
+  </ng-template> -->
   
-  
-  <table class="table table-striped">
-    <thead class="thead-light">
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead class="thead-light">
       <tr>
        
         
         <th>Description</th>
+        <th>Info</th>
+        <th>Ms</th>
         <th>Date</th>
         <th>Supprimer</th>
         <th>Modifier</th>
@@ -31,15 +58,17 @@
     </thead>
     <tbody>
        
-    <tr *ngFor="let commentaire of CommService.comm | paginate
+    <tr *ngFor="let commentaire of CommService.comm | filterBy: CommFilter | paginate
     : {
         id: 'MicroservicePagination',
-        itemsPerPage: 1,
+        itemsPerPage: 3,
         currentPage: p
       } " class="sizeText" 
     style="background-color: white; color: black">
       
       <td>{{commentaire.description}}</td>
+      <td>{{commentaire.descriptionInfo}}</td>
+      <td>{{commentaire.labelMs}}</td>
       <td>{{commentaire.date | date:'dd/MM/yyyy'}}</td>
    
       <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
@@ -58,14 +87,22 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditComm(commentaire,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditComm(commentaire)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>
    
   </tbody>
   </table>
-  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
-  previousLabel="Prec " nextLabel="Suiv ">
-  </pagination-controls>
+  </div>
+  <div class="card-footer clearfix">
+    <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+    </pagination-controls>
+  </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
   </div>

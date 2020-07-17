@@ -2,7 +2,14 @@ export class Commentaires{
     idComm : string ; 
     description : string ;
     date : Date ; 
-    commDemandeInfos : string ; 
-    commVotes : string ;
+    // commDemandeInfos : string ; 
+    // commVotes : string ;
     isActiveComm : boolean ; 
+     fkInfo : string ; 
+     descriptionInfo : string ; 
+     fkMs : string ; 
+     labelMs : string ; 
+ fkUser : string ; 
+        firstName : string ; 
+         lastName  : string ; 
 }

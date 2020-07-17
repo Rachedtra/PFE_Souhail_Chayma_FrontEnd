@@ -3,6 +3,7 @@ import { MsProjetService } from '../../Services/ms-projet.service';
 import { ToastrService } from 'ngx-toastr';
 import { MicroServiceService } from '../../Services/micro-service.service';
 import { ProjetService } from '../../Services/projet.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-ms-projet',
@@ -14,7 +15,8 @@ export class MsProjetComponent implements OnInit {
   constructor(private msprojetService: MsProjetService,
     private MsProjetInfo: ToastrService,
     private MsService:MicroServiceService,
-    private projetServie : ProjetService
+    private projetServie : ProjetService,
+    public modalRefMsProjet : BsModalRef
   
     ) { }
 
@@ -47,6 +49,8 @@ UpdateMp() {
       res => {
         console.log(res);
         this.msprojetService.getMsProjet();
+        this.msprojetService.MsProjetActive();
+        this.modalRefMsProjet.hide() ;
         this.MsProjetInfo.info('', 'MS Projet Modifiee Avec Succés');
         this.resetFormMsprojet();
       },
@@ -64,6 +68,8 @@ UpdateMp() {
       res => {
         console.log(res);
         this.msprojetService.getMsProjet();
+        this.msprojetService.MsProjetActive();
+        this.modalRefMsProjet.hide() ;
         this.MsProjetInfo.success('', 'MS Projet Ajoutee Avec Succés');
         this.resetFormMsprojet();
       },

@@ -13,7 +13,6 @@ import { DomaineProjetComponent } from '../domaine-projet.component';
 })
 export class ListDomaineProjetComponent implements OnInit {
 
-  modalRefDomProjet: BsModalRef;
   DomProjetFilter: any = { nomDomaine: '' };
 
 
@@ -25,6 +24,7 @@ export class ListDomaineProjetComponent implements OnInit {
     private projetServie : ProjetService
   
     ) { }
+    modalRefDomProjet: BsModalRef;
 
   ngOnInit() {
     this.domprojetService.getDomProjet();
@@ -74,16 +74,18 @@ declineDp(): void {
   this.DomProjetInfo.warning('', 'Domaine Projet Non Supprimee');
 }
 
-EditDp(ms,  templatee: TemplateRef<DomaineProjetComponent>) {
+EditDp(ms) {
   this.domprojetService.form.setValue(ms);
-  this.modalRefDomProjet = this.modalDomprojet.show(templatee);
-
+  this.modalRefDomProjet = this.modalDomprojet.show(DomaineProjetComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-AddDp(templatee: TemplateRef<DomaineProjetComponent>) {
+AddDp() {
   this.resetFormDomprojet();
-  this.modalRefDomProjet = this.modalDomprojet.show(templatee);
-
+  this.modalRefDomProjet = this.modalDomprojet.show(DomaineProjetComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
 
 

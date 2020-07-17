@@ -13,7 +13,6 @@ import { CatInfoComponent } from '../cat-info.component';
 })
 export class ListCatInfoComponent implements OnInit {
 
-  modalRefCatInfo: BsModalRef;
   CatInfoFilter: any = { labelCat: '' };
 
 
@@ -25,6 +24,7 @@ export class ListCatInfoComponent implements OnInit {
     private InfoetServie : DemandeInfoService
   
     ) { }
+    modalRefCatInfo: BsModalRef;
 
   ngOnInit() {
     this.CatInfoService.getCatInfo();
@@ -75,15 +75,17 @@ declineCi(): void {
   this.CatInfoInfo.warning('', 'Categorie Demande Information Non Supprimee');
 }
 
-EditCi(ci,  templatee: TemplateRef<CatInfoComponent>) {
+EditCi(ci) {
   this.CatInfoService.form.setValue(ci);
-  this.modalRefCatInfo = this.modalCatInfo.show(templatee);
-
-
+  this.modalRefCatInfo = this.modalCatInfo.show(CatInfoComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
 AddCi(templatee: TemplateRef<CatInfoComponent>) {
   this.resetFormCatInfo();
-  this.modalRefCatInfo = this.modalCatInfo.show(templatee);
+  this.modalRefCatInfo = this.modalCatInfo.show(CatInfoComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
 

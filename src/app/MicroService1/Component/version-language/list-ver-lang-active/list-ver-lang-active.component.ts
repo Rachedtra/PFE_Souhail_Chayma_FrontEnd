@@ -50,6 +50,7 @@ export class ListVerLangActiveComponent implements OnInit {
 DeleteVl(idVl: string) {
   this.VerLangService.DeleteVerLang(idVl).subscribe(res => {
     console.log(res);
+    this.VerLangService.VersionLanguageActive();
     this.VerLangService.getVerLang();
   })
 

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CommMsService } from 'src/app/MicroService1/Services/comm-ms.service';
 import { MicroServiceService } from '../../Services/micro-service.service';
 import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ListCommMsComponent } from './list-comm-ms/list-comm-ms.component';
 @Component({
   selector: 'app-comm-ms',
   templateUrl: './comm-ms.component.html',
@@ -13,7 +15,9 @@ export class CommMsComponent implements OnInit {
   constructor(private CommMsService: CommMsService,
     private MsService:MicroServiceService,
     private CommService : CommentaireService,
-    private CommMstInfo: ToastrService,) { }
+    private CommMstInfo: ToastrService,
+    private CommMsListe : ListCommMsComponent
+   ) { }
 
   ngOnInit() {
     this.MsService.ListActive() ; 
@@ -41,10 +45,13 @@ else
 UpdateCommMs() {
     this.CommMsService.PutCommMs().subscribe(
       res => {
+        this.CommMsListe.modalRefCommMs.hide() ;
         console.log(res);
         this.CommMsService.getCommMs();
+        this.CommMsService.getCommMsActive();
         this.CommMstInfo.info('', 'Commentaires Ms Modifiee Avec Succés');
         this.resetFormCommMs();
+        
       },
       err => {
         console.log(err);
@@ -58,8 +65,10 @@ UpdateCommMs() {
   insertCommMs() {
     this.CommMsService.PostCommMs().subscribe(
       res => {
+        this.CommMsListe.modalRefCommMs.hide() ;
         console.log(res);
         this.CommMsService.getCommMs();
+        this.CommMsService.getCommMsActive();
         this.CommMstInfo.success('', 'Commentaires Ms Ajoutee Avec Succés');
         this.resetFormCommMs();
       },
@@ -70,4 +79,5 @@ UpdateCommMs() {
       }
     )
   }
+
 }

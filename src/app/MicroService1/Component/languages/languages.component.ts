@@ -1,10 +1,6 @@
 import { Languages } from './../../Models/Languages.models';
 import { Component, OnInit } from '@angular/core';
 import { LanguagesService } from '../../Services/languages.service';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -15,11 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 export class LanguagesComponent implements OnInit {
   //lang: any = [];
   lang: Languages[] = new Array();
-  modalRef: BsModalRef;
+
 
   constructor(private langservice: LanguagesService,
     private toastrService: ToastrService,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+    public   modalRef: BsModalRef
+   ) { }
   ngOnInit() {
 
 
@@ -57,6 +55,8 @@ export class LanguagesComponent implements OnInit {
       res => {
         console.log(res);
         this.langservice.refreshList();
+        this.langservice.LanguagesActive() ;
+        this.modalRef.hide(); 
         this.toastrService.success('', 'Language Ajoutee Avec Succés');
         this.resetForm();
       },
@@ -71,9 +71,11 @@ export class LanguagesComponent implements OnInit {
   UpdateRecord() {
     this.langservice.PutLang().subscribe(
       res => {
-
         console.log(res);
         this.langservice.refreshList();
+        this.langservice.LanguagesActive() ;
+        this.modalRef.hide(); 
+
         this.toastrService.info('', 'Language Modifiee Avec Succés');
         this.resetForm();
       },

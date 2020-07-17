@@ -5,6 +5,7 @@ import { CommDemandeInfoService } from 'src/app/MicroService2/ServicesMS2/comm-d
 import { Commentaires } from 'src/app/MicroService2/ModelsMS2/commntaire.models';
 import { CommDemandeInfo } from 'src/app/MicroService2/ModelsMS2/CommDemandeInfo.models';
 import { DemandeInformation } from 'src/app/MicroService2/ModelsMS2/demandeInfo.models';
+import { DemandeInfoService } from 'src/app/MicroService2/ServicesMS2/demande-info.service';
 
 @Component({
   selector: 'app-comm',
@@ -15,10 +16,11 @@ export class CommComponent implements OnInit {
 
   constructor(   private notifInfo: ToastrService,
     private CommService : CommentaireService ,
-    private CommInfoService : CommDemandeInfoService) { }
+    private CommInfoService : CommDemandeInfoService,
+    private infoService:DemandeInfoService) { }
  
   ngOnInit() {
-    this.CommInfoService.getCommInfo() ; 
+    this.CommService.getCommInfoFiltrer ; 
     this.ResetComm() ; 
 
   } 
@@ -26,34 +28,25 @@ export class CommComponent implements OnInit {
     this.CommService.form.setValue({
       idComm: "00000000-0000-0000-0000-000000000000",
       description: "",
-      date: new Date(),
-      commDemandeInfos: "",
-      commVotes: "",
-      isActiveComm : true
-
+      date:  new Date(),
+      fkInfo:"",
+      // commVotes:"",
+      // commDemandeInfos:"",
+       fkMs:"",
+      descriptionInfo : "",
+      isActiveComm : true,
+      labelMs:"",
+      fkUser:"",
+      firstName:"",
+      lastName:"",
   });
 }
 
 onSubmitComm ()
 {
   if (this.CommService.form.controls.idComm.value == "00000000-0000-0000-0000-000000000000")
-  this.insertComm();
+  this.CommService.Posted();
+  this.ResetComm(); 
 }
-insertComm() {
-  this.CommService.PostCommentaires().subscribe(
-    res => {
-      console.log(res);
-      this.CommService.GetCommentaires();
-      this.notifInfo.success('', 'Commentaires Ajoutee Avec Succés');
-      this.ResetComm();
-    },
-    err => {
-      console.log(err);
-      this.notifInfo.error('Commentaires Non Ajoute', 'Erreur');
-
-    }
-  )
-}
-
 
 }

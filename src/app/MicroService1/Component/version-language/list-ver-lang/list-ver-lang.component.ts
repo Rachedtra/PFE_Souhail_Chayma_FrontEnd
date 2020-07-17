@@ -13,7 +13,6 @@ import { VersionLanguageComponent } from '../version-language.component';
 })
 export class ListVerLangComponent implements OnInit {
 
-  modalRefVerLang: BsModalRef;
   VerLangFilter: any = { labelLanguage: '' };
 
 
@@ -25,6 +24,7 @@ export class ListVerLangComponent implements OnInit {
     private verService : VersionsService
   
     ) { }
+    modalRefVerLang: BsModalRef;
 
   ngOnInit() {
     this.VerLangService.getVerLang();
@@ -76,16 +76,18 @@ declineVl(): void {
   this.VerLangInfo.warning('', 'Version Language Non Supprimee');
 }
 
-EditVl(ms,  templatee: TemplateRef<VersionLanguageComponent>) {
+EditVl(ms) {
   this.VerLangService.form.setValue(ms);
-  this.modalRefVerLang = this.modalVerLang.show(templatee);
-
+  this.modalRefVerLang = this.modalVerLang.show(VersionLanguageComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-AddVl(templatee: TemplateRef<VersionLanguageComponent>) {
+AddVl() {
   this.resetFormVerLang();
-  this.modalRefVerLang = this.modalVerLang.show(templatee);
-
+  this.modalRefVerLang = this.modalVerLang.show(VersionLanguageComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 }
 
 

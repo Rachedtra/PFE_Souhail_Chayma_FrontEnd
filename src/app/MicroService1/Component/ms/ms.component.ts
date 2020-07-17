@@ -3,6 +3,7 @@ import { MicroServiceService } from '../../Services/micro-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { LanguagesService } from '../../Services/languages.service';
 import { Languages } from '../../Models/Languages.models';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 
 
@@ -19,6 +20,8 @@ export class MsComponent implements OnInit {
   constructor( private msService: MicroServiceService,
     private toastrService: ToastrService,
     private langservice: LanguagesService,
+    public modalRef:BsModalRef
+    
     ) { }
 
   ngOnInit() {
@@ -62,6 +65,8 @@ else
       res => {
         console.log(res);
         this.msService.refreshList();
+        this.msService.ListActive();
+        this.modalRef.hide(); 
         this.toastrService.info('', 'Micro Service Modifiee Avec Succés');
         this.resetForm();
       },
@@ -77,8 +82,11 @@ else
   insertRecord() {
     this.msService.PostMs().subscribe(
       res => {
+
         console.log(res);
         this.msService.refreshList();
+        this.msService.ListActive();
+        this.modalRef.hide(); 
         this.toastrService.success('', 'Micro Service Ajoutee Avec Succés');
         this.resetForm();
       },

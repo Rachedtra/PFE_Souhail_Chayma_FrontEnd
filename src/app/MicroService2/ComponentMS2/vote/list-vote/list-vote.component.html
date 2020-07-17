@@ -1,10 +1,35 @@
-<div class="content-wrapper">
 
-  <button class="btn btn-outline-success" (click)="AddVote(templateSubmit)">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1> Vote</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <!-- <a href="#">Home</a></li> -->
+              <li class="breadcrumb-item">       
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="voteFilter.note" >
+              </li>
+              <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+             
+  <button class="btn btn-outline-success" (click)="AddVote()">
     <i class="fa fa-plus"></i> Create Vote
   </button>
-  
-  <ng-template #templateSubmit>
+            </div>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Vote Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalVoteRef.hide()">
@@ -15,10 +40,11 @@
       <app-vote></app-vote>
     </div>
   </ng-template>
-  
-  
-  <table class="table table-striped">
-    <thead class="thead-light">
+   -->
+
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead class="thead-light">
       <tr>
        
         <th>Note</th>
@@ -29,10 +55,10 @@
     </thead>
     <tbody>
        
-    <tr *ngFor="let Vote of voteService.vot | paginate
+    <tr *ngFor="let Vote of voteService.vot | filterBy: voteFilter| paginate
     : {
         id: 'MicroservicePagination',
-        itemsPerPage: 1,
+        itemsPerPage: 5,
         currentPage: p
       } " class="sizeText" 
     style="background-color: white; color: black">
@@ -56,14 +82,23 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditVote(Vote,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditVote(Vote)"><i class="fas fa-edit"></i>
         Edit</button>
       </td>
     </tr>
    
   </tbody>
   </table>
-  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
-  previousLabel="Prec " nextLabel="Suiv ">
-  </pagination-controls>
+  </div>
+  <div class="card-footer clearfix">
+
+    <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+    </pagination-controls>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
   </div>

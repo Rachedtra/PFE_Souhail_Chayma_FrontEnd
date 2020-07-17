@@ -1,0 +1,86 @@
+
+*{overflow: hidden;}
+.box1{
+    min-height: 600px;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      /* background: linear-gradient(to right, #87bdd8, white); */
+    position: relative;
+}
+
+.box2{
+    min-height: 600px;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  background-position: left ;
+  /* background: linear-gradient(to left, #17a2b8, white); */
+  
+    position: relative;
+
+}
+
+.content{
+    display: flex;
+    overflow: visible;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    background: rgba(0, 0,0 ,0.7);
+    border-radius: 10px;
+}
+
+
+
+.image{
+    background-image:url('src/assets/Image/5.jpg');   
+    background-position: right ;
+    background-size: cover;
+  min-height: 600px;
+  width:50%;
+  } 
+   .back{
+    background-image:url('src/assets/Image/4.jpeg');   
+    background-position: left;
+    background-size: cover;
+  min-height: 600px;
+  width:50%;
+  } 
+  .custom-btn{
+      display: inline-block;
+      text-align: center !important;
+        background: none;
+        border: 2px solid white;
+        border-radius: 10px;
+        font-size: 20px;
+        color: white;
+        padding: 20px 20px;
+        cursor: pointer;
+  }
+  h4{       overflow: visible;
+            transition: 0.5s ease-out;
+            cursor: pointer;
+  }
+
+  .custom-btn:hover ~ h4{
+    font-size: 30px;
+    
+  }
+
+  h4:hover ~ .custom-btn {
+    font-size: 30px;
+  }
+
+  .custom-btn:hover{
+    transform:scale(1.2) ;
+  }
+  h4:hover{
+    transform:scale(1.2) ;
+  }
+

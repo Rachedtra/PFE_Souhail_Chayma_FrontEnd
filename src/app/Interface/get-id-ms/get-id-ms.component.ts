@@ -3,6 +3,8 @@ import { MicroServiceService } from 'src/app/MicroService1/Services/micro-servic
 import { HttpClient } from '@angular/common/http';
 import { MS } from 'src/app/MicroService1/Models/MicroService.models';
 import { CommMs } from 'src/app/MicroService1/Models/CommMs.models';
+import { CommMsService } from 'src/app/MicroService1/Services/comm-ms.service';
+import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
 
 @Component({
   selector: 'app-get-id-ms',
@@ -14,21 +16,18 @@ export class GetIdMsComponent implements OnInit {
 commMs: CommMs[];
 commMsFiltre: CommMs[];
   constructor( private MsService:MicroServiceService,
-    private _http : HttpClient ) { }
-
+    private CommMs : CommMsService, 
+    private _http : HttpClient ,
+    private commervice:CommentaireService
+    ) { }
+id : any ; 
   ngOnInit() {
     this.MsService.ListActive() ; 
     this.MsService.GetMsFiltrer;
+    this.commervice.getCommMsFiltre(this.id) ; 
   }
 
 
-  getCommMsFiltre(id) {
 
-    this._http.get('http://localhost:54735/api/CommMs').subscribe(res => {
-      this.commMs = res as CommMs[];
-      this.commMsFiltre= this.commMs.filter(i=>i.idMs==id ) ; 
-      console.log(this.commMs);
-
-    });
-  }
+ 
 }

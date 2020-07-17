@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { DomaineComponent } from '../domaine.component';
+import { DomaineComponent } from 'src/app/MicroService1/Component/domaine/domaine.component';
 import { Domaine } from 'src/app/MicroService1/Models/Domaine.models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
@@ -8,18 +8,18 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-list-domaine-active',
   templateUrl: './list-domaine-active.component.html',
-  styleUrls: ['./list-domaine-active.component.css']
+  styleUrls: ['./list-domaine-active.component.css'],
 })
 export class ListDomaineActiveComponent implements OnInit {
 
   Dom: Domaine[] = new Array();
-  Ref: BsModalRef;
   DomaaineFilter: any = { nom: '' };
  
    constructor(private Domservice: DomaineService,
      private BsmodalService: BsModalService,
      private t: ToastrService, ) { }
- 
+     RefDomaine: BsModalRef;
+
    ngOnInit() {
  
      this.Domservice.DomaineActive();
@@ -38,40 +38,40 @@ export class ListDomaineActiveComponent implements OnInit {
  
  
  
-   DeleteDom(idDomaine: string) {
-     this.Domservice.DeleteDom(idDomaine).subscribe(res => {
-       console.log(res);
-       this.Domservice.refreshList();
-     })
- 
-   }
+   DeleteDom(Domaine: Domaine) {
+
+  }
  
  
    ConfirmModalDomaine(template: TemplateRef<any>) {
-     this.Ref = this.BsmodalService.show(template, { class: 'modal-sm' });
+     this.RefDomaine = this.BsmodalService.show(template, { class: 'modal-sm' });
    }
  
    confirmModal(): void {
  
-     this.Ref.hide();
+     this.RefDomaine.hide();
      this.t.success('', 'Domaine Supprimee Avec Succés');
    }
  
    declineModal(): void {
  
-     this.Ref.hide();
+     this.RefDomaine.hide();
      this.t.warning('', 'Domaine Non Supprimee');
    }
  
  
-   EditDom(domaine,templatee: TemplateRef<DomaineComponent>) {
+   EditDom(domaine) {
      this.Domservice.form.setValue(domaine);
-     this.Ref = this.BsmodalService.show(templatee);
+     this.RefDomaine = this.BsmodalService.show(DomaineComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
    }
  
-   AddDom(templatee: TemplateRef<DomaineComponent>) {
+   AddDom() {
      this.resetFormActiveDom();
-     this.Ref = this.BsmodalService.show(templatee);
+     this.RefDomaine = this.BsmodalService.show(DomaineComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
  
    }
  

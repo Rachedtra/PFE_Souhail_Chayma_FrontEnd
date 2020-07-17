@@ -1,5 +1,13 @@
 
-    <form [formGroup]="Domservice.form" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Domaine Detail</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="Ref.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+<form [formGroup]="Domservice.form" (ngSubmit)="onSubmit()">
 
 
       <div class="form-group">
@@ -29,3 +37,5 @@
       
 
     </form>
+  </div>
+</div>

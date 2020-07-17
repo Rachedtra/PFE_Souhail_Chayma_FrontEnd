@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ProjetService } from 'src/app/MicroService1/Services/projet.service';
 import { ToastrService } from 'ngx-toastr';
-import { ProjetComponent } from '../projet.component';
+import { ProjetComponent } from 'src/app/MicroService1/Component/projet/projet.component';
 
 @Component({
   selector: 'app-list-projet',
@@ -12,12 +12,12 @@ import { ProjetComponent } from '../projet.component';
 export class ListProjetComponent implements OnInit {
   projetFilter: any = { nom: '' };
 
-  modalRef1: BsModalRef;
   
 
   constructor(private projetService: ProjetService,
     private modal: BsModalService,
     private toastr: ToastrService, ) { }
+    modalRef1: BsModalRef;
 
   ngOnInit() {
     this.projetService.refreshList();
@@ -62,16 +62,17 @@ export class ListProjetComponent implements OnInit {
     this.toastr.warning('', 'Projet Non Supprimee');
   }
 
-  EditProjet(prjt,  templatee: TemplateRef<ProjetComponent>) {
+  EditProjet(prjt) {
     this.projetService.pj.setValue(prjt);
-    this.modalRef1 = this.modal.show(templatee);
-
-
+    this.modalRef1 = this.modal.show(ProjetComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
-  AddProjet(templatee: TemplateRef<ProjetComponent>) {
+  AddProjet() {
     this.resetForme();
-    this.modalRef1 = this.modal.show(templatee);
-
+    this.modalRef1 = this.modal.show(ProjetComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 

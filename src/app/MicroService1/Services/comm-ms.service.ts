@@ -16,6 +16,9 @@ export class CommMsService {
     
   });
   commMs: CommMs[];
+  commMsaActive : CommMs[];
+  commMsFiltre: CommMs[];
+  NbComm: number;
   constructor(private _http: HttpClient) { }
 
 
@@ -43,4 +46,14 @@ export class CommMsService {
 
     });
   }
+  getCommMsActive()
+  {
+    this._http.get('http://localhost:54735/api/CommMs/GetActiveListCommMs').subscribe(res => {
+      this.commMsaActive = res as CommMs[];
+      console.log(this.commMsaActive);
+
+    });
+  }
+
+
 }
