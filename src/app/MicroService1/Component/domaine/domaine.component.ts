@@ -1,23 +1,24 @@
 
 import { Domaine } from './../../Models/Domaine.models';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DomaineService } from '../../Services/domaine.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { BsModalRef } from 'ngx-bootstrap/modal/public_api';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-domaine',
   templateUrl: './domaine.component.html',
-  styleUrls: ['./domaine.component.css']
+  styleUrls: ['./domaine.component.css'],
 })
 export class DomaineComponent implements OnInit {
   Dom: Domaine[] = new Array();
-  Ref : BsModalRef ; 
 
-  constructor(private formBuilder: FormBuilder, private Domservice: DomaineService,
-    private toastrService: ToastrService) { }
+  constructor(private formBuilder: FormBuilder,
+     private Domservice: DomaineService,
+    private toastrService: ToastrService,
+    public RefDomaine: BsModalRef   ) { }
 
   ngOnInit() {
 
@@ -47,6 +48,8 @@ export class DomaineComponent implements OnInit {
       res => {
         console.log(res);
         this.Domservice.refreshList();
+        this.Domservice.DomaineActive() ; 
+        this.RefDomaine.hide() ;
         this.toastrService.success('', 'Domaine Ajoutee Avec Succés');
 
         this.resetForm();
@@ -64,6 +67,8 @@ export class DomaineComponent implements OnInit {
       res => {
         console.log(res);
         this.Domservice.refreshList();
+        this.Domservice.DomaineActive() ; 
+        this.RefDomaine.hide() ;
         this.toastrService.info('', 'Domaine Modifiee Avec Succés');
 
         this.resetForm();
@@ -75,5 +80,6 @@ export class DomaineComponent implements OnInit {
       }
     )
   }
+
 
 }

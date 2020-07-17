@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { CommentaireService } from 'src/app/MicroService2/ServicesMS2/commentaire.service';
-import { CommentaireComponent } from '../commentaire.component';
+import { CommentaireComponent } from 'src/app/MicroService2/ComponentMS2/commentaire/commentaire.component';
 
 @Component({
   selector: 'app-list-commentaire',
@@ -12,7 +12,7 @@ import { CommentaireComponent } from '../commentaire.component';
 export class ListCommentaireComponent implements OnInit {
 
   modalCommRef: BsModalRef;
-
+  CommFilter: any = { description: '' };
   constructor( private CommService: CommentaireService,
     private notifComm: ToastrService,
     private modalComm: BsModalService,
@@ -28,10 +28,18 @@ export class ListCommentaireComponent implements OnInit {
       this.CommService.form.setValue({
         idComm: "00000000-0000-0000-0000-000000000000",
         description: "",
-        date: "",
-        commDemandeInfos: "",
-        commVotes: "",
-        isActiveComm : true
+        date:  new Date(),
+        fkInfo:"",
+        // commVotes:"",
+        // commDemandeInfos:"",
+         fkMs:"",
+        descriptionInfo : "",
+        isActiveComm : true,
+        labelMs:"",
+        fkUser:"",
+        firstName:"",
+        lastName:"",
+
     });
   }
 
@@ -66,16 +74,18 @@ export class ListCommentaireComponent implements OnInit {
     this.notifComm.warning('', 'Commentaire Non Supprimee');
   }
   
-  EditComm(comm,  templatee: TemplateRef<CommentaireComponent>) {
+  EditComm(comm) {
     this.CommService.form.setValue(comm);
-    this.modalCommRef = this.modalComm.show(templatee);
-  
+    this.modalCommRef = this.modalComm.show(CommentaireComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   
   }
-  AddComm(templatee: TemplateRef<CommentaireComponent>) {
+  AddComm() {
     this.ResetComm();
-    this.modalCommRef = this.modalComm.show(templatee);
-  
+    this.modalCommRef = this.modalComm.show(CommentaireComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 }

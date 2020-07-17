@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
 import { SidebarLeftComponent } from './navbar/sidebar-left/sidebar-left.component';
 import { ListVersionsComponent } from './MicroService1/Component/versions/list-versions/list-versions.component';
 import { ListDomaineComponent } from './MicroService1/Component/domaine/list-domaine/list-domaine.component';
-import { ListMsComponent } from './MicroService1/Component/Ms/list-ms/list-ms.component';
 import { ListMethodeComponent } from './MicroService1/Component/Methode/list-methode/list-methode.component';
 import { ListProjetComponent } from './MicroService1/Component/Projet/list-projet/list-projet.component';
 import { ListCategorieComponent } from './MicroService2/ComponentMS2/categorie/list-categorie/list-categorie.component';
@@ -28,15 +27,46 @@ import { GetIdInfoComponent } from './Interface/get-id-info/get-id-info.componen
 import { ListMsInteraceComponent } from './Interface/list-ms-interace/list-ms-interace.component';
 import { GetIdMsComponent } from './Interface/get-id-ms/get-id-ms.component';
 import { ListCommMsComponent } from './MicroService1/Component/comm-ms/list-comm-ms/list-comm-ms.component';
+import { ListLanguageActiveComponent } from './MicroService1/Component/languages/list-language-active/list-language-active.component';
+import { ListActiveVersionComponent } from './MicroService1/Component/versions/list-active-version/list-active-version.component';
+import { ListMsComponent } from './MicroService1/Component/ms/list-ms/list-ms.component';
+import { LisMethodeActiveComponent } from './MicroService1/Component/methode/lis-methode-active/lis-methode-active.component';
+import { ListProjetActiveComponent } from './MicroService1/Component/projet/list-projet-active/list-projet-active.component';
+import { ListCommMsActiveComponent } from './MicroService1/Component/comm-ms/list-comm-ms-active/list-comm-ms-active.component';
+import { ListCatInfoActiveComponent } from './MicroService2/ComponentMS2/cat-info/list-cat-info-active/list-cat-info-active.component';
+import { ListCategorieActiveComponent } from './MicroService2/ComponentMS2/categorie/list-categorie-active/list-categorie-active.component';
+import { ListCommDemandeInfoeActiveComponent } from './MicroService2/ComponentMS2/comm-demande-info/list-comm-demande-infoe-active/list-comm-demande-infoe-active.component';
+import { ListCommVoteActiveComponent } from './MicroService2/ComponentMS2/comm-vote/list-comm-vote-active/list-comm-vote-active.component';
+import { ListCommmentaireActiveComponent } from './MicroService2/ComponentMS2/commentaire/list-commmentaire-active/list-commmentaire-active.component';
+import { ListDemandeInfoActiveComponent } from './MicroService2/ComponentMS2/demande-info/list-demande-info-active/list-demande-info-active.component';
+import { ListSousCategorieActiveComponent } from './MicroService2/ComponentMS2/sous-categorie/list-sous-categorie-active/list-sous-categorie-active.component';
+import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './authentification/auth.guard';
 
 const routes: Routes = [
   {
     path : 'list-language',
     component : ListLanguageComponent
   },
+  {
+    path : 'list-language-active',
+    component : ListLanguageActiveComponent
+  },
+  {
+    path : 'list-language-active/list-language',
+    component : ListLanguageComponent
+  },
   
   {
     path : 'list-versions',
+    component : ListVersionsComponent
+  },
+  {
+    path : 'list-active-version',
+    component : ListActiveVersionComponent
+  },
+  {
+    path : 'list-active-version/list-versions',
     component : ListVersionsComponent
   },
  
@@ -45,26 +75,59 @@ const routes: Routes = [
     component : ListDomaineComponent
   },
   {
-    path : 'list-domaine/list-domaine-active',
+    path : 'list-domaine-active/list-domaine',
+    component : ListDomaineComponent
+  },
+  {
+    path : 'list-domaine-active',
     component : ListDomaineActiveComponent
   },
-
   {
     path : 'list-ms',
     component : ListMsComponent
+  },
+  {
+    path : 'list-ms-active/list-ms',
+    component : ListMsComponent
+  },
+  {
+    path : 'list-ms-active',
+    component : ListMsActiveComponent
   },
   {
     path : 'list-methode',
     component : ListMethodeComponent
   },
   {
+    path : 'list-methode-active',
+    component : LisMethodeActiveComponent
+  },  {
+    path : 'list-methode-active/list-methode',
+    component : ListMethodeComponent
+  },
+  {
     path : 'list-projet',
+    component : ListProjetComponent
+  },
+  {
+    path : 'list-projet-active',
+    component : ListProjetActiveComponent
+  },  {
+    path : 'list-projet-active/list-projet',
     component : ListProjetComponent
   },
 
   {
     path : 'list-Categorie',
     component : ListCategorieComponent
+  },
+  {
+    path : 'list-categorie-active/list-Categorie',
+    component : ListCategorieComponent
+  },
+  {
+    path : 'list-categorie-active',
+    component : ListCategorieActiveComponent
   },
 
   {
@@ -77,26 +140,49 @@ const routes: Routes = [
     component : ListCommentaireComponent
   },
   {
+    path : 'list-commentaire-active/list-commentaire',
+    component : ListCommentaireComponent
+  },
+  {
+    path : 'list-commentaire-active',
+    component : ListCommmentaireActiveComponent
+  },
+  {
     path : 'list-demande-info',
     component : ListDemandeInfoComponent
+  },
+  {
+    path : 'list-demande-info-active/list-demande-info',
+    component : ListDemandeInfoComponent
+  },  {
+    path : 'list-demande-info-active',
+    component : ListDemandeInfoActiveComponent
   },
   
   {
     path : 'list-sous-categorie',
     component : ListSousCategorieComponent
+  },  {
+    path : 'list-sous-categorie-active/list-sous-categorie',
+    component : ListSousCategorieComponent
+  },
+  {
+    path : 'list-sous-categorie-active',
+    component : ListSousCategorieActiveComponent
   },
 
-  {
-    path : 'list-ms/list-ms-active',
-    component : ListMsActiveComponent
-  },
+
 
   {
     path : 'list-ver-lang',
     component : ListVerLangComponent
   },
   {
-    path : 'list-ver-lang/list-ver-lang-active',
+    path : 'list-ver-lang-active/list-ver-lang',
+    component : ListVerLangComponent
+  },
+  {
+    path : 'list-ver-lang-active',
     component : ListVerLangActiveComponent
   },
 
@@ -105,7 +191,11 @@ const routes: Routes = [
     component : ListDomaineProjetComponent
   },
   {
-    path : 'list-domaine-projet/list-domaine-projet-active',
+    path : 'list-domaine-projet-active/list-domaine-projet',
+    component : ListDomaineProjetComponent
+  },
+  {
+    path : 'list-domaine-projet-active',
     component : ListDomaineProjetActiveComponent
   },
   {
@@ -113,7 +203,11 @@ const routes: Routes = [
     component : ListMsProjetComponent
   },
   {
-    path : 'list-ms-projet/list-ms-projet-active',
+    path : 'list-ms-projet-active/list-ms-projet',
+    component : ListMsProjetComponent
+  },
+  {
+    path : 'list-ms-projet-active',
     component : ListMsProjetActiveComponent
   },
   {
@@ -121,16 +215,46 @@ const routes: Routes = [
     component : ListCatInfoComponent
   },
   {
+    path : 'list-cat-info-active/list-cat-info',
+    component : ListCatInfoComponent
+  },
+  {
+    path : 'list-cat-info-active',
+    component : ListCatInfoActiveComponent
+  },
+  {
     path : 'list-comm-demande-info',
     component : ListCommDemandeInfoComponent
+  },
+  {
+    path : 'list-comm-demande-info-active/list-comm-demande-info',
+    component : ListCommDemandeInfoComponent
+  },
+  {
+    path : 'list-comm-demande-info-active',
+    component : ListCommDemandeInfoeActiveComponent
   },
 {
   path : 'list-comm-vote',
   component : ListCommVoteComponent
 },
 {
+  path : 'list-comm-vote-active/list-comm-vote',
+  component : ListCommVoteComponent
+},{
+  path : 'list-comm-vote-active',
+  component : ListCommVoteActiveComponent
+},
+{
   path : 'list-comm-ms',
   component : ListCommMsComponent
+},
+{
+  path : 'list-comm-ms-active/list-comm-ms',
+  component : ListCommMsComponent
+},{
+  path : 'list-comm-ms-active',
+  component : ListCommMsActiveComponent
 },
 {
   path : 'interface-list',
@@ -141,17 +265,41 @@ const routes: Routes = [
   component : ListMsInteraceComponent
 },
 {
-  path : 'list-ms-interface/list-ms-interface/get-id-ms',
+  path : 'get-id-ms',
   component : GetIdMsComponent
 },
 {
   path : 'interface-list/get-id-info',
   component : GetIdInfoComponent
 },
+{
+  path : 'home',
+  component : HomeComponent
+},
+
+{
+  path : 'home/get-id-ms',
+  canActivate: [AuthGuard],
+  component : GetIdMsComponent
+
+},
+{
+  path : 'home/interface-list',
+  canActivate: [AuthGuard],
+  component : InterfaceListComponent
+},
+{
+  path : 'home/interface-list/get-id-info',
+  canActivate: [AuthGuard],
+  component : GetIdInfoComponent
+},
+
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+  RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

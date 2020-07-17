@@ -5,7 +5,6 @@ import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal'
 import { LanguagesComponent } from '../languages.component';
 import { ToastrService } from 'ngx-toastr';
-import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -17,13 +16,13 @@ export class ListLanguageComponent implements OnInit {
   lang: Languages[] = new Array();
   languageFilter: any = { label: '' };
 
-  modalRef: BsModalRef;
   
 
   constructor(private langservice: LanguagesService, private modalService: BsModalService,
     private toastrService: ToastrService,
 
   ) { }
+  modalRef: BsModalRef;
 
   ngOnInit() {
     this.langservice.refreshList();
@@ -75,16 +74,19 @@ export class ListLanguageComponent implements OnInit {
     this.toastrService.warning('', 'Language Non Supprimee');
   }
 
-  EditLang(language: Languages, templatee: TemplateRef<LanguagesComponent>) {
+  EditLang(language: Languages) {
     this.langservice.form.setValue(language);
-    this.modalRef = this.modalService.show(templatee);
+    this.modalRef = this.modalService.show(LanguagesComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 
   }
 
-  AddLang(templatee: TemplateRef<LanguagesComponent>) {
+  AddLang() {
     this.resetForm();
-    this.modalRef = this.modalService.show(templatee);
-
+    this.modalRef = this.modalService.show(LanguagesComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 

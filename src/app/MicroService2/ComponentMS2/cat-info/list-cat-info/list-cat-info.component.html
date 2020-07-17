@@ -1,20 +1,35 @@
-<div class="content-wrapper">
-  <div class="form-group row">
-    <div class="col-md-5">
-        <button type="button" class="btn btn-outline-success" (click)="AddCi(templateSubmit)">
-          <i class="fa fa-plus"></i> Add Categorie Demande Information
-  </button>
-    </div>
-    <div class="col-md-5">
-    </div>
-       <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CatInfoFilter.labelCat" >
+
+       <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1> Categorie Demande Information</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <!-- <a href="#">Home</a></li> -->
+                  <li class="breadcrumb-item">       
+                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CatInfoFilter.labelCat" >
+                  </li>
+                  <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <button type="button" class="btn btn-outline-success" (click)="AddCi()">
+                    <i class="fa fa-plus"></i> Add Categorie Demande Information
+            </button>
+                </div>
   
-  
-       </div>
-      
-  
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Categorie Info Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCatInfo.hide()">
@@ -25,11 +40,11 @@
       <app-cat-info></app-cat-info>
       
     </div>
-  </ng-template>
+  </ng-template> -->
   
-  
-  <table class="table table-striped">
-    <thead class="thead-light">
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead class="thead-light">
       <tr>
         
         <th>Categorie</th>
@@ -71,13 +86,21 @@
           </div>
         </ng-template>
       </td>
-      <td><button class="btn btn-primary" (click)="EditCi(ci,templateSubmit)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditCi(ci)"><i class="fas fa-edit"></i>
           Edit</button></td>
     </tr>
     </tbody>
   </table>
   </div>
-  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
-  previousLabel="Prec " nextLabel="Suiv ">
-  </pagination-controls>
+  <div class="card-footer clearfix">
+
+    <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+    </pagination-controls>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
   </div>

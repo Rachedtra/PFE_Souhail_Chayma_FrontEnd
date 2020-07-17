@@ -3,6 +3,7 @@ import { DemandeInfoService } from '../../ServicesMS2/demande-info.service';
 import { CommentaireService } from '../../ServicesMS2/commentaire.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommDemandeInfoService } from '../../ServicesMS2/comm-demande-info.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-comm-demande-info',
@@ -14,7 +15,8 @@ export class CommDemandeInfoComponent implements OnInit {
   constructor(private CommInfoService: CommDemandeInfoService,
     private CommInfoInfo: ToastrService,
     private CommService:CommentaireService,
-    private InfoetServie : DemandeInfoService
+    private InfoetServie : DemandeInfoService,
+    public modalRefCommInfo:BsModalRef
   
     ) { }
 
@@ -31,7 +33,8 @@ export class CommDemandeInfoComponent implements OnInit {
       isActiveCommInfo: true,
       descriptionComm: "",
       descriptionInfo: "",
-      titreInfo : ""
+      titreInfo : "",
+      dateComm : ""
   }); 
 }
 onSubmitCi ()
@@ -45,7 +48,9 @@ UpdateCi() {
     this.CommInfoService.PutCommInfo().subscribe(
       res => {
         console.log(res);
+        this.CommInfoService.CommentairesInfoActive();
         this.CommInfoService.getCommInfo();
+        this.modalRefCommInfo.hide();
         this.CommInfoInfo.info('', 'Commentaire Demande Information  Modifiee Avec Succés');
         this.resetFormCommInfo();
       },
@@ -62,7 +67,9 @@ UpdateCi() {
     this.CommInfoService.PostCommInfo().subscribe(
       res => {
         console.log(res);
+        this.CommInfoService.CommentairesInfoActive();
         this.CommInfoService.getCommInfo();
+        this.modalRefCommInfo.hide();
         this.CommInfoInfo.success('', 'Commenatire Demande Information  Ajoutee Avec Succés');
         this.resetFormCommInfo();
       },

@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { VoteService } from 'src/app/MicroService2/ServicesMS2/vote.service';
-import { VoteComponent } from '../vote.component';
+import { VoteComponent } from 'src/app/MicroService2/ComponentMS2/vote/vote.component';
 
 @Component({
   selector: 'app-list-vote',
@@ -12,6 +12,7 @@ import { VoteComponent } from '../vote.component';
 export class ListVoteComponent implements OnInit {
 
   modalVoteRef: BsModalRef;
+  voteFilter: any = { note: null };
 
   constructor( private voteService: VoteService,
     private notifVote: ToastrService,
@@ -63,16 +64,18 @@ export class ListVoteComponent implements OnInit {
     this.notifVote.warning('', 'Vote Non Supprimee');
   }
   
-  EditVote(vt,  templatee: TemplateRef<VoteComponent>) {
+  EditVote(vt) {
     this.voteService.form.setValue(vt);
-    this.modalVoteRef = this.modalVote.show(templatee);
-  
+    this.modalVoteRef = this.modalVote.show(VoteComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   
   }
-  AddVote(templatee: TemplateRef<VoteComponent>) {
+  AddVote() {
     this.ResetVote();
-    this.modalVoteRef = this.modalVote.show(templatee);
-  
+    this.modalVoteRef = this.modalVote.show(VoteComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 }

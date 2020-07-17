@@ -1,24 +1,35 @@
-<div class="content-wrapper"> 
-  <!-- <button class="btn btn-outline-success" (click)="AddDom(templateS)">
-    <i class="fa fa-plus"></i> Create Domaine
-  </button>
-  <input  type="text" [(ngModel)]="DomaaineFilter.nom" placeholder="Search By Name"> -->
+
+       <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Domaine Active</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <!-- <a href="#">Home</a></li> -->
+                  <li class="breadcrumb-item">       
+                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomaaineFilter.nom" >
+                  </li>
+                  <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
+                </ol>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <button type="button" class="btn btn-outline-success" (click)="AddDom()">
+                    <i class="fa fa-plus"></i> Add Domaine
+            </button>
+                </div>
   
-  <div class="form-group row">
-    <div class="col-md-5">
-        <button type="button" class="btn btn-outline-success" (click)="AddDom(templateS)">
-          <i class="fa fa-plus"></i> Add Domaine
-  </button>
-    </div>
-    <div class="col-md-5">
-    </div>
-       <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomaaineFilter.nom" >
-  
-  
-       </div>
-      
-  
+<!--   
   
   <ng-template #templateS>
     <div class="modal-header">
@@ -31,10 +42,11 @@
       <app-domaine></app-domaine>
       
     </div>
-  </ng-template>
-  
-  <table class="table table-striped">
-    <thead class="thead-light">
+  </ng-template> -->
+
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead class="thead-light">
       <tr>
        
         <th>Nom</th>
@@ -63,19 +75,26 @@
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmModal();DeleteDom(Domaine.idDomain);">Yes</button>
+              (click)="confirmModal();DeleteDom(Domaine);">Yes</button>
             <button type="button" class="btn btn-primary" (click)="declineModal()">No</button>
           </div>
         </ng-template>
       </td>
       <!-- <td><button (click)="EditDom(Domaine)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditDom(Domaine,templateS)"><i class="fas fa-edit"></i>
+      <td><button class="btn btn-primary" (click)="EditDom(Domaine)"><i class="fas fa-edit"></i>
         Edit</button></td>
     </tr>
     </tbody>
   </table>
   </div>
-  <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
-  previousLabel="Prec " nextLabel="Suiv ">
-  </pagination-controls>
-  </div>
+  <div class="card-footer clearfix">
+    <pagination-controls id="MicroservicePagination" class="my-pagination" (pageChange)="p = $event"
+    previousLabel="Prec " nextLabel="Suiv ">
+    </pagination-controls>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>

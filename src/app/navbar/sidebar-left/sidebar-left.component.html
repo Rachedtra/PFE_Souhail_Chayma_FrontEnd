@@ -1,47 +1,65 @@
-
- <!-- Main Sidebar Container -->
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a  class="brand-link" style="color: white;"> 
-  <!-- <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"  style="opacity: .8"> -->
+  <a class="brand-link" style="color: white;">
+    <!-- <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"  style="opacity: .8"> -->
     <span class="brand-text font-weight-light"> Poulina Group Holding</span>
-   </a> 
+  </a>
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <!-- Sidebar user panel (optional) -->
-   
-       <div class="image">
-        <img src="/assets/Image/Sans-titre-3.png" alt=" Image" height="100" width="240
-        ">
-      </div> 
-   
-   
 
-    <!-- Sidebar Menu -->
+    <div class="image">
+      <img src="/assets/Image/Sans-titre-3.png" alt=" Image" height="100" width="240
+        ">
+    </div>
+
+
+
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-        <li class="nav-item has-treeview menu-close">
-          <a href="#" class="nav-link active">
+
+
+      <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="true" data-widget="treeview" role="menu">
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link active" style="background-color: #6db9b2;">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Gestion Micro Services
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
+
           <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a routerLink="list-language" routerLinkActive="active" class="nav-link ">
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+              <a href="#" class="nav-link">
                 <i class="fas fa-laptop-code"></i> &nbsp;
-                <p>Language</p>
+                <p>
+                  Language
+                  <i class="right fas fa-angle-left"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a routerLink="list-language" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-language-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
               <a routerLink="list-versions" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-sort-numeric-down"></i> &nbsp;
                 <p>Version</p>
               </a>
+
             </li>
             <li class="nav-item">
               <a routerLink="list-ver-lang" routerLinkActive="active" class="nav-link ">
@@ -50,11 +68,30 @@
                 <p>Language Version</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a routerLink="list-domaine" routerLinkActive="active" class="nav-link ">
+
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+              <a href="#" class="nav-link">
                 <i class="fas fa-dice-d6"></i> &nbsp;
-                <p>Domaine</p>
+                <p>
+                  Domaine
+                  <i class="right fas fa-angle-left"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a routerLink="list-domaine" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-domaine-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
             <li class="nav-item">
               <a routerLink="list-domaine-projet" routerLinkActive="active" class="nav-link ">
@@ -65,85 +102,129 @@
             </li>
             <li class="nav-item">
               <a routerLink="list-ms-projet" routerLinkActive="active" class="nav-link ">
-                <i class="fas fa-microchip"></i> 
+                <i class="fas fa-microchip"></i>
                 <i class="fas fa-project-diagram"></i> &nbsp;
                 <p>MS Projet</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a routerLink="list-comm-ms" routerLinkActive="active" class="nav-link ">
-                <i class="fas fa-microchip"></i> 
-                <i class="fas fa-comment-alt"></i> &nbsp;
-                <p>Commentaires Ms</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="list-ms" routerLinkActive="active" class="nav-link ">
+
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+              <a href="#" class="nav-link">
                 <i class="fas fa-microchip"></i> &nbsp;
-                <p>Micro Service</p>
+                <p>
+                  Micro Service
+                  <i class="right fas fa-angle-left"></i>
+                </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a routerLink="list-ms" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-ms-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
-            <li class="nav-item">
-              <a routerLink="list-methode" routerLinkActive="active" class="nav-link ">
+
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+              <a href="#" class="nav-link">
                 <i class="fas fa-cogs"></i> &nbsp;
                 <p>Methode</p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a routerLink="list-methode" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-methode-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
-            <li class="nav-item">
-              <a routerLink="list-projet" routerLinkActive="active" class="nav-link ">
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+              <a href="#" class="nav-link">
                 <i class="fas fa-project-diagram"></i> &nbsp;
                 <p>Projet</p>
               </a>
-            <!-- </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inactive Page</p>
-              </a>
-            </li> -->
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a routerLink="list-projet" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-projet-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
           </ul>
-        </li>
-        <!-- <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Simple Link
-              <span class="right badge badge-danger">New</span>
-            </p>
-          </a>
-        </li> -->
-      </ul>
 
-
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
         <li class="nav-item has-treeview menu-close">
-          <a href="#" class="nav-link active">
+          <a href="#" class="nav-link active" style="background-color: #6db9b2;">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Gestion Commentaires
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
+
           <ul class="nav nav-treeview">
+            <!-- <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+              <a href="#" class="nav-link">
+                <i class="fas fa-dice-d6"></i> &nbsp;
+                <p>
+                  Categorie
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview" >
+                <li class="nav-item">
+                  <a routerLink="list-Categorie" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-categorie-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+                
+              </ul>
+            </li> -->
             <li class="nav-item">
               <a routerLink="list-Categorie" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-book"></i> &nbsp;
                 <p>Categorie</p>
               </a>
             </li>
+
             <li class="nav-item">
               <a routerLink="list-cat-info" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-book"></i><i class="fas fa-question"></i> &nbsp;
                 <p>Categorie Info</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a routerLink="list-comm-demande-info" routerLinkActive="active" class="nav-link ">
-                <i class="fas fa-comment-alt"></i><i class="fas fa-question"></i> &nbsp;
-                <p>Commentaires Info</p>
-              </a>
-            </li>
+
             <li class="nav-item">
               <a routerLink="list-comm-vote" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-comment-alt"></i><i class="fas fa-star"></i> &nbsp;
@@ -174,27 +255,14 @@
                 <p>Demande Information</p>
               </a>
             </li>
-        
-            <!-- <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inactive Page</p>
-              </a>
-            </li> -->
+
+
           </ul>
         </li>
-        <!-- <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Simple Link
-              <span class="right badge badge-danger">New</span>
-            </p>
-          </a>
-        </li> -->
+
+
       </ul>
+
     </nav>
-    <!-- /.sidebar-menu -->
   </div>
-  <!-- /.sidebar -->
 </aside>

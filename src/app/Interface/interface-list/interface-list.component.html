@@ -1,16 +1,264 @@
-<div class="content-wrapper">
-<app-nav-header></app-nav-header>
-<div class="container">
-  <label>Choisir Domaine </label>
-        <div>
-          <select class="form-control" (change)="InfoService.GetInfoFiltrer($event.target.value)" >
-           
-            <option value="0">-Select-</option>
-            <option *ngFor="let dom of domService.Dom"  value={{dom.idDomain}}>
-              {{dom.nom}}</option>
-          </select>
-          <br>
-         <button routerLink="get-id-info" class="btn btn-outline-success"routerLinkActive="active" >Choisir</button>
+
+
+ <div class="content-wrapper image ">
+  <div class="container ">
+  <ng-template #templateSubmit>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left"> Detail</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-popup></app-popup>
+    </div>
+    </ng-template>
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+         
         </div>
-</div>
-</div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            
+            <li class="breadcrumb-item active ">Poser Votre Question</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <!-- <a href="mailbox.html" class="btn btn-primary btn-block mb-3">Back to Inbox</a> -->
+          <div class="ques-btn">
+          <button type="button" class="btn  btn-block mb-3  "(click)="openModal(templateSubmit)">Poser Question</button>
+        </div>  
+          <div class="card collapsed-card">
+            <div class="card-header">
+              <h3 class="card-title comm">Domaine</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0"  >
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active"  *ngFor="let dom of domService.DomActive">
+                  <a  (click)="InfoService.GetInfoFiltrer(dom.idDomain)" class="nav-link" routerLink="get-id-info" routerLinkActive="active">
+                    <i class="fas fa-inbox" ></i> {{dom.nom}}
+                    <!-- <span class="badge bg-primary float-right">12</span> -->
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title comm">Premier 10 Question</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0"  >
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item active" *ngFor="let demande of InfoService.first">
+                  <a (click)="InfoService.GetId(demande.idDemandeInfo);CommService.getCommInfoFiltrer(demande.idDemandeInfo);getCatInfoFiltrer(demande.idDemandeInfo)" 
+                  class="nav-link" 
+                  >
+                  <i class="fas fa-search-plus " style="color: cadetblue;"></i> {{demande.titre}}</a>
+                </li>
+               
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      <div class="col-md-9">
+        <div class="container">
+          <!-- Box Comment -->
+          <div class="card collapsed-card card-widget">
+            <div class="card-header">
+              <div class="user-block"  *ngFor="let demande of InfoService.obj">
+                <img class="img-circle" src="/assets/Image/Sans-titre-3.png" alt="User Image">
+                <span class="username"><a href="#">User 1 </a></span>
+                <span class="description"> {{demande.date}}</span>
+              </div>
+              <!-- /.user-block -->
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Mark as read">
+                  <i class="far fa-circle"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+                </button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body"  *ngFor="let demande of InfoService.obj">
+              <!-- post text -->
+              <div class="text-left titre">
+              <p>{{demande.titre}}</p>
+              </div>
+              <hr/>
+              <!------------------------------------------------------>
+
+              <div class="card card-outline ">
+                <div class="card-header">
+                  <h3 class="card-title comm">Detail Question</h3>
+        
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body" style="display: block;">
+                  <p class="val"><span class="domcat1">Domaine :</span>  {{demande.domaineNom}}</p>
+                  <div *ngFor="let cat of CatInfoFiltrer " class="val"> <span class="domcat1">Categorie :</span>{{cat.labelCat}} 
+                    </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              
+        
+              <!-- <p class="val"><span class="domcat">Domaine :</span>  {{demande.domaineNom}}</p>
+              <div *ngFor="let cat of CatInfoFiltrer " class="val"> <span class="domcat">Categorie :</span>{{cat.labelCat}}   -->
+              <!-- </div> -->
+
+              <!------------------------------------------------------>
+
+              <hr/>
+             <div class="direct-chat-msg left">
+                <div class="direct-chat-text clearfix">
+                {{demande.description}} 
+              </div>
+              </div>
+              
+              
+              <div *ngFor="let v of CommVoteService.CommVoteFiltre">
+                {{v.note}} 
+                
+              <hr/>
+            
+              </div>
+        
+              <!-- Social sharing buttons -->
+              <!-- <span class="float-right text-muted"> {{comminfoService.nombre }}comments</span> -->
+        
+              <!-- <div class="col-md-3 mt-2 col-sm-8 col-12">
+                <div class="info-box bg-info">
+                  <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+        
+                  <div class="info-box-content">
+                    <span class="info-box-text">Commentaires</span>
+                    <span class="info-box-number">{{comminfoService.nombre }}</span>
+        
+                   
+                  </div>
+                
+                </div>
+             
+              </div> -->
+           
+            </div>
+            <!-- /.card-body -->
+            <!------------------------------------------------------------------------------------------------------->
+            <div class="card collapsed-card card-prirary cardutline direct-chat direct-chat-info ">
+              <div class="card-header">
+                <h3 class="card-title comm">Commentaires</h3>
+        
+                <div class="card-tools">
+                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-info">{{CommService.nombre }}</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <!-- Conversations are loaded here -->
+                <div class="direct-chat-messages">
+                  <!-- Message. Defaulat to the left -->
+        
+                  <!-- Message to the right -->
+                  <div class="direct-chat-msg right"  *ngFor="let comment of CommService.CommInfoFiltre">
+                    <div class="direct-chat-infos clearfix">
+                      <span class="direct-chat-name float-right">{{comment.firstName}}&nbsp; {{comment.lastName}}</span>
+                      <span class="direct-chat-timestamp float-left">{{comment.date}}</span>
+                    </div>
+                    <!-- /.direct-chat-infos -->
+                    <img class="direct-chat-img"  src="/assets/Image/user.png" >
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      {{comment.description}} 
+                     
+                    </div>
+                    <rating [(ngModel)]="comment.note"
+                    (click)="CommService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
+                    <hr/>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+                <!--/.direct-chat-messages-->
+        
+                <!-- /.direct-chat-pane -->
+              </div>
+              <!-- /.card-body -->
+              
+              <!-- /.card-footer-->
+            </div>
+            <!------------------------------------------------------------------------------------------------------->
+            <!-- <div class="card-footer card-comments">
+              <div class="card-comment" *ngFor="let comment of comminfoService.CommInfoFiltre">
+               
+                <img class="img-circle img-sm" src="/assets/Image/Sans-titre-3.png" alt="User Image">
+        
+                <div class="comment-text" >
+                  <span class="username">
+                    Nom d'utilisateur
+                    <span class="text-muted float-right">{{comment.dateComm}}</span>
+                  </span>
+                  <textarea class="form-control"rows="3" readonly >
+                   
+                  {{comment.descriptionComm}} 
+                </textarea>
+                </div>
+                <rating [(ngModel)]="comment.note"
+                (click)="comminfoService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
+               
+              </div>
+              
+              
+            
+            </div> -->
+          <!-- /.card -->
+          <hr/>
+                <app-comm></app-comm>
+           </div>
+        </div>
+       
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div></section>
+  <!-- /.content -->
+  </div>
+    </div>

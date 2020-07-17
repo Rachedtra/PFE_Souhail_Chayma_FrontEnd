@@ -6,6 +6,10 @@
   </button>
     </div>
     <div class="col-md-5">
+      <button class="btn btn-outline-info" routerLink="list-ms-projet" routerLinkActive="active">
+        <i class="fa fa-reply"></i>
+        Toutes List
+       </button> 
     </div>
        <div class="col-md-2">
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="MsProjetFilterActive.labelMS" >
@@ -14,7 +18,7 @@
        </div>
       
   
-  <ng-template #templateSubmit>
+  <!-- <ng-template #templateSubmit>
     <div class="modal-header">
       <h4 class="modal-title pull-left">MicroService Projet Detail</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefMsProjet.hide()">
@@ -25,7 +29,7 @@
       <app-ms-projet></app-ms-projet>
       
     </div>
-  </ng-template>
+  </ng-template> -->
   
   
   <table class="table table-striped">

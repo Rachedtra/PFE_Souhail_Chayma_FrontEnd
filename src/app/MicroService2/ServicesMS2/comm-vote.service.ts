@@ -18,6 +18,8 @@ export class CommVoteService {
     descriptionComm: new FormControl(""),
     note: new FormControl(""),
   });
+  CommVoteFiltre: CommVote[];
+  v: number;
 
   constructor(private _http: HttpClient) { }
 
@@ -61,5 +63,16 @@ export class CommVoteService {
     });
 
 
+  }
+
+  getCommVoteFiltrer(id) {
+
+    this._http.get('http://localhost:58540/api/CommVote').subscribe(res => {
+      this.CommVote = res as CommVote[];
+      this.CommVoteFiltre= this.CommVote.filter(i=>i.idComm==id ); 
+     this.v=this.CommVoteFiltre[0].note ; 
+      console.log(this.CommVoteFiltre);
+    });
+  
   }
 }

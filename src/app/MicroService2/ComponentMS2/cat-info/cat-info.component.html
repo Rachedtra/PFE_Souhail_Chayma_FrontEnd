@@ -1,3 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Categorie Info Detail</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefCatInfo.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+<div class="container">
 <form [formGroup]="CatInfoService.form" (ngSubmit)="onSubmitCi()">
   <div class="form-group">
         <label>Categorie </label>
@@ -36,5 +44,7 @@
 </form>
 
  
+</div>  
+</div>
 
 

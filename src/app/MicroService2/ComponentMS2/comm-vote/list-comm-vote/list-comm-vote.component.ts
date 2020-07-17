@@ -13,7 +13,6 @@ import { CommVoteComponent } from '../comm-vote.component';
 })
 export class ListCommVoteComponent implements OnInit {
 
-  modalRefCommVote: BsModalRef;
   CommVoteFilter: any = { descriptionComm: '' };
 
 
@@ -25,6 +24,7 @@ export class ListCommVoteComponent implements OnInit {
     private VoteServie : VoteService
   
     ) { }
+    modalRefCommVote: BsModalRef;
 
   ngOnInit() {
     this.CommVoteService.getCommVote();
@@ -74,15 +74,18 @@ declineCv(): void {
   this.CommVoteInfo.warning('', 'Commentaire Vote Non Supprimee');
 }
 
-EditCv(cv,  templatee: TemplateRef<CommVoteComponent>) {
+EditCv(cv) {
   this.CommVoteService.form.setValue(cv);
-  this.modalRefCommVote = this.modalCommVote.show(templatee);
-
+  this.modalRefCommVote = this.modalCommVote.show(CommVoteComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
-AddCv(templatee: TemplateRef<CommVoteComponent>) {
+AddCv() {
   this.resetFormCommVote();
-  this.modalRefCommVote = this.modalCommVote.show(templatee);
+  this.modalRefCommVote = this.modalCommVote.show(CommVoteComponent,{
+    class:'modal-dialog-centered', ignoreBackdropClick: true 
+  });
 
 }
 
