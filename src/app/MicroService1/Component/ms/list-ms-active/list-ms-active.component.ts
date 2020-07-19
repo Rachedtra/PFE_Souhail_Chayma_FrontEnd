@@ -4,6 +4,7 @@ import { MicroServiceService } from 'src/app/MicroService1/Services/micro-servic
 import { ToastrService } from 'ngx-toastr';
 import { LanguagesService } from 'src/app/MicroService1/Services/languages.service';
 import { MsComponent } from '../ms.component';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-ms-active',
@@ -17,7 +18,8 @@ export class ListMsActiveComponent implements OnInit {
   constructor(private msService: MicroServiceService,
     private modalActive: BsModalService,
     private toastActive: ToastrService,
-    private langService:LanguagesService
+    private langService:LanguagesService,
+    private authservice : AuthServiceService
   
     ) { }
     modalRefActive: BsModalRef;

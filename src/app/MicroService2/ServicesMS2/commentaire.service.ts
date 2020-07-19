@@ -136,8 +136,8 @@ getCommMsFiltre(id) {
 //idMicroService
 PostCommentairesMs() {
   return this._http.post('http://localhost:58540/api/Commentaires/PostedCommMs?idMs='+
-  this.MsService.idMicroService, this.form.value,
-  { responseType: "text" } )
+  this.MsService.idMicroService+'&IdUser='+this.auth.iduser, this.form.value,
+ )
   .subscribe(
     res => {
       console.log(res);

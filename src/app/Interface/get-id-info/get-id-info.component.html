@@ -110,7 +110,7 @@
     <div class="card-header">
       <div class="user-block"  *ngFor="let demande of InfoService.obj">
         <img class="img-circle" src="/assets/Image/Sans-titre-3.png" alt="User Image">
-        <span class="username"><a href="#">User 1 </a></span>
+        <span class="username"><a href="#">{{demande.firstName}} {{demande.lastName}} </a></span>
         <span class="description"> {{demande.date}}</span>
       </div>
       <!-- /.user-block -->
@@ -213,7 +213,7 @@
           <!-- Message to the right -->
           <div class="direct-chat-msg right"  *ngFor="let comment of commService.CommInfoFiltre">
             <div class="direct-chat-infos clearfix">
-              <span class="direct-chat-name float-right">Nom D'utilisateur</span>
+              <span class="direct-chat-name float-right">{{comment.firstName}}&nbsp; {{comment.lastName}}</span>
               <span class="direct-chat-timestamp float-left">{{comment.date}}</span>
             </div>
             <!-- /.direct-chat-infos -->

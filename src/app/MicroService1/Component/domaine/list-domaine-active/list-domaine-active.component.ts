@@ -4,6 +4,7 @@ import { Domaine } from 'src/app/MicroService1/Models/Domaine.models';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-domaine-active',
@@ -17,7 +18,8 @@ export class ListDomaineActiveComponent implements OnInit {
  
    constructor(private Domservice: DomaineService,
      private BsmodalService: BsModalService,
-     private t: ToastrService, ) { }
+     private t: ToastrService, 
+     private authservice:AuthServiceService) { }
      RefDomaine: BsModalRef;
 
    ngOnInit() {
@@ -36,7 +38,7 @@ export class ListDomaineActiveComponent implements OnInit {
      });
    }
  
- 
+
  
    DeleteDom(Domaine: Domaine) {
 

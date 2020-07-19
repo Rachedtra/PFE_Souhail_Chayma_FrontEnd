@@ -51,8 +51,8 @@
        
         <th>Nom</th>
         <th>Statut</th>
-        <th>Supprimer</th>
-        <th>Modifier</th>
+        <th *ngIf="authservice.testUser()">Supprimer</th>
+        <th *ngIf="authservice.testUser()">Modifier</th>
       </tr>
     </thead>
     <tbody>
@@ -66,7 +66,7 @@
       <td>{{Domaine.nom}}</td>
       <td>{{Domaine.isActiveDomaine}}</td>
       <!-- <td><button (click)="DeleteDom(Domaine.idDomain)">Delete</button></td> -->
-      <td>
+      <td *ngIf="authservice.testUser()" >
         <button type="button" class="btn btn-danger" (click)="ConfirmModalDomaine(templateD)"><i
             class="fas fa-trash-alt"></i>Delete</button>
   
@@ -81,7 +81,7 @@
         </ng-template>
       </td>
       <!-- <td><button (click)="EditDom(Domaine)">Edit</button></td> -->
-      <td><button class="btn btn-primary" (click)="EditDom(Domaine)"><i class="fas fa-edit"></i>
+      <td *ngIf="authservice.testUser()"><button class="btn btn-primary" (click)="EditDom(Domaine)"><i class="fas fa-edit"></i>
         Edit</button></td>
     </tr>
     </tbody>

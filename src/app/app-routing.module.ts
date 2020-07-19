@@ -294,7 +294,7 @@ const routes: Routes = [
   component : GetIdInfoComponent
 },
 
-
+{path: '' , redirectTo:'/home',pathMatch:'full'}
 ];
 
 @NgModule({

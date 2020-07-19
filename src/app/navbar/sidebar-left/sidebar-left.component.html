@@ -19,9 +19,9 @@
     <nav class="mt-2">
 
 
-      <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="true" data-widget="treeview" role="menu">
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link active" style="background-color: #6db9b2;">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview" role="menu">
+        <li class="nav-item has-treeview menu-open">
+          <a href="#" class="nav-link" style="background-color: #6db9b2;">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Gestion Micro Services
@@ -30,7 +30,8 @@
           </a>
 
           <ul class="nav nav-treeview">
-            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent"
+            *ngIf="authservice.testUser()">
               <a href="#" class="nav-link">
                 <i class="fas fa-laptop-code"></i> &nbsp;
                 <p>
@@ -54,14 +55,15 @@
 
               </ul>
             </li>
-            <li class="nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+            <li class="nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent"
+            *ngIf="authservice.testUser()">
               <a routerLink="list-versions" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-sort-numeric-down"></i> &nbsp;
                 <p>Version</p>
               </a>
 
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authservice.testUser()">
               <a routerLink="list-ver-lang" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-sort-numeric-down"></i>
                 <i class="fas fa-laptop-code"></i> &nbsp;
@@ -69,7 +71,9 @@
               </a>
             </li>
 
-            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-open flex-column nav-child-indent"
+            *ngIf="authservice.testUser()">
+              
               <a href="#" class="nav-link">
                 <i class="fas fa-dice-d6"></i> &nbsp;
                 <p>
@@ -93,19 +97,36 @@
 
               </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"*ngIf="authservice.testUser()">
               <a routerLink="list-domaine-projet" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-dice-d6"></i>
                 <i class="fas fa-project-diagram"></i> &nbsp;
                 <p>Domaine Projet</p>
               </a>
             </li>
+
+
             <li class="nav-item">
-              <a routerLink="list-ms-projet" routerLinkActive="active" class="nav-link ">
+              <a href="#" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-microchip"></i>
                 <i class="fas fa-project-diagram"></i> &nbsp;
                 <p>MS Projet</p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item" *ngIf="authservice.testUser()">
+                  <a routerLink="list-ms-projet" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-ms-projet-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
 
             <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
@@ -117,9 +138,9 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="authservice.testUser()">
                   <a routerLink="list-ms" routerLinkActive="active" class="nav-link ">
-                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <i class="far fa-circle nav-icon" ></i> &nbsp;
                     <p>Toute Liste</p>
                   </a>
                 </li>
@@ -133,7 +154,8 @@
               </ul>
             </li>
 
-            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent">
+            <li class=" nav nav-item  nav-sidebar has-treeview menu-close flex-column nav-child-indent"
+            *ngIf="authservice.testUser()">
               <a href="#" class="nav-link">
                 <i class="fas fa-cogs"></i> &nbsp;
                 <p>Methode</p>
@@ -160,7 +182,7 @@
                 <p>Projet</p>
               </a>
               <ul class="nav nav-treeview">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="authservice.testUser()">
                   <a routerLink="list-projet" routerLinkActive="active" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i> &nbsp;
                     <p>Toute Liste</p>
@@ -212,48 +234,94 @@
               </ul>
             </li> -->
             <li class="nav-item">
-              <a routerLink="list-Categorie" routerLinkActive="active" class="nav-link ">
+              <a href="#" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-book"></i> &nbsp;
                 <p>Categorie</p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item" *ngIf="authservice.testUser()">
+                  <a routerLink="list-Categorie" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon" ></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-categorie-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authservice.testUser()">
               <a routerLink="list-cat-info" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-book"></i><i class="fas fa-question"></i> &nbsp;
                 <p>Categorie Info</p>
               </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authservice.testUser()">
               <a routerLink="list-comm-vote" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-comment-alt"></i><i class="fas fa-star"></i> &nbsp;
                 <p>Commentaires Vote</p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authservice.testUser()">
               <a routerLink="list-vote" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-star"></i> &nbsp;
                 <p>Vote</p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authservice.testUser()">
               <a routerLink="list-commentaire" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-comment-alt"></i> &nbsp;
                 <p>Commentaires</p>
               </a>
             </li>
             <li class="nav-item">
-              <a routerLink="list-sous-categorie" routerLinkActive="active" class="nav-link ">
+              <a href="#" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-book-open"></i> &nbsp;
                 <p>Sous Categorie</p>
               </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item" *ngIf="authservice.testUser()">
+                  <a routerLink="list-sous-categorie" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon" ></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a  routerLink="list-sous-categorie-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
             <li class="nav-item">
-              <a routerLink="list-demande-info" routerLinkActive="active" class="nav-link ">
+              <a href="#" routerLinkActive="active" class="nav-link ">
                 <i class="fas fa-question"></i> &nbsp;
                 <p>Demande Information</p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item" *ngIf="authservice.testUser()">
+                  <a routerLink="list-demande-info" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon" ></i> &nbsp;
+                    <p>Toute Liste</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="list-demande-info-active" routerLinkActive="active" class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i> &nbsp;
+                    <p>Liste Active</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
 
 

@@ -5,6 +5,7 @@ import { DemandeInfoService } from 'src/app/MicroService2/ServicesMS2/demande-in
 import { ToastrService } from 'ngx-toastr';
 import { CategorieService } from 'src/app/MicroService2/ServicesMS2/categorie.service';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-demande-info-active',
@@ -20,6 +21,7 @@ export class ListDemandeInfoActiveComponent implements OnInit {
     private modalInfo: BsModalService,
     private CatService : CategorieService,
     private domService : DomaineService ,
+    private authservice:AuthServiceService ,
     
     ) { }
 

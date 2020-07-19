@@ -5,6 +5,7 @@ import { MsProjetService } from 'src/app/MicroService1/Services/ms-projet.servic
 import { ToastrService } from 'ngx-toastr';
 import { MicroServiceService } from 'src/app/MicroService1/Services/micro-service.service';
 import { ProjetService } from 'src/app/MicroService1/Services/projet.service';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-ms-projet-active',
@@ -21,7 +22,8 @@ export class ListMsProjetActiveComponent implements OnInit {
     private modalMsprojet: BsModalService,
     private MsProjetInfo: ToastrService,
     private MsService:MicroServiceService,
-    private projetServie : ProjetService
+    private projetServie : ProjetService,
+    private authservice : AuthServiceService
   
     ) { }
     modalRefMsProjet: BsModalRef;

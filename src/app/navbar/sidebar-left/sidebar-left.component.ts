@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 
 
@@ -10,7 +11,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class SidebarLeftComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private authservice:AuthServiceService) { }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {

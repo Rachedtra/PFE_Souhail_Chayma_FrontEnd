@@ -7,6 +7,7 @@ import { observable, Observable } from 'rxjs';
 import { CatDemandeInfo } from '../ModelsMS2/CatDemandeInfo.models';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { CatDemandeInfoService } from './cat-demande-info.service';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,8 @@ id : string ;
   NbQuestion: number;
  
   constructor(private _http:HttpClient,private notifInfo :ToastrService,
-    private CatInfoService : CatDemandeInfoService
+    private CatInfoService : CatDemandeInfoService,
+    private auth : AuthServiceService
     )
    { }
   ResetInfo() {
@@ -118,10 +120,13 @@ GetInfoFiltrer(id) {
 }
 
 
-Posted(id)
+Posted(id) 
+//http://localhost:58540/api/DemandeInformation/Posted?idCat=49c8875c-13d4-4d1e-3cca-08d7fb9e7088&IdUser=f88c18a9-a700-4c05-30ea-08d80f2c5167
+
 {
-  return this._http.post('http://localhost:58540/api/DemandeInformation/Posted?idCat='+id,this.form.value,
-   { responseType: "text" })
+  return this._http.post('http://localhost:58540/api/DemandeInformation/Posted?idCat='+id
+  +'&IdUser='+this.auth.iduser,this.form.value,
+   )
   .subscribe(
     res => {
       console.log(res);

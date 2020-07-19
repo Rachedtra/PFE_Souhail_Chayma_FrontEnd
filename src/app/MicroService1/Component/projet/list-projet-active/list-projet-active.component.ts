@@ -3,6 +3,7 @@ import { ProjetComponent } from 'src/app/MicroService1/Component/projet/projet.c
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ProjetService } from 'src/app/MicroService1/Services/projet.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-projet-active',
@@ -18,7 +19,8 @@ export class ListProjetActiveComponent implements OnInit {
 
   constructor(private projetService: ProjetService,
     private modal: BsModalService,
-    private toastr: ToastrService, ) { }
+    private toastr: ToastrService,
+    private authservice: AuthServiceService ) { }
 
   ngOnInit() {
     this.projetService.refreshList();

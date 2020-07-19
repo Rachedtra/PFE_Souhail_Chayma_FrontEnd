@@ -41,8 +41,9 @@
         </div>  
           <div class="card collapsed-card">
             <div class="card-header">
+              
               <h3 class="card-title comm">Domaine</h3>
-
+             
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
                 </button>
@@ -95,7 +96,7 @@
             <div class="card-header">
               <div class="user-block"  *ngFor="let demande of InfoService.obj">
                 <img class="img-circle" src="/assets/Image/Sans-titre-3.png" alt="User Image">
-                <span class="username"><a href="#">User 1 </a></span>
+                <span class="username"><a href="#">{{demande.firstName}} {{demande.lastName}} </a></span>
                 <span class="description"> {{demande.date}}</span>
               </div>
               <!-- /.user-block -->
@@ -182,6 +183,7 @@
             <!------------------------------------------------------------------------------------------------------->
             <div class="card collapsed-card card-prirary cardutline direct-chat direct-chat-info ">
               <div class="card-header">
+  
                 <h3 class="card-title comm">Commentaires</h3>
         
                 <div class="card-tools">

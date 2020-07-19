@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { DemandeInfoService } from 'src/app/MicroService2/ServicesMS2/demande-info.service';
 import { CategorieService } from 'src/app/MicroService2/ServicesMS2/categorie.service';
 import { DomaineService } from 'src/app/MicroService1/Services/domaine.service';
+import { Location } from '@angular/common';
 
 import { DemandeInformation } from 'src/app/MicroService2/ModelsMS2/demandeInfo.models';
 import { ToastrService } from 'ngx-toastr';
@@ -37,7 +38,8 @@ export class InterfaceListComponent implements OnInit {
     private CommService : CommentaireService,
     private CommVoteService : CommVoteService,
     private comminfoService: CommDemandeInfoService,
-    private VoteService : VoteService
+    private VoteService : VoteService,
+    private location : Location
 ) {}
   ngOnInit() {
     this.InfoService.GetInfo() ; 
@@ -60,5 +62,9 @@ getCatInfoFiltrer(id) {
 
 
   });
+}
+
+cancel() {
+  this.location.back(); // <-- go back to previous location on cancel
 }
 }

@@ -3,6 +3,7 @@ import { SousCategorieComponent } from '../sous-categorie.component';
 import { SousCategorieService } from 'src/app/MicroService2/ServicesMS2/sous-categorie.service';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-sous-categorie-active',
@@ -16,6 +17,7 @@ export class ListSousCategorieActiveComponent implements OnInit {
   constructor( private SousCatoService: SousCategorieService,
     private notifSousCat: ToastrService,
     private modalSousCat: BsModalService,
+    private authservice:AuthServiceService
     
     ) { }
 

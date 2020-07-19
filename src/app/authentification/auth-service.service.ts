@@ -72,6 +72,7 @@ logout()
  // localStorage.removeItem('RoleUser') ; 
 
   this.router.navigate(["/home"]) ;
+  
 
 }
 loggedIn() {
@@ -79,7 +80,20 @@ loggedIn() {
 }
 
 
+testUser(): Boolean {
+  // console.log(this.role) ; 
+if(this.role=="admin")
+{  console.log(true);
+return true 
+}
 
+else
+{
+// console.log(false);
+return false 
+
+}
+}
 
 
 // getUsersRole(id) {

@@ -3,6 +3,7 @@ import { CategorieComponent } from '../categorie.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CategorieService } from 'src/app/MicroService2/ServicesMS2/categorie.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthServiceService } from 'src/app/authentification/auth-service.service';
 
 @Component({
   selector: 'app-list-categorie-active',
@@ -15,6 +16,7 @@ export class ListCategorieActiveComponent implements OnInit {
   constructor( private categorieService: CategorieService,
     private notif: ToastrService,
     private modalCategorie: BsModalService,
+    private authservice:AuthServiceService
     
     ) { }
     modalCatRef: BsModalRef;
