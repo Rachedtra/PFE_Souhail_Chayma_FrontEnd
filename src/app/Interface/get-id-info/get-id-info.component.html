@@ -224,7 +224,7 @@
              
             </div>
             <rating [(ngModel)]="comment.note"
-            (click)="commService.GetCommId(comment.idComm);VoteService.getidvote(comment.note)"></rating>
+            (click)="commService.GetCommId(comment.idComm);VoteService.getidvote(comment.note,comment.idComm)"></rating>
             <hr/>
             <!-- /.direct-chat-text -->
           </div>

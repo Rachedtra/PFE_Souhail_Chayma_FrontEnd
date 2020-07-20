@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Vote } from '../ModelsMS2/vote.models';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CommVoteService } from './comm-vote.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class VoteService {
   idV: string;
   notte: number;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient,private CommVoteService:CommVoteService) { }
 
 
 
@@ -52,13 +53,34 @@ export class VoteService {
 
     });
 }
-getidvote(rating){
+getidvote(rating,id){
   this._http.get('http://localhost:58540/api/Vote').subscribe(res => {
     this.vot = res as Vote[];
     this.voteid= this.vot.filter(i=>i.note==rating );
     this.idV=this.voteid[0].idVote ; 
     this.notte=this.voteid[0].note ;
     console.log(this.idV)
+    this.CommVoteService.form.setValue({
+      idCommVote: "00000000-0000-0000-0000-000000000000",
+      idComm: id ,
+      idVote:this.idV,
+      isActiveCommVote: true,
+      descriptionComm: "",
+      note:"" ,
+  }); 
+  this.CommVoteService.PostCommVote().subscribe(
+    res => {
+      console.log(res);
+      this.CommVoteService.getCommVoteFiltrer(id) ;
+      
+     ;
+    },
+    err => {
+      console.log(err);
+   
+  
+    }
+  )
   });
 }
 VoteActive() {
