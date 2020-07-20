@@ -10,7 +10,7 @@
                 <ol class="breadcrumb float-sm-right">
                   <!-- <a href="#">Home</a></li> -->
                   <li class="breadcrumb-item">
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommVoteFilter.descriptionComm" >
+                    <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="CommVoteFilter.descriptionComm" >
                   </li>
                   <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
                 </ol>
@@ -25,7 +25,7 @@
               <div class="card">
                 <div class="card-header">
                   <button type="button" class="btn btn-outline-success" (click)="AddCv()">
-                    <i class="fa fa-plus"></i> Add Commentaire Vote
+                    <i class="fa fa-plus"></i> Créer Commentaire Vote
             </button>
                 </div>
   
@@ -72,7 +72,7 @@
       <td> {{ cv.isActiveCommVote ? 'Active' : 'Inactive'}}</td>
       <td>
         <button type="button" class="btn btn-danger" (click)="ConfirmModalCv(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
@@ -85,7 +85,7 @@
         </ng-template>
       </td>
       <td><button class="btn btn-primary" (click)="EditCv(cv)"><i class="fas fa-edit"></i>
-          Edit</button></td>
+          Modifier</button></td>
     </tr>
     </tbody>
   </table>

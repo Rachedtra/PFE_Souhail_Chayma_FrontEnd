@@ -1,23 +1,4 @@
-<!-- <div class="content-wrapper">
-  <div class="form-group row">
-    <div class="col-md-5">
-      
-      <button class="btn btn-outline-success" (click)="AddSousCat()">
-        <i class="fa fa-plus"></i> Create Sous categorie
-      </button>
-      
-    </div>
-    <div class="col-md-5">
-      <button class="btn btn-outline-info" routerLink="list-sous-categorie" routerLinkActive="active">
-        <i class="fa fa-reply"></i>
-        Toutes List
-       </button> 
-    </div>
-       <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="SousCatFilterActive.label" >
-  
-  
-       </div> -->
+
 
   
 
@@ -32,7 +13,7 @@
                 <ol class="breadcrumb float-sm-right">
                   <!-- <a href="#">Home</a></li> -->
                   <li class="breadcrumb-item">
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="SousCatFilterActive.label" >
+                    <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="SousCatFilterActive.label" >
                   </li>
                   <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
                 </ol>
@@ -47,7 +28,7 @@
               <div class="card">
                 <div class="card-header" *ngIf="authservice.testUser()">
                   <button class="btn btn-outline-success" (click)="AddSousCat()">
-                    <i class="fa fa-plus"></i> Create Sous categorie
+                    <i class="fa fa-plus"></i> Créer Sous categorie
                   </button>
                 </div>
   
@@ -83,21 +64,21 @@
       <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
      <td  *ngIf="authservice.testUser()">
         <button type="button" class="btn btn-danger" (click)="ConfirmSousCatModal(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmSousCat();DeleteSousCat(sous.idSousCate)">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineSousCat()">No</button>
+              (click)="confirmSousCat();DeleteSousCat(sous.idSousCate)">Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineSousCat()">Non</button>
           </div>
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
       <td  *ngIf="authservice.testUser()"><button class="btn btn-primary" (click)="EditSousCat(sous)"><i class="fas fa-edit"></i>
-        Edit</button>
+        Modifier</button>
       </td>
     </tr>
    

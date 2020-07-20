@@ -24,7 +24,7 @@
                 <ol class="breadcrumb float-sm-right">
                   <!-- <a href="#">Home</a></li> -->
                   <li class="breadcrumb-item">
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CommInfoFilter.descriptionComm" >
+                    <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="CommInfoFilter.descriptionComm" >
                   </li>
                   <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
                 </ol>
@@ -39,7 +39,7 @@
               <div class="card">
                 <div class="card-header">
                   <button type="button" class="btn btn-outline-success" (click)="AddCi()">
-                    <i class="fa fa-plus"></i> Add Commentaire Demande Information
+                    <i class="fa fa-plus"></i> Créer Commentaire Demande Information
             </button>
                 </div>
   <!-- <ng-template #templateSubmit>
@@ -85,20 +85,20 @@
       <td> {{ ci.isActiveCommInfo ? 'Active' : 'Inactive'}}</td>
       <td>
         <button type="button" class="btn btn-danger" (click)="ConfirmModalCi(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmCi();DeleteCi(ci.idCommInfo);">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineCi()">No</button>
+              (click)="confirmCi();DeleteCi(ci.idCommInfo);">Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineCi()">Non</button>
           </div>
         </ng-template>
       </td>
       <td><button class="btn btn-primary" (click)="EditCi(ci)"><i class="fas fa-edit"></i>
-          Edit</button></td>
+          Modifier</button></td>
     </tr>
     </tbody>
   </table>

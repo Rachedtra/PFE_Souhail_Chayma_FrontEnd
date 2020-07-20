@@ -26,7 +26,7 @@
                 <ol class="breadcrumb float-sm-right">
                   <!-- <a href="#">Home</a></li> -->
                   <li class="breadcrumb-item">       
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="languageActiveFilter.label" >
+                    <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="languageActiveFilter.label" >
                   </li>
                   <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
                 </ol>
@@ -41,7 +41,7 @@
               <div class="card">
                 <div class="card-header">
                   <button class="btn btn-outline-success" (click)="AddLang()">
-                    <i class="fa fa-plus"></i> Create Language
+                    <i class="fa fa-plus"></i> Créer Language
                   </button>
                 </div>
        <!-- <ng-template #templateSubmit>
@@ -85,20 +85,20 @@
     <td>{{language.isActiveLang}}</td>
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModalLangActive(templateDelete)"><i
-          class="fas fa-trash-alt"></i>Delete</button>
+          class="fas fa-trash-alt"></i>Sipprimer</button>
 
       <!-- <pre class="card card-block card-header">{{message}}</pre> -->
       <ng-template #templateDelete>
         <div class="modal-body text-center">
           <p>Voulez vous Supprimer ?</p>
           <button type="button" class="btn btn-default"
-            (click)="confirmLangActive();DeleteLang(language.idLanguage);">Yes</button>
-          <button type="button" class="btn btn-primary" (click)="declineLangActive()">No</button>
+            (click)="confirmLangActive();DeleteLang(language.idLanguage);">Oui</button>
+          <button type="button" class="btn btn-primary" (click)="declineLangActive()">Non</button>
         </div>
       </ng-template>
     </td>
     <td><button class="btn btn-primary" (click)="EditLang(language)"><i class="fas fa-edit"></i>
-        Edit</button></td>
+        Modifier</button></td>
   </tr>
   </tbody>
 </table>

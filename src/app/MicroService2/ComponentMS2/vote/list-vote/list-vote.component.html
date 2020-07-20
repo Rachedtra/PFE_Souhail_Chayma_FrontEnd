@@ -10,7 +10,7 @@
             <ol class="breadcrumb float-sm-right">
               <!-- <a href="#">Home</a></li> -->
               <li class="breadcrumb-item">       
-                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="voteFilter.note" >
+                <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="voteFilter.note" >
               </li>
               <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
             </ol>
@@ -26,7 +26,7 @@
             <div class="card-header">
              
   <button class="btn btn-outline-success" (click)="AddVote()">
-    <i class="fa fa-plus"></i> Create Vote
+    <i class="fa fa-plus"></i> Créer Vote
   </button>
             </div>
   <!-- <ng-template #templateSubmit>
@@ -69,21 +69,21 @@
       <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
      <td>
         <button type="button" class="btn btn-danger" (click)="ConfirmVoteModal(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmVote();DeleteVote(Vote.idVote)">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineVote()">No</button>
+              (click)="confirmVote();DeleteVote(Vote.idVote)">Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineVote()">Non</button>
           </div>
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
       <td><button class="btn btn-primary" (click)="EditVote(Vote)"><i class="fas fa-edit"></i>
-        Edit</button>
+        Modifier</button>
       </td>
     </tr>
    

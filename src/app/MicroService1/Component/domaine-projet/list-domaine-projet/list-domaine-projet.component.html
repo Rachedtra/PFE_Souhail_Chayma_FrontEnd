@@ -10,7 +10,7 @@
                 <ol class="breadcrumb float-sm-right">
                   <!-- <a href="#">Home</a></li> -->
                   <li class="breadcrumb-item">       
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomProjetFilter.nomDomaine" >
+                    <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="DomProjetFilter.nomDomaine" >
                   </li>
                   <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
                 </ol>
@@ -25,7 +25,7 @@
               <div class="card">
                 <div class="card-header">
                   <button type="button" class="btn btn-outline-success" (click)="AddDp()">
-                    <i class="fa fa-plus"></i> Add Domaine Projet
+                    <i class="fa fa-plus"></i> Créer Domaine Projet
             </button>
                 </div>
               
@@ -73,20 +73,20 @@
       <td> {{ dp.isActiveDomPro ? 'Active' : 'Inactive'}}</td>
       <td>
         <button type="button" class="btn btn-danger" (click)="ConfirmModalDp(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmDp();DeleteDp(dp.idDomainProjet);">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineDp()">No</button>
+              (click)="confirmDp();DeleteDp(dp.idDomainProjet);">Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineDp()">Non</button>
           </div>
         </ng-template>
       </td>
       <td><button class="btn btn-primary" (click)="EditDp(dp)"><i class="fas fa-edit"></i>
-          Edit</button></td>
+          Modifier</button></td>
     </tr>
     </tbody>
   </table>

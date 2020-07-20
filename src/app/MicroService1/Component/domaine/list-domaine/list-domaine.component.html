@@ -10,7 +10,7 @@
               <ol class="breadcrumb float-sm-right">
                 <!-- <a href="#">Home</a></li> -->
                 <li class="breadcrumb-item">       
-                  <input type="text" class="form-control" placeholder="Search" [(ngModel)]="DomaaineFilter.nom" >
+                  <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="DomaaineFilter.nom" >
                 </li>
                 <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
               </ol>
@@ -25,7 +25,7 @@
             <div class="card">
               <div class="card-header">
                 <button type="button" class="btn btn-outline-success" (click)="AddDom()">
-                  <i class="fa fa-plus"></i> Add Domaine
+                  <i class="fa fa-plus"></i> Créer Domaine
           </button>
               </div>
 
@@ -68,21 +68,21 @@
     <!-- <td><button (click)="DeleteDom(Domaine.idDomain)">Delete</button></td> -->
     <td>
       <button type="button" class="btn btn-danger" (click)="ConfirmModalDomaine(templateD)"><i
-          class="fas fa-trash-alt"></i>Delete</button>
+          class="fas fa-trash-alt"></i>Supprimer</button>
 
    
       <ng-template #templateD>
         <div class="modal-body text-center">
           <p>Voulez vous Supprimer ?</p>
           <button type="button" class="btn btn-default"
-            (click)="confirmModal();DeleteDom(Domaine.idDomain);">Yes</button>
-          <button type="button" class="btn btn-primary" (click)="declineModal()">No</button>
+            (click)="confirmModal();DeleteDom(Domaine.idDomain);">Oui</button>
+          <button type="button" class="btn btn-primary" (click)="declineModal()">Non</button>
         </div>
       </ng-template>
     </td>
     <!-- <td><button (click)="EditDom(Domaine)">Edit</button></td> -->
     <td><button class="btn btn-primary" (click)="EditDom(Domaine)"><i class="fas fa-edit"></i>
-      Edit</button></td>
+      Modifier</button></td>
   </tr>
   </tbody>
 </table>

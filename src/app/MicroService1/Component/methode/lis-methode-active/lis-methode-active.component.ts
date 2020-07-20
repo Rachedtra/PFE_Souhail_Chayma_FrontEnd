@@ -74,15 +74,18 @@ export class LisMethodeActiveComponent implements OnInit {
     this.toastrService.warning('', 'Methode Non Supprimee');
   }
 
-  EditMethode(ms,  templatee: TemplateRef<MethodeComponent>) {
+  EditMethode(ms) {
     this.mService.form.setValue(ms);
-    this.modalRef = this.modalService.show(templatee);
+    this.modalRef = this.modalService.show(MethodeComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
 
   }
-  AddMethode(templatee: TemplateRef<MethodeComponent>) {
+  AddMethode() {
     this.resetForm();
-    this.modalRef = this.modalService.show(templatee);
-
+    this.modalRef = this.modalService.show(MethodeComponent,{
+      class:'modal-dialog-centered', ignoreBackdropClick: true 
+    });
   }
 
 }

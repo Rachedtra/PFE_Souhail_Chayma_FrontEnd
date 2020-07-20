@@ -28,7 +28,7 @@
                 <ol class="breadcrumb float-sm-right">
                   <!-- <a href="#">Home</a></li> -->
                   <li class="breadcrumb-item">       
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="MsProjetFilterActive.labelMS" >
+                    <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="MsProjetFilterActive.labelMS" >
                   </li>
                   <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
                 </ol>
@@ -43,7 +43,7 @@
               <div class="card">
                 <div class="card-header"  *ngIf="authservice.testUser()">
                   <button type="button" class="btn btn-outline-success" (click)="AddMp()">
-                    <i class="fa fa-plus"></i> Add MicroService Projet
+                    <i class="fa fa-plus"></i> Créer MicroService Projet
             </button>
                 </div>
 
@@ -77,20 +77,20 @@
       <td> {{ mp.isActiveMsVer ? 'Active' : 'Inactive'}}</td>
       <td *ngIf="authservice.testUser()">
         <button type="button" class="btn btn-danger" (click)="ConfirmModalMp(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmMp();DeleteMp(mp.idMsProjet);">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineMp()">No</button>
+              (click)="confirmMp();DeleteMp(mp.idMsProjet);">Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineMp()">Non</button>
           </div>
         </ng-template>
       </td>
       <td *ngIf="authservice.testUser()"><button class="btn btn-primary" (click)="EditMp(mp)"><i class="fas fa-edit"></i>
-          Edit</button></td>
+          Modifier</button></td>
     </tr>
     </tbody>
   </table>

@@ -8,7 +8,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <!-- <a href="#">Home</a></li> -->
-            <li class="breadcrumb-item"> <input type="text" class="form-control" placeholder="Search" [(ngModel)]="CatFilterActive.label" ></li>
+            <li class="breadcrumb-item"> <input type="text" class="form-control" placeholder="Chercher" [(ngModel)]="CatFilterActive.label" ></li>
             <!-- <li class="breadcrumb-item active">Simple Tables</li> -->
           </ol>
         </div>
@@ -22,7 +22,7 @@
         <div class="card">
           <div class="card-header" *ngIf="authservice.testUser()">
             <button class="btn btn-outline-success" (click)="AddCat()">
-              <i class="fa fa-plus"></i> Create Categorie
+              <i class="fa fa-plus"></i> Créer Categorie
             </button>
           </div>
  
@@ -65,21 +65,21 @@
       <!-- <td><button (click)="DeleteVer(Versions.idVersion)">Delete</button></td> -->
      <td  *ngIf="authservice.testUser()">
         <button type="button" class="btn btn-danger" (click)="ConfirmCategorieModal(templateDelete)"><i
-            class="fas fa-trash-alt"></i>Delete</button>
+            class="fas fa-trash-alt"></i>Supprimer</button>
   
         <!-- <pre class="card card-block card-header">{{message}}</pre> -->
         <ng-template #templateDelete>
           <div class="modal-body text-center">
             <p>Voulez vous Supprimer ?</p>
             <button type="button" class="btn btn-default"
-              (click)="confirmCategorie();DeleteCat(Categorie.idCat)">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="declineCategorie()">No</button>
+              (click)="confirmCategorie();DeleteCat(Categorie.idCat)">Oui</button>
+            <button type="button" class="btn btn-primary" (click)="declineCategorie()">Non</button>
           </div>
         </ng-template>
       </td>
       <!-- <td><button (click)="EditVer(Versions)">Edit</button></td> -->
       <td *ngIf="authservice.testUser()"><button class="btn btn-primary" (click)="EditCat(Categorie)"><i class="fas fa-edit"></i>
-        Edit</button>
+        Modifier</button>
       </td>
     </tr>
    
