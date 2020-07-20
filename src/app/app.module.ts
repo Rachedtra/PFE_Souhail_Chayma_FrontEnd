@@ -12,14 +12,13 @@ import { FooterRightComponent } from './navbar/footer-right/footer-right.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 
-import {RatingModule} from "ngx-rating";
+import { RatingModule } from "ngx-rating";
 import { ToastrModule } from 'ngx-toastr'
 import { HttpClientModule } from '@angular/common/http';
 import { LanguagesComponent } from './MicroService1/Component/languages/languages.component';
-import { LanguagesService } from './MicroService1/Services/languages.service';
 import { FormsModule } from '@angular/forms';
-import { BsModalRef, ModalModule ,BsModalService  } from 'ngx-bootstrap/modal';
-import {NgxPaginationModule} from 'ngx-pagination'  
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListLanguageComponent } from './MicroService1/Component/languages/list-language/list-language.component';
@@ -163,7 +162,7 @@ import { AuthGuard } from './authentification/auth.guard';
     CommentairesMsComponent,
     HomeComponent,
     AuthentificationComponent
-  
+
 
 
   ],
@@ -176,7 +175,7 @@ import { AuthGuard } from './authentification/auth.guard';
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxPaginationModule ,
+    NgxPaginationModule,
     BsDatepickerModule.forRoot(),
     FilterPipeModule,
     RatingModule,
@@ -187,11 +186,11 @@ import { AuthGuard } from './authentification/auth.guard';
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents:[LanguagesComponent,MethodeComponent,
-  VersionsComponent,DomaineComponent,MsComponent,MsProjetComponent,
-  ProjetComponent,VersionLanguageComponent,AuthentificationComponent,
-  HomeComponent,CatInfoComponent,CategorieComponent,CommDemandeInfoComponent,
-  CommVoteComponent,CommentaireComponent,DemandeInfoComponent,SousCategorieComponent,VoteComponent,
-DomaineProjetComponent]
+  entryComponents: [LanguagesComponent, MethodeComponent,
+    VersionsComponent, DomaineComponent, MsComponent, MsProjetComponent,
+    ProjetComponent, VersionLanguageComponent, AuthentificationComponent,
+    HomeComponent, CatInfoComponent, CategorieComponent, CommDemandeInfoComponent,
+    CommVoteComponent, CommentaireComponent, DemandeInfoComponent, SousCategorieComponent, VoteComponent,
+    DomaineProjetComponent]
 })
 export class AppModule { }

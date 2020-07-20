@@ -28,13 +28,15 @@
               "node_modules/admin-lte/dist/css/adminlte.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/overlayscrollbars/css/OverlayScrollbars.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/admin-lte/dist/js/adminlte.js"
+              "node_modules/admin-lte/dist/js/adminlte.js",
+              "node_modules/overlayscrollbars/js/jquery.overlayScrollbars.js"
             ],
             "es5BrowserSupport": true
           },
