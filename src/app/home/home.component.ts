@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
   openModalAuth() {
     this.modalRefCommMs = this.modalCommMs.show(AuthentificationComponent,{
-      class:'modal-dialog-centered', ignoreBackdropClick: true 
+      class:'modal-dialog-centered', ignoreBackdropClick: true , keyboard: false
     }); 
   }
 
